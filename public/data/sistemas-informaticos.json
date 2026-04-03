@@ -9,420 +9,897 @@
       "id": 1,
       "front": "Que es un sistema informatico?",
       "back": "Conjunto coordinado de elementos materiales y logicos que procesan y gestionan informacion.\n\nCOMPONENTES PRINCIPALES:\n- Hardware: partes fisicas (torre, placa base, CPU, RAM, discos, perifericos)\n- Software: sistema operativo, drivers y aplicaciones\n- Datos: ficheros, bases de datos, documentos, imagenes",
-      "tags": ["conceptos-basicos", "hardware"],
+      "tags": [
+        "conceptos-basicos",
+        "hardware"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 2,
       "front": "Que es la placa base (motherboard)?",
       "back": "Componente principal que une y permite la comunicacion entre todos los elementos del hardware.\n\nELEMENTOS:\n- Socket: conector para la CPU\n- Bancos RAM: ranuras para memoria\n- Ranuras PCIe: para GPU, tarjetas de red\n- Conectores SATA/M.2: almacenamiento\n- Chipset: controla comunicaciones\n- Panel posterior: puertos USB, HDMI, Ethernet",
-      "tags": ["hardware", "placa-base"],
+      "tags": [
+        "hardware",
+        "placa-base"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 3,
       "front": "Que es el Dual-Channel en RAM?",
       "back": "Configuracion que usa dos canales independientes para duplicar el ancho de banda de 64 a 128 bits.\n\n- Se activa con 2 modulos identicos en slots del mismo color\n- Mejora hasta 100% el rendimiento en tareas intensivas\n- Requiere pares de modulos identicos",
-      "tags": ["ram", "memoria", "rendimiento"],
+      "tags": [
+        "ram",
+        "memoria",
+        "rendimiento"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 4,
       "front": "Que es el socket de CPU?",
       "back": "Conector de la placa base donde se instala el procesador.\n\nTIPOS:\n- Intel: LGA (Land Grid Array)\n- AMD: PGA (Pin Grid Array)\n\nFUNCION:\n- Determina compatibilidad exacta con modelos\n- Define soporte de RAM (DDR4/DDR5)\n- Limita opciones de actualizacion",
-      "tags": ["cpu", "socket", "hardware"],
+      "tags": [
+        "cpu",
+        "socket",
+        "hardware"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 5,
       "front": "Que es el chipset?",
       "back": "Subsistema de control de la placa base que gestiona la comunicacion entre componentes.\n\nFUNCIONES:\n- Controlador central de E/S\n- Gestiona buses PCIe, USB, SATA\n- Enrutamiento y arbitraje de datos\n- Conecta CPU con RAM, GPU y perifericos",
-      "tags": ["chipset", "placa-base", "hardware"],
+      "tags": [
+        "chipset",
+        "placa-base",
+        "hardware"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 6,
       "front": "Componentes internos de la CPU",
       "back": "- ALU: Unidad Aritmetico-Logica (operaciones matematicas y logicas)\n- Unidad de Control: interpreta instrucciones y coordina componentes\n- Registros: memoria interna ultrarrapida de 32/64 bits\n- Bus interno: direcciones, datos y control\n- Cache L1/L2/L3: memoria de alta velocidad",
-      "tags": ["cpu", "arquitectura"],
+      "tags": [
+        "cpu",
+        "arquitectura"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 7,
       "front": "Ciclo Fetch-Decode-Execute",
       "back": "Proceso basico de ejecucion de instrucciones:\n\n1. FETCH: Lee la instruccion desde memoria (PC -> IR)\n2. DECODE: Interpreta el opcode y operandos\n3. EXECUTE: ALU procesa y escribe el resultado\n\nEste ciclo se repite continuamente durante el funcionamiento.",
-      "tags": ["cpu", "proceso"],
+      "tags": [
+        "cpu",
+        "proceso"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 8,
       "front": "Que es el TDP (Thermal Design Power)?",
       "back": "Consumo energetico maximo del procesador en vatios (W) que define los requisitos de refrigeracion.\n\nRANGOS TIPICOS:\n- CPUs escritorio: 65-125W\n- CPUs moviles: 15-45W\n- CPUs servidor: hasta 250W\n\nImportante para elegir la fuente de alimentacion y refrigeracion adecuadas.",
-      "tags": ["cpu", "refrigeracion", "alimentacion"],
+      "tags": [
+        "cpu",
+        "refrigeracion",
+        "alimentacion"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 9,
       "front": "Que es el Hyperthreading / SMT?",
       "back": "Tecnologia que duplica la capacidad de procesamiento virtual por nucleo, mejorando la multitarea.\n\n- Un nucleo fisico aparece como dos logicos\n- Mejora el rendimiento en aplicaciones paralelizables\n- No equivale a tener el doble de nucleos reales",
-      "tags": ["cpu", "tecnologia", "rendimiento"],
+      "tags": [
+        "cpu",
+        "tecnologia",
+        "rendimiento"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 10,
       "front": "Que es la GPU (tarjeta grafica)?",
       "back": "Unidad de Procesamiento Grafico especializada en imagenes, video y graficos 3D.\n\nTIPOS:\n- Integrada (iGPU): dentro del procesador, uso basico\n- Dedicada: tarjeta independiente, alto rendimiento\n\nELEMENTOS:\n- Nucleos CUDA/Stream Processors (5000-20000)\n- VRAM dedicada (GDDR6X, 8-24GB)\n- Interface PCIe x16",
-      "tags": ["gpu", "graficos", "hardware"],
+      "tags": [
+        "gpu",
+        "graficos",
+        "hardware"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 11,
       "front": "Evolucion de la memoria RAM (DDR)",
       "back": "GENERACIONES:\n- DDR1 (2000): 400 MT/s, 2.5V\n- DDR2 (2003): 800 MT/s, 1.8V\n- DDR3 (2007): 2133 MT/s, 1.5V\n- DDR4 (2014): 3200 MT/s, 1.2V\n- DDR5 (2020): 4800-8400 MT/s, 1.1V\n\nFACTORES DE FORMA:\n- DIMM: equipos de escritorio\n- SO-DIMM: portatiles y compactos",
-      "tags": ["ram", "memoria", "evolucion"],
+      "tags": [
+        "ram",
+        "memoria",
+        "evolucion"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 12,
       "front": "Que es la memoria virtual?",
       "back": "Tecnica que usa el disco duro como extension de la RAM mediante paginacion.\n\nCOMPONENTES:\n- Paginacion: divide memoria en bloques (paginas)\n- Swap: area de disco para paginas menos usadas\n- Page fault: ocurre cuando se necesita una pagina en swap\n\nPERMITE:\n- Ejecutar programas mas grandes que la RAM\n- Aislar procesos entre si\n- Mejorar la multitarea",
-      "tags": ["memoria", "sistema-operativo"],
+      "tags": [
+        "memoria",
+        "sistema-operativo"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 13,
       "front": "Jerarquia de memoria (de mas rapida a mas lenta)",
       "back": "1. REGISTROS (CPU) - ns, bytes\n2. CACHE L1 - 2-4 ciclos, 32-64KB\n3. CACHE L2 - 10 ciclos, 256KB-1MB\n4. CACHE L3 - 20-30 ciclos, 8-64MB\n5. RAM (DDR) - 100ns, GBs\n6. SSD NVMe - microsegundos\n7. SSD/HDD - milisegundos\n8. NUBE/CINTA - segundos",
-      "tags": ["memoria", "rendimiento", "jerarquia"],
+      "tags": [
+        "memoria",
+        "rendimiento",
+        "jerarquia"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 14,
       "front": "Comparativa: HDD vs SSD SATA vs SSD NVMe",
       "back": "HDD:\n- Magnetico, platos giratorios\n- 100-200 MB/s\n- Mejor relacion capacidad/precio\n- Vulnerable a golpes\n\nSSD SATA:\n- Flash NAND, sin partes moviles\n- Hasta 600 MB/s\n- Interface SATA III limitante\n\nSSD NVMe:\n- PCIe directo\n- 3.5-14 GB/s\n- Latencia ultrabaja\n- Factor M.2",
-      "tags": ["almacenamiento", "ssd", "hdd", "comparativa"],
+      "tags": [
+        "almacenamiento",
+        "ssd",
+        "hdd",
+        "comparativa"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 15,
       "front": "Certificaciones 80 Plus de fuentes de alimentacion",
       "back": "Indican eficiencia energetica:\n\n- White: 80% eficiencia\n- Bronze: 85%\n- Silver: 88%\n- Gold: 90%\n- Platinum: 92%\n- Titanium: 94%\n\nMayor eficiencia = menos calor, menos consumo, mas silencioso",
-      "tags": ["alimentacion", "psu", "eficiencia"],
+      "tags": [
+        "alimentacion",
+        "psu",
+        "eficiencia"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 16,
       "front": "Tipos de refrigeracion",
       "back": "POR AIRE:\n- Disipador de cobre/aluminio + ventilador\n- PWM: control automatico de velocidad\n- Economica y fiable\n\nLIQUIDA (AIO):\n- Radiador + bomba + bloque\n- 120/240/360mm\n- Ideal para overclocking\n\nPASIVA:\n- Solo disipadores grandes\n- Sin partes moviles\n- Sistemas de bajo consumo",
-      "tags": ["refrigeracion", "hardware", "temperatura"],
+      "tags": [
+        "refrigeracion",
+        "hardware",
+        "temperatura"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 17,
       "front": "Que es el Thermal Throttling?",
       "back": "Mecanismo de proteccion que reduce la frecuencia de CPU/GPU cuando alcanzan temperaturas criticas.\n\n- Evita danos permanentes por sobrecalentamiento\n- Causa perdida temporal de rendimiento\n- Temperaturas criticas: 80-95C\n\nPREVENCION:\n- Buena refrigeracion\n- Pasta termica de calidad\n- Limpieza regular",
-      "tags": ["refrigeracion", "cpu", "gpu", "proteccion"],
+      "tags": [
+        "refrigeracion",
+        "cpu",
+        "gpu",
+        "proteccion"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 18,
       "front": "Bus PCI Express (PCIe)",
       "back": "Bus de expansion principal para GPU, SSD NVMe y tarjetas de alta velocidad.\n\nVERSIONES:\n- PCIe 3.0: 8 GT/s por carril\n- PCIe 4.0: 16 GT/s\n- PCIe 5.0: 32 GT/s\n- PCIe 6.0: 64 GT/s\n\nCONFIGURACIONES:\nx1, x4, x8, x16 (numero de carriles)\n\nGPU requiere minimo PCIe x16",
-      "tags": ["pcie", "bus", "hardware"],
+      "tags": [
+        "pcie",
+        "bus",
+        "hardware"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 19,
       "front": "Puertos y conectores externos comunes",
       "back": "USB:\n- USB 2.0: 480 Mbps\n- USB 3.2: 5-20 Gbps\n- USB4/Thunderbolt 4: 40 Gbps\n\nVIDEO:\n- HDMI 2.1: 8K@60Hz\n- DisplayPort 2.1: 80 Gbps\n\nRED:\n- RJ-45 Ethernet: 1/2.5/5/10 Gbps\n\nAUDIO:\n- Jack 3.5mm\n- Optico S/PDIF",
-      "tags": ["puertos", "conectividad", "perifericos"],
+      "tags": [
+        "puertos",
+        "conectividad",
+        "perifericos"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 20,
       "front": "Proceso de arranque del sistema (Boot)",
       "back": "SECUENCIA:\n1. POST: autodiagnostico de hardware\n2. UEFI/BIOS: inicializa componentes\n3. Secure Boot: verifica firmas digitales\n4. Boot Manager: selecciona SO\n5. Carga el kernel del sistema operativo\n6. Inician servicios y aplicaciones\n\nUEFI vs BIOS:\n- UEFI: moderno, GPT, Secure Boot\n- BIOS: legacy, MBR, obsoleto",
-      "tags": ["boot", "uefi", "bios", "inicio"],
+      "tags": [
+        "boot",
+        "uefi",
+        "bios",
+        "inicio"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 21,
       "front": "Tipos de redes por alcance geografico",
       "back": "PAN (Personal): 1-10m - Bluetooth, perifericos\nLAN (Local): 100-500m - Ethernet/WiFi, oficinas\nMAN (Metropolitan): 5-50km - Campus universitarios\nWAN (Wide): pais/mundo - Internet, fibra optica\n\nLAN usa tecnologias Ethernet y WiFi\nWAN usa fibra, satelite y 5G",
-      "tags": ["redes", "topologia", "lan", "wan"],
+      "tags": [
+        "redes",
+        "topologia",
+        "lan",
+        "wan"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 22,
       "front": "Modelo OSI - 7 capas",
       "back": "7. APLICACION: HTTP, FTP, DNS\n6. PRESENTACION: SSL/TLS, codificacion\n5. SESION: control de dialogo\n4. TRANSPORTE: TCP, UDP\n3. RED: IP, routers, ICMP\n2. ENLACE: Ethernet, switches, MAC\n1. FISICA: cables, conectores, bits\n\nMnemotecnia: APPTRRF",
-      "tags": ["redes", "osi", "protocolos"],
+      "tags": [
+        "redes",
+        "osi",
+        "protocolos"
+      ],
       "difficulty": "hard"
     },
     {
       "id": 23,
       "front": "Modelo TCP/IP - 4 capas",
       "back": "4. APLICACION (OSI 7+6+5): HTTP, DNS, FTP\n3. TRANSPORTE (OSI 4): TCP, UDP\n2. INTERNET (OSI 3): IP, ICMP\n1. ACCESO RED (OSI 2+1): Ethernet, WiFi\n\nEs el modelo practico usado realmente en Internet.",
-      "tags": ["redes", "tcp-ip", "protocolos"],
+      "tags": [
+        "redes",
+        "tcp-ip",
+        "protocolos"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 24,
       "front": "Diferencia entre Switch y Router",
       "back": "SWITCH (Capa 2):\n- Conecta dispositivos en LAN\n- Usa direcciones MAC\n- Tabla CAM para forwarding\n\nROUTER (Capa 3):\n- Conecta diferentes redes\n- Usa direcciones IP\n- Tabla de enrutamiento\n- NAT para Internet",
-      "tags": ["redes", "switch", "router", "comparativa"],
+      "tags": [
+        "redes",
+        "switch",
+        "router",
+        "comparativa"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 25,
       "front": "Que es una VLAN?",
       "back": "Virtual Local Area Network - divide un switch fisico en redes logicas independientes.\n\nBENEFICIOS:\n- Separa dominios de broadcast\n- Mejora seguridad (aislamiento)\n- Organiza trafico por departamentos\n- Requiere router o switch L3 para comunicacion entre VLANs\n\nEstandar: IEEE 802.1Q",
-      "tags": ["redes", "vlan", "switch"],
+      "tags": [
+        "redes",
+        "vlan",
+        "switch"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 26,
       "front": "Categorias de cable Ethernet",
       "back": "Cat5e: 1 Gbps, 100m - basico\nCat6: 10 Gbps a 55m\nCat6a: 10 Gbps a 100m - estandar empresas\nCat7: 10 Gbps con blindaje\nCat8: 25/40 Gbps a 30m - data centers\n\nCONECTORES: RJ-45 (T568A y T568B)",
-      "tags": ["redes", "cableado", "ethernet"],
+      "tags": [
+        "redes",
+        "cableado",
+        "ethernet"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 27,
       "front": "Fibra optica: Monomodo vs Multimodo",
       "back": "MONOMODO (SMF):\n- Un solo haz de luz\n- Distancia: mas de 10 km\n- Velocidad: 100+ Gbps\n- Laser\n\nMULTIMODO (OM4/OM5):\n- Multiples haces de luz\n- Distancia: 300-500m\n- Velocidad: hasta 400 Gbps\n- LED, mas economica",
-      "tags": ["redes", "fibra-optica", "cableado"],
+      "tags": [
+        "redes",
+        "fibra-optica",
+        "cableado"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 28,
       "front": "Direcciones IP: IPv4 vs IPv6",
       "back": "IPv4:\n- 32 bits\n- Notacion decimal: 192.168.1.1\n- 4.300 millones de direcciones\n- Agotadas\n\nIPv6:\n- 128 bits\n- Notacion hexadecimal\n- 340 undecilliones de direcciones\n- Seguridad integrada (IPsec)",
-      "tags": ["redes", "ip", "ipv4", "ipv6"],
+      "tags": [
+        "redes",
+        "ip",
+        "ipv4",
+        "ipv6"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 29,
       "front": "Que es el Subnetting?",
       "back": "Division de una red IP en subredes mas pequenas.\n\nEJEMPLO 192.168.0.0/24 en /26:\n- 4 subredes de 62 hosts\n- Administracion: 192.168.0.0/26\n- Profesores: 192.168.0.64/26\n- Alumnos: 192.168.0.128/26\n- Invitados: 192.168.0.192/26\n\nFormula: 2^(32-mascara) = hosts totales",
-      "tags": ["redes", "subnetting", "ip"],
+      "tags": [
+        "redes",
+        "subnetting",
+        "ip"
+      ],
       "difficulty": "hard"
     },
     {
       "id": 30,
       "front": "Comandos basicos de diagnostico de red",
       "back": "ping: verifica conectividad\nipconfig/ifconfig: config IP\ntracert/traceroute: ruta paquetes\nnslookup: consulta DNS\nnetstat: conexiones activas\ntelnet/nc: prueba puertos\n\nEjemplo: ping 8.8.8.8 prueba Google DNS",
-      "tags": ["redes", "diagnostico", "comandos"],
+      "tags": [
+        "redes",
+        "diagnostico",
+        "comandos"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 31,
       "front": "Riesgos fisicos en entornos TIC",
       "back": "ERGONOMICOS:\n- Malas posturas prolongadas\n- Sindrome del tunel carpiano\n\nVISUALES:\n- Fatiga ocular\n- Brillo excesivo\n\nELECTRICOS:\n- Sobrecargas\n- Falta de toma de tierra\n\nAMBIENTALES:\n- Temperatura, humedad, ruido",
-      "tags": ["prevencion", "riesgos", "seguridad-laboral"],
+      "tags": [
+        "prevencion",
+        "riesgos",
+        "seguridad-laboral"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 32,
       "front": "Riesgos logicos en entornos TIC",
       "back": "PERDIDA DE DATOS:\n- Errores humanos\n- Fallos tecnicos\n\nCIBERSEGURIDAD:\n- Malware, ransomware\n- Phishing\n- Accesos no autorizados\n\nCARGA PSICOSOCIAL:\n- Multitarea excesiva\n- Estres",
-      "tags": ["ciberseguridad", "riesgos", "datos"],
+      "tags": [
+        "ciberseguridad",
+        "riesgos",
+        "datos"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 33,
       "front": "Regla 3-2-1 de copias de seguridad",
       "back": "ESTANDAR 3-2-1:\n- 3 copias de los datos\n- 2 medios diferentes\n- 1 copia off-site\n\nVERSION ACTUALIZADA 3-2-1-1-0:\n- 3 copias\n- 2 medios\n- 1 off-site\n- 1 inmutable (anti-ransomware)\n- 0 errores de verificacion",
-      "tags": ["backup", "seguridad", "copias"],
+      "tags": [
+        "backup",
+        "seguridad",
+        "copias"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 34,
       "front": "Normativa de prevencion de riesgos laborales",
       "back": "LEY 31/1995:\n- Evaluacion de riesgos\n- Plan de prevencion\n- Formacion\n\nRD 488/1997 (pantallas):\n- Ergonomia\n- Pausas obligatorias\n\nRGPD/LOPDGDD:\n- Proteccion datos\n- Multas hasta 4% facturacion",
-      "tags": ["normativa", "prevencion", "legal"],
+      "tags": [
+        "normativa",
+        "prevencion",
+        "legal"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 35,
       "front": "Que es un Sistema Operativo (SO)?",
       "back": "Conjunto de programas que gestionan los recursos del ordenador y facilitan la comunicacion entre hardware y usuario.\n\nFUNCIONES:\n- Gestion de recursos (CPU, memoria, disco)\n- Interfaz usuario (CLI/GUI)\n- Seguridad y aislamiento\n- Comunicacion entre procesos",
-      "tags": ["sistema-operativo", "conceptos-basicos"],
+      "tags": [
+        "sistema-operativo",
+        "conceptos-basicos"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 36,
       "front": "Estructura del Sistema Operativo en capas",
       "back": "1. HARDWARE: CPU, memoria, discos\n2. MICROPROGRAMA: firmware\n3. ENSAMBLADOR: lenguaje maquina\n4. NUCLEO (KERNEL): gestiona recursos\n5. SO Y APLICACIONES: interfaz usuario\n\nEl kernel es el corazon del sistema.",
-      "tags": ["sistema-operativo", "arquitectura", "kernel"],
+      "tags": [
+        "sistema-operativo",
+        "arquitectura",
+        "kernel"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 37,
       "front": "Funciones del Kernel (nucleo)",
       "back": "FUNCIONES ESENCIALES:\n- Gestion de procesos y threads\n- Gestion de memoria virtual\n- Gestion de E/S\n- Sistema de archivos\n- Seguridad basica\n- Controladores de dispositivo\n\nEjecuta en modo privilegiado.",
-      "tags": ["kernel", "sistema-operativo"],
+      "tags": [
+        "kernel",
+        "sistema-operativo"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 38,
       "front": "Tipos de nucleo (Kernel)",
       "back": "MONOLITICO:\n- Todos los servicios en un espacio\n- Mayor rendimiento\n- Linux tradicional\n\nMICROKERNEL:\n- Solo funciones minimas\n- Servicios en usuario\n- Mas seguro\n\nHIBRIDO:\n- Combina ambos\n- Windows, macOS",
-      "tags": ["kernel", "arquitectura", "tipos"],
+      "tags": [
+        "kernel",
+        "arquitectura",
+        "tipos"
+      ],
       "difficulty": "hard"
     },
     {
       "id": 39,
       "front": "Tipos de interfaz de usuario",
       "back": "CLI (Command Line Interface):\n- Linea de comandos\n- Bash, PowerShell\n- Para administracion\n\nGUI (Graphical User Interface):\n- Entorno grafico con ventanas\n- Windows, macOS, GNOME\n- Para uso diario",
-      "tags": ["interfaz", "ui", "cli", "gui"],
+      "tags": [
+        "interfaz",
+        "ui",
+        "cli",
+        "gui"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 40,
       "front": "Sistemas de archivos comunes",
       "back": "WINDOWS:\n- NTFS: principal, journaling\n- FAT32: compatible, 4GB max\n- exFAT: unidades externas\n\nLINUX:\n- ext4: estandar\n- XFS: grandes volumenes\n- Btrfs: avanzado\n\nMACOS:\n- APFS: optimizado SSD\n- HFS+: antiguo",
-      "tags": ["sistema-archivos", "almacenamiento"],
+      "tags": [
+        "sistema-archivos",
+        "almacenamiento"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 41,
       "front": "Que es el Journaling?",
       "back": "Tecnica que registra operaciones pendientes en un diario antes de ejecutarlas.\n\nFUNCION:\n- Recupera consistencia tras corte de luz\n- Minimiza perdida de datos\n- Registro de transacciones\n\nSistemas con journaling: NTFS, ext4, APFS",
-      "tags": ["sistema-archivos", "journaling", "recuperacion"],
+      "tags": [
+        "sistema-archivos",
+        "journaling",
+        "recuperacion"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 42,
       "front": "Clasificacion de SO por usuarios",
       "back": "MONOUSUARIO:\n- Un usuario a la vez\n- Windows 11, macOS\n- Ordenadores personales\n\nMULTIUSUARIO:\n- Varios usuarios simultaneos\n- Linux Server, Windows Server\n- Servidores y centros de datos",
-      "tags": ["sistema-operativo", "clasificacion", "usuarios"],
+      "tags": [
+        "sistema-operativo",
+        "clasificacion",
+        "usuarios"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 43,
       "front": "Evolucion historica de los SO",
       "back": "1950s: Batch (IBM 701)\n1960s: Tiempo compartido (UNIX 1969)\n1970s: Microordenadores (CP/M)\n1980s: PC (MS-DOS 1981, Mac 1984, Windows 1985)\n1990s: Multitarea (Win95, Linux 1991)\n2000s: Movil (Android 2008, iOS 2007)\n2010s+: Cloud + IA",
-      "tags": ["sistema-operativo", "historia", "evolucion"],
+      "tags": [
+        "sistema-operativo",
+        "historia",
+        "evolucion"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 44,
       "front": "Comparativa: Windows vs Linux vs macOS",
       "back": "WINDOWS:\n- Propietario (100-150 EUR)\n- 90% mercado empresarial\n- TPM 2.0 requerido\n\nLINUX:\n- Open source (gratis)\n- 96% servidores web\n- Muy configurable\n\nMACOS:\n- Solo hardware Apple\n- Diseno y multimedia",
-      "tags": ["sistema-operativo", "comparativa"],
+      "tags": [
+        "sistema-operativo",
+        "comparativa"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 45,
       "front": "Requisitos de Windows 11",
       "back": "MINIMOS:\n- CPU 64-bit 1 GHz, 2 nucleos\n- 4 GB RAM (16 GB recomendado)\n- 64 GB almacenamiento\n- TPM 2.0 OBLIGATORIO\n- UEFI con Secure Boot\n\nTPM: chip de seguridad para cifrado y autenticacion",
-      "tags": ["windows", "requisitos", "instalacion"],
+      "tags": [
+        "windows",
+        "requisitos",
+        "instalacion"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 46,
       "front": "Modalidades de instalacion de SO",
       "back": "INSTALACION LIMPIA:\n- Formatea e instala desde cero\n- Maximo rendimiento\n- Requiere backup\n\nACTUALIZACION:\n- Conserva datos y apps\n- Puede heredar problemas\n\nDUAL BOOT:\n- Dos SO en mismo equipo\n- Particiones separadas",
-      "tags": ["instalacion", "actualizacion", "dual-boot"],
+      "tags": [
+        "instalacion",
+        "actualizacion",
+        "dual-boot"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 47,
       "front": "Diferencia entre Update y Upgrade",
       "back": "UPDATE (actualizacion):\n- Parches de seguridad\n- Correccion de bugs\n- Ejemplo: Patch Tuesday\n\nUPGRADE (actualizacion mayor):\n- Nueva version del SO\n- Nuevas funcionalidades\n- Ejemplo: Win10 -> Win11",
-      "tags": ["actualizacion", "mantenimiento", "sistema-operativo"],
+      "tags": [
+        "actualizacion",
+        "mantenimiento",
+        "sistema-operativo"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 48,
       "front": "Tipos de copias de seguridad",
       "back": "COMPLETA: todos los datos, ocupa mucho, restauracion rapida\n\nINCREMENTAL: solo cambios desde ultima copia, minimo espacio, restauracion lenta\n\nDIFERENCIAL: cambios desde ultima completa, espacio medio, restauracion rapida",
-      "tags": ["backup", "copias", "seguridad"],
+      "tags": [
+        "backup",
+        "copias",
+        "seguridad"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 49,
       "front": "Que son RTO y RPO?",
       "back": "RTO (Recovery Time Objective): tiempo maximo para recuperar operatividad. Ej: hospital = minutos\n\nRPO (Recovery Point Objective): perdida de datos aceptable. Ej: bolsa = 0 segundos\n\nDefinen la estrategia de backup necesaria.",
-      "tags": ["backup", "recuperacion", "rto", "rpo"],
+      "tags": [
+        "backup",
+        "recuperacion",
+        "rto",
+        "rpo"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 50,
       "front": "BitLocker y cifrado de disco",
       "back": "BITLOCKER (Windows):\n- Cifrado de disco completo\n- Requiere TPM o clave USB\n- Clave de recuperacion crucial\n\nLUKS (Linux):\n- Cifrado estandar Linux\n\nIMPORTANTE: formatear disco cifrado sin desbloquear = PERDIDA TOTAL DE DATOS",
-      "tags": ["cifrado", "seguridad", "bitlocker"],
+      "tags": [
+        "cifrado",
+        "seguridad",
+        "bitlocker"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 51,
       "front": "Que es la virtualizacion?",
       "back": "Tecnologia que permite ejecutar varios sistemas operativos sobre mismo hardware fisico.\n\nCONCEPTOS:\n- Host: equipo fisico\n- Guest: sistema virtual\n- Hipervisor: gestiona VMs\n\nBENEFICIOS:\n- Aislamiento, ahorro de hardware\n- Entornos de prueba\n- Snapshots y clones",
-      "tags": ["virtualizacion", "conceptos-basicos"],
+      "tags": [
+        "virtualizacion",
+        "conceptos-basicos"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 52,
       "front": "Hipervisor Tipo 1 vs Tipo 2",
       "back": "TIPO 1 (Bare-metal):\n- Directo sobre hardware\n- Alto rendimiento\n- ESXi, Hyper-V Server, KVM\n\nTIPO 2 (Hosted):\n- Sobre sistema operativo\n- Mas sencillo\n- VirtualBox, VMware Workstation",
-      "tags": ["virtualizacion", "hipervisor", "tipos"],
+      "tags": [
+        "virtualizacion",
+        "hipervisor",
+        "tipos"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 53,
       "front": "Maquina Virtual vs Contenedor",
       "back": "MAQUINA VIRTUAL:\n- SO completo con kernel propio\n- Aislamiento total\n- Mas pesada (GBs)\n- Minutos en arrancar\n\nCONTENEDOR:\n- Comparte kernel del host\n- Ligero (MBs)\n- Segundos en arrancar\n- Para aplicaciones y microservicios",
-      "tags": ["virtualizacion", "vm", "contenedores", "docker"],
+      "tags": [
+        "virtualizacion",
+        "vm",
+        "contenedores",
+        "docker"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 54,
       "front": "Herramientas de virtualizacion",
       "back": "ESCRITORIO:\n- VirtualBox: gratuito, multiplataforma\n- VMware Workstation: profesional\n- Hyper-V: incluido Windows Pro\n\nSERVIDOR:\n- Proxmox VE: web\n- VMware ESXi: enterprise\n- XCP-ng: open source\n\nCONTENEDORES:\n- Docker: estandar\n- Kubernetes: orquestacion",
-      "tags": ["virtualizacion", "herramientas", "software"],
+      "tags": [
+        "virtualizacion",
+        "herramientas",
+        "software"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 55,
       "front": "Que es un snapshot?",
       "back": "Captura del estado de una maquina virtual en un momento concreto.\n\nINCLUYE:\n- Disco, memoria RAM, configuracion\n\nUSOS:\n- Experimentar sin riesgo\n- Recuperacion rapida\n\nNO ES BACKUP: consume espacio y afecta rendimiento",
-      "tags": ["virtualizacion", "snapshot", "backup"],
+      "tags": [
+        "virtualizacion",
+        "snapshot",
+        "backup"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 56,
       "front": "Requisitos hardware para virtualizacion",
       "back": "CPU:\n- VT-x (Intel) o AMD-V\n- SLAT/EPT/NPT\n- 4+ nucleos\n\nRAM:\n- 16 GB minimo\n\nALMACENAMIENTO:\n- SSD obligatorio\n- 50-100 GB libres",
-      "tags": ["virtualizacion", "requisitos", "hardware"],
+      "tags": [
+        "virtualizacion",
+        "requisitos",
+        "hardware"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 57,
       "front": "Formatos de imagen de disco virtual",
       "back": "VMDK: VMware\nVHDX: Hyper-V\nVDI: VirtualBox\nQCOW2: QEMU/KVM\n\nESTANDAR OVF/OVA:\n- Para distribuir entre plataformas\n- OVF: descriptor XML\n- OVA: paquete unico",
-      "tags": ["virtualizacion", "formatos", "discos"],
+      "tags": [
+        "virtualizacion",
+        "formatos",
+        "discos"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 58,
       "front": "Power over Ethernet (PoE)",
       "back": "Tecnologia que envia alimentacion y datos por el mismo cable Ethernet.\n\nESTANDARES:\n- 802.3af: 15.4W\n- 802.3at (PoE+): 30W\n- 802.3bt: 90W\n\nUSOS: telefonos IP, camaras, puntos de acceso WiFi",
-      "tags": ["redes", "poe", "cableado"],
+      "tags": [
+        "redes",
+        "poe",
+        "cableado"
+      ],
       "difficulty": "easy"
     },
     {
       "id": 59,
       "front": "WiFi 6 vs WiFi 7",
       "back": "WIFI 6 (802.11ax):\n- Hasta 9.6 Gbps\n- 2.4 y 5 GHz\n- OFDMA, MU-MIMO\n\nWIFI 7 (802.11be):\n- Hasta 46 Gbps\n- Banda 6 GHz\n- 320 MHz canal\n- Baja latencia",
-      "tags": ["redes", "wifi", "inalambrico"],
+      "tags": [
+        "redes",
+        "wifi",
+        "inalambrico"
+      ],
       "difficulty": "medium"
     },
     {
       "id": 60,
       "front": "Que es el Secure Boot?",
       "back": "Funcion de firmware UEFI que verifica la firma digital de componentes de arranque.\n\nFUNCION:\n- Evita malware en el boot\n- Garantiza integridad\n\nAL DESACTIVAR:\n- Permite instalar Linux\n- Menos seguro",
-      "tags": ["seguridad", "uefi", "boot"],
+      "tags": [
+        "seguridad",
+        "uefi",
+        "boot"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 61,
+      "front": "Que es un archivo (fichero)?",
+      "back": "Nombre asignado a un conjunto de bits que almacena informacion de forma persistente en dispositivos de almacenamiento secundario.\n\nCARACTERISTICAS:\n- Elemento basico de almacenamiento\n- Tiene nombre y extension\n- Puede contener datos, codigo o configuraciones",
+      "tags": [
+        "sistema-archivos",
+        "conceptos-basicos",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 62,
+      "front": "Que es un directorio (carpeta)?",
+      "back": "Contenedor con nombre que agrupa archivos y otros directorios.\n\nFUNCION:\n- Organizar jerarquicamente la informacion\n- Formar la estructura de arbol del sistema de archivos\n- Facilitar la gestion y localizacion de archivos",
+      "tags": [
+        "sistema-archivos",
+        "conceptos-basicos",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 63,
+      "front": "Tipos de archivos segun su uso",
+      "back": "1. ARCHIVOS DEL SISTEMA OPERATIVO:\n- Kernel, drivers, configuracion\n- Esenciales para el funcionamiento\n\n2. ARCHIVOS DE APLICACIONES:\n- Programas ejecutables\n- Librerias y recursos\n\n3. ARCHIVOS DE USUARIO:\n- Documentos, imagenes, videos\n- Datos personales",
+      "tags": [
+        "sistema-archivos",
+        "tipos",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 64,
+      "front": "Diferencia entre ruta absoluta y relativa",
+      "back": "RUTA ABSOLUTA:\n- Especificada desde la raiz del sistema\n- Siempre completa y unica\n- Ej Linux: /home/usuario/documentos\n- Ej Windows: C:\\Users\\Usuario\\Docs\n\nRUTA RELATIVA:\n- Especificada desde el directorio actual\n- Depende de la ubicacion actual\n- Ej: ./documentos o ../archivo.txt",
+      "tags": [
+        "sistema-archivos",
+        "rutas",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 65,
+      "front": "Estructura de directorios en Windows",
+      "back": "JERARQUIA:\n- Unidades (C:, D:, etc.)\n- Cada unidad tiene raiz propia\n- Carpetas de sistema:\n  - Program Files (aplicaciones)\n  - Windows (SO)\n  - Users (perfiles de usuario)\n  - ProgramData (datos de apps)\n\nSeparador: backslash (\\)",
+      "tags": [
+        "sistema-archivos",
+        "windows",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 66,
+      "front": "Estructura de directorios en Linux (FHS)",
+      "back": "FILE HIERARCHY STANDARD (FHS):\n\n/ (raiz)\n- /bin: comandos esenciales\n- /etc: configuracion\n- /home: usuarios\n- /var: datos variables (logs)\n- /usr: programas\n- /tmp: temporales\n- /dev: dispositivos\n- /mnt: puntos de montaje\n\nSeparador: slash (/)",
+      "tags": [
+        "sistema-archivos",
+        "linux",
+        "fhs",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 67,
+      "front": "Operaciones basicas con archivos (CLI)",
+      "back": "NAVEGACION:\n- cd: cambiar directorio\n- pwd: ruta actual\n- ls/dir: listar contenido\n\nGESTION:\n- mkdir: crear directorio\n- cp/copy: copiar\n- mv/move: mover/renombrar\n- rm/del: eliminar\n\nEMPACAR/COMPRIMIR:\n- tar, zip, gzip (Linux)\n- zip, rar (Windows)",
+      "tags": [
+        "comandos",
+        "cli",
+        "sistema-archivos",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 68,
+      "front": "Que es el MBR (Master Boot Record)?",
+      "back": "Primeros 512 bytes de un disco duro que contienen:\n\n- GESTOR DE ARRANQUE: codigo para iniciar el SO\n- TABLA DE PARTICIONES: info de las 4 particiones primarias\n- FIRMA MAGICA: 0xAA55 (validacion)\n\nLIMITACIONES:\n- Maximo 4 particiones primarias\n- Discos hasta 2TB\n- Reemplazado por GPT en sistemas modernos",
+      "tags": [
+        "particiones",
+        "mbr",
+        "arranque",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 69,
+      "front": "Tipos de particiones",
+      "back": "1. PARTICION PRIMARIA:\n- Maximo 4 por disco\n- Arranque directo del SO\n- Numeradas 1-4\n\n2. PARTICION EXTENDIDA:\n- Solo 1 por disco\n- Contiene particiones logicas\n- No almacena datos directamente\n\n3. PARTICION LOGICA:\n- Dentro de la extendida\n- Ilimitadas (limitadas por SO)\n- Numeradas desde 5",
+      "tags": [
+        "particiones",
+        "mbr",
+        "almacenamiento",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 70,
+      "front": "Ventajas de usar particiones",
+      "back": "- MULTI-SO: varios sistemas operativos\n- MULTI-SISTEMAS-FICHEROS: segun necesidades\n- SEPARACION: datos del SO\n- PROTECCION: errores aislados\n- SEGURIDAD: politicas diferenciadas\n- BACKUP: gestion mas sencilla\n- RENDIMIENTO: organizacion optima",
+      "tags": [
+        "particiones",
+        "ventajas",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 71,
+      "front": "Sistemas de archivos comunes",
+      "back": "WINDOWS:\n- FAT32: compatible, limitado a 4GB\n- NTFS: journaling, permisos, compresion\n- exFAT: para unidades externas\n\nLINUX:\n- ext2/3/4: estandar Linux\n- XFS: grandes volumenes\n- Btrfs: avanzado (snapshots)\n\nOTROS:\n- APFS: macOS moderno\n- HFS+: macOS antiguo",
+      "tags": [
+        "sistema-archivos",
+        "tipos",
+        "comparativa",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 72,
+      "front": "Caracteristicas de NTFS vs FAT32",
+      "back": "NTFS:\n- Archivos > 4GB\n- Journaling (recuperacion)\n- Permisos de seguridad\n- Compresion y cifrado\n- Cuotas de disco\n\nFAT32:\n- Mayor compatibilidad\n- Limitado a 4GB por archivo\n- Sin permisos avanzados\n- Sin journaling\n- Mejor para unidades externas",
+      "tags": [
+        "sistema-archivos",
+        "ntfs",
+        "fat32",
+        "windows",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 73,
+      "front": "Herramientas de particionamiento",
+      "back": "GRAFICAS:\n- GParted (Linux)\n- Administrador de discos (Windows)\n- Disk Utility (macOS)\n\nLINEA DE COMANDOS:\n- fdisk/cfdisk (Linux)\n- diskpart (Windows)\n- mkfs (crear sistema de archivos)\n\nFunciones: crear, eliminar, redimensionar, formatear",
+      "tags": [
+        "particiones",
+        "herramientas",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 74,
+      "front": "Que es el montaje de particiones?",
+      "back": "Proceso de integrar una particion en el arbol de directorios del sistema operativo para hacerla accesible.\n\nLINUX:\n- mount /dev/sda1 /mnt\n- Configuracion en /etc/fstab\n- Desmontar: umount\n\nWINDOWS:\n- Asignacion de letra de unidad\n- Automatico al iniciar\n- Administrador de discos",
+      "tags": [
+        "particiones",
+        "montaje",
+        "linux",
+        "windows",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 75,
+      "front": "Que es LVM (Logical Volume Manager)?",
+      "back": "Capa de abstraccion sobre particiones tradicionales que permite gestion flexible del almacenamiento.\n\nVENTAJAS:\n- Redimensionar volumenes en caliente\n- Unir varios discos\n- Snapshots (copias instantaneas)\n- Migracion de datos sin interrupcion\n\nCOMPONENTES:\n- PV (Physical Volumes)\n- VG (Volume Groups)\n- LV (Logical Volumes)",
+      "tags": [
+        "lvm",
+        "almacenamiento",
+        "volumenes",
+        "unidad-2"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 76,
+      "front": "Que es la fragmentacion de archivos?",
+      "back": "Distribucion de partes de un archivo en diferentes ubicaciones del disco cuando cambia de tamano constantemente.\n\nCONSECUENCIAS:\n- Degradacion del rendimiento\n- Mayores tiempos de acceso\n\nSOLUCION:\n- Desfragmentacion (Windows)\n- En Linux es menos problematico (ext4 optimizado)\n- SSD: no requieren desfragmentacion",
+      "tags": [
+        "rendimiento",
+        "fragmentacion",
+        "mantenimiento",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 77,
+      "front": "Permisos basicos en sistemas de archivos",
+      "back": "LECTURA (r/4): ver contenido\nESCRITURA (w/2): modificar contenido\nEJECUCION (x/1): ejecutar archivo o acceder a directorio\n\nLINUX:\n- Tres niveles: usuario, grupo, otros\n- Notacion numerica: 755, 644\n- Comando: chmod\n\nWINDOWS:\n- ACL (Access Control Lists)\n- Permisos heredables\n- Interfaz grafica y comando icacls",
+      "tags": [
+        "seguridad",
+        "permisos",
+        "linux",
+        "windows",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 78,
+      "front": "Tipos de enlaces (links)",
+      "back": "ENLACE SIMBOLICO (symlink/soft link):\n- Apunta al nombre del archivo\n- Se rompe si se elimina el original\n- Puede cruzar sistemas de archivos\n- Linux: ln -s\n\nENLACE DURO (hard link):\n- Apunta a los datos directamente\n- No se afecta por eliminacion del original\n- Mismo sistema de archivos\n- Linux: ln",
+      "tags": [
+        "sistema-archivos",
+        "enlaces",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 79,
+      "front": "Comandos de busqueda de archivos",
+      "back": "LINUX:\n- find: busqueda avanzada\n  find / -name '*.txt'\n- locate: busqueda rapida (base de datos)\n- grep: buscar en contenido\n\nWINDOWS:\n- dir /s: buscar en subdirectorios\n- where: encontrar ejecutables\n- findstr: buscar en contenido\n- Explorador: busqueda grafica",
+      "tags": [
+        "comandos",
+        "busqueda",
+        "linux",
+        "windows",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 80,
+      "front": "Como identificar software instalado",
+      "back": "LINUX:\n- dpkg -l (Debian/Ubuntu)\n- rpm -qa (RedHat/CentOS)\n- apt list --installed\n- which [comando]\n\nWINDOWS:\n- appwiz.cpl (Panel de control)\n- Get-Package (PowerShell)\n- wmic product get name\n- Configuracion > Aplicaciones",
+      "tags": [
+        "software",
+        "gestion",
+        "linux",
+        "windows",
+        "unidad-2"
+      ],
       "difficulty": "medium"
     }
   ]

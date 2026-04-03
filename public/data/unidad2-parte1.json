@@ -1,0 +1,144 @@
+{
+  "cards": [
+    {
+      "id": 61,
+      "front": "Que es un archivo (fichero)?",
+      "back": "Nombre asignado a un conjunto de bits que almacena informacion de forma persistente en dispositivos de almacenamiento secundario.\n\nCARACTERISTICAS:\n- Elemento basico de almacenamiento\n- Tiene nombre y extension\n- Puede contener datos, codigo o configuraciones",
+      "tags": ["sistema-archivos", "conceptos-basicos", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 62,
+      "front": "Que es un directorio (carpeta)?",
+      "back": "Contenedor con nombre que agrupa archivos y otros directorios.\n\nFUNCION:\n- Organizar jerarquicamente la informacion\n- Formar la estructura de arbol del sistema de archivos\n- Facilitar la gestion y localizacion de archivos",
+      "tags": ["sistema-archivos", "conceptos-basicos", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 63,
+      "front": "Tipos de archivos segun su uso",
+      "back": "1. ARCHIVOS DEL SISTEMA OPERATIVO:\n- Kernel, drivers, configuracion\n- Esenciales para el funcionamiento\n\n2. ARCHIVOS DE APLICACIONES:\n- Programas ejecutables\n- Librerias y recursos\n\n3. ARCHIVOS DE USUARIO:\n- Documentos, imagenes, videos\n- Datos personales",
+      "tags": ["sistema-archivos", "tipos", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 64,
+      "front": "Diferencia entre ruta absoluta y relativa",
+      "back": "RUTA ABSOLUTA:\n- Especificada desde la raiz del sistema\n- Siempre completa y unica\n- Ej Linux: /home/usuario/documentos\n- Ej Windows: C:\\Users\\Usuario\\Docs\n\nRUTA RELATIVA:\n- Especificada desde el directorio actual\n- Depende de la ubicacion actual\n- Ej: ./documentos o ../archivo.txt",
+      "tags": ["sistema-archivos", "rutas", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 65,
+      "front": "Estructura de directorios en Windows",
+      "back": "JERARQUIA:\n- Unidades (C:, D:, etc.)\n- Cada unidad tiene raiz propia\n- Carpetas de sistema:\n  - Program Files (aplicaciones)\n  - Windows (SO)\n  - Users (perfiles de usuario)\n  - ProgramData (datos de apps)\n\nSeparador: backslash (\\)",
+      "tags": ["sistema-archivos", "windows", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 66,
+      "front": "Estructura de directorios en Linux (FHS)",
+      "back": "FILE HIERARCHY STANDARD (FHS):\n\n/ (raiz)\n- /bin: comandos esenciales\n- /etc: configuracion\n- /home: usuarios\n- /var: datos variables (logs)\n- /usr: programas\n- /tmp: temporales\n- /dev: dispositivos\n- /mnt: puntos de montaje\n\nSeparador: slash (/)",
+      "tags": ["sistema-archivos", "linux", "fhs", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 67,
+      "front": "Operaciones basicas con archivos (CLI)",
+      "back": "NAVEGACION:\n- cd: cambiar directorio\n- pwd: ruta actual\n- ls/dir: listar contenido\n\nGESTION:\n- mkdir: crear directorio\n- cp/copy: copiar\n- mv/move: mover/renombrar\n- rm/del: eliminar\n\nEMPACAR/COMPRIMIR:\n- tar, zip, gzip (Linux)\n- zip, rar (Windows)",
+      "tags": ["comandos", "cli", "sistema-archivos", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 68,
+      "front": "Que es el MBR (Master Boot Record)?",
+      "back": "Primeros 512 bytes de un disco duro que contienen:\n\n- GESTOR DE ARRANQUE: codigo para iniciar el SO\n- TABLA DE PARTICIONES: info de las 4 particiones primarias\n- FIRMA MAGICA: 0xAA55 (validacion)\n\nLIMITACIONES:\n- Maximo 4 particiones primarias\n- Discos hasta 2TB\n- Reemplazado por GPT en sistemas modernos",
+      "tags": ["particiones", "mbr", "arranque", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 69,
+      "front": "Tipos de particiones",
+      "back": "1. PARTICION PRIMARIA:\n- Maximo 4 por disco\n- Arranque directo del SO\n- Numeradas 1-4\n\n2. PARTICION EXTENDIDA:\n- Solo 1 por disco\n- Contiene particiones logicas\n- No almacena datos directamente\n\n3. PARTICION LOGICA:\n- Dentro de la extendida\n- Ilimitadas (limitadas por SO)\n- Numeradas desde 5",
+      "tags": ["particiones", "mbr", "almacenamiento", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 70,
+      "front": "Ventajas de usar particiones",
+      "back": "- MULTI-SO: varios sistemas operativos\n- MULTI-SISTEMAS-FICHEROS: segun necesidades\n- SEPARACION: datos del SO\n- PROTECCION: errores aislados\n- SEGURIDAD: politicas diferenciadas\n- BACKUP: gestion mas sencilla\n- RENDIMIENTO: organizacion optima",
+      "tags": ["particiones", "ventajas", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 71,
+      "front": "Sistemas de archivos comunes",
+      "back": "WINDOWS:\n- FAT32: compatible, limitado a 4GB\n- NTFS: journaling, permisos, compresion\n- exFAT: para unidades externas\n\nLINUX:\n- ext2/3/4: estandar Linux\n- XFS: grandes volumenes\n- Btrfs: avanzado (snapshots)\n\nOTROS:\n- APFS: macOS moderno\n- HFS+: macOS antiguo",
+      "tags": ["sistema-archivos", "tipos", "comparativa", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 72,
+      "front": "Caracteristicas de NTFS vs FAT32",
+      "back": "NTFS:\n- Archivos > 4GB\n- Journaling (recuperacion)\n- Permisos de seguridad\n- Compresion y cifrado\n- Cuotas de disco\n\nFAT32:\n- Mayor compatibilidad\n- Limitado a 4GB por archivo\n- Sin permisos avanzados\n- Sin journaling\n- Mejor para unidades externas",
+      "tags": ["sistema-archivos", "ntfs", "fat32", "windows", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 73,
+      "front": "Herramientas de particionamiento",
+      "back": "GRAFICAS:\n- GParted (Linux)\n- Administrador de discos (Windows)\n- Disk Utility (macOS)\n\nLINEA DE COMANDOS:\n- fdisk/cfdisk (Linux)\n- diskpart (Windows)\n- mkfs (crear sistema de archivos)\n\nFunciones: crear, eliminar, redimensionar, formatear",
+      "tags": ["particiones", "herramientas", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 74,
+      "front": "Que es el montaje de particiones?",
+      "back": "Proceso de integrar una particion en el arbol de directorios del sistema operativo para hacerla accesible.\n\nLINUX:\n- mount /dev/sda1 /mnt\n- Configuracion en /etc/fstab\n- Desmontar: umount\n\nWINDOWS:\n- Asignacion de letra de unidad\n- Automatico al iniciar\n- Administrador de discos",
+      "tags": ["particiones", "montaje", "linux", "windows", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 75,
+      "front": "Que es LVM (Logical Volume Manager)?",
+      "back": "Capa de abstraccion sobre particiones tradicionales que permite gestion flexible del almacenamiento.\n\nVENTAJAS:\n- Redimensionar volumenes en caliente\n- Unir varios discos\n- Snapshots (copias instantaneas)\n- Migracion de datos sin interrupcion\n\nCOMPONENTES:\n- PV (Physical Volumes)\n- VG (Volume Groups)\n- LV (Logical Volumes)",
+      "tags": ["lvm", "almacenamiento", "volumenes", "unidad-2"],
+      "difficulty": "hard"
+    },
+    {
+      "id": 76,
+      "front": "Que es la fragmentacion de archivos?",
+      "back": "Distribucion de partes de un archivo en diferentes ubicaciones del disco cuando cambia de tamano constantemente.\n\nCONSECUENCIAS:\n- Degradacion del rendimiento\n- Mayores tiempos de acceso\n\nSOLUCION:\n- Desfragmentacion (Windows)\n- En Linux es menos problematico (ext4 optimizado)\n- SSD: no requieren desfragmentacion",
+      "tags": ["rendimiento", "fragmentacion", "mantenimiento", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 77,
+      "front": "Permisos basicos en sistemas de archivos",
+      "back": "LECTURA (r/4): ver contenido\nESCRITURA (w/2): modificar contenido\nEJECUCION (x/1): ejecutar archivo o acceder a directorio\n\nLINUX:\n- Tres niveles: usuario, grupo, otros\n- Notacion numerica: 755, 644\n- Comando: chmod\n\nWINDOWS:\n- ACL (Access Control Lists)\n- Permisos heredables\n- Interfaz grafica y comando icacls",
+      "tags": ["seguridad", "permisos", "linux", "windows", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 78,
+      "front": "Tipos de enlaces (links)",
+      "back": "ENLACE SIMBOLICO (symlink/soft link):\n- Apunta al nombre del archivo\n- Se rompe si se elimina el original\n- Puede cruzar sistemas de archivos\n- Linux: ln -s\n\nENLACE DURO (hard link):\n- Apunta a los datos directamente\n- No se afecta por eliminacion del original\n- Mismo sistema de archivos\n- Linux: ln",
+      "tags": ["sistema-archivos", "enlaces", "linux", "unidad-2"],
+      "difficulty": "hard"
+    },
+    {
+      "id": 79,
+      "front": "Comandos de busqueda de archivos",
+      "back": "LINUX:\n- find: busqueda avanzada\n  find / -name '*.txt'\n- locate: busqueda rapida (base de datos)\n- grep: buscar en contenido\n\nWINDOWS:\n- dir /s: buscar en subdirectorios\n- where: encontrar ejecutables\n- findstr: buscar en contenido\n- Explorador: busqueda grafica",
+      "tags": ["comandos", "busqueda", "linux", "windows", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 80,
+      "front": "Como identificar software instalado",
+      "back": "LINUX:\n- dpkg -l (Debian/Ubuntu)\n- rpm -qa (RedHat/CentOS)\n- apt list --installed\n- which [comando]\n\nWINDOWS:\n- appwiz.cpl (Panel de control)\n- Get-Package (PowerShell)\n- wmic product get name\n- Configuracion > Aplicaciones",
+      "tags": ["software", "gestion", "linux", "windows", "unidad-2"],
+      "difficulty": "medium"
+    }
+  ]
+}
