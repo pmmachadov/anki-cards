@@ -1,0 +1,179 @@
+{
+  "cards": [
+    {
+      "id": 160,
+      "front": "Estructura del MBR (Master Boot Record)",
+      "back": "Primeros 512 bytes del disco duro:\n\n- 446 bytes: Stage 1 del gestor de arranque (GRUB)\n- 64 bytes: Tabla de particiones (4 entradas de 16 bytes)\n- 2 bytes: Firma del disco (0xAA55)\n\nEl resto de la primera pista: Region de compatibilidad DOS",
+      "tags": ["discos", "mbr", "arranque", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 161,
+      "front": "Tipos de particiones: Primaria, Extendida, Logica",
+      "back": "PRIMARIA:\n- Maximo 4 por disco\n- Se pueden formatear y marcar como activas\n- Numeros 1-4\n\nEXTENDIDA:\n- Solo 1 por disco\n- Contiene particiones logicas\n- No se puede formatear ni marcar como activa\n\nLOGICA:\n- Dentro de la extendida\n- Ilimitadas (depende del SO)\n- Numeros 5 en adelante",
+      "tags": ["discos", "particiones", "mbr", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 162,
+      "front": "Nomenclatura de discos en Windows",
+      "back": "Letras de unidad A: a Z:\n\n- A:, B: Disquetes (historico)\n- C: Disco del sistema\n- D:, E:, etc.: Discos adicionales\n\nSe asignan automaticamente pero se pueden cambiar\nen Administracion de discos.",
+      "tags": ["discos", "windows", "nomenclatura", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 163,
+      "front": "Nomenclatura de discos en Linux",
+      "back": "/dev/sdX (discos SATA/SCSI/USB)\n\n- sda: Primer disco\n- sdb: Segundo disco\n- sdc: Tercer disco\n\nPARTICIONES:\n- sda1: Primera particion primaria\n- sda2: Segunda particion primaria\n- sda5: Primera particion logica\n- sda6: Segunda particion logica",
+      "tags": ["discos", "linux", "nomenclatura", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 164,
+      "front": "Ventajas de usar particiones",
+      "back": "1. Multi-SO: varios sistemas operativos\n2. Multi-sistemas de archivos\n3. Separacion SO vs Datos\n4. Proteccion ante errores (aislamiento)\n5. Politicas de seguridad diferenciadas\n6. Mejor gestion de backups\n7. Rendimiento optimizado\n8. Organizacion del espacio",
+      "tags": ["discos", "particiones", "ventajas", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 165,
+      "front": "Requisitos de particiones para Linux",
+      "back": "MINIMO:\n- Particion raiz (/): sistema operativo\n- Particion swap: memoria virtual\n\nOPCIONAL (recomendado):\n- /home: datos de usuarios\n- /boot: archivos de arranque\n- /var: logs y datos variables\n\nNOTA: /etc, /bin, /sbin, /lib deben estar en la misma particion que /",
+      "tags": ["discos", "linux", "particiones", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 166,
+      "front": "Regla del tamano de la SWAP en Linux",
+      "back": "RAM < 512 MB: SWAP = 2x RAM\n\n512 MB < RAM < 4 GB: SWAP = 1x RAM\n\nRAM > 4 GB: SWAP = 4 GB (maximo)\n\nEsta regla varia segun el uso (servidores,\naplicaciones pesadas, hibernacion...)",
+      "tags": ["discos", "linux", "swap", "memoria", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 167,
+      "front": "Sistemas de archivos transaccionales",
+      "back": "Implementan TRANSACCIONES en operaciones:\n\nTRANSACCION: conjunto de operaciones atomicas\n- Todas se ejecutan o ninguna\n\nCOMMIT: confirma los cambios\nROLLBACK: deshace cambios no consolidados\n\nJOURNALING: registro de operaciones pendientes\n\nEJEMPLOS: NTFS, ext3, ext4, XFS",
+      "tags": ["sistema-archivos", "transacciones", "journaling", "unidad-2"],
+      "difficulty": "hard"
+    },
+    {
+      "id": 168,
+      "front": "Sistemas de archivos distribuidos",
+      "back": "Permiten acceder a archivos en red\ncomo si fueran locales.\n\nCARACTERISTICAS:\n- Arbol de archivos unico\n- Transparencia de ubicacion\n- Carga distribuida entre servidores\n- Acceso remoto transparente\n\nEJEMPLOS: NFS, CIFS/SMB, DFS",
+      "tags": ["sistema-archivos", "red", "distribuidos", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 169,
+      "front": "Sistemas de archivos cifrados",
+      "back": "Encriptan los datos automaticamente:\n\n- Cifrado transparente al usuario\n- Solo accesible con autenticacion\n- Proteccion de datos sensibles\n\nEJEMPLOS:\n- Windows: BitLocker, EFS\n- Linux: eCryptfs, LUKS/dm-crypt",
+      "tags": ["sistema-archivos", "seguridad", "cifrado", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 170,
+      "front": "Sistemas de archivos virtuales",
+      "back": "Capa de abstraccion sobre sistemas reales:\n\n- Acceso uniforme a diferentes FS\n- Puente entre SO diferentes\n- /proc en Linux: estado del sistema en tiempo real\n- Discos virtuales (VHD, ISO)\n\nNO almacenan datos fisicamente (ej: /proc esta en RAM)",
+      "tags": ["sistema-archivos", "virtual", "abstraccion", "unidad-2"],
+      "difficulty": "hard"
+    },
+    {
+      "id": 171,
+      "front": "FAT16 vs FAT32",
+      "back": "FAT16:\n- Nombres 8.3 (limitados)\n- Tamano max: 2 GB\n\nFAT32:\n- Nombres largos\n- Tamano max volumen: 8 TB\n- Tamano max archivo: 4 GB\n- Ideal para dispositivos extraibles\n\nLIMITACION: sin journaling ni permisos avanzados",
+      "tags": ["sistema-archivos", "fat", "windows", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 172,
+      "front": "Caracteristicas de NTFS",
+      "back": "- Cuotas de disco por usuario\n- Cifrado (EFS) y compresion\n- Journaling (NTFS transaccional desde Vista)\n- Enlaces (hard links, junctions)\n- Permisos ACL avanzados\n- Tamano max: 16 EB (exabytes)\n- Tamano archivo: limitado por volumen",
+      "tags": ["sistema-archivos", "ntfs", "windows", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 173,
+      "front": "ext2 vs ext3 vs ext4",
+      "back": "ext2: Sin journaling, robusto\next3: ext2 + journaling\next4: Mejoras significativas\n\nMEJORAS ext4:\n- Archivos hasta 1 EB, volumenes 16 TB\n- Mejor uso de CPU\n- Velocidad de lectura/escritura\n- Compatibilidad hacia atras con ext2/ext3",
+      "tags": ["sistema-archivos", "ext", "linux", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 174,
+      "front": "Herramienta GParted",
+      "back": "Herramienta grafica de particionamiento:\n\nFUNCIONES:\n- Crear/eliminar particiones\n- Redimensionar/mover particiones\n- Copiar/pegar particiones\n- Formatear con diversos FS\n- Live CD disponible\n\nSOPORTA: ext, FAT, NTFS, btrfs, swap, etc.\n\nIMPORTANTE: los cambios no se aplican hasta confirmar",
+      "tags": ["discos", "herramientas", "gparted", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 175,
+      "front": "Comando fdisk en Linux",
+      "back": "Herramienta de particionamiento por linea de comandos:\n\nOPCIONES PRINCIPALES:\n- n: nueva particion\n- d: eliminar particion\n- p: mostrar tabla\n- w: escribir cambios\n- q: salir sin guardar\n- l: listar tipos de particion\n- t: cambiar tipo de particion\n\nEjemplo: fdisk /dev/sdb",
+      "tags": ["discos", "comandos", "fdisk", "linux", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 176,
+      "front": "Comando mkfs en Linux",
+      "back": "Formatea particiones con sistema de archivos:\n\nSINTAXIS:\nmkfs.tipo_dispositivo\n\nEJEMPLOS:\nmkfs.ext4 /dev/sdb1\nmkfs.ntfs /dev/sdb2\nmkfs.vfat -F 32 /dev/sdb3\n\nSWAP:\nmkswap /dev/sdb5 (crear swap)\nswapon /dev/sdb5 (activar)\nswapoff /dev/sdb5 (desactivar)",
+      "tags": ["discos", "comandos", "mkfs", "linux", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 177,
+      "front": "Montaje de particiones en Linux",
+      "back": "Hacer accesible una particion en el arbol de directorios:\n\nCOMANDO:\nmount -t tipo dispositivo punto_montaje\n\nEJEMPLO:\nmount -t ext4 /dev/sdb1 /mnt/datos\n\nOPCIONES:\n-o ro: solo lectura\n-o rw: lectura/escritura\n-a: montar todo lo de /etc/fstab\n\nVER MONTADOS: mount -l",
+      "tags": ["discos", "comandos", "mount", "linux", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 178,
+      "front": "Desmontaje de particiones en Linux",
+      "back": "umount punto_o_dispositivo\n\nEJEMPLOS:\numount /mnt/datos\numount /dev/sdb1\n\nOPCIONES:\n-a: desmontar todo\n-f: forzar (cuidado!)\n\nIMPORTANTE: No se puede desmontar si hay\narchivos en uso. Usar lsof para ver procesos.",
+      "tags": ["discos", "comandos", "umount", "linux", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 179,
+      "front": "Archivo /etc/fstab en Linux",
+      "back": "Configuracion de montaje automatico:\n\nCOLUMNAS:\n1. Dispositivo (UUID, etiqueta, /dev/xxx)\n2. Punto de montaje\n3. Tipo de sistema de archivos\n4. Opciones (auto, noauto, ro, rw, user)\n5. Dump (copias de seguridad)\n6. Pass (orden fsck)\n\nEJEMPLO:\nUUID=xxx /home ext4 defaults 0 2",
+      "tags": ["discos", "configuracion", "fstab", "linux", "unidad-2"],
+      "difficulty": "hard"
+    },
+    {
+      "id": 180,
+      "front": "Volúmenes simples vs distribuidos (Windows)",
+      "back": "VOLUMEN SIMPLE:\n- Un solo disco\n- Se puede ampliar si hay espacio\n\nVOLUMEN DISTRIBUIDO:\n- Espacio de varios discos unidos\n- Mayor capacidad\n- Sin tolerancia a fallos\n\nREQUISITO: Disco dinamico (convertir desde basico)",
+      "tags": ["discos", "volumenes", "windows", "lvm", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 181,
+      "front": "LVM en Linux: componentes",
+      "back": "LVM = Logical Volume Manager\n\nCOMPONENTES:\n- PV (Physical Volume): particiones fisicas\n- VG (Volume Group): grupo de PVs\n- LV (Logical Volume): particiones logicas en VG\n\nVENTAJAS:\n- Redimensionar en caliente\n- Agregar/quitar discos dinamicamente\n- Snapshots\n\nCOMANDOS: pvcreate, vgcreate, lvcreate",
+      "tags": ["discos", "lvm", "linux", "volumenes", "unidad-2"],
+      "difficulty": "hard"
+    },
+    {
+      "id": 182,
+      "front": "Desfragmentacion: ¿Que es y cuando hacerla?",
+      "back": "Proceso de recolocar archivos fragmentados\npara que ocupen bloques contiguos.\n\nMEJORA:\n- Rendimiento de lectura\n- Reduce movimiento de cabezales\n\nWINDOWS:\n- Desfragmentador de disco (dfrgui)\n- Programable automaticamente\n\nLINUX:\n- ext4: practicamente no necesaria\n- SSD: NO desfragmentar (reduce vida util)",
+      "tags": ["discos", "mantenimiento", "desfragmentacion", "rendimiento", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 183,
+      "front": "Herramientas de revision de discos",
+      "back": "WINDOWS - chkdsk:\n- Verifica FAT y NTFS\n- Comprueba archivos, directorios, sectores\n- /f: repara errores\n- /r: recupera sectores danados\n\nLINUX - fsck:\n- Verifica sistemas ext\n- Debe ejecutarse con disco desmontado\n- -v: verbose\n- tune2fs: configurar comprobaciones periodicas",
+      "tags": ["discos", "mantenimiento", "fsck", "chkdsk", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 184,
+      "front": "Comandos de estadisticas de disco",
+      "back": "LINUX:\ndf -h (espacio libre en sistemas de archivos)\ndu -sh directorio (tamano de carpeta)\ndu -h --max-depth=1\n\nWINDOWS:\nWinDirStat: estadisticas graficas\n\nBAOBAB (Ubuntu):\nAnalisis grafico de uso de disco",
+      "tags": ["discos", "comandos", "estadisticas", "linux", "windows", "unidad-2"],
+      "difficulty": "easy"
+    }
+  ]
+}

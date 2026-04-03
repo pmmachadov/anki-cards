@@ -73,17 +73,30 @@ Haz clic en **"📊"** en cualquier mazo para ver:
 
 ## 📚 Materiales incluidos
 
-### Sistemas Informáticos (60 tarjetas)
+### Sistemas Informáticos (184 tarjetas)
 
 Contenido traducido del catalán al español:
 
-| Tema | Tarjetas |
-|------|----------|
-| **Hardware** | CPU, RAM, GPU, placa base, almacenamiento |
-| **Redes** | Modelo OSI, TCP/IP, switches, routers, VLANs, subnetting |
-| **Seguridad** | Riesgos físicos/lógicos, normativa, copias de seguridad |
-| **Sistemas Operativos** | Windows, Linux, macOS, kernel, virtualización |
-| **Virtualización** | Hipervisores tipos 1/2, VMs, contenedores, Docker |
+| Unidad | Tema | Tarjetas |
+|--------|------|----------|
+| **Unidad 1** | Hardware, Redes, SO y Virtualización | 60 |
+| **Unidad 2** | Sistemas de ficheros, CLI, Directorios | 39 |
+| **Unidad 2** | Ejercicios prácticos (wildcards, compresión) | 26 |
+| **Unidad 2** | Autoevaluación (V/F, comandos, FHS) | 33 |
+| **Unidad 2** | Administración de discos (MBR, particiones, LVM) | 26 |
+
+**Temas principales cubiertos:**
+- 🔧 **Hardware**: CPU, RAM, GPU, placa base, almacenamiento
+- 🌐 **Redes**: Modelo OSI, TCP/IP, switches, routers, VLANs, subnetting
+- 🛡️ **Seguridad**: Riesgos físicos/lógicos, normativa, copias de seguridad
+- 💻 **Sistemas Operativos**: Windows, Linux, macOS, kernel, virtualización
+- 📦 **Virtualización**: Hipervisores tipos 1/2, VMs, contenedores, Docker
+- 📁 **Sistemas de archivos**: NTFS, ext4, FAT32, transacciones, journaling
+- 🗂️ **Directorios**: Estructura FHS, rutas absolutas/relativas
+- ⌨️ **Comandos**: Linux (ls, cd, tar, gzip) y Windows (dir, cd)
+- 💾 **Particiones**: MBR, GPT, primarias/extendidas/lógicas
+- 🔧 **LVM**: Volúmenes físicos, grupos, volúmenes lógicos
+- 🛠️ **Mantenimiento**: Montaje, fstab, fsck, desfragmentación
 
 ## ⌨️ Atajos de teclado
 
