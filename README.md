@@ -97,6 +97,7 @@ Contenido traducido del catalán al español:
 | **Unidad 3** | Autoevaluación cuentas y grupos (Samba, plantillas) | 27 |
 | **Unidad 3** | Recursos del dominio (AD, Samba, NFS) | 19 |
 | **Unidad 3** | Actividades recursos (Samba, NFS prácticas) | 8 |
+| **Unidad 3** | Autoevaluación recursos (AD, Samba, configuración) | 20 |
 
 **Temas principales cubiertos:**
 - 🔧 **Hardware**: CPU, RAM, GPU, placa base, almacenamiento
