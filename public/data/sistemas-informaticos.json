@@ -2788,6 +2788,315 @@
         "unidad-2"
       ],
       "difficulty": "medium"
+    },
+    {
+      "id": 230,
+      "front": "Permisos en Windows: tipos basicos",
+      "back": "PERMISOS BASICOS:\n\n- Lectura: ver archivo/carpeta\n- Lectura y ejecucion: abrir y ejecutar\n- Mostrar contenido: ver directorio\n- Escritura: modificar archivo/carpeta\n- Modificacion: cambiar archivos/directorios\n- Control total: todos los permisos\n\nPERMISOS ESPECIALES:\n- Sincronizar archivo\n- Cambiar permisos\n- Cambiar propietario",
+      "tags": [
+        "trabajo-archivos",
+        "permisos",
+        "windows",
+        "seguridad",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 231,
+      "front": "Comando chown en Linux",
+      "back": "Cambia el PROPIETARIO de un archivo/directorio.\n\nSINTAXIS:\nchown [opciones] nuevo_propietario archivo\n\nEJEMPLOS:\nchown juan documento.txt\nchown -R juan /var/www/web/\n\nOPCIONES:\n-R: recursivo (directorios)\n\nNOTA: Solo root puede cambiar propietarios.",
+      "tags": [
+        "trabajo-archivos",
+        "permisos",
+        "chown",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 232,
+      "front": "Comando chgrp en Linux",
+      "back": "Cambia el GRUPO de un archivo/directorio.\n\nSINTAXIS:\nchgrp [opciones] nuevo_grupo archivo\n\nEJEMPLOS:\nchgrp desarrolladores proyecto.txt\nchgrp -R www-data /var/www/\n\nOPCIONES:\n-R: recursivo\n\nREGLA: El usuario debe pertenecer al grupo al que asigna.",
+      "tags": [
+        "trabajo-archivos",
+        "permisos",
+        "chgrp",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 233,
+      "front": "Interpretacion de permisos en Linux (ls -l)",
+      "back": "FORMATO: -rwxrwxrwx\n\n1er caracter: tipo\n- - = archivo\n- d = directorio\n- l = enlace simbolico\n\nSIGUIENTES 9 (grupos de 3):\n- Primeros 3: propietario (u)\n- Siguientes 3: grupo (g)\n- Ultimos 3: otros (o)\n\nDENTRO DE CADA GRUPO:\n- r = lectura (4)\n- w = escritura (2)\n- x = ejecucion (1)",
+      "tags": [
+        "trabajo-archivos",
+        "permisos",
+        "linux",
+        "ls",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 234,
+      "front": "Permisos rwx para archivos vs directorios",
+      "back": "ARCHIVOS:\nr = leer contenido\nw = modificar contenido\nx = ejecutar archivo\n\nDIRECTORIOS:\nr = listar contenido (ls)\nw = crear/eliminar archivos\nx = acceder al directorio (cd)\n\nIMPORTANTE:\nSin x en directorio, no se puede\nentrar aunque se tenga r.",
+      "tags": [
+        "trabajo-archivos",
+        "permisos",
+        "linux",
+        "directorios",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 235,
+      "front": "Comando chmod - notacion simbolica",
+      "back": "SINTAXIS: chmod quien operacion permisos\n\nQUIEN:\nu = usuario (owner)\ng = grupo\no = otros\na = todos\n\nOPERACION:\n+ = añadir\n- = quitar\n= = asignar exacto\n\nPERMISOS:\nr, w, x\n\nEJEMPLOS:\nchmod u+x script.sh\nchmod go-w archivo.txt\nchmod a=r documento.txt",
+      "tags": [
+        "trabajo-archivos",
+        "permisos",
+        "chmod",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 236,
+      "front": "Comando chmod - notacion octal",
+      "back": "VALORES:\n0 = ---\n1 = --x\n2 = -w-\n3 = -wx\n4 = r--\n5 = r-x\n6 = rw-\n7 = rwx\n\nEJEMPLOS:\nchmod 755 archivo\n→ rwxr-xr-x\n\nchmod 644 archivo\n→ rw-r--r--\n\nchmod 777 archivo\n→ rwxrwxrwx",
+      "tags": [
+        "trabajo-archivos",
+        "permisos",
+        "chmod",
+        "octal",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 237,
+      "front": "Permisos por defecto y comando umask",
+      "back": "PERMISOS POR DEFECTO:\n- Archivos: 644 (rw-r--r--)\n- Directorios: 755 (rwxr-xr-x)\n\nUMASK: define permisos que NO se asignan\n\nCALCULO:\nArchivos: 666 - umask\nDirectorios: 777 - umask\n\nEJEMPLO umask 022:\nArchivos: 666-022 = 644\nDirectorios: 777-022 = 755\n\nCambiar: umask 027",
+      "tags": [
+        "trabajo-archivos",
+        "permisos",
+        "umask",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 238,
+      "front": "Permisos especiales en Linux: SUID, SGID, Sticky",
+      "back": "SUID (Set User ID) - 4000:\n- Archivos: ejecuta como propietario\n- s en bit de ejecucion usuario\n\nSGID (Set Group ID) - 2000:\n- Archivos: ejecuta como grupo\n- Directorios: archivos heredan grupo\n- s en bit de ejecucion grupo\n\nSTICKY - 1000:\n- Directorios: solo propietario borra archivos\n- t en bit de ejecucion otros\n- Ejemplo: /tmp",
+      "tags": [
+        "trabajo-archivos",
+        "permisos",
+        "especiales",
+        "suid",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 239,
+      "front": "Como asignar permisos especiales (ejemplos)",
+      "back": "NOTACION SIMBOLICA:\nchmod u+s archivo (SUID)\nchmod g+s directorio (SGID)\nchmod +t directorio (Sticky)\n\nNOTACION OCTAL:\nchmod 4755 archivo (SUID + rwxr-xr-x)\nchmod 2755 directorio (SGID + rwxr-xr-x)\nchmod 1777 /compartido (Sticky + rwxrwxrwx)\n\nMAYUSCULA (S, T): sin permiso de ejecucion\nminuscula (s, t): con permiso de ejecucion",
+      "tags": [
+        "trabajo-archivos",
+        "permisos",
+        "especiales",
+        "chmod",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 240,
+      "front": "Enlaces en Windows: tipos y comando mklink",
+      "back": "TIPOS:\n\n1. ENLACE SIMBOLICO (/d para directorios):\nmklink enlace original\n→ Acceso directo, depende del original\n\n2. ENLACE FUERTE (/h):\nmklink /h enlace original\n→ Mismo archivo, dos rutas\n→ Solo archivos, mismo volumen\n\n3. UNION (/j):\nmklink /j enlace directorio\n→ Similar a enlace fuerte para directorios\n→ Puede cruzar volumenes locales",
+      "tags": [
+        "trabajo-archivos",
+        "enlaces",
+        "windows",
+        "mklink",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 241,
+      "front": "Inode (nodo de identificacion) en Linux",
+      "back": "Estructura interna que almacena metadatos:\n\nCONTENIDO DEL INODE:\n- Propietario y grupo\n- Permisos\n- Tamaño\n- Fechas (acceso, modificacion, cambio)\n- Punteros a bloques de datos\n- Numero de enlaces\n\nNO CONTIENE:\n- Nombre del archivo\n- Contenido del archivo\n\nCOMANDO: ls -i (ver numero de inode)",
+      "tags": [
+        "trabajo-archivos",
+        "enlaces",
+        "inode",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 242,
+      "front": "Enlace fuerte (hard link) en Linux",
+      "back": "CORRESPONDENCIA entre nombre de archivo e inode.\n\nCARACTERISTICAS:\n- Mismo numero de inode\n- Mismo contenido, mismos metadatos\n- Ocupa espacio una sola vez\n- No hay concepto de 'original'\n\nLIMITACIONES:\n- Solo archivos (no directorios)\n- Dentro del mismo sistema de archivos\n\nCOMANDO:\nln original enlace\n\nVERIFICAR:\nls -li (mismo numero en 1a columna)",
+      "tags": [
+        "trabajo-archivos",
+        "enlaces",
+        "hard-link",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 243,
+      "front": "Enlace simbolico (symbolic link) en Linux",
+      "back": "Archivo especial que apunta a otro archivo/directorio.\n\nCARACTERISTICAS:\n- Propio numero de inode\n- Puede enlazar archivos y directorios\n- Puede cruzar sistemas de archivos\n- Si se borra el original, el enlace queda roto\n\nCREACION:\nln -s original enlace\n\nIDENTIFICACION:\nlrwxrwxrwx ... enlace -> original\n\nCOLOR: cyan (azul claro) en terminal",
+      "tags": [
+        "trabajo-archivos",
+        "enlaces",
+        "symlink",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 244,
+      "front": "Diferencias: Enlace fuerte vs Enlace simbolico",
+      "back": "FUERTE (ln):\n- Mismo inode\n- Solo archivos\n- Mismo sistema de archivos\n- Borrar original no afecta\n- No se distingue visualmente\n\nSIMBOLICO (ln -s):\n- Diferente inode\n- Archivos y directorios\n- Cualquier sistema de archivos\n- Borrar original rompe enlace\n- Se muestra con flecha ->",
+      "tags": [
+        "trabajo-archivos",
+        "enlaces",
+        "comparacion",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 245,
+      "front": "Comando find en Linux - opciones basicas",
+      "back": "BUSQUEDA POR:\n\nNombre:\nfind . -name '*.txt'\n\nTipo:\nfind . -type f (archivos)\nfind . -type d (directorios)\n\nTamaño:\nfind . -size +100k (mas de 100KB)\nfind . -size -1M (menos de 1MB)\n\nPermisos:\nfind . -perm 644\n\nProfundidad:\nfind . -maxdepth 2",
+      "tags": [
+        "trabajo-archivos",
+        "busqueda",
+        "find",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 246,
+      "front": "Comando find - opciones de tiempo y propietario",
+      "back": "TIEMPO (n = numero de dias):\n-atime +3: accedido hace +3 dias\n-mtime -7: modificado hace menos de 7 dias\n-ctime +1: cambio de inode hace +1 dia\n\nPROPIETARIO:\n-user juan: archivos de usuario juan\n-group desarrollo: archivos del grupo\n\nENLACES:\n-links +2: mas de 2 enlaces fuertes",
+      "tags": [
+        "trabajo-archivos",
+        "busqueda",
+        "find",
+        "tiempo",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 247,
+      "front": "Comando find con -exec",
+      "back": "EJECUTA ACCIONES sobre resultados:\n\nSINTAXIS:\nfind ... -exec comando {} \\;\n\n{} = sustituye por cada resultado\n\\; = fin del comando\n\nEJEMPLOS:\n\nCopiar archivos .txt encontrados:\nfind . -name '*.txt' -exec cp {} texto/ \\;\n\nCambiar permisos a directorios 777:\nfind . -type d -perm 777 -exec chmod 755 {} \\;\n\nEliminar archivos .tmp:\nfind . -name '*.tmp' -exec rm {} \\;",
+      "tags": [
+        "trabajo-archivos",
+        "busqueda",
+        "find",
+        "exec",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 248,
+      "front": "Comando locate en Linux",
+      "back": "Busca archivos por nombre usando una BASE DE DATOS.\n\nVENTAJAS:\n- Mucho mas rapido que find\n\nDESVENTAJAS:\n- Menos opciones de filtrado\n- Base de datos puede estar desactualizada\n\nACTUALIZAR BASE DE DATOS:\nupdatedb (como root)\n\nUSO:\nlocate '*.txt'\nlocate -i nombre (insensible a mayusculas)\n\nCONFIGURACION: /etc/updatedb.conf",
+      "tags": [
+        "trabajo-archivos",
+        "busqueda",
+        "locate",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 249,
+      "front": "Comparacion: find vs locate",
+      "back": "FIND:\n- Busqueda en tiempo real\n- Examina todos los archivos\n- Mas lento pero siempre actualizado\n- Muchas opciones de filtrado\n- Puede ejecutar acciones (-exec)\n\nLOCATE:\n- Busca en base de datos indexada\n- Muy rapido\n- Puede no estar actualizado\n- Solo busca por nombre\n- Requiere updatedb",
+      "tags": [
+        "trabajo-archivos",
+        "busqueda",
+        "find",
+        "locate",
+        "comparacion",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 250,
+      "front": "Gestion de software en Linux: dpkg",
+      "back": "Herramienta de bajo nivel para gestionar paquetes .deb\n\nCONSULTAS (no requieren root):\ndpkg -s paquete (informacion detallada)\ndpkg -l patron (listar paquetes)\ndpkg -L paquete (archivos instalados)\ndpkg -S archivo (que paquete instalo archivo)\n\nEJEMPLOS:\ndpkg -s vlc\ndpkg -l gnome*\ndpkg -L firefox\ndpkg -S /usr/bin/python",
+      "tags": [
+        "trabajo-archivos",
+        "software",
+        "dpkg",
+        "paquetes",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 251,
+      "front": "Estados de paquetes en dpkg",
+      "back": "ESTADO DE SELECCION:\ni = instalar\nr = eliminar\np = purgar\nh = mantener (hold)\n\nESTADO ACTUAL:\niI = instalado\nn = no instalado\nc = solo archivos de config\nu = desempaquetado\n\nCONDICIONES ERROR:\nR = reinstalacion requerida\n\nEJEMPLO 'ii':\nInstalado y seleccionado para mantener",
+      "tags": [
+        "trabajo-archivos",
+        "software",
+        "dpkg",
+        "estados",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 252,
+      "front": "Diferencia entre eliminar y purgar paquete",
+      "back": "ELIMINAR (remove):\n- Borra el paquete\n- MANTIENE archivos de configuracion\n\nPURGE (purge):\n- Borra el paquete\n- ELIMINA tambien configuraciones\n\nCOMANDOS:\napt remove paquete\napt purge paquete\n\ndpkg -r paquete (remove)\ndpkg -P paquete (purge)",
+      "tags": [
+        "trabajo-archivos",
+        "software",
+        "apt",
+        "dpkg",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
     }
   ]
 }

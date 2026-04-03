@@ -73,7 +73,7 @@ Haz clic en **"📊"** en cualquier mazo para ver:
 
 ## 📚 Materiales incluidos
 
-### Sistemas Informáticos (229 tarjetas)
+### Sistemas Informáticos (252 tarjetas)
 
 Contenido traducido del catalán al español:
 
@@ -86,6 +86,7 @@ Contenido traducido del catalán al español:
 | **Unidad 2** | Administración de discos (teoría: MBR, particiones, LVM) | 25 |
 | **Unidad 2** | Actividades prácticas discos (fdisk, LVM, fstab) | 19 |
 | **Unidad 2** | Autoevaluación discos (V/F, relaciones, completar) | 26 |
+| **Unidad 2** | Trabajo con archivos (permisos, enlaces, búsqueda) | 23 |
 
 **Temas principales cubiertos:**
 - 🔧 **Hardware**: CPU, RAM, GPU, placa base, almacenamiento
