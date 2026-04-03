@@ -1,143 +1,245 @@
 {
   "cards": [
     {
-      "id": 81,
+      "id": "27d583a6-38da-4519-ab82-faed6fabb1a9",
       "front": "Partes de un nombre de archivo",
       "back": "nombre.extension\n\nNOMBRE: identifica el archivo, lo hace unico\nEXTENSION: identifica el tipo de archivo\n\nEjemplo: fotografia.jpg\n- Nombre: fotografia\n- Extension: jpg (imagen)",
-      "tags": ["sistema-archivos", "nomenclatura", "unidad-2"],
+      "tags": [
+        "sistema-archivos",
+        "nomenclatura",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 82,
+      "id": "87f99291-9721-4edc-a9e4-4d18252a69d6",
       "front": "Caracteres prohibidos en nombres de archivo (Windows)",
       "back": "NO permitidos en Windows:\n- Barra invertida: \\\n- Barra: /\n- Interrogante: ?\n- Dos puntos: :\n- Asterisco: *\n- Comillas: \"\n- Mayor que: >\n- Menor que: <\n- Barra vertical: |\n\nMaximo: 260 caracteres (incluye ruta completa)",
-      "tags": ["sistema-archivos", "windows", "nomenclatura", "unidad-2"],
+      "tags": [
+        "sistema-archivos",
+        "windows",
+        "nomenclatura",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 83,
+      "id": "3ff7e0dc-a2ea-4e27-b40f-efaca7e1c8df",
       "front": "Caracteres prohibidos en nombres de archivo (Linux)",
       "back": "NO permitidos en Linux:\n- Barra: /\n- Caracter nulo\n\nSe aconseja NO usar:\n- Interrogante: ?\n- Asterisco: *\n- Ampersand: &\n- Dolar: $ (uso especial en terminal)\n\nMaximo: 255 caracteres\n\nNOTA: Linux distingue MAYUSCULAS/minusculas (case sensitive)",
-      "tags": ["sistema-archivos", "linux", "nomenclatura", "unidad-2"],
+      "tags": [
+        "sistema-archivos",
+        "linux",
+        "nomenclatura",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 84,
+      "id": "bd061ee2-f416-4918-9ca8-566e8b85b351",
       "front": "Que son los Magic Numbers en Linux?",
       "back": "Caracteres alfanumericos (tipicamente 2 bytes) situados al inicio de los archivos que sirven para identificar su tipo.\n\nVENTAJAS vs extensiones:\n- Mas robusto (no se puede cambiar facilmente)\n- No depende del nombre del archivo\n- Mejor seguridad\n\nEjemplo: los archivos ejecutables empiezan con 0x7F 'ELF'",
-      "tags": ["sistema-archivos", "linux", "magic-numbers", "unidad-2"],
+      "tags": [
+        "sistema-archivos",
+        "linux",
+        "magic-numbers",
+        "unidad-2"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 85,
+      "id": "37dce9d3-705a-4461-aeb1-a2eb0987f771",
       "front": "Archivos ocultos en Linux",
       "back": "En Linux, los archivos que comienzan por PUNTO (.) son OCULTOS.\n\nEJEMPLOS:\n- .bashrc\n- .profile\n- .config/\n\nPARA VERLOS:\n- ls -a (muestra todos incluyendo ocultos)\n- ls -la (formato largo + ocultos)\n\nUSO: almacenan configuracion de aplicaciones y sistema",
-      "tags": ["sistema-archivos", "linux", "archivos-ocultos", "unidad-2"],
+      "tags": [
+        "sistema-archivos",
+        "linux",
+        "archivos-ocultos",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 86,
+      "id": "4a131839-c399-4be7-b7a1-f7937fcb969d",
       "front": "Diferencia entre Case Sensitive y Case Insensitive",
       "back": "CASE SENSITIVE (distingue mayusculas/minusculas):\n- Linux, Unix, macOS\n- os.jpg, Os.jpg, OS.jpg = 3 archivos diferentes\n\nCASE INSENSITIVE (NO distingue):\n- Windows (por defecto)\n- os.jpg, Os.jpg, OS.jpg = mismo archivo\n\nNOTA: Windows si distinguye acentos (os.jpg != os.jpg)",
-      "tags": ["sistema-archivos", "conceptos-basicos", "unidad-2"],
+      "tags": [
+        "sistema-archivos",
+        "conceptos-basicos",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 87,
+      "id": "0b7b7134-a1dd-4524-ba4d-81d8a7c5befc",
       "front": "Referencias especiales en directorios",
       "back": ". (punto)\n- Referencia al directorio ACTUAL\n- Ej: ./script.sh ejecuta en directorio actual\n\n.. (dos puntos)\n- Referencia al directorio PADRE\n- Ej: cd .. sube un nivel\n- Esencial para rutas relativas ascendentes",
-      "tags": ["sistema-archivos", "rutas", "conceptos-basicos", "unidad-2"],
+      "tags": [
+        "sistema-archivos",
+        "rutas",
+        "conceptos-basicos",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 88,
+      "id": "795de5b3-cca9-4e12-848f-0db1f05b8f12",
       "front": "Ejemplos de rutas absolutas",
       "back": "WINDOWS:\nC:\\Windows\\notepad.exe\nD:\\Documents\\archivo.txt\n\nLINUX:\n/var/log/messages\n/home/usuario/documentos\n\nCARACTERISTICAS:\n- Comienzan desde raiz\n- Windows: letra de unidad (C:)\n- Linux: barra inicial (/)",
-      "tags": ["sistema-archivos", "rutas", "absolutas", "unidad-2"],
+      "tags": [
+        "sistema-archivos",
+        "rutas",
+        "absolutas",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 89,
+      "id": "2de5ff1a-9ae1-43d1-acb1-bf477336b12d",
       "front": "Ejemplos de rutas relativas",
       "back": "MISMO DIRECTORIO:\narchivo.txt\n\nSUBDIRECTORIO:\ndocumentos/archivo.txt\n\nDIRECTORIO PADRE:\n../archivo.txt\n../../archivo.txt (dos niveles arriba)\n\nHOME (Linux):\n~ (directorio del usuario)\n~usuario (directorio de otro usuario)",
-      "tags": ["sistema-archivos", "rutas", "relativas", "unidad-2"],
+      "tags": [
+        "sistema-archivos",
+        "rutas",
+        "relativas",
+        "unidad-2"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 90,
+      "id": "b32a9edc-fd45-4c42-8d44-ffb3dce63050",
       "front": "Directorios importantes en Windows",
       "back": "Program Files (x86)\n- Aplicaciones de 32 bits\n\nProgram Files\n- Aplicaciones de 64 bits\n\nUsers\\<usuario>\n- Perfiles de usuario\n\nWindows\n- Archivos del sistema operativo\n\nProgramData\n- Datos de aplicaciones (todos los usuarios)",
-      "tags": ["sistema-archivos", "windows", "directorios", "unidad-2"],
+      "tags": [
+        "sistema-archivos",
+        "windows",
+        "directorios",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 91,
+      "id": "9d663c96-36c6-420e-9db0-a7cdc60353a8",
       "front": "Subdirectorios de perfil de usuario en Windows",
       "back": "Documents - Documentos\nDownloads - Descargas\nDesktop - Escritorio\nMusic - Musica\nPictures - Imagenes\nVideos - Videos\nAppData - Configuracion (oculto)\nFavorites - Favoritos\nContacts - Contactos",
-      "tags": ["sistema-archivos", "windows", "usuarios", "unidad-2"],
+      "tags": [
+        "sistema-archivos",
+        "windows",
+        "usuarios",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 92,
+      "id": "fe3bc9f8-3fc3-4d85-b3f0-097797c562d5",
       "front": "Estructura FHS de Linux - Directorios principales",
       "back": "/bin - Comandos esenciales\n/etc - Configuracion del sistema\n/home - Directorios de usuarios\n/var - Datos variables (logs, correo)\n/usr - Programas instalados\n/tmp - Archivos temporales\n/dev - Dispositivos del sistema\n/mnt - Puntos de montaje\n/boot - Archivos de arranque",
-      "tags": ["sistema-archivos", "linux", "fhs", "directorios", "unidad-2"],
+      "tags": [
+        "sistema-archivos",
+        "linux",
+        "fhs",
+        "directorios",
+        "unidad-2"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 93,
+      "id": "0c850b49-013b-4bc4-ac25-60892cebebd6",
       "front": "Comandos basicos de navegacion en Windows",
       "back": "cd - Cambiar directorio\ncd .. - Subir un nivel\ncd \\ - Ir a raiz\nD: - Cambiar a unidad D\n\ndir - Listar contenido\ndir /w - Listado ancho\ndir /s - Incluir subdirectorios\n\npwd no existe (se ve en el prompt)",
-      "tags": ["comandos", "windows", "cli", "navegacion", "unidad-2"],
+      "tags": [
+        "comandos",
+        "windows",
+        "cli",
+        "navegacion",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 94,
+      "id": "9cace8d1-37e8-4f32-8ec1-3aa9685a4fea",
       "front": "Comandos basicos de navegacion en Linux",
       "back": "cd - Cambiar directorio\ncd .. - Subir un nivel\ncd / - Ir a raiz\ncd ~ - Ir a home\ncd - - Volver al directorio anterior\n\npwd - Mostrar ruta actual\n\nls - Listar contenido\nls -la - Listado largo con ocultos\nls -R - Recursivo",
-      "tags": ["comandos", "linux", "cli", "navegacion", "unidad-2"],
+      "tags": [
+        "comandos",
+        "linux",
+        "cli",
+        "navegacion",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 95,
+      "id": "7bc5ea90-978f-4d0f-8e4c-323eff38592a",
       "front": "Comodines (wildcards) en Windows",
       "back": "? (interrogante)\n- Sustituye UN caracter cualquiera\n- dir g?t encuentra: gat, get, git...\n\n* (asterisco)\n- Sustituye CUALQUIER numero de caracteres\n- dir *.txt encuentra todos los txt\n- dir doc* encuentra: documento, doc, doc1...",
-      "tags": ["comandos", "windows", "comodines", "unidad-2"],
+      "tags": [
+        "comandos",
+        "windows",
+        "comodines",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 96,
+      "id": "3946d557-e71a-461e-a4b2-6d6b01cfdb40",
       "front": "Comodines (wildcards) en Linux",
       "back": "? (interrogante)\n- Sustituye UN caracter\n\n* (asterisco)\n- Sustituye CUALQUIER numero de caracteres\n\n[ ] (corchetes)\n- Elige entre caracteres indicados\n- ls p[aeio]ta: pata, peta, pita, pota\n- ls [a-z]*: archivos que empiezan con letra\n\n[! ] (negacion)\n- ls [!af]*: que NO empiecen con a ni f",
-      "tags": ["comandos", "linux", "comodines", "unidad-2"],
+      "tags": [
+        "comandos",
+        "linux",
+        "comodines",
+        "unidad-2"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 97,
+      "id": "19408cff-09c9-44ea-8fd5-3c201432e063",
       "front": "Gestion de archivos en Windows (comandos)",
       "back": "mkdir / md - Crear directorio\nrename / ren - Cambiar nombre\ncopy - Copiar archivos\nxcopy - Copiar directorios\nmove - Mover archivos/directorios\ndel / erase - Eliminar archivos\nrd / rmdir - Eliminar directorios\n   /s - Incluir subdirectorios",
-      "tags": ["comandos", "windows", "gestion-archivos", "unidad-2"],
+      "tags": [
+        "comandos",
+        "windows",
+        "gestion-archivos",
+        "unidad-2"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 98,
+      "id": "df810a37-beea-4457-a7e9-638663b5cf24",
       "front": "Gestion de archivos en Linux (comandos)",
       "back": "mkdir - Crear directorio\nmv - Mover o renombrar\ncp - Copiar archivos\ncp -r - Copiar directorios recursivamente\nrm - Eliminar archivos\nrm -r - Eliminar directorios\nrmdir - Eliminar directorios vacios\nfile - Identificar tipo de archivo",
-      "tags": ["comandos", "linux", "gestion-archivos", "unidad-2"],
+      "tags": [
+        "comandos",
+        "linux",
+        "gestion-archivos",
+        "unidad-2"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 99,
+      "id": "211e703e-a43f-4da1-bede-b26f02732bc0",
       "front": "Como empaquetar y comprimir en Linux",
       "back": "EMPAQUETAR (tar):\ntar -cf archivo.tar ficheros\n\nDESempaquetar:\ntar -xf archivo.tar\n\nEMPaquetar Y COMPRIMIR:\ntar -czf archivo.tar.gz ficheros (gzip)\ntar -cjf archivo.tar.bz2 ficheros (bzip2)\n\nOPCIONES:\n-c: crear\n-x: extraer\n-f: archivo\n-z: gzip\n-j: bzip2\n-v: verbose (mostrar progreso)",
-      "tags": ["comandos", "linux", "compresion", "tar", "unidad-2"],
+      "tags": [
+        "comandos",
+        "linux",
+        "compresion",
+        "tar",
+        "unidad-2"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 100,
+      "id": "1668bad4-2876-4cdc-80bc-7c46e68687c2",
       "front": "Comparativa: gzip vs bzip2",
       "back": "GZIP (.gz):\n- Mas rapido\n- Menor compresion\n- gzip archivo (comprimir)\n- gunzip archivo.gz (descomprimir)\n\nBZIP2 (.bz2):\n- Mas lento\n- Mayor ratio de compresion\n- Usa mas memoria\n- bzip2 archivo\n- bunzip2 archivo.bz2",
-      "tags": ["comandos", "linux", "compresion", "unidad-2"],
+      "tags": [
+        "comandos",
+        "linux",
+        "compresion",
+        "unidad-2"
+      ],
       "difficulty": "medium"
     }
   ]

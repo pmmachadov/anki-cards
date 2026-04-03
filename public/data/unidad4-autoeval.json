@@ -1,122 +1,216 @@
 {
   "cards": [
     {
-      "id": 494,
+      "id": "6fa54d92-4727-4eff-b7d2-2d507e0cedca",
       "front": "Autoevaluacion Ejercicio 1.1: El concepto que se expresa como porcentaje del tiempo efectivo de funcionamiento",
       "back": "RESPUESTA: DISPONIBILIDAD\n\nExplicacion:\nSe expresa como porcentaje que indica el tiempo\nefectivo que ha estado funcionando correctamente\nun sistema en un periodo determinado.\n\nEjemplo:\n99.99% = menos de 54 minutos/año de caida",
-      "tags": ["unidad-4", "autoevaluacion", "disponibilidad", "conceptos"],
+      "tags": [
+        "unidad-4",
+        "autoevaluacion",
+        "disponibilidad",
+        "conceptos"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 495,
+      "id": "45d1906b-2760-419a-b53c-bb609ea38e3c",
       "front": "Autoevaluacion Ejercicio 1.2: Medida de conformidad del sistema con comportamiento esperado segun especificaciones",
       "back": "RESPUESTA: FIABILIDAD (Reliability)\n\nExplicacion:\nEs la medida de la conformidad de un sistema\ncon el comportamiento que esperamos de el\nsegun sus especificaciones a lo largo del tiempo.",
-      "tags": ["unidad-4", "autoevaluacion", "fiabilidad", "conceptos"],
+      "tags": [
+        "unidad-4",
+        "autoevaluacion",
+        "fiabilidad",
+        "conceptos"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 496,
+      "id": "4a9c8d65-f3a6-4281-b442-26443eb66277",
       "front": "Autoevaluacion Ejercicio 1.3: Capacidad de mantenerse operativo ante errores y averias",
       "back": "RESPUESTA: TOLERANCIA A FALLOS\n\nExplicacion:\nUn sistema tiene tolerancia a fallos si puede\nmantenerse operativo aunque se produzcan\nerrores y averias.\n\nBasada en el concepto de REDUNDANCIA.",
-      "tags": ["unidad-4", "autoevaluacion", "tolerancia-fallos", "conceptos"],
+      "tags": [
+        "unidad-4",
+        "autoevaluacion",
+        "tolerancia-fallos",
+        "conceptos"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 497,
+      "id": "1b0dd563-67c2-4f96-a7a9-54e99e78e4b4",
       "front": "Autoevaluacion Ejercicio 1.4: Guardar mas informacion de la necesaria para hacer frente a perdidas",
       "back": "RESPUESTA: REDUNDANCIA\n\nExplicacion:\nConsiste en guardar mas informacion de la\nque es estrictamente necesaria para poder\nhacer frente a eventuales perdidas debidas\na averias y errores.",
-      "tags": ["unidad-4", "autoevaluacion", "redundancia", "conceptos"],
+      "tags": [
+        "unidad-4",
+        "autoevaluacion",
+        "redundancia",
+        "conceptos"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 498,
+      "id": "ae76a354-67d9-4241-ab6d-8a483fb8a18c",
       "front": "Autoevaluacion Ejercicio 2: RAID basado en duplicacion de datos",
       "back": "RESPUESTA: RAID 1\n\nRAID 1 = ESPEJO / MIRROR\n\nCaracteristicas:\n- Duplica informacion en dos o mas discos\n- Minimo 2 discos\n- 50% aprovechamiento\n- Alta tolerancia a fallos\n- Reconstruccion rapida\n\nOtros RAID:\n- RAID 0: bandas, sin redundancia\n- RAID 3: paridad dedicada\n- RAID 5: paridad distribuida",
-      "tags": ["unidad-4", "autoevaluacion", "raid", "raid-1"],
+      "tags": [
+        "unidad-4",
+        "autoevaluacion",
+        "raid",
+        "raid-1"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 499,
+      "id": "285bb516-fcff-4c58-ab94-04cd042afe2d",
       "front": "Autoevaluacion Ejercicio 3.1: Volumenes en espejo",
       "back": "RESPUESTA: RAID 1\n\nCaracteristicas:\n- Mirror / Espejo\n- Duplicacion completa de datos\n- Minimo 2 discos\n- Tolerancia a fallos: 1 disco",
-      "tags": ["unidad-4", "autoevaluacion", "raid", "raid-1", "match"],
+      "tags": [
+        "unidad-4",
+        "autoevaluacion",
+        "raid",
+        "raid-1",
+        "match"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 500,
+      "id": "bc2a29a6-cc28-49d2-bfd5-2cfe291cc106",
       "front": "Autoevaluacion Ejercicio 3.2: Bandas con disco de paridad DEDICADA",
       "back": "RESPUESTA: RAID 3\n\nCaracteristicas:\n- Distribucion a nivel de BYTE\n- Disco de paridad DEDICADO (separado)\n- Minimo 3 discos\n- Cuello de botella en disco paridad",
-      "tags": ["unidad-4", "autoevaluacion", "raid", "raid-3", "match"],
+      "tags": [
+        "unidad-4",
+        "autoevaluacion",
+        "raid",
+        "raid-3",
+        "match"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 501,
+      "id": "85dc0993-f2d6-4670-b641-a29c4b8343da",
       "front": "Autoevaluacion Ejercicio 3.3: Volumenes divididos en bandas",
       "back": "RESPUESTA: RAID 0\n\nCaracteristicas:\n- Striped volume\n- Mejora rendimiento\n- Sin redundancia\n- Datos divididos entre discos\n- NO es RAID propiamente (no hay redundancia)",
-      "tags": ["unidad-4", "autoevaluacion", "raid", "raid-0", "match"],
+      "tags": [
+        "unidad-4",
+        "autoevaluacion",
+        "raid",
+        "raid-0",
+        "match"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 502,
+      "id": "32153ff8-41db-439d-8112-bcccc0fc8cfe",
       "front": "Autoevaluacion Ejercicio 3.4: Sistema multiple de distribucion en bandas REFLEJADO",
       "back": "RESPUESTA: RAID 1+0 (RAID 10)\n\nCaracteristicas:\n- Espejo de bandas\n- RAID 0 (bandas) + RAID 1 (espejo)\n- Minimo 4 discos\n- Alta fiabilidad y rendimiento\n- Puede soportar fallo de >1 disco",
-      "tags": ["unidad-4", "autoevaluacion", "raid", "raid-10", "raid-1+0", "match"],
+      "tags": [
+        "unidad-4",
+        "autoevaluacion",
+        "raid",
+        "raid-10",
+        "raid-1+0",
+        "match"
+      ],
       "difficulty": "hard"
     },
     {
-      "id": 503,
+      "id": "dc64e368-996f-44d2-ae10-a02266181410",
       "front": "Autoevaluacion Ejercicio 3.5: Bandas con paridad DISTRIBUIDA",
       "back": "RESPUESTA: RAID 5\n\nCaracteristicas:\n- Distribucion a nivel de BLOQUE\n- Paridad DISTRIBUIDA en todos discos\n- Minimo 3 discos\n- Sin cuello de botella\n- Recomendado para bases de datos",
-      "tags": ["unidad-4", "autoevaluacion", "raid", "raid-5", "match"],
+      "tags": [
+        "unidad-4",
+        "autoevaluacion",
+        "raid",
+        "raid-5",
+        "match"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 504,
+      "id": "6c89f5d6-385d-4298-a7d8-620dadce7730",
       "front": "Autoevaluacion Ejercicio 4: Aprovechamiento RAID 3 con 4 discos",
       "back": "RESPUESTA: 75% (opcion 2)\n\nFORMULA RAID 3:\n(n-1)/n donde n = numero de discos\n\nCALCULO:\n(4-1)/4 = 3/4 = 75%\n\nDesglose:\n- 3 discos para datos\n- 1 disco para paridad\n- Aprovechamiento: 75%",
-      "tags": ["unidad-4", "autoevaluacion", "raid", "raid-3", "formula"],
+      "tags": [
+        "unidad-4",
+        "autoevaluacion",
+        "raid",
+        "raid-3",
+        "formula"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 505,
+      "id": "4796be2d-3231-4c6c-9827-d0a61c338c50",
       "front": "Autoevaluacion Ejercicio 5: Discos minimos para RAID 1+0",
       "back": "RESPUESTA: 4 discos (opcion 3)\n\nRAID 1+0 (RAID 10):\n\nESTRUCTURA:\n- RAID 0: datos divididos en bandas\n- RAID 1: cada banda duplicada en espejo\n\nCONFIGURACION MINIMA:\n- 2 grupos RAID 1 (2+2 discos)\n- Esos grupos en RAID 0\n- Total: 4 discos\n\nVENTAJA:\nMejor tolerancia que RAID 0+1",
-      "tags": ["unidad-4", "autoevaluacion", "raid", "raid-10", "requisitos"],
+      "tags": [
+        "unidad-4",
+        "autoevaluacion",
+        "raid",
+        "raid-10",
+        "requisitos"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 506,
+      "id": "124d47dc-7a8d-4121-af78-dc823a80810a",
       "front": "Autoevaluacion Ejercicio 6: Definicion de copia incremental",
       "back": "RESPUESTA: Opcion 4\n\nCOPIA INCREMENTAL:\nEs la que contiene los archivos modificados\ndesde la ULTIMA COPIA DE SEGURIDAD\n(cualquier nivel)\n\nDIFERENCIAS:\n- Copia TOTAL: todos los archivos\n- Copia DIFERENCIAL: desde ultima TOTAL\n- Copia INCREMENTAL: desde ultima copia\n\nRestauracion incremental:\nTotal + todas las incrementales intermedias",
-      "tags": ["unidad-4", "autoevaluacion", "backup", "incremental"],
+      "tags": [
+        "unidad-4",
+        "autoevaluacion",
+        "backup",
+        "incremental"
+      ],
       "difficulty": "hard"
     },
     {
-      "id": 507,
+      "id": "3ae91e13-34c8-4646-af0a-f89dbe9c89b4",
       "front": "Autoevaluacion Ejercicio 7.1: Caracteristica de virtualizacion que permite guardar SO en archivos portables",
       "back": "RESPUESTA: ENCAPSULAMIENTO\n\nDefinicion:\nLas maquinas virtuales encapsulan sistemas\nenteros en archivos independientes portables\n\nVentajas:\n- Faciles de manejar y copiar\n- Simplifican clonacion\n- Recuperacion rapida ante averias\n- Migracion en caliente posible",
-      "tags": ["unidad-4", "autoevaluacion", "virtualizacion", "encapsulamiento"],
+      "tags": [
+        "unidad-4",
+        "autoevaluacion",
+        "virtualizacion",
+        "encapsulamiento"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 508,
+      "id": "04e31415-efa4-4530-a976-7ebdf544471e",
       "front": "Autoevaluacion Ejercicio 7.2: Que permite recuperar el estado del sistema en un momento previo",
       "back": "RESPUESTA: PUNTO DE RESTAURACION\n\nDefinicion:\nRepresentacion del estado de los archivos\ndel sistema del equipo en un momento dado.\n\nUso:\n- Fotografia del sistema\n- Recuperar configuracion anterior\n- Deshacer cambios problematicos\n\nHerramientas:\nWindows, VirtualBox",
-      "tags": ["unidad-4", "autoevaluacion", "recuperacion", "punto-restauracion"],
+      "tags": [
+        "unidad-4",
+        "autoevaluacion",
+        "recuperacion",
+        "punto-restauracion"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 509,
+      "id": "15d57885-538b-46a9-ab19-2fbfc0ea7919",
       "front": "Autoevaluacion Ejercicio 7.3: Herramientas que facilitan creacion y restauracion de imagenes de discos",
       "back": "RESPUESTA: CLONACION / HERRAMIENTAS DE CLONACION\n\nEjemplos:\n\nCODIGO LIBRE:\n- Clonezilla\n- Partimage\n\nPROPIETARIAS:\n- Norton Ghost\n- Acronis True Image\n\nUSO:\nCrear imagenes exactas de unidades\nenteras y particiones para recuperacion.",
-      "tags": ["unidad-4", "autoevaluacion", "clonacion", "imagenes", "herramientas"],
+      "tags": [
+        "unidad-4",
+        "autoevaluacion",
+        "clonacion",
+        "imagenes",
+        "herramientas"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 510,
+      "id": "6f0236e5-5e26-420e-8490-579ba5b85fe7",
       "front": "Autoevaluacion Ejercicio 7.4: Duplicacion de informacion fuera del sistema para recuperacion",
       "back": "RESPUESTA: COPIA DE SEGURIDAD (Backup)\n\nDefinicion:\nDuplicacion de la informacion fuera del\nsistema de explotacion habitual en\nsistemas de almacenamiento independientes\npara recuperar la informacion en caso\nde perdida.\n\nNiveles:\n- Nivel 0: Total\n- Nivel 1: Diferencial\n- Nivel 2: Incremental",
-      "tags": ["unidad-4", "autoevaluacion", "backup", "copia-seguridad"],
+      "tags": [
+        "unidad-4",
+        "autoevaluacion",
+        "backup",
+        "copia-seguridad"
+      ],
       "difficulty": "easy"
     }
   ]

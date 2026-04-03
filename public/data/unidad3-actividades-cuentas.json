@@ -1,66 +1,120 @@
 {
   "cards": [
     {
-      "id": 374,
+      "id": "380c5348-8ee8-4406-b0c1-0745311d7fa3",
       "front": "Actividad: Crear dominio medodominio.org con usuario admin",
       "back": "REQUISITOS:\n- Maquina virtual Ubuntu Server 10.04 LTS\n\nPASOS:\n\n1. Seguir instrucciones del apartado\n   'Implementacion de dominios LDAP'\n\n2. Crear dominio con nombre:\n   dc=medodominio,dc=org\n\n3. Crear usuario administrador:\n   cn=admin,dc=medodominio,dc=org\n\n4. Establecer contraseña admin\n\nVERIFICACION:\n- Servidor LDAP funcionando\n- Usuario admin creado correctamente",
-      "tags": ["unidad-3", "ldap", "actividades", "practica", "dominio"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "actividades",
+        "practica",
+        "dominio"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 375,
+      "id": "73217a16-b33a-4b7f-a953-25a4644fb569",
       "front": "Actividad: Conectar a phpLDAPadmin desde maquina cliente",
       "back": "REQUISITOS:\n- Maquina cliente conectada por red\n- Navegador web instalado\n\nPASOS:\n\n1. Abrir navegador en maquina cliente\n\n2. Escribir URL:\n   http://ip_servidor/phpldapadmin\n   (reemplazar ip_servidor por IP real)\n\n3. Iniciar sesion:\n   Login DN: cn=admin,dc=medodominio,dc=org\n   Contraseña: [definida en instalacion]\n\nRESULTADO:\nInterfaz phpLDAPadmin cargada",
-      "tags": ["unidad-3", "ldap", "actividades", "phpldapadmin", "cliente"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "actividades",
+        "phpldapadmin",
+        "cliente"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 376,
+      "id": "224eafca-fc0b-4c77-a458-696803c8fae5",
       "front": "Actividad: Añadir grupo 'alumnos' en phpLDAPadmin",
       "back": "PASOS:\n\n1. En phpLDAPadmin, desplegar arbol\n\n2. Seleccionar ou=Groups\n\n3. Click 'Create new entry here'\n\n4. Seleccionar plantilla:\n   'Generic: Posix Group'\n\n5. Completar campos:\n   - Group: alumnos\n   - GID Number: [asignado automatico]\n\n6. Click 'Create object'\n\n7. Confirmar con 'Commit'\n\nRESULTADO:\nGrupo 'alumnos' creado en ou=Groups",
-      "tags": ["unidad-3", "ldap", "actividades", "grupos", "creacion"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "actividades",
+        "grupos",
+        "creacion"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 377,
+      "id": "c74ba6c5-a68c-4bb5-9e06-2caa5fb2c313",
       "front": "Actividad: Crear usuarios alumno1, alumno2, alumno3",
       "back": "PASOS PARA CADA USUARIO:\n\n1. Seleccionar ou=People\n\n2. Click 'Create new entry here'\n\n3. Seleccionar 'Generic: User Account'\n\n4. Completar datos (ejemplo alumno1):\n   - First name: Alumno\n   - Last name: Uno\n   - User ID: alumno1\n   - Password: [definir contraseña]\n   - GID: seleccionar grupo 'alumnos'\n   - Home: /home/alumno1\n   - Shell: /bin/bash\n\n5. Click 'Create object' → 'Commit'\n\nREPETIR para alumno2 y alumno3",
-      "tags": ["unidad-3", "ldap", "actividades", "usuarios", "creacion"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "actividades",
+        "usuarios",
+        "creacion"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 378,
+      "id": "9dceb9b8-b3f1-458f-aa74-83a080a7e3ab",
       "front": "Actividad: Modificar alumno2 a alumno20",
       "back": "PASOS:\n\n1. En arbol LDAP, seleccionar:\n   uid=alumno2,ou=People,dc=medodominio,dc=org\n\n2. Click 'Modify' o editar atributos\n\n3. Cambiar campos:\n   - User ID: alumno20 (antes alumno2)\n   - Home directory: /home/alumno20\n   (opcionalmente otros campos)\n\n4. Click 'Update object'\n\n5. Confirmar cambios\n\nRESULTADO:\nUsuario renombrado de alumno2 a alumno20",
-      "tags": ["unidad-3", "ldap", "actividades", "usuarios", "modificacion"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "actividades",
+        "usuarios",
+        "modificacion"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 379,
+      "id": "ed78f797-3be8-4483-abb5-a1d9441209f0",
       "front": "Actividad: Borrar usuario alumno3",
       "back": "PASOS:\n\n1. En arbol LDAP, localizar:\n   uid=alumno3,ou=People\n\n2. Seleccionar usuario alumno3\n\n3. Click 'Delete this entry'\n\n4. Confirmar eliminacion:\n   Click 'Delete' en ventana emergente\n\n5. Verificar mensaje de exito\n\nRESULTADO:\n- Usuario alumno3 eliminado\n- Ya no aparece en arbol LDAP\n- No puede autenticarse",
-      "tags": ["unidad-3", "ldap", "actividades", "usuarios", "eliminacion"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "actividades",
+        "usuarios",
+        "eliminacion"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 380,
+      "id": "c1dc513b-9c5c-4cbf-a83e-547f74746689",
       "front": "Actividad: Asignar usuarios al grupo 'alumnos'",
       "back": "PASOS:\n\n1. Seleccionar grupo:\n   cn=alumnos,ou=Groups\n\n2. Click 'Modify'\n\n3. Buscar campo 'memberUid' o similar\n\n4. Añadir usuarios:\n   - alumno1\n   - alumno20 (antes alumno2)\n\n   (Usar selector de usuarios\n   o escribir UIDs manualmente)\n\n5. Click 'Update object'\n\n6. Confirmar con 'Commit'\n\nRESULTADO:\nGrupo 'alumnos' contiene:\nalumno1 y alumno20",
-      "tags": ["unidad-3", "ldap", "actividades", "grupos", "miembros"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "actividades",
+        "grupos",
+        "miembros"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 381,
+      "id": "34f06c62-3c45-4f99-a48b-809bf000b8db",
       "front": "Actividad: Eliminar grupo 'alumnos'",
       "back": "PASOS:\n\n1. En arbol LDAP, seleccionar:\n   cn=alumnos,ou=Groups\n\n2. Click 'Delete this entry'\n\n3. Confirmar eliminacion:\n   - Verificar nombre del grupo\n   - Click 'Delete'\n\n4. Verificar mensaje de exito\n\nRESULTADO:\n- Grupo eliminado del arbol\n- Usuarios NO se eliminan\n- Solo se borra la agrupacion\n\nNOTA:\nLos usuarios alumno1 y alumno20\npermanecen en ou=People",
-      "tags": ["unidad-3", "ldap", "actividades", "grupos", "eliminacion"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "actividades",
+        "grupos",
+        "eliminacion"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 382,
+      "id": "688ed56a-32ed-4fb8-87d5-ff95e04e8dd4",
       "front": "Resumen: Pasos completos de la práctica LDAP",
       "back": "1. Crear dominio medodominio.org con admin\n\n2. Conectar phpLDAPadmin desde cliente\n\n3. Crear grupo 'alumnos'\n\n4. Crear 3 usuarios:\n   alumno1, alumno2, alumno3\n   (con contraseñas)\n\n5. Modificar alumno2 → alumno20\n\n6. Eliminar alumno3\n\n7. Asignar alumno1 y alumno20 a grupo 'alumnos'\n\n8. Eliminar grupo 'alumnos'\n\nDOCUMENTACION:\nGuardar proceso en archivo .odt",
-      "tags": ["unidad-3", "ldap", "actividades", "resumen", "practica"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "actividades",
+        "resumen",
+        "practica"
+      ],
       "difficulty": "easy"
     }
   ]

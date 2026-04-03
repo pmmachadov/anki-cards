@@ -1,143 +1,263 @@
 {
   "cards": [
     {
-      "id": 437,
+      "id": "3beb5b87-fe90-42b4-850b-024d1a3c1d29",
       "front": "V/F: Active Directory es un servicio basado en estándares como DNS",
-      "back": "VERDADERO\n\nActive Directory está basado en:\n- LDAP (Protocolo de Acceso a Directorio)\n- DNS (Sistema de Nombres de Dominio)\n\nAD es la implementación Microsoft de LDAP\npara entornos Windows.\n\nCARACTERÍSTICAS:\n- Estructura jerárquica\n- Autenticación centralizada\n- Políticas de seguridad por dominio",
-      "tags": ["unidad-3", "autoevaluacion", "active-directory", "dns", "vf"],
+      "back": "VERDADERO\\n\\nActive Directory está basado en:\\n- LDAP (Protocolo de Acceso a Directorio)\\n- DNS (Sistema de Nombres de Dominio)\\n\\nAD es la implementación Microsoft de LDAP\\npara entornos Windows.\\n\\nCARACTERÍSTICAS:\\n- Estructura jerárquica\\n- Autenticación centralizada\\n- Políticas de seguridad por dominio",
+      "tags": [
+        "unidad-3",
+        "autoevaluacion",
+        "active-directory",
+        "dns",
+        "vf"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 438,
+      "id": "8d87560e-c783-4cdc-821c-587898b09027",
       "front": "V/F: Dominios se refieren a una única ubicación o tipo específico de red",
-      "back": "FALSO\n\nLos dominios NO se limitan a:\n- Una única ubicación física\n- Un tipo específico de configuración\n\nREALIDAD:\n- Los equipos pueden estar en cualquier lugar\n- Pueden estar en diferentes partes del mundo\n- Lo importante es la comunicación entre ellos\n- La ubicación física es irrelevante\n\nEJEMPLO:\nDominio con equipos en Barcelona, Madrid\ny Buenos Aires funcionando juntos.",
-      "tags": ["unidad-3", "autoevaluacion", "dominios", "vf"],
+      "back": "FALSO\\n\\nLos dominios NO se limitan a:\\n- Una única ubicación física\\n- Un tipo específico de configuración\\n\\nREALIDAD:\\n- Los equipos pueden estar en cualquier lugar\\n- Pueden estar en diferentes partes del mundo\\n- Lo importante es la comunicación entre ellos\\n- La ubicación física es irrelevante\\n\\nEJEMPLO:\\nDominio con equipos en Barcelona, Madrid\\ny Buenos Aires funcionando juntos.",
+      "tags": [
+        "unidad-3",
+        "autoevaluacion",
+        "dominios",
+        "vf"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 439,
+      "id": "3adead64-9c40-4ae3-8407-5a677d4215af",
       "front": "V/F: Una OU es un contenedor de objetos (usuarios, grupos, equipos)",
-      "back": "VERDADERO\n\nUnidad Organizativa (OU):\n- Contenedor de objetos\n- Puede contener:\n  * Usuarios\n  * Grupos\n  * Equipos\n  * Otros recursos\n  * Otras OU (sub-OUs)\n\nUSOS:\n- Organizar por departamentos\n- Aplicar políticas de grupo\n- Delegar administración",
-      "tags": ["unidad-3", "autoevaluacion", "ou", "vf"],
+      "back": "VERDADERO\\n\\nUnidad Organizativa (OU):\\n- Contenedor de objetos\\n- Puede contener:\\n  * Usuarios\\n  * Grupos\\n  * Equipos\\n  * Otros recursos\\n  * Otras OU (sub-OUs)\\n\\nUSOS:\\n- Organizar por departamentos\\n- Aplicar políticas de grupo\\n- Delegar administración",
+      "tags": [
+        "unidad-3",
+        "autoevaluacion",
+        "ou",
+        "vf"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 440,
+      "id": "29c8cad0-3d9f-4ea6-aded-34a4799ac8ca",
       "front": "V/F: Active Directory usa DNS para resolver nombre de máquina a IP",
-      "back": "VERDADERO\n\nAD utiliza DNS para:\n- Resolver nombres de máquinas a direcciones IP\n- Localizar controladores de dominio\n- Encontrar servicios en el dominio\n\nFUNCIONAMIENTO:\nCuando un cliente necesita encontrar\nel DC, consulta al servidor DNS que\nregistra los registros SRV de AD.\n\nDNS ES REQUERIDO para el\nfuncionamiento de Active Directory.",
-      "tags": ["unidad-3", "autoevaluacion", "active-directory", "dns", "vf"],
+      "back": "VERDADERO\\n\\nAD utiliza DNS para:\\n- Resolver nombres de máquinas a direcciones IP\\n- Localizar controladores de dominio\\n- Encontrar servicios en el dominio\\n\\nFUNCIONAMIENTO:\\nCuando un cliente necesita encontrar\\nel DC, consulta al servidor DNS que\\nregistra los registros SRV de AD.\\n\\nDNS ES REQUERIDO para el\\nfuncionamiento de Active Directory.",
+      "tags": [
+        "unidad-3",
+        "autoevaluacion",
+        "active-directory",
+        "dns",
+        "vf"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 441,
+      "id": "1024d350-6d3a-4cf5-a524-1cd165429959",
       "front": "V/F: Los controladores de dominio NO son servidores que almacenan AD",
-      "back": "FALSO\n\nLos Controladores de Dominio (DC):\n- SÍ almacenan el Directorio Activo\n- Gestionan y controlan AD\n- Son el centro neurálgico del dominio\n\nFUNCIONES DEL DC:\n- Autenticación de usuarios\n- Validación de credenciales\n- Acceso a recursos compartidos\n- Replicación entre DCs\n\nINSTALACIÓN:\nUtilidad dcpromo en Windows Server",
-      "tags": ["unidad-3", "autoevaluacion", "dc", "active-directory", "vf"],
+      "back": "FALSO\\n\\nLos Controladores de Dominio (DC):\\n- SÍ almacenan el Directorio Activo\\n- Gestionan y controlan AD\\n- Son el centro neurálgico del dominio\\n\\nFUNCIONES DEL DC:\\n- Autenticación de usuarios\\n- Validación de credenciales\\n- Acceso a recursos compartidos\\n- Replicación entre DCs\\n\\nINSTALACIÓN:\\nUtilidad dcpromo en Windows Server",
+      "tags": [
+        "unidad-3",
+        "autoevaluacion",
+        "dc",
+        "active-directory",
+        "vf"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 442,
+      "id": "5ba1adc9-7d02-4cd2-9a39-191a800776da",
       "front": "Relacionar: Grupos de seguridad en Active Directory",
-      "back": "RESPUESTA 1 - Grupos de seguridad:\nPermiten asignar permisos y recursos\na un conjunto de usuarios.\n\nRESPUESTA 2 - Grupos de distribución:\nExclusivamente para envío de\ncorreos electrónicos.\n\nRESPUESTA 3 - Grupos locales predeterminados:\nBuilt-in (Administradores, Usuarios, etc.)\n\nRESPUESTA 4 - Grupos universales:\nContienen objetos de cualquier dominio\ndel bosque, se replican en catálogo global.",
-      "tags": ["unidad-3", "autoevaluacion", "grupos", "active-directory"],
+      "back": "RESPUESTA 1 - Grupos de seguridad:\\nPermiten asignar permisos y recursos\\na un conjunto de usuarios.\\n\\nRESPUESTA 2 - Grupos de distribución:\\nExclusivamente para envío de\\ncorreos electrónicos.\\n\\nRESPUESTA 3 - Grupos locales predeterminados:\\nBuilt-in (Administradores, Usuarios, etc.)\\n\\nRESPUESTA 4 - Grupos universales:\\nContienen objetos de cualquier dominio\\ndel bosque, se replican en catálogo global.",
+      "tags": [
+        "unidad-3",
+        "autoevaluacion",
+        "grupos",
+        "active-directory"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 443,
+      "id": "f55e8e5d-1637-4c11-9a1b-179037a95656",
       "front": "V/F: ADMIN$ contiene drivers de impresora",
-      "back": "FALSO\n\nADMIN$:\n- Carpeta del sistema (C:\Windows)\n- Usada para administración remota\n\nPRINT$ (NO ADMIN$):\n- Contiene drivers de impresora\n- Solo aparece si hay impresoras compartidas\n\nOTROS RECURSOS:\n- IPC$: administración remota\n- NETLOGON: inicios de sesión\n- SYSVOL: scripts de inicio",
-      "tags": ["unidad-3", "autoevaluacion", "recursos", "admin", "print", "vf"],
+      "back": "FALSO\\n\\nADMIN$:\\n- Carpeta del sistema (C:\\Windows)\\n- Usada para administración remota\\n\\nPRINT$ (NO ADMIN$):\\n- Contiene drivers de impresora\\n- Solo aparece si hay impresoras compartidas\\n\\nOTROS RECURSOS:\\n- IPC$: administración remota\\n- NETLOGON: inicios de sesión\\n- SYSVOL: scripts de inicio",
+      "tags": [
+        "unidad-3",
+        "autoevaluacion",
+        "recursos",
+        "admin",
+        "print",
+        "vf"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 444,
+      "id": "a04a867d-999a-44c0-a6c8-eac7997c2a2f",
       "front": "V/F: IPC$ se usa para administración remota y ver recursos compartidos",
-      "back": "VERDADERO\n\nIPC$ (Inter-Process Communication):\n- Administración remota del sistema\n- Visualización de recursos compartidos\n- Comunicación entre procesos\n\nOTROS RECURSOS ESPECIALES:\n- ADMIN$: carpeta sistema\n- PRINT$: drivers impresora\n- NETLOGON: inicios de sesión DC\n- SYSVOL: scripts de inicio DC\n- C$, D$: unidades ocultas",
-      "tags": ["unidad-3", "autoevaluacion", "ipc", "vf"],
+      "back": "VERDADERO\\n\\nIPC$ (Inter-Process Communication):\\n- Administración remota del sistema\\n- Visualización de recursos compartidos\\n- Comunicación entre procesos\\n\\nOTROS RECURSOS ESPECIALES:\\n- ADMIN$: carpeta sistema\\n- PRINT$: drivers impresora\\n- NETLOGON: inicios de sesión DC\\n- SYSVOL: scripts de inicio DC\\n- C$, D$: unidades ocultas",
+      "tags": [
+        "unidad-3",
+        "autoevaluacion",
+        "ipc",
+        "vf"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 445,
+      "id": "e6cad091-6fea-4724-aaf3-37ef289764f7",
       "front": "V/F: NETLOGON se instala en DC y se usa en inicios de sesión",
-      "back": "VERDADERO\n\nNETLOGON:\n- Instalado en Controladores de Dominio\n- Usado durante inicios de sesión\n- Contiene scripts de logon\n- Procesa políticas de grupo\n\nSYSVOL:\n- Almacena secuencia de scripts\n- Scripts de inicio de sesión\n- Políticas de grupo\n- Replicado entre DCs",
-      "tags": ["unidad-3", "autoevaluacion", "netlogon", "vf"],
+      "back": "VERDADERO\\n\\nNETLOGON:\\n- Instalado en Controladores de Dominio\\n- Usado durante inicios de sesión\\n- Contiene scripts de logon\\n- Procesa políticas de grupo\\n\\nSYSVOL:\\n- Almacena secuencia de scripts\\n- Scripts de inicio de sesión\\n- Políticas de grupo\\n- Replicado entre DCs",
+      "tags": [
+        "unidad-3",
+        "autoevaluacion",
+        "netlogon",
+        "vf"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 446,
+      "id": "8e75ec30-2a02-459f-bde5-a2ee209727aa",
       "front": "V/F: SYSVOL se usa para administración del servidor (carpeta sistema)",
-      "back": "FALSO\n\nSYSVOL:\n- Almacena scripts de inicio de sesión\n- Secuencia de comandos de logon\n- Políticas de grupo\n- Replicado entre DCs\n\nADMIN$ (NO SYSVOL):\n- Carpeta del sistema (C:\Windows)\n- Usada para administración remota\n\nDIFERENCIA CLAVE:\nSYSVOL = scripts y políticas\nADMIN$ = carpeta Windows",
-      "tags": ["unidad-3", "autoevaluacion", "sysvol", "admin", "vf"],
+      "back": "FALSO\\n\\nSYSVOL:\\n- Almacena scripts de inicio de sesión\\n- Secuencia de comandos de logon\\n- Políticas de grupo\\n- Replicado entre DCs\\n\\nADMIN$ (NO SYSVOL):\\n- Carpeta del sistema (C:\\Windows)\\n- Usada para administración remota\\n\\nDIFERENCIA CLAVE:\\nSYSVOL = scripts y políticas\\nADMIN$ = carpeta Windows",
+      "tags": [
+        "unidad-3",
+        "autoevaluacion",
+        "sysvol",
+        "admin",
+        "vf"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 447,
+      "id": "3d48e93a-dbb9-481d-944e-a87e4fa8c2db",
       "front": "V/F: PRINT$ almacena secuencia de pedidos de inicio de sesión",
-      "back": "FALSO\n\nPRINT$:\n- Contiene drivers de impresora\n- Para equipos clientes\n- Aparece si hay impresoras compartidas\n\nSYSVOL (NO PRINT$):\n- Almacena secuencia de scripts\n- Inicios de sesión\n\nFUNCIÓN DE PRINT$:\nLos clientes descargan drivers\nde impresora desde este recurso\ncuando no los tienen localmente.",
-      "tags": ["unidad-3", "autoevaluacion", "print", "sysvol", "vf"],
+      "back": "FALSO\\n\\nPRINT$:\\n- Contiene drivers de impresora\\n- Para equipos clientes\\n- Aparece si hay impresoras compartidas\\n\\nSYSVOL (NO PRINT$):\\n- Almacena secuencia de scripts\\n- Inicios de sesión\\n\\nFUNCIÓN DE PRINT$:\\nLos clientes descargan drivers\\nde impresora desde este recurso\\ncuando no los tienen localmente.",
+      "tags": [
+        "unidad-3",
+        "autoevaluacion",
+        "print",
+        "sysvol",
+        "vf"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 448,
+      "id": "e7b52797-99a1-4222-bad1-cd367c5f56f7",
       "front": "Completar: Samba es un paquete de software que implementa...",
-      "back": "RESPUESTAS:\n\n1. Samba implementa en sistemas basados en\n   Unix, como GNU/LINUX,\n   una docena de servicios y protocolos.\n\n2. Entre ellos el NETBIOS sobre TCP/IP\n   y el SMB.\n\nORIGEN DEL NOMBRE:\nSMB → Samba (buscando palabra con SMB)\n\nFUNCIÓN:\nPermite compartir archivos e impresoras\nentre sistemas Windows y GNU/Linux.",
-      "tags": ["unidad-3", "autoevaluacion", "samba", "completar"],
+      "back": "RESPUESTAS:\\n\\n1. Samba implementa en sistemas basados en\\n   Unix, como GNU/LINUX,\\n   una docena de servicios y protocolos.\\n\\n2. Entre ellos el NETBIOS sobre TCP/IP\\n   y el SMB.\\n\\nORIGEN DEL NOMBRE:\\nSMB → Samba (buscando palabra con SMB)\\n\\nFUNCIÓN:\\nPermite compartir archivos e impresoras\\nentre sistemas Windows y GNU/Linux.",
+      "tags": [
+        "unidad-3",
+        "autoevaluacion",
+        "samba",
+        "completar"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 449,
+      "id": "c1153c0c-70bc-475d-bc2d-45ed69d94cf5",
       "front": "Completar: El protocolo SMB lo inventó originalmente...",
-      "back": "RESPUESTAS:\n\n1. El protocolo SMB lo inventó\n   originalmente IBM.\n\n2. Hoy en día la versión más común\n   es la que MICROSOFT ha modificado\n   ampliamente.\n\nEVOLUCIÓN:\n- 1984: IBM crea SMB\n- 1998: Microsoft renombra a CIFS\n  (Common Internet File System)\n- Actualidad: SMB 3.0 en Windows",
-      "tags": ["unidad-3", "autoevaluacion", "smb", "ibm", "microsoft", "completar"],
+      "back": "RESPUESTAS:\\n\\n1. El protocolo SMB lo inventó\\n   originalmente IBM.\\n\\n2. Hoy en día la versión más común\\n   es la que MICROSOFT ha modificado\\n   ampliamente.\\n\\nEVOLUCIÓN:\\n- 1984: IBM crea SMB\\n- 1998: Microsoft renombra a CIFS\\n  (Common Internet File System)\\n- Actualidad: SMB 3.0 en Windows",
+      "tags": [
+        "unidad-3",
+        "autoevaluacion",
+        "smb",
+        "ibm",
+        "microsoft",
+        "completar"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 450,
+      "id": "4f6c0239-8aaf-4d92-b345-0280f0789eaa",
       "front": "Completar: Esencialmente Samba lo constituyen dos demonios...",
-      "back": "RESPUESTAS:\n\n1. smbd\n   - Acceso a archivos e impresoras\n   - Implementa protocolo SMB\n   - Autenticación y autorización\n\n2. nmbd\n   - Resolución de nombres NetBIOS\n   - Anuncio en grupo de trabajo\n   - Lista de ordenadores\n\nOPCIONAL:\n- winbindd: autenticación unificada",
-      "tags": ["unidad-3", "autoevaluacion", "samba", "smbd", "nmbd", "completar"],
+      "back": "RESPUESTAS:\\n\\n1. smbd\\n   - Acceso a archivos e impresoras\\n   - Implementa protocolo SMB\\n   - Autenticación y autorización\\n\\n2. nmbd\\n   - Resolución de nombres NetBIOS\\n   - Anuncio en grupo de trabajo\\n   - Lista de ordenadores\\n\\nOPCIONAL:\\n- winbindd: autenticación unificada",
+      "tags": [
+        "unidad-3",
+        "autoevaluacion",
+        "samba",
+        "smbd",
+        "nmbd",
+        "completar"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 451,
+      "id": "76d62da8-94d0-465e-9464-7629d7bb700b",
       "front": "Completar: En el nivel de seguridad ___, el cliente se autentica por recurso",
-      "back": "RESPUESTA: SHARE\n\nNIVEL DE SEGURIDAD SHARE:\n- Cliente se autentica por cada recurso\n- Cada recurso tiene contraseña\n- Independiente del usuario\n\nOTROS NIVELES:\n- USER: autenticación por usuario (por defecto)\n- SERVER: usa otro servidor\n- DOMAIN: miembro de dominio NT\n- ADS: miembro de Active Directory\n\nNOTA:\nShare es el nivel más antiguo y\nmenos seguro. User es el recomendado.",
-      "tags": ["unidad-3", "autoevaluacion", "samba", "seguridad", "share", "completar"],
+      "back": "RESPUESTA: SHARE\\n\\nNIVEL DE SEGURIDAD SHARE:\\n- Cliente se autentica por cada recurso\\n- Cada recurso tiene contraseña\\n- Independiente del usuario\\n\\nOTROS NIVELES:\\n- USER: autenticación por usuario (por defecto)\\n- SERVER: usa otro servidor\\n- DOMAIN: miembro de dominio NT\\n- ADS: miembro de Active Directory\\n\\nNOTA:\\nShare es el nivel más antiguo y\\nmenos seguro. User es el recomendado.",
+      "tags": [
+        "unidad-3",
+        "autoevaluacion",
+        "samba",
+        "seguridad",
+        "share",
+        "completar"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 452,
+      "id": "640d622f-f2f8-4f5d-b99b-feea725a539b",
       "front": "V/F: El parámetro [global] define parámetros a nivel global del servidor Samba",
-      "back": "VERDADERO\n\nSECCIÓN [global]:\n- Define configuración general\n- Aplica a todo el servidor\n- Parámetros por defecto\n\nEJEMPLOS:\n- workgroup\n- netbios name\n- security\n- server string\n\nOTRAS SECCIONES:\n- [homes]: directorios personales\n- [printers]: impresoras compartidas\n- [nombre]: recursos personalizados",
-      "tags": ["unidad-3", "autoevaluacion", "samba", "global", "vf"],
+      "back": "VERDADERO\\n\\nSECCIÓN [global]:\\n- Define configuración general\\n- Aplica a todo el servidor\\n- Parámetros por defecto\\n\\nEJEMPLOS:\\n- workgroup\\n- netbios name\\n- security\\n- server string\\n\\nOTRAS SECCIONES:\\n- [homes]: directorios personales\\n- [printers]: impresoras compartidas\\n- [nombre]: recursos personalizados",
+      "tags": [
+        "unidad-3",
+        "autoevaluacion",
+        "samba",
+        "global",
+        "vf"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 453,
+      "id": "dbd15d1b-3bfa-4ede-9cdc-50279c3be8ef",
       "front": "V/F: El parámetro [path] define automáticamente un recurso por cada usuario",
-      "back": "FALSO\n\n[path] (DENTRO DE UNA SECCIÓN):\n- Especifica la ruta física del recurso\n- Ejemplo: path = /home/compartido\n\n[homes] (NO [path]):\n- Define recurso automático por usuario\n- Crea compartición del directorio home\n- %u = nombre de usuario\n\nCONFUSIÓN COMÚN:\n[path] es un parámetro, no una sección.\n[homes] es la sección especial.",
-      "tags": ["unidad-3", "autoevaluacion", "samba", "path", "homes", "vf"],
+      "back": "FALSO\\n\\n[path] (DENTRO DE UNA SECCIÓN):\\n- Especifica la ruta física del recurso\\n- Ejemplo: path = /home/compartido\\n\\n[homes] (NO [path]):\\n- Define recurso automático por usuario\\n- Crea compartición del directorio home\\n- %u = nombre de usuario\\n\\nCONFUSIÓN COMÚN:\\n[path] es un parámetro, no una sección.\\n[homes] es la sección especial.",
+      "tags": [
+        "unidad-3",
+        "autoevaluacion",
+        "samba",
+        "path",
+        "homes",
+        "vf"
+      ],
       "difficulty": "hard"
     },
     {
-      "id": 454,
+      "id": "532ebedd-968d-4ff3-bdae-cf60b0c6783c",
       "front": "V/F: El parámetro [printers] define recurso automático por cada usuario",
-      "back": "FALSO\n\n[printers] (SECCIÓN):\n- Define recurso automático por IMPRESORA\n- Lee de /etc/printcap\n- Comparte todas las impresoras\n\n[homes] (NO [printers]):\n- Define recurso por USUARIO\n- Comparte directorios personales\n\nAMBOS:\nSon secciones especiales que crean\nrecursos dinámicamente, pero cada una\npara su propósito específico.",
-      "tags": ["unidad-3", "autoevaluacion", "samba", "printers", "homes", "vf"],
+      "back": "FALSO\\n\\n[printers] (SECCIÓN):\\n- Define recurso automático por IMPRESORA\\n- Lee de /etc/printcap\\n- Comparte todas las impresoras\\n\\n[homes] (NO [printers]):\\n- Define recurso por USUARIO\\n- Comparte directorios personales\\n\\nAMBOS:\\nSon secciones especiales que crean\\nrecursos dinámicamente, pero cada una\\npara su propósito específico.",
+      "tags": [
+        "unidad-3",
+        "autoevaluacion",
+        "samba",
+        "printers",
+        "homes",
+        "vf"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 455,
+      "id": "e0c0b32b-7810-4783-949c-9680319277b5",
       "front": "V/F: Para compartir un recurso se crea una sección nueva entre corchetes",
-      "back": "VERDADERO\n\nSINTAXIS:\n[nombre_recurso]\npath = /ruta/directorio\nread only = no\nguest ok = yes\n\nEJEMPLO:\n[documentos]\npath = /home/documentos\nbrowseable = yes\nwritable = yes\n\nREGLA:\nCada recurso compartido requiere\nsu propia sección con nombre único\nentre corchetes en smb.conf.",
-      "tags": ["unidad-3", "autoevaluacion", "samba", "secciones", "vf"],
+      "back": "VERDADERO\\n\\nSINTAXIS:\\n[nombre_recurso]\\npath = /ruta/directorio\\nread only = no\\nguest ok = yes\\n\\nEJEMPLO:\\n[documentos]\\npath = /home/documentos\\nbrowseable = yes\\nwritable = yes\\n\\nREGLA:\\nCada recurso compartido requiere\\nsu propia sección con nombre único\\nentre corchetes en smb.conf.",
+      "tags": [
+        "unidad-3",
+        "autoevaluacion",
+        "samba",
+        "secciones",
+        "vf"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 456,
+      "id": "59bafc47-3159-4cf0-8c47-b8a5f4558f56",
       "front": "V/F: testparm analiza smb.conf para localizar errores",
-      "back": "VERDADERO\n\nCOMANDO testparm:\n- Analiza sintaxis de smb.conf\n- Muestra configuración efectiva\n- Detecta errores de configuración\n\nUSO:\ntestparm\ntestparm /etc/samba/smb.conf\n\nFUNCIONAMIENTO:\n- Verifica parámetros\n- Detecta secciones mal formadas\n- Muestra valores por defecto\n\nRECOMENDACIÓN:\nEjecutar después de cada cambio\nen smb.conf antes de reiniciar.",
-      "tags": ["unidad-3", "autoevaluacion", "samba", "testparm", "vf"],
+      "back": "VERDADERO\\n\\nCOMANDO testparm:\\n- Analiza sintaxis de smb.conf\\n- Muestra configuración efectiva\\n- Detecta errores de configuración\\n\\nUSO:\\ntestparm\\ntestparm /etc/samba/smb.conf\\n\\nFUNCIONAMIENTO:\\n- Verifica parámetros\\n- Detecta secciones mal formadas\\n- Muestra valores por defecto\\n\\nRECOMENDACIÓN:\\nEjecutar después de cada cambio\\nen smb.conf antes de reiniciar.",
+      "tags": [
+        "unidad-3",
+        "autoevaluacion",
+        "samba",
+        "testparm",
+        "vf"
+      ],
       "difficulty": "easy"
     }
   ]

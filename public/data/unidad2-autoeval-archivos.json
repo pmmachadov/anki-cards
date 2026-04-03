@@ -1,213 +1,397 @@
 {
   "cards": [
     {
-      "id": 269,
+      "id": "d8e82489-99e8-4adf-94e0-4831e3a90424",
       "front": "V/F: chgrp cambia el propietario de un archivo",
       "back": "FALSO\n\nchgrp cambia el GRUPO propietario,\nNO el propietario (usuario).\n\nPARA CAMBIAR PROPIETARIO (usuario):\n→ chown usuario archivo\n\nchown puede cambiar:\n- Solo propietario: chown user archivo\n- Solo grupo: chown :grupo archivo\n- Ambos: chown user:grupo archivo",
-      "tags": ["autoevaluacion", "permisos", "chown", "chgrp", "vf", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "permisos",
+        "chown",
+        "chgrp",
+        "vf",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 270,
+      "id": "433b0cd0-c086-4527-95fe-2be799b88c14",
       "front": "V/F: chgrp cambia el grupo propietario de un archivo",
       "back": "VERDADERO\n\nchgrp (change group) es el comando\nespecífico para cambiar el grupo\npropietario de un archivo o directorio.\n\nSINTAXIS:\nchgrp nuevo_grupo archivo\n\nEl usuario debe pertenecer al grupo\nal que está asignando el archivo.",
-      "tags": ["autoevaluacion", "permisos", "chgrp", "vf", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "permisos",
+        "chgrp",
+        "vf",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 271,
+      "id": "92a1512e-ec9e-4e85-955d-a6f9dd695feb",
       "front": "V/F: El modo lectura en un directorio permite acceder",
       "back": "FALSO\n\nEl modo lectura (r) en un directorio\npermite LISTAR su contenido,\nNO acceder a él.\n\nPARA ACCEDER al directorio (cd):\n→ Se necesita permiso de EJECUCIÓN (x)\n\nIMPORTANTE:\nr = listar archivos (ls)\nx = entrar al directorio (cd)",
-      "tags": ["autoevaluacion", "permisos", "directorios", "vf", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "permisos",
+        "directorios",
+        "vf",
+        "unidad-2"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 272,
+      "id": "f2609207-8d0e-4950-9a32-5d5da1bc5b1b",
       "front": "V/F: El modo escritura en directorio permite añadir o quitar archivos",
       "back": "VERDADERO\n\nEl permiso de escritura (w) en\nun directorio permite:\n\n✓ Crear archivos\n✓ Eliminar archivos\n✓ Renombrar archivos\n\nIMPORTANTE:\nEsto es independiente de los permisos\ndel archivo en sí. Se puede borrar un\narchivo si se tiene w en el directorio,\naunque no se tenga permiso sobre el archivo.",
-      "tags": ["autoevaluacion", "permisos", "directorios", "vf", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "permisos",
+        "directorios",
+        "vf",
+        "unidad-2"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 273,
+      "id": "f5824a19-5cd3-4f4d-8d11-0b8781a19a6b",
       "front": "Relacionar: rwxrwxrwx con valor octal",
       "back": "RESPUESTA: 777\n\nCALCULO:\n- rwx (propietario) = 4+2+1 = 7\n- rwx (grupo) = 4+2+1 = 7\n- rwx (otros) = 4+2+1 = 7\n\nRESULTADO: 777\n\nSIGNIFICADO:\nTodos tienen todos los permisos.\nPoco seguro para la mayoría de casos.",
-      "tags": ["autoevaluacion", "permisos", "octal", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "permisos",
+        "octal",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 274,
+      "id": "3399312f-2a2c-4458-ac8b-d6da8013ffcc",
       "front": "Relacionar: rwxrw-r-- con valor octal",
       "back": "RESPUESTA: 764\n\nCALCULO:\n- rwx (propietario) = 4+2+1 = 7\n- rw- (grupo) = 4+2+0 = 6\n- r-- (otros) = 4+0+0 = 4\n\nRESULTADO: 764\n\nPERMISOS:\n- Propietario: lectura, escritura, ejecución\n- Grupo: lectura, escritura\n- Otros: solo lectura",
-      "tags": ["autoevaluacion", "permisos", "octal", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "permisos",
+        "octal",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 275,
+      "id": "4ca3a134-0db0-4a6b-a3a1-730b855652f8",
       "front": "Relacionar: rwsr-xr-x con valor octal",
       "back": "RESPUESTA: 4755\n\nCALCULO PERMISOS BASE:\n- rwx (propietario) = 7\n- r-x (grupo) = 5\n- r-x (otros) = 5\n→ 755\n\nPERMISO ESPECIAL SUID:\n- SUID = 4000\n- Total: 4000 + 755 = 4755\n\nNOTA: La 's' indica SUID activado.",
-      "tags": ["autoevaluacion", "permisos", "octal", "suid", "especiales", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "permisos",
+        "octal",
+        "suid",
+        "especiales",
+        "unidad-2"
+      ],
       "difficulty": "hard"
     },
     {
-      "id": 276,
+      "id": "a3c2d0f5-8fe6-4fd9-94f9-fe69556a88ce",
       "front": "Relacionar: r-xr-xr-t con valor octal",
       "back": "RESPUESTA: 1755\n\nCALCULO PERMISOS BASE:\n- r-x (propietario) = 5\n- r-x (grupo) = 5\n- r-x (otros) = 5\n→ 555 (pero con t = sticky)\n\nPERMISO ESPECIAL STICKY:\n- Sticky = 1000\n- Permisos base: 755\n- Total: 1000 + 755 = 1755\n\nNOTA: La 't' indica STICKY activado.",
-      "tags": ["autoevaluacion", "permisos", "octal", "sticky", "especiales", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "permisos",
+        "octal",
+        "sticky",
+        "especiales",
+        "unidad-2"
+      ],
       "difficulty": "hard"
     },
     {
-      "id": 277,
+      "id": "534de4aa-50d8-4de6-be13-e618645aa7a2",
       "front": "Umask 022: ¿que permisos tendran los archivos creados?",
       "back": "RESPUESTA: 644 (rw-r--r--)\n\nCALCULO:\nPermiso base archivos: 666\nUmask: 022\n\n666 - 022 = 644\n\nDESGLOSE:\n- 6 (propietario): rw-\n- 4 (grupo): r--\n- 4 (otros): r--",
-      "tags": ["autoevaluacion", "permisos", "umask", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "permisos",
+        "umask",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 278,
+      "id": "bef00df9-6b9f-46cc-b6c3-9df5ddb216c4",
       "front": "Umask 077: ¿que permisos tendran los archivos creados?",
       "back": "RESPUESTA: 600 (rw-------)\n\nCALCULO:\nPermiso base archivos: 666\nUmask: 077\n\n666 - 077 = 600\n\nDESGLOSE:\n- 6 (propietario): rw-\n- 0 (grupo): ---\n- 0 (otros): ---\n\nUSO:\nMáxima privacidad - solo el propietario\npuede leer y escribir.",
-      "tags": ["autoevaluacion", "permisos", "umask", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "permisos",
+        "umask",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 279,
+      "id": "92ccea9f-c076-4fe4-bd72-ffa1e86cd5f3",
       "front": "Umask 027: ¿que permisos tendran los archivos creados?",
       "back": "RESPUESTA: 640 (rw-r-----)\n\nCALCULO:\nPermiso base archivos: 666\nUmask: 027\n\n666 - 027 = 640\n\nDESGLOSE:\n- 6 (propietario): rw-\n- 4 (grupo): r--\n- 0 (otros): ---\n\nUSO:\nPrivado para otros, solo lectura para grupo.",
-      "tags": ["autoevaluacion", "permisos", "umask", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "permisos",
+        "umask",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 280,
+      "id": "00ebd20f-6825-421f-b26c-cc5f55ac07c1",
       "front": "Umask 066: ¿que permisos tendran los archivos creados?",
       "back": "RESPUESTA: 600 (rw-------)\n\nCALCULO:\nPermiso base archivos: 666\nUmask: 066\n\n666 - 066 = 600\n\nDESGLOSE:\n- 6 (propietario): rw-\n- 0 (grupo): ---\n- 0 (otros): ---\n\nNOTA: Aunque la resta da 600, en la práctica\nLinux nunca asigna ejecución a archivos\npor defecto, solo a directorios.",
-      "tags": ["autoevaluacion", "permisos", "umask", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "permisos",
+        "umask",
+        "unidad-2"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 281,
+      "id": "b242c58e-4567-4ba9-bd64-c10c3e2673fc",
       "front": "Umask 022: ¿que permisos tendran los directorios creados?",
       "back": "RESPUESTA: 755 (rwxr-xr-x)\n\nCALCULO:\nPermiso base directorios: 777\nUmask: 022\n\n777 - 022 = 755\n\nDESGLOSE:\n- 7 (propietario): rwx\n- 5 (grupo): r-x\n- 5 (otros): r-x\n\nPERMISOS DIRECTORIO:\n- r = listar contenido\n- w = crear/eliminar archivos\n- x = acceder al directorio",
-      "tags": ["autoevaluacion", "permisos", "umask", "directorios", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "permisos",
+        "umask",
+        "directorios",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 282,
+      "id": "5941a71b-a0b0-467d-b984-508e38a39658",
       "front": "Umask 007: ¿que permisos tendran los directorios creados?",
       "back": "RESPUESTA: 770 (rwxrwx---)\n\nCALCULO:\nPermiso base directorios: 777\nUmask: 007\n\n777 - 007 = 770\n\nDESGLOSE:\n- 7 (propietario): rwx\n- 7 (grupo): rwx\n- 0 (otros): ---\n\nUSO:\nDirectorio privado para grupo de trabajo.\nOtros usuarios no pueden acceder.",
-      "tags": ["autoevaluacion", "permisos", "umask", "directorios", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "permisos",
+        "umask",
+        "directorios",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 283,
+      "id": "5f360f08-866e-40b6-8ad2-e4c4b3ec3136",
       "front": "Umask 027: ¿que permisos tendran los directorios creados?",
       "back": "RESPUESTA: 750 (rwxr-x---)\n\nCALCULO:\nPermiso base directorios: 777\nUmask: 027\n\n777 - 027 = 750\n\nDESGLOSE:\n- 7 (propietario): rwx\n- 5 (grupo): r-x\n- 0 (otros): ---\n\nUSO:\nDirectorio donde el grupo puede leer\ny acceder pero otros no entran.",
-      "tags": ["autoevaluacion", "permisos", "umask", "directorios", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "permisos",
+        "umask",
+        "directorios",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 284,
+      "id": "46e4dfe1-74df-4c8d-8cd9-c866f64f08ad",
       "front": "Umask 002: ¿que permisos tendran los directorios creados?",
       "back": "RESPUESTA: 775 (rwxrwxr-x)\n\nCALCULO:\nPermiso base directorios: 777\nUmask: 002\n\n777 - 002 = 775\n\nDESGLOSE:\n- 7 (propietario): rwx\n- 7 (grupo): rwx\n- 5 (otros): r-x\n\nUSO:\nDirectorio colaborativo donde todos\npueden leer y acceder, pero solo\npropietario y grupo pueden modificar.",
-      "tags": ["autoevaluacion", "permisos", "umask", "directorios", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "permisos",
+        "umask",
+        "directorios",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 285,
+      "id": "9aa0893c-b873-43a9-85f4-d99cd0531dc0",
       "front": "Relacionar: mklink (sin parametro) → tipo de enlace",
       "back": "RESPUESTA: Enlace SIMBOLICO a archivo\n\nmklink enlace original\n\nCREA:\n- Enlace simbolico (acceso directo)\n- Por defecto para ARCHIVOS\n- Si se borra el original, queda roto\n\nPara directorios se necesita /d:\nmklink /d enlace directorio",
-      "tags": ["autoevaluacion", "enlaces", "windows", "mklink", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "enlaces",
+        "windows",
+        "mklink",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 286,
+      "id": "9c19b57e-9eb6-4641-bae3-9e6598c47788",
       "front": "Relacionar: mklink /h → tipo de enlace",
       "back": "RESPUESTA: Enlace FUERTE (hard link)\n\nmklink /h enlace original\n\nCARACTERISTICAS:\n- Dos rutas para el mismo archivo\n- Mismo contenido fisico\n- Solo archivos (no directorios)\n- Solo en mismo volumen\n- Si se borra el original, el enlace sigue funcionando\n\nNOTA: Los metadatos son compartidos.",
-      "tags": ["autoevaluacion", "enlaces", "windows", "mklink", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "enlaces",
+        "windows",
+        "mklink",
+        "unidad-2"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 287,
+      "id": "948465c9-8a2f-481c-9359-57585e3d1889",
       "front": "Relacionar: mklink /d → tipo de enlace",
       "back": "RESPUESTA: Enlace SIMBOLICO a DIRECTORIO\n\nmklink /d enlace directorio\n\nCARACTERISTICAS:\n- Acceso directo a directorio\n- El explorador se traslada al directorio original\n- Si se borra el original, queda roto\n\nDIFERENCIA con /j:\n/j (junction): el explorador permanece\nen el directorio-enlace, no se traslada.",
-      "tags": ["autoevaluacion", "enlaces", "windows", "mklink", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "enlaces",
+        "windows",
+        "mklink",
+        "unidad-2"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 288,
+      "id": "707118df-9a1b-4b8e-98d1-63d220d90a36",
       "front": "Relacionar: mklink /j → tipo de enlace",
       "back": "RESPUESTA: UNION (Junction)\n\nmklink /j enlace directorio\n\nCARACTERISTICAS:\n- Similar a enlace fuerte entre directorios\n- El explorador PERMANECE en el enlace\n- No se traslada al directorio original\n- Puede cruzar volumenes locales\n- Si se borra el original, queda inservible\n\nUSO:\nRedireccion transparente de carpetas.",
-      "tags": ["autoevaluacion", "enlaces", "windows", "mklink", "junction", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "enlaces",
+        "windows",
+        "mklink",
+        "junction",
+        "unidad-2"
+      ],
       "difficulty": "hard"
     },
     {
-      "id": 289,
+      "id": "e7c2eb4c-b2d5-49fb-9117-891edaf1b019",
       "front": "V/F: Cambiar permisos de enlace fuerte modifica el original",
       "back": "VERDADERO\n\nEl enlace fuerte (hard link) comparte\nel mismo INODE que el archivo original.\n\nCONSECUENCIAS:\n- Mismos permisos\n- Mismo contenido\n- Mismos metadatos\n\nAl cambiar permisos de cualquiera de\nellos, se cambian para ambos porque\nson el mismo archivo fisico.",
-      "tags": ["autoevaluacion", "enlaces", "permisos", "hard-link", "vf", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "enlaces",
+        "permisos",
+        "hard-link",
+        "vf",
+        "unidad-2"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 290,
+      "id": "36af2cc9-5bbb-415b-964f-297cd11a91f5",
       "front": "V/F: Cambiar permisos de enlace simbolico modifica el original",
       "back": "FALSO\n\nEl enlace simbolico tiene su propio\nnumero de inode y sus propios permisos.\n\nIMPORTANTE:\nLos permisos del enlace simbolico\nNO afectan al archivo original.\n\nLo que importa son los permisos\ndel archivo al que apunta el enlace.",
-      "tags": ["autoevaluacion", "enlaces", "permisos", "symlink", "vf", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "enlaces",
+        "permisos",
+        "symlink",
+        "vf",
+        "unidad-2"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 291,
+      "id": "c38f2c4b-df6e-4b5a-9c21-1e3e37c538dd",
       "front": "V/F: Borrar original de enlace simbolico disminuye contador de enlaces",
       "back": "FALSO\n\nEl enlace simbolico NO aumenta el\ncontador de enlaces del archivo original.\n\nRAZON:\n- Tiene inode propio\n- Es solo un puntero/shortcut\n- No es un enlace fuerte\n\nAl borrar el original, el enlace\nsimbolico queda ROTO pero el contador\nno cambia (no estaba incrementado).",
-      "tags": ["autoevaluacion", "enlaces", "symlink", "vf", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "enlaces",
+        "symlink",
+        "vf",
+        "unidad-2"
+      ],
       "difficulty": "hard"
     },
     {
-      "id": 292,
+      "id": "03624b57-28de-469a-9d47-2f5b6f1c93bd",
       "front": "V/F: Borrar original de enlace fuerte lo deja roto",
       "back": "FALSO\n\nSi se borra el 'original' de un enlace\nfuerte, el enlace SIGUE FUNCIONANDO.\n\nEXPLICACION:\n- No hay concepto de 'original' vs 'enlace'\n- Ambos son IGUALMENTE validos\n- Comparten el mismo inode\n- Los datos siguen existiendo mientras\n  haya al menos un nombre apuntando a ellos\n\nSolo cuando se borran TODOS los nombres,\nlos datos se liberan.",
-      "tags": ["autoevaluacion", "enlaces", "hard-link", "vf", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "enlaces",
+        "hard-link",
+        "vf",
+        "unidad-2"
+      ],
       "difficulty": "hard"
     },
     {
-      "id": 293,
+      "id": "4b03f634-d841-4cb1-bc00-da72bc1f53e9",
       "front": "V/F: No se pueden crear enlaces fuertes en directorios",
       "back": "VERDADERO\n\nEn Linux NO se permiten enlaces fuertes\na directorios.\n\nRAZONES DE SEGURIDAD:\n- Evitar bucles en el sistema de archivos\n- Mantener la estructura jerarquica\n- Prevenir inconsistencias\n\nALTERNATIVAS PARA DIRECTORIOS:\n- Enlaces simbolicos: ln -s\n- En Windows: junctions (mklink /j)",
-      "tags": ["autoevaluacion", "enlaces", "hard-link", "directorios", "vf", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "enlaces",
+        "hard-link",
+        "directorios",
+        "vf",
+        "unidad-2"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 294,
+      "id": "05b6d1d3-050d-47b7-9be3-032e4b6d9142",
       "front": "Comparativa find vs locate: ¿Cual tiene mas opciones de busqueda?",
       "back": "RESPUESTA: find\n\nFIND tiene opciones mas potentes:\n- -name, -type, -size\n- -user, -group, -perm\n- -atime, -mtime, -ctime\n- -exec para ejecutar acciones\n- -maxdepth, -mindepth\n\nLOCATE es mas simple:\n- Solo busca por nombre\n- Usa base de datos indexada\n- Mucho mas rapido",
-      "tags": ["autoevaluacion", "busqueda", "find", "locate", "comparacion", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "busqueda",
+        "find",
+        "locate",
+        "comparacion",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 295,
+      "id": "2042d860-0710-44ff-bab5-c2277f969994",
       "front": "Comparativa find vs locate: ¿Cual es mas rapido?",
       "back": "RESPUESTA: locate\n\nLOCATE es mas rapido porque:\n- Busca en una BASE DE DATOS indexada\n- No examina el sistema de archivos\n- La busqueda es casi instantanea\n\nFIND es mas lento porque:\n- Examina archivos en TIEMPO REAL\n- Recorre todo el arbol de directorios\n- Verifica cada archivo individualmente",
-      "tags": ["autoevaluacion", "busqueda", "find", "locate", "comparacion", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "busqueda",
+        "find",
+        "locate",
+        "comparacion",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 296,
+      "id": "7c6193bf-95cf-4b06-b2d1-22b4114c65fc",
       "front": "Comparativa find vs locate: ¿Cual proporciona resultados mas cuidados?",
       "back": "RESPUESTA: find\n\nFIND proporciona resultados mas\nactualizados y precisos:\n\n- Busqueda en tiempo real\n- Siempre refleja el estado actual\n- No depende de actualizaciones\n\nLOCATE puede estar desactualizado:\n- La base de datos se actualiza\n  periodicamente (tipicamente cada noche)\n- Nuevos archivos pueden no aparecer\n- Archivos borrados pueden seguir listados",
-      "tags": ["autoevaluacion", "busqueda", "find", "locate", "comparacion", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "busqueda",
+        "find",
+        "locate",
+        "comparacion",
+        "unidad-2"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 297,
+      "id": "0c67e3fc-8f3d-4108-9c1c-6e4bf60294e6",
       "front": "Comparativa find vs locate: ¿Cual utiliza base de datos indexada?",
       "back": "RESPUESTA: locate\n\nLOCATE utiliza una base de datos:\n- /var/lib/mlocate/mlocate.db\n- Se actualiza con updatedb\n- Busqueda instantanea en el indice\n\nFIND NO usa base de datos:\n- Realiza busqueda por fuerza bruta\n- Examina cada archivo/directorio\n- Mas lento pero siempre actualizado",
-      "tags": ["autoevaluacion", "busqueda", "find", "locate", "comparacion", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "busqueda",
+        "find",
+        "locate",
+        "comparacion",
+        "unidad-2"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 298,
+      "id": "c38aff89-7424-4ac9-82e1-5275859e53f2",
       "front": "Opcion de dpkg: saber que paquete instalo un archivo concreto",
       "back": "RESPUESTA: -S (mayuscula)\n\nCOMANDO:\ndpkg -S /ruta/al/archivo\ndpkg -S nombre_archivo\n\nEJEMPLOS:\ndpkg -S /usr/bin/ls\ndpkg -S Snippet.py\n\nOTRAS OPCIONES:\n-s : estado del paquete (lowercase)\n-l : listar paquetes\n-L : archivos instalados por paquete",
-      "tags": ["autoevaluacion", "software", "dpkg", "unidad-2"],
+      "tags": [
+        "autoevaluacion",
+        "software",
+        "dpkg",
+        "unidad-2"
+      ],
       "difficulty": "medium"
     }
   ]

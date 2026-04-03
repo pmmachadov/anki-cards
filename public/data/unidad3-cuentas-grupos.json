@@ -1,150 +1,274 @@
 {
   "cards": [
     {
-      "id": 353,
+      "id": "c71f92b6-445f-40b5-a02b-3661c6248d49",
       "front": "LDIF para gestion de cuentas LDAP",
       "back": "LDIF = LDAP Data Interchange Format\\n\\nUSOS:\\n- Representar contenido del directorio\\n- Actualizaciones del directorio\\n- Exportar/importar datos\\n\\nMETODOS DE GESTION:\\n1. LDIF + consola (propenso a errores, pesado)\\n2. phpLDAPadmin (visual, intuitivo, recomendado)\\n\\nVENTAJAS phpLDAPadmin:\\n- Interfaz web\\n- Arbol jerarquico visual\\n- Busquedas avanzadas\\n- Multiplataforma",
-      "tags": ["unidad-3", "ldap", "cuentas", "ldif", "phpldapadmin"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "cuentas",
+        "ldif",
+        "phpldapadmin"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 354,
+      "id": "8887a8a9-3de5-4032-b25c-e7572ae450a8",
       "front": "Acceso a phpLDAPadmin",
       "back": "URL LOCAL:\\nhttp://localhost/phpldapadmin\\n\\nURL REMOTA:\\nhttp://ip_servidor/phpldapadmin\\n\\nCREDENCIALES:\\n- Login DN: cn=admin,dc=dominio,dc=org\\n- Contraseña: definida en instalacion\\n\\nSEGURIDAD:\\nUsar HTTPS (SSL) para conexiones seguras",
-      "tags": ["unidad-3", "ldap", "phpldapadmin", "acceso"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "phpldapadmin",
+        "acceso"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 355,
+      "id": "f569e1c1-de46-4bbd-b41a-9e4fd933340b",
       "front": "Cuenta predeterminada en dominio LDAP",
       "back": "UNICO USUARIO PREDETERMINADO:\\nadmin (administrador)\\n\\nCREACION:\\nSe crea al mismo tiempo que el dominio\\nmediante importacion de archivo LDIF\\n\\nEJEMPLO EN LDIF:\\ndn: cn=admin,dc=dominio,dc=org\\nobjectClass: simpleSecurityObject\\nobjectClass: organizationalRole\\ncn: admin\\ndescription: administrador LDAP\\nuserPassword: {CRYPT}hash\\n\\nOTROS USUARIOS:\\nSe crean posteriormente segun necesidades",
-      "tags": ["unidad-3", "ldap", "cuentas", "admin", "predeterminado"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "cuentas",
+        "admin",
+        "predeterminado"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 356,
+      "id": "1a4343dd-cf0d-4d9a-b1d6-81f799757382",
       "front": "Establecer contraseña administrador LDAP",
       "back": "COMANDO:\\nslappasswd -h {CRYPT}\\n\\nPROCESO:\\n1. Ejecutar slappasswd -h {CRYPT}\\n2. Introducir contraseña (ej: 123456)\\n3. Confirmar contraseña\\n4. Obtener hash: {CRYPT}aLJLqqUipInfk\\n\\nUSO:\\nCopiar el resultado en archivo LDIF\\npara crear/actualizar admin\\n\\nENCRIPTACION:\\nCRYPT = funcion basada en DES modificada",
-      "tags": ["unidad-3", "ldap", "cuentas", "contraseñas", "slappasswd"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "cuentas",
+        "contraseñas",
+        "slappasswd"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 357,
+      "id": "04e104ee-ef12-4c19-a69c-095a362b9690",
       "front": "Establecer contraseña usuarios normales",
       "back": "VIA phpLDAPadmin:\\n\\n1. Conectar como admin\\n2. Desplegar arbol → seleccionar usuario\\n3. Buscar campo Password\\n4. Insertar contraseña (2 veces para confirmar)\\n5. Seleccionar metodo de encriptacion\\n   - Texto plano (no recomendado)\\n   - {CRYPT}, {MD5}, {SSHA}, etc.\\n6. Actualizar objeto\\n\\nMETODOS DE ENCRIPTACION:\\nUsar desplegable derecho de caja de texto",
-      "tags": ["unidad-3", "ldap", "cuentas", "contraseñas", "usuarios"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "cuentas",
+        "contraseñas",
+        "usuarios"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 358,
+      "id": "f6cfdd26-5853-44c3-9c9d-eb7a6d8fd2c0",
       "front": "Bloqueo de cuentas en LDAP",
       "back": "NO EXISTE BLOQUEO AUTOMATIZADO\\n\\nSOLUCION MANUAL:\\n1. Iniciar sesion en phpLDAPadmin como admin\\n2. Seleccionar usuario a bloquear\\n3. Dejar campo Password en BLANCO\\n4. Actualizar objeto\\n\\nRESULTADO:\\nUsuario no puede autenticarse\\n(sin contraseña = acceso denegado)\\n\\nUSO:\\nEvitar accesos no deseados temporalmente",
-      "tags": ["unidad-3", "ldap", "cuentas", "bloqueo", "seguridad"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "cuentas",
+        "bloqueo",
+        "seguridad"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 359,
+      "id": "155fd685-55cd-463a-95a4-a9ee81dd7dc3",
       "front": "Crear usuario en phpLDAPadmin - pasos",
       "back": "PASO 1: Seleccionar ou=People\\nPASO 2: Click 'Create new entry here'\\nPASO 3: Elegir plantilla 'Generic: User Account'\\n\\nCAMPOS OBLIGATORIOS (fondo amarillo):\\n- First name (givenName)\\n- Last name (sn)\\n- User ID (uid) - se genera automaticamente\\n- Common Name (cn) - nombre completo\\n- Password (2 veces)\\n- UID Number (generado automatico)\\n- GID Number (grupo)\\n- Home directory (/home/usuario)\\n- Login shell (/bin/bash)\\n\\nPASO 4: Click 'Create object' → 'Commit'",
-      "tags": ["unidad-3", "ldap", "cuentas", "usuarios", "creacion"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "cuentas",
+        "usuarios",
+        "creacion"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 360,
+      "id": "d208eb58-5747-4e08-8819-e1f1bd591441",
       "front": "Modificar cuenta de usuario en phpLDAPadmin",
       "back": "PASOS:\\n\\n1. Seleccionar usuario en arbol LDAP\\n2. Modificar propiedades:\\n   - Nombre, apellido\\n   - UID, contraseña\\n   - Directorio personal\\n   - Shell, GID\\n\\nPLANTILLAS AVANZADAS (Switch Template):\\n- Generic: User Account (basica)\\n- Generic: Address Book (extendida)\\n   Añade: foto, organizacion, direccion,\\n   telefonos, email, etc.\\n\\n3. Click 'Update object' para guardar",
-      "tags": ["unidad-3", "ldap", "cuentas", "usuarios", "modificacion"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "cuentas",
+        "usuarios",
+        "modificacion"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 361,
+      "id": "6b3ebd46-7038-4a26-ae36-60ca661e2fc5",
       "front": "Eliminar cuenta de usuario en phpLDAPadmin",
       "back": "PASOS:\\n\\n1. Acceder a arbol LDAP\\n2. Seleccionar objeto usuario\\n3. Click 'Delete this entry'\\n4. Confirmar eliminacion\\n5. Click 'Delete'\\n\\nRESULTADO:\\n- Objeto eliminado del arbol\\n- Usuario ya no puede autenticarse\\n- Base de datos actualizada\\n\\nRECOMENDACION:\\nEliminar usuarios que ya no son\\nusuarios activos del sistema",
-      "tags": ["unidad-3", "ldap", "cuentas", "usuarios", "eliminacion"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "cuentas",
+        "usuarios",
+        "eliminacion"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 362,
+      "id": "18547753-c92b-4298-9138-91e13f7d73f1",
       "front": "Cuentas de equipos (maquinas) en LDAP",
       "back": "FUNCION:\\nAutenticacion basada en nodos de red\\nRestringir desde que maquinas puede\\niniciar sesion un usuario\\n\\nIMPLEMENTACION:\\n- Atributo 'host' en usuario LDAP\\n- Lista de maquinas permitidas\\n\\nMETODOS:\\n\\n1. libpam-ldap:\\n   - pam_check_host_attr yes\\n   - Mensaje explicito: 'Acceso denegado'\\n\\n2. pam_filter:\\n   - Filtro en /etc/ldap.conf\\n   - Mensaje: 'Contraseña incorrecta'",
-      "tags": ["unidad-3", "ldap", "cuentas", "equipos", "maquinas"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "cuentas",
+        "equipos",
+        "maquinas"
+      ],
       "difficulty": "hard"
     },
     {
-      "id": 363,
+      "id": "27c37faa-8048-493c-b4aa-879621643873",
       "front": "Perfiles de usuario y gestion centralizada",
       "back": "PERFIL DE USUARIO:\\n- Fondo de escritorio\\n- Aspecto entorno grafico\\n- Aplicaciones instaladas\\n- Permisos sobre aplicaciones\\n\\nPROBLEMA REDES LOCALES:\\n- Perfiles locales en cada disco duro\\n- Dificil gestion en muchos ordenadores\\n\\nSOLUCION:\\nServidor de dominio (LDAP) + SAMBA\\n\\nINTEGRACION SAMBA-LDAP:\\n- Autenticacion usuarios Windows/Linux\\n- Perfiles moviles\\n- Carpetas personales en servidor",
-      "tags": ["unidad-3", "ldap", "perfiles", "samba", "gestion"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "perfiles",
+        "samba",
+        "gestion"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 364,
+      "id": "a7c379c3-238a-4514-821c-ac2926dab875",
       "front": "Paquetes para integrar Samba con LDAP",
       "back": "PAQUETES NECESARIOS:\\n\\n1. samba\\n   Servidor SMB/CIFS\\n\\n2. samba-doc\\n   Documentacion y esquemas\\n   (incluye samba.schema)\\n\\n3. smbldap-tools\\n   Herramientas de gestion\\n   (smbldap-useradd, smbldap-groupadd, etc.)\\n\\nINSTALACION:\\napt-get install samba samba-doc smbldap-tools",
-      "tags": ["unidad-3", "ldap", "samba", "paquetes", "integracion"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "samba",
+        "paquetes",
+        "integracion"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 365,
+      "id": "2e6079a1-ed0d-42de-bf34-bd47d6b1e410",
       "front": "Configuracion Samba como controlador de dominio - pasos basicos",
       "back": "1. Añadir esquema samba a LDAP:\\n   - Copiar samba.schema\\n   - Convertir a formato LDIF\\n   - Importar con ldapadd\\n\\n2. Configurar smbldap-tools:\\n   - Ejecutar configure.pl\\n   - Definir: workgroup, dominio, SID\\n   - Directorios home y perfiles\\n   - Sufijos LDAP\\n\\n3. Poblar directorio:\\n   smbldap-populate\\n\\n4. Configurar smb.conf:\\n   - passdb backend = ldapsam\\n   - Opciones LDAP (suffix, admin dn)\\n   - domain logons = yes",
-      "tags": ["unidad-3", "ldap", "samba", "dominio", "configuracion"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "samba",
+        "dominio",
+        "configuracion"
+      ],
       "difficulty": "hard"
     },
     {
-      "id": 366,
+      "id": "3535d9a2-5588-4ef4-812c-4a5db4986515",
       "front": "Comandos smbldap-tools para gestion de usuarios",
       "back": "AÑADIR USUARIO:\\nsmbldap-useradd -a -P nombre_usuario\\n(-a: atributos Samba, -P: pedir contraseña)\\n\\nELIMINAR USUARIO:\\nsmbldap-userdel nombre_usuario\\n(-r: eliminar tambien directorio home)\\n\\nAÑADIR GRUPO:\\nsmbldap-groupadd -a nombre_grupo\\n\\nAÑADIR USUARIO A GRUPO:\\nsmbldap-groupmod -m usuario grupo\\n\\nELIMINAR USUARIO DE GRUPO:\\nsmbldap-groupmod -x usuario grupo\\n\\nAÑADIR EQUIPO:\\nsmbldap-useradd -t 0 -w nombre_equipo",
-      "tags": ["unidad-3", "ldap", "samba", "smbldap-tools", "comandos"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "samba",
+        "smbldap-tools",
+        "comandos"
+      ],
       "difficulty": "hard"
     },
     {
-      "id": 367,
+      "id": "bd26ab70-a0f9-4bd8-a849-5fbcdfca93f4",
       "front": "Configuracion perfiles moviles y carpetas personales en Samba",
       "back": "EN smb.conf:\\n\\nPERFILES MOVILES:\\nlogon path = \\\\%N\\\\%U\\profile\\nlogon drive = H:\\nlogon home = \\\\%N\\\\%U\\n\\nCARPETAS PERSONALES (homes):\\n[homes]\\ncomment = Home Directories\\nbrowseable = no\\nread only = no\\ncreate mask = 0700\\ndirectory mask = 0700\\nvalid users = %S\\n\\nNETLOGON:\\n[netlogon]\\ncomment = Network Logon Service\\npath = /srv/samba/netlogon\\nguest ok = yes\\nread only = yes",
-      "tags": ["unidad-3", "ldap", "samba", "perfiles", "carpetas"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "samba",
+        "perfiles",
+        "carpetas"
+      ],
       "difficulty": "hard"
     },
     {
-      "id": 368,
+      "id": "c55cdeff-bea1-4479-8f47-806cfc290c08",
       "front": "Variables de entorno Samba para usuarios",
       "back": "%U : Nombre de usuario\\n%G : Grupo primario del usuario\\n%h : Hostname del servidor Samba\\n%m : NetBIOS de maquina cliente\\n%L : NetBIOS del servidor\\n%M : Nombre Internet de cliente\\n%H : Directorio personal del usuario\\n%I : IP de maquina cliente\\n%T : Fecha y hora actual\\n%D : Nombre dominio/grupo trabajo\\n%a : Arquitectura maquina remota",
-      "tags": ["unidad-3", "ldap", "samba", "variables", "entorno"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "samba",
+        "variables",
+        "entorno"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 369,
+      "id": "6529e566-d4ce-4ad0-9491-5cfd6215b23d",
       "front": "Plantillas de usuario en phpLDAPadmin",
       "back": "UBICACION:\\n/usr/share/phpldapadmin/templates/\\n\\nTIPOS DE PLANTILLAS:\\n\\n1. Generic: User Account\\n   Cuenta generica de usuario\\n\\n2. Samba: Account\\n   Usuarios con atributos Samba\\n\\n3. Default\\n   Plantilla por defecto\\n\\n4. Courier Mail: Account\\n   Cuenta de correo (no inicio de sesion)\\n\\nFORMATO:\\nArchivos XML\\nPersonalizables (prefix custom_)",
-      "tags": ["unidad-3", "ldap", "phpldapadmin", "plantillas", "xml"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "phpldapadmin",
+        "plantillas",
+        "xml"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 370,
+      "id": "59db682a-aa60-46b3-af77-1fb02246d5ad",
       "front": "Crear grupo de usuarios en phpLDAPadmin",
       "back": "REQUISITO:\\nUnidad organizativa ou=Groups creada\\n\\nPASOS:\\n\\n1. Situarse bajo ou=Groups\\n2. Click 'Create new entry here'\\n3. Seleccionar 'Generic: Posix Group'\\n4. Especificar:\\n   - Nombre del grupo (cn)\\n   - Seleccionar usuarios miembros\\n5. Click 'Create object'\\n6. Confirmar con 'Commit'\\n\\nRESULTADO:\\nGrupo POSIX creado en arbol LDAP",
-      "tags": ["unidad-3", "ldap", "grupos", "creacion", "phpldapadmin"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "grupos",
+        "creacion",
+        "phpldapadmin"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 371,
+      "id": "7aed7666-388f-4d46-a0c1-11a3b9a33c49",
       "front": "Modificar y eliminar grupos en phpLDAPadmin",
       "back": "MODIFICAR GRUPO:\\n\\n1. Seleccionar grupo en arbol LDAP\\n2. Modificar parametros:\\n   - Nombre del grupo\\n   - Asignar/eliminar usuarios\\n3. Click 'Update object'\\n\\nELIMINAR GRUPO:\\n\\n1. Seleccionar grupo en arbol\\n2. Click 'Delete this entry'\\n3. Confirmar eliminacion\\n4. Click 'Delete'\\n\\nNOTA:\\nLos usuarios miembros del grupo\\nno se eliminan, solo se borra el grupo",
-      "tags": ["unidad-3", "ldap", "grupos", "modificacion", "eliminacion"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "grupos",
+        "modificacion",
+        "eliminacion"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 372,
+      "id": "d680937e-742e-4d4c-a9b5-67a1277266f4",
       "front": "Estrategias de imbricacion en dominio LDAP",
       "back": "CONCEPTO:\\nInclusion de estructuras similares\\n\\nREGLAS DE DISEÑO:\\n\\n1. Crear 2 unidades organizativas:\\n   - ou=People (usuarios)\\n   - ou=Groups (grupos)\\n\\n2. Crear GRUPOS bajo ou=Groups:\\n   - Todos son 'hijos' de ou=Groups\\n   - No se pueden anidar grupos dentro de grupos\\n\\n3. Crear USUARIOS bajo ou=People:\\n   - Todos son 'hijos' de ou=People\\n   - No crear usuarios en otros niveles\\n\\n4. Establecer RELACIONES:\\n   - Asignar usuarios a grupos\\n   - Desde propiedades del grupo",
-      "tags": ["unidad-3", "ldap", "grupos", "imbricacion", "diseño"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "grupos",
+        "imbricacion",
+        "diseño"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 373,
+      "id": "f8cd3eee-7ae7-463d-b3ce-fbcdfa9578b8",
       "front": "Grupos predeterminados en dominio LDAP",
       "back": "NO EXISTEN GRUPOS PREDETERMINADOS\\n\\nEXCEPCION:\\nUsuario admin se crea automaticamente\\n(pero no pertenece a grupo especifico)\\n\\nCRITERIO DEL ADMINISTRADOR:\\n\\nRECOMENDACION:\\n- Agrupar por DEPARTAMENTOS\\n- Agrupar por TIPOS de usuarios\\n- Facilitar gestion de permisos\\n\\nEJEMPLOS:\\n- cn=desarrolladores\\n- cn=ventas\\n- cn=administracion\\n- cn=direccion",
-      "tags": ["unidad-3", "ldap", "grupos", "predeterminados"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "grupos",
+        "predeterminados"
+      ],
       "difficulty": "easy"
     }
   ]

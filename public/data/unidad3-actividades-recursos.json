@@ -1,59 +1,107 @@
 {
   "cards": [
     {
-      "id": 429,
+      "id": "264780c7-e16f-4403-be9f-67dc88fcfa38",
       "front": "Actividad Samba: Compartir directorio 'alumnos' entre dos máquinas Ubuntu",
       "back": "PASOS EN SERVIDOR:\n\n1. Crear directorio:\n   sudo mkdir alumnos\n\n2. Click derecho sobre 'alumnos'\n   → Opciones de compartición\n   → Marcar 'Comparte esta carpeta'\n   → Marcar 'Acceso de invitado'\n   → Instalar Samba si se solicita\n\n3. Verificar instalación Samba\n\nPASOS EN CLIENTE:\n\n1. Ir a: Lugares → Red\n2. Seleccionar icono del servidor\n3. Ver carpeta 'alumnos'\n4. Click para ver archivos compartidos",
-      "tags": ["unidad-3", "samba", "actividades", "compartir", "practica"],
+      "tags": [
+        "unidad-3",
+        "samba",
+        "actividades",
+        "compartir",
+        "practica"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 430,
+      "id": "06187667-7477-4756-8c23-665d00a1feda",
       "front": "Actividad Samba: Configuración servidor con parámetros específicos",
       "back": "CONFIGURACIÓN smb.conf:\n\n[global]\nworkgroup = CARACOLES\nnetbios name = ESCUELA\nsecurity = user\nmap to guest = bad user\nhost deny = 10.0\ninvalid users = Bernat, Biel, @alumnos\n\n[CLASE]\npath = /home/clase\nread only = no\nguest ok = yes\nbrowseable = yes\nvalid users = @CARACOLES\n\n[CASA]\npath = /home/casa\nread only = yes\nguest ok = no\nvalid users = @CARACOLES\n\n[CDROM]\npath = /media/cdrom\nguest ok = yes\n\n[RUM]\npath = /var/spool/samba\nvalid users = @tortugas\nprintable = yes",
-      "tags": ["unidad-3", "samba", "actividades", "configuracion", "smb.conf"],
+      "tags": [
+        "unidad-3",
+        "samba",
+        "actividades",
+        "configuracion",
+        "smb.conf"
+      ],
       "difficulty": "hard"
     },
     {
-      "id": 431,
+      "id": "cc9cc231-9d73-4871-b386-f1d82bf53372",
       "front": "Explicación parámetros smb.conf de la actividad",
       "back": "PARÁMETROS GLOBALES:\n\nworkgroup = CARACOLES\n→ Nombre del grupo de trabajo\n\nnetbios name = ESCUELA\n→ Nombre visible en la red\n\nsecurity = user\n→ Autenticación por usuario\n\nmap to guest = bad user\n→ Usuario inexistente = invitado\n\nhost deny = 10.0\n→ Denegar IPs que empiecen por 10.0\n\ninvalid users = Bernat, Biel, @alumnos\n→ Usuarios y grupo prohibidos",
-      "tags": ["unidad-3", "samba", "actividades", "parametros", "configuracion"],
+      "tags": [
+        "unidad-3",
+        "samba",
+        "actividades",
+        "parametros",
+        "configuracion"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 432,
+      "id": "9cb320c5-820a-46a0-bf4e-53553e077eea",
       "front": "Actividad NFS: Instalación servidor y cliente",
       "back": "INSTALACIÓN SERVIDOR:\napt-get install nfs-kernel-server nfs-common portmap\n\nINSTALACIÓN CLIENTE:\napt-get install nfs-common portmap\n\nSERVICIOS:\n- nfs-kernel-server: demonio NFS\n- nfs-common: utilidades comunes\n- portmap: asignación de puertos RPC\n\nVERIFICACIÓN SERVIDOR:\nrpcinfo -p\n→ Deben aparecer nfs, portmapper, mountd\n\nVERIFICACIÓN CLIENTE:\nrpcinfo -p\n→ Debe aparecer portmapper",
-      "tags": ["unidad-3", "nfs", "actividades", "instalacion", "practica"],
+      "tags": [
+        "unidad-3",
+        "nfs",
+        "actividades",
+        "instalacion",
+        "practica"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 433,
+      "id": "156716eb-5ba6-4906-97dd-2a263135c447",
       "front": "Actividad NFS: Crear y exportar directorio /REPOSITORIO",
       "back": "PASOS EN SERVIDOR:\n\n1. Crear directorio:\n   mkdir /REPOSITORIO\n\n2. Cambiar propietario:\n   chown nobody:nogroup /REPOSITORIO\n\n3. Editar /etc/exports:\n   /REPOSITORIO ubuntu-client(rw)\n   o\n   /REPOSITORIO *.ciclesfp.local(ro)\n\n4. Aplicar cambios:\n   exportfs -a\n\nPERMISOS:\n- rw: lectura y escritura\n- ro: solo lectura\n- Se puede especificar por máquina, dominio o red",
-      "tags": ["unidad-3", "nfs", "actividades", "exports", "practica"],
+      "tags": [
+        "unidad-3",
+        "nfs",
+        "actividades",
+        "exports",
+        "practica"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 434,
+      "id": "d0f9a22c-7031-4197-bf0a-0ebd98c947a2",
       "front": "Actividad NFS: Montar directorio en cliente",
       "back": "PASOS EN CLIENTE:\n\n1. Crear punto de montaje:\n   mkdir /DATOS\n\n2. Montar manualmente:\n   mount ubuntu-server:/REPOSITORIO /DATOS\n\n3. Verificar montaje:\n   df -h\n   mount\n\n4. Para montaje permanente (fstab):\n   ubuntu-server:/REPOSITORIO /DATOS nfs defaults 0 0\n\nPRUEBA:\n- Crear archivo en /DATOS (cliente)\n- Verificar en /REPOSITORIO (servidor)",
-      "tags": ["unidad-3", "nfs", "actividades", "montaje", "practica"],
+      "tags": [
+        "unidad-3",
+        "nfs",
+        "actividades",
+        "montaje",
+        "practica"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 435,
+      "id": "75ec7cc6-6e6f-4253-b7be-14beef950047",
       "front": "Reglas de permisos en NFS",
       "back": "REGLA IMPORTANTE:\nPrevalecen los permisos MÁS RESTRICTIVOS\n\nEJEMPLO 1:\n- NFS: lectura/escritura\n- Linux: solo lectura\n→ Resultado: SOLO LECTURA\n\nEJEMPLO 2:\n- NFS: solo lectura\n- Linux: lectura/escritura\n→ Resultado: SOLO LECTURA\n\nPARA ESCRIBIR:\nSe necesitan permisos de escritura\nTANTO en NFS como en Linux\n\nSEGURIDAD:\nSe puede restringir por:\n- Máquina específica\n- Red completa (192.168.1.0/24)\n- Dominio (*.ciclesfp.local)",
-      "tags": ["unidad-3", "nfs", "actividades", "permisos", "reglas"],
+      "tags": [
+        "unidad-3",
+        "nfs",
+        "actividades",
+        "permisos",
+        "reglas"
+      ],
       "difficulty": "hard"
     },
     {
-      "id": 436,
+      "id": "e2d87ef8-8837-48f0-a31f-968fd3e1c6e2",
       "front": "Actividad NFS: Reiniciar servicio tras cambios",
       "back": "TRAS MODIFICAR /etc/exports:\n\n1. Exportar directorios:\n   exportfs -a\n\n2. Reiniciar servidor NFS:\n   /etc/init.d/nfs-kernel-server stop\n   /etc/init.d/nfs-kernel-server start\n\nO (método moderno):\n   systemctl restart nfs-kernel-server\n\nVERIFICACIÓN:\nrpcinfo -p\n→ nfs, mountd, portmapper activos\n\nNOTA:\nCada cambio en exports requiere\nexportfs -a para aplicar",
-      "tags": ["unidad-3", "nfs", "actividades", "reinicio", "servicio"],
+      "tags": [
+        "unidad-3",
+        "nfs",
+        "actividades",
+        "reinicio",
+        "servicio"
+      ],
       "difficulty": "easy"
     }
   ]

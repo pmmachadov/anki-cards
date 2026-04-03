@@ -1,164 +1,301 @@
 {
   "cards": [
     {
-      "id": 330,
+      "id": "4bff1e22-c0a8-41bc-b4dd-79beff7d6f93",
       "front": "Definicion correcta de dominio",
       "back": "RESPUESTA CORRECTA:\n\nUn dominio es un conjunto de ordenadores\nconectados en red que forman parte de una\nestructura JERARQUIZADA que permite\ngestionar de forma CENTRALIZADA en un\nservidor el acceso a recursos por parte\nde usuarios y equipos.\n\nCARACTERISTICAS:\n- Jerarquia (no plano)\n- Gestion centralizada\n- Servidor dedicado\n- Acceso a recursos compartidos",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "dominio", "conceptos"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "dominio",
+        "conceptos"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 331,
+      "id": "afb56faa-2ea3-445f-a524-0ab438708df8",
       "front": "Significado del acronimo LDAP",
       "back": "RESPUESTA CORRECTA:\n\nLightweight Directory Access Protocol\n(Protocolo Ligero de Acceso a Directorio)\n\nTRADUCCION:\n- Lightweight = Ligero/Peso ligero\n- Directory = Directorio\n- Access = Acceso\n- Protocol = Protocolo\n\nVERSION ACTUAL: LDAPv3",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "acronimo"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "acronimo"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 332,
+      "id": "7553f02c-96df-4212-bdfe-546b5bf15673",
       "front": "LDAP es sucesor de que protocolo",
       "back": "RESPUESTA CORRECTA: X.500\n\nHISTORIA:\n- X.500: DAP (Directory Access Protocol)\n  Protocolo OSI complejo\n- 1993: LDAP creado en Universidad Michigan\n  como alternativa ligera a DAP\n- 1995: LDAPv3 se hace autosuficiente\n\nLDAP fue diseñado originalmente para\nacceder a servicios X.500 sobre TCP/IP.",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "x500", "historia"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "x500",
+        "historia"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 333,
+      "id": "6d7c506f-bdfb-453d-87af-329e0fa027a9",
       "front": "V/F: uid es identificador de usuario en LDAP",
       "back": "VERDADERO\n\nuid (userid):\nIdentificador unico de usuario en LDAP.\n\nEJEMPLO DN:\nuid=jperez,ou=People,dc=example,dc=com\n\nOTRAS CLAVES VALIDAS:\n- cn (common name): nombre común\n- ou (organizational unit): unidad organizativa\n- o (organization): organizacion\n- mail: correo electronico",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "uid", "vf"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "uid",
+        "vf"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 334,
+      "id": "fc0b7eab-3d79-4d61-ac02-31b19fe67f2d",
       "front": "V/F: pid es identificador de proceso en LDAP",
       "back": "FALSO\n\npid (process identifier) es un concepto\ndel SISTEMA OPERATIVO, no de LDAP.\n\nEN LDAP NO EXISTE:\n- pid (no es clave LDAP)\n- uos (no es valido)\n- muid (no existe)\n\nCLAVES LDAP VALIDAS:\n- uid, cn, ou, o, mail, sn, givenName",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "pid", "vf"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "pid",
+        "vf"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 335,
+      "id": "a9cb17e8-3448-4cef-8a0f-92ce7e78f631",
       "front": "V/F: ou es unidad organizativa en LDAP",
       "back": "VERDADERO\n\nou (organizational unit):\nUnidad organizativa - departamento\no seccion dentro de la organizacion.\n\nEJEMPLO:\nou=People (usuarios)\nou=Groups (grupos)\nou=Ventas (departamento)\n\nUSO:\nOrganiza el arbol LDAP jerarquicamente.",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "ou", "vf"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "ou",
+        "vf"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 336,
+      "id": "3cd2447b-faa1-4b09-bb1c-2211b878042e",
       "front": "Relacionar: Add, Delete, Start TLS, Bind",
       "back": "Add: Añadir una entrada al directorio\n\nDelete: Borrar una entrada del directorio\n\nStart TLS: Usar extension de seguridad TLS\npara obtener conexion segura\n\nBind: Iniciar una nueva sesion en el servidor",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "operaciones"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "operaciones"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 337,
+      "id": "5e4ac880-9363-454e-a5e2-381189c11bc0",
       "front": "Relacionar: Abandono, Compare, Rename, Search",
       "back": "Abandono: Abandonar operacion previa enviada\nal servidor\n\nCompare: Comparar entradas segun criterios\n\nRename: Cambiar nombre de una entrada\n\nSearch: Buscar entradas en el directorio",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "operaciones"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "operaciones"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 338,
+      "id": "0b1def30-4ea5-4e80-9624-9d666004a028",
       "front": "Composicion del DN (nombre distinguido)",
       "back": "RESPUESTA CORRECTA:\n\nEl DN esta formado por:\n1. Nombre del usuario\n2. Nombre de la unidad organizativa (si aplica)\n3. Nombre del dominio\n4. Extension del dominio\n\nEJEMPLO:\nuid=jperez,ou=People,dc=example,dc=com\n\nCOMPONENTES:\n- uid=jperez (usuario)\n- ou=People (unidad organizativa)\n- dc=example (dominio)\n- dc=com (extension)",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "dn", "estructura"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "dn",
+        "estructura"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 339,
+      "id": "c1726f49-7805-491b-a548-1ca5626f0627",
       "front": "Requisitos hardware Ubuntu Server 10.04 LTS",
       "back": "RESPUESTA CORRECTA:\n\n- Procesador: x86 a 300 MHz (i686)\n- RAM: 128 MB\n- Disco duro: 1 GB de espacio libre\n- Resolucion: VGA (640x480)\n\nNOTA: Requisitos MINIMOS sin entorno\ngrafico (solo shell modo texto).",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "hardware", "requisitos"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "hardware",
+        "requisitos"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 340,
+      "id": "d7fffff3-6f04-416b-b7ae-8a8976d79608",
       "front": "Requisitos hardware Ubuntu Desktop 10.04 LTS",
       "back": "RESPUESTA CORRECTA:\n\n- Procesador: x86 a 1 GHz\n- RAM: 512 MB (minimo)\n- Disco duro: 5 GB de espacio libre\n- Resolucion: 1024x768\n\nDIFERENCIA CON SERVER:\nRequisitos mucho mayores por el entorno\ngrafico y aplicaciones de escritorio.",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "hardware", "requisitos"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "hardware",
+        "requisitos"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 341,
+      "id": "b8d78140-a71d-456d-b083-546c9e243358",
       "front": "Paquetes para instalar servidor LDAP",
       "back": "RESPUESTA CORRECTA:\n\nslapd y ldap-utils\n\nFUNCION:\n- slapd: daemon del servidor LDAP\n- ldap-utils: utilidades de administracion\n  (ldapadd, ldapsearch, ldapmodify...)\n\nINSTALACION:\napt-get install slapd ldap-utils",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "paquetes", "instalacion"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "paquetes",
+        "instalacion"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 342,
+      "id": "2c47d44e-7e8c-4dfc-b877-196d08a01910",
       "front": "Significado de LDIF",
       "back": "RESPUESTA CORRECTA:\n\nLDAP Data Interchange Format\n(Formato de Intercambio de Datos LDAP)\n\nFUNCION:\n- Exportar datos desde directorio\n- Importar datos a directorio\n- Formato de texto plano\n- Compatible entre servidores LDAP\n\nEXTENSION: .ldif",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "ldif", "formato"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "ldif",
+        "formato"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 343,
+      "id": "aa3fafb6-a6f1-4df7-8e26-c0820a2390a7",
       "front": "Archivos de esquema a importar en LDAP",
       "back": "RESPUESTA CORRECTA:\n\n1. cosine.ldif\n2. nis.ldif\n3. inetorgperson.ldif\n\nCOMANDO DE IMPORTACION:\nldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/cosine.ldif\nldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/nis.ldif\nldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/inetorgperson.ldif\n\nFUNCION: Definen objetos y atributos\nque el servidor puede manejar.",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "schema", "esquema"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "schema",
+        "esquema"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 344,
+      "id": "6e0202a2-01d2-467d-8150-043d79ac0d6c",
       "front": "Herramienta web para administrar LDAP",
       "back": "RESPUESTA:\n\nphpLDAPadmin\n\nINSTALACION:\napt-get install phpldapadmin\n\nFUNCION:\nPermite administrar usuarios y grupos\nmediante interfaz web.\n\nCONFIGURACION:\nEditar /etc/phpldapadmin/config.php\n\nACCESO:\nhttp://localhost/phpldapadmin",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "phpldapadmin", "herramientas"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "phpldapadmin",
+        "herramientas"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 345,
+      "id": "8bf932a9-be32-4949-bae5-b4383fd608ba",
       "front": "Metodo de cifrado de contraseñas LDAP",
       "back": "RESPUESTA:\n\n{CRYPT} o algoritmos como:\n- DES\n- MD5\n- SHA\n- SSHA (SHA + salt)\n\nCOMANDO PARA GENERAR:\nslappasswd -h {CRYPT}\n\nRESULTADO:\n{CRYPT}xxxxxxxx (hash encriptado)",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "seguridad", "cifrado"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "seguridad",
+        "cifrado"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 346,
+      "id": "2df9b87f-780d-49f6-b6f9-56190cb2406b",
       "front": "Comando para cargar archivos LDIF",
       "back": "RESPUESTA:\n\nldapadd\n\nSINTAXIS:\nldapadd -Y EXTERNAL -H ldapi:/// -f archivo.ldif\n\nOPCIONES:\n- -Y EXTERNAL: autenticacion SASL externa\n- -H ldapi:///: URI del servidor\n- -f: especificar archivo\n\nALTERNATIVA CON AUTENTICACION SIMPLE:\nldapadd -x -D cn=admin,dc=dominio,dc=org -W -f archivo.ldif",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "ldapadd", "comandos"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "ldapadd",
+        "comandos"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 347,
+      "id": "e8ab806a-9003-441a-a505-9ed5c7d579e1",
       "front": "Para autenticacion segura es necesario crear",
       "back": "RESPUESTA:\n\nCERTIFICADOS (certificados SSL/TLS)\n\nCOMPONENTES:\n1. Certificado de Autoridad (CA)\n2. Certificado del servidor\n3. Clave privada del servidor\n\nHERRAMIENTA:\ncerttool (de gnutls-bin) para crear\ncertificados autofirmados.",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "tls", "ssl", "seguridad"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "tls",
+        "ssl",
+        "seguridad"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 348,
+      "id": "6b27180a-e4cf-4731-9571-72e2fb3bc0fc",
       "front": "Paquetes para configurar cliente LDAP",
       "back": "RESPUESTA CORRECTA:\n\nlibnss-ldap y auth-client-config\n\nINSTALACION:\napt-get install libnss-ldap auth-client-config\n\nFUNCION:\n- libnss-ldap: integracion con NSS\n- auth-client-config: facilita configuracion\n\nCONFIGURACION POSTERIOR:\nauth-client-config -t nss -p lac_ldap",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "cliente", "paquetes"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "cliente",
+        "paquetes"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 349,
+      "id": "1e269184-61f7-4333-8fe8-353a1613cc96",
       "front": "Utilidad para configurar autenticacion via LDAP",
       "back": "RESPUESTA CORRECTA:\n\npam-auth-update\n\nFUNCION:\nConfigura el sistema para usar\nautenticacion LDAP mediante PAM.\n\nUSO:\n1. Ejecutar: pam-auth-update\n2. Seleccionar autenticacion LDAP\n3. Habilitar pam_mkhomedir para crear\n   directorios personales automaticamente",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "pam", "autenticacion"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "pam",
+        "autenticacion"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 350,
+      "id": "cf31f1af-5c84-4b04-a597-d1c169629922",
       "front": "V/F: Inventario de SO y configuracion de red en documentacion",
       "back": "VERDADERO\n\nElementos que deben figurar:\n- Sistemas operativos instalados\n- Configuracion de red (IP, hostname)\n- Esquema visual en arbol del dominio\n- Lista de contraseñas (solo admin)\n\nNO DEBEN INCLUIRSE:\n- Manual de instalacion de LDAP\n- Manual de instalacion de Ubuntu",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "documentacion", "vf"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "documentacion",
+        "vf"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 351,
+      "id": "6becbc85-7386-4331-9949-955a4e1db981",
       "front": "V/F: Esquema visual del dominio en documentacion",
       "back": "VERDADERO\n\nLa documentacion debe incluir:\n- Esquema visual en forma de arbol\n- Muestra jerarquia del dominio\n- Relaciones entre elementos\n\nOTROS ELEMENTOS REQUERIDOS:\n- Inventario hardware\n- Inventario software\n- Configuraciones de red\n- Lista de usuarios/grupos con DN\n- Lista de contraseñas (privada)",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "documentacion", "vf"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "documentacion",
+        "vf"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 352,
+      "id": "2bbb9dc0-612e-4ae9-8b31-402d3f4e37af",
       "front": "V/F: Lista de contraseñas en documentacion del dominio",
       "back": "VERDADERO\n\nDebe incluirse lista de contraseñas\nactualizadas, PERO:\n\nRESTRICCIONES:\n- Solo accesible por el ADMINISTRADOR\n- Documentacion CONFIDENCIAL\n- No debe ser accesible por otros usuarios\n\nSEGURIDAD:\nAlmacenar en lugar seguro con\npermisos restrictivos.",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "documentacion", "seguridad", "vf"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "documentacion",
+        "seguridad",
+        "vf"
+      ],
       "difficulty": "easy"
     }
   ]

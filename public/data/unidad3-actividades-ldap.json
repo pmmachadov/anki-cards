@@ -1,45 +1,77 @@
 {
   "cards": [
     {
-      "id": 324,
+      "id": "c3426e34-4774-446c-8c72-1b758fcf715a",
       "front": "Actividad LDAP: Instalar servidor OpenLDAP y utilidades",
       "back": "COMANDO:\nsudo apt-get install slapd ldap-utils\n\nPAQUETES INSTALADOS:\n- slapd: daemon del servidor LDAP\n- ldap-utils: utilidades de administracion\n  (ldapadd, ldapsearch, ldapmodify, etc.)\n\nNOTA:\nDurante la instalacion se solicita\ncontraseña para el administrador LDAP.",
-      "tags": ["unidad-3", "ldap", "actividades", "instalacion"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "actividades",
+        "instalacion"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 325,
+      "id": "e175f592-0d37-437a-9b47-171d76f515dd",
       "front": "Actividad LDAP: Instalar phpLDAPadmin",
       "back": "COMANDO:\nsudo apt-get install phpldapadmin\n\nDEPENDENCIAS AUTOMATICAS:\n- Apache (servidor web)\n- PHP (intérprete)\n- Extensiones PHP para LDAP\n\nFUNCION:\nInterfaz web para administrar el\ndirectorio LDAP de forma grafica.",
-      "tags": ["unidad-3", "ldap", "actividades", "phpldapadmin"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "actividades",
+        "phpldapadmin"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 326,
+      "id": "0472f8e6-b380-4e38-a27f-8e3425823b7f",
       "front": "Actividad LDAP: Opciones de configuracion de phpLDAPadmin",
       "back": "OPCION 1 - Usar configuracion Apache:\nIncluir /etc/phpldapadmin/apache.conf\nen configuracion de Apache\n\nOPCION 2 - Copiar a web raiz:\ncp -r /usr/share/phpldapadmin /var/www/\nPermite multiples instalaciones\n\nOPCION 3 - Editar config.php:\nArchivo: /etc/phpldapadmin/config.php\nConfiguracion personalizada",
-      "tags": ["unidad-3", "ldap", "actividades", "configuracion"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "actividades",
+        "configuracion"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 327,
+      "id": "61daf169-d635-42ac-9cc7-69bc910df264",
       "front": "Actividad LDAP: Parametros a configurar en phpLDAPadmin",
       "back": "Archivo: /etc/phpldapadmin/config.php\n\nPARAMETROS CLAVE:\n\n1. Nombre del servidor:\n$ldapservers->SetValue($i,'server','name','Mi Servidor LDAP');\n\n2. Direccion del servidor:\n$ldapservers->SetValue($i,'server','host','127.0.0.1');\n\n3. Puerto LDAP:\n$ldapservers->SetValue($i,'server','port','389');\n\n4. DN base:\n$ldapservers->SetValue($i,'server','base',array('dc=example,dc=com'));\n\n5. Cadena de login:\n$ldapservers->SetValue($i,'login','string','uid=<username>,ou=People,dc=example,dc=com');",
-      "tags": ["unidad-3", "ldap", "actividades", "phpldapadmin", "configuracion"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "actividades",
+        "phpldapadmin",
+        "configuracion"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 328,
+      "id": "c38bef78-b46d-49e4-ab8d-dc40bd1d3915",
       "front": "Actividad LDAP: Acceso a phpLDAPadmin",
       "back": "TRAS CONFIGURAR:\n\n1. Reiniciar Apache (si es necesario):\n/etc/init.d/apache2 restart\n\n2. Acceder desde navegador:\nhttp://127.0.0.1/phpldapadmin\no\nhttp://localhost/phpldapadmin\n\n3. Login:\n- Usuario: cn=admin,dc=example,dc=com\n- Contraseña: la definida en instalacion",
-      "tags": ["unidad-3", "ldap", "actividades", "phpldapadmin", "acceso"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "actividades",
+        "phpldapadmin",
+        "acceso"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 329,
+      "id": "1ac79384-0190-4148-9f35-5e1973592ba7",
       "front": "Resumen: Pasos para instalar y configurar OpenLDAP",
       "back": "PASO 1: Instalar servidor\napt-get install slapd ldap-utils\n\nPASO 2: Instalar interfaz web\napt-get install phpldapadmin\n\nPASO 3: Configurar phpLDAPadmin\nEditar /etc/phpldapadmin/config.php\n(server name, host, port, base DN)\n\nPASO 4: Acceder\nhttp://localhost/phpldapadmin\n\nLISTO para gestionar usuarios y grupos!",
-      "tags": ["unidad-3", "ldap", "actividades", "resumen"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "actividades",
+        "resumen"
+      ],
       "difficulty": "easy"
     }
   ]

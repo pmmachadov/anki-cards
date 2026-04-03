@@ -1,192 +1,355 @@
 {
   "cards": [
     {
-      "id": 383,
+      "id": "35697fb3-148e-4b60-a7bc-71e9e918cbf8",
       "front": "URL para acceder a phpLDAPadmin localmente",
       "back": "RESPUESTA CORRECTA:\n\nhttp://localhost/phpldapadmin\n\nNOTAS:\n- localhost = 127.0.0.1 (misma maquina)\n- phpldapadmin (en minusculas, sin guiones)\n- Protocolo HTTP, no FTP\n\nACCESO REMOTO:\nhttp://ip_servidor/phpldapadmin",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "phpldapadmin", "url"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "phpldapadmin",
+        "url"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 384,
+      "id": "748f46d4-85fe-42b1-be9e-ec2d9197013b",
       "front": "V/F: Visualizar registro de actividad con phpLDAPadmin",
       "back": "FALSO\n\nphpLDAPadmin NO permite visualizar\nregistros de actividad de usuarios.\n\nFUNCIONES SI DISPONIBLES:\n✓ Crear usuarios del dominio\n✓ Eliminar grupos de usuarios\n✓ Modificar parametros de grupos\n\nNO DISPONIBLE:\n✗ Crear carpetas de grupos (no es funcion LDAP)\n✗ Ver logs de actividad",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "phpldapadmin", "vf"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "phpldapadmin",
+        "vf"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 385,
+      "id": "7b47973d-0035-4c19-be3a-9b14ad5a8123",
       "front": "V/F: Crear usuarios del dominio con phpLDAPadmin",
       "back": "VERDADERO\n\nphpLDAPadmin permite crear usuarios:\n\nPASOS:\n1. Seleccionar ou=People\n2. Create new entry here\n3. Generic: User Account\n4. Completar campos obligatorios\n5. Create object → Commit\n\nOTRAS FUNCIONES:\n- Eliminar grupos\n- Modificar parametros de grupos",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "phpldapadmin", "vf"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "phpldapadmin",
+        "vf"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 386,
+      "id": "940a646e-4474-451e-ae28-ecb4fad65eb5",
       "front": "V/F: Eliminar grupos con phpLDAPadmin",
       "back": "VERDADERO\n\nphpLDAPadmin permite eliminar grupos:\n\nPASOS:\n1. Seleccionar grupo en arbol\n2. Click 'Delete this entry'\n3. Confirmar eliminacion\n\nNOTA:\nEliminar grupo NO elimina usuarios,\nsolo borra la agrupacion.",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "phpldapadmin", "vf"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "phpldapadmin",
+        "vf"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 387,
+      "id": "9eb7cde8-0489-4997-8918-33e454a8c485",
       "front": "DN del administrador del dominio",
       "back": "RESPUESTA CORRECTA:\n\ncn=admin,dc=medominio,dc=org\n\nCOMPONENTES:\n- cn=admin (common name = administrador)\n- dc=medominio (domain component = dominio)\n- dc=org (domain component = extension)\n\nERRORES COMUNES:\n- Usar dc en lugar de cn para admin\n- Cambiar orden de componentes\n- Usar ou en lugar de dc",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "dn", "admin"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "dn",
+        "admin"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 388,
+      "id": "a690e9c7-96e4-45a8-8002-85c0a7b4896b",
       "front": "Elementos minimos para crear un dominio LDAP",
       "back": "RESPUESTA CORRECTA:\n\ncn=admin, ou=people, ou=groups\n\nDESGLOSE:\n1. cn=admin: usuario administrador\n2. ou=people: unidad organizativa usuarios\n3. ou=groups: unidad organizativa grupos\n\nNOTA:\n- ou = organizational unit (unidad organizativa)\n- cn = common name (nombre comun)\n- Los grupos y usuarios cuelgan de sus OU",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "dominio", "elementos"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "dominio",
+        "elementos"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 389,
+      "id": "53c420bc-09ee-4a34-941e-800316199dac",
       "front": "Clase de objeto para nuevo usuario LDAP",
       "back": "RESPUESTA CORRECTA:\n\ninetOrgPerson\n\nOTRAS CLASES IMPORTANTES:\n- posixAccount: cuenta POSIX (Linux)\n- organizationalPerson: persona organizacional\n- simpleSecurityObject: objeto seguridad simple\n\nEN LDIF:\nobjectClass: inetOrgPerson\nobjectClass: posixAccount\nobjectClass: shadowAccount",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "objectclass", "usuario"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "objectclass",
+        "usuario"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 390,
+      "id": "49e0b835-9e78-45b1-beff-3aa03228c8cc",
       "front": "V/F: ext_des es metodo de encriptacion de contraseñas",
       "back": "VERDADERO\n\nMETODOS VALIDOS DE ENCRIPTACION:\n- {CRYPT}: funcion crypt (DES modificada)\n- {MD5}: algoritmo MD5\n- {SMD5}: MD5 con salt\n- {SHA}: algoritmo SHA\n- {SSHA}: SHA con salt (recomendado)\n- ext_des: extension de DES\n\nNO SON METODOS DE ENCRIPTACION:\n- jpg: formato de imagen\n- 7zip: compresion de archivos",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "encriptacion", "vf"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "encriptacion",
+        "vf"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 391,
+      "id": "06d6a6d6-bf62-4abc-9118-65e7aae6bdf8",
       "front": "V/F: md5 es metodo de encriptacion de contraseñas",
       "back": "VERDADERO\n\nMD5 es un algoritmo de hash criptografico\nutilizado para encriptar contraseñas en LDAP.\n\nVARIANTES:\n- {MD5}: hash MD5 basico\n- {SMD5}: MD5 con salt (mas seguro)\n\nCOMANDO slappasswd:\nslappasswd -h {MD5}\nslappasswd -h {SSHA} (recomendado)",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "md5", "encriptacion", "vf"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "md5",
+        "encriptacion",
+        "vf"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 392,
+      "id": "8c2633a6-df11-4ffe-82ab-bfafdfbd0141",
       "front": "V/F: 7zip es metodo de encriptacion de contraseñas",
       "back": "FALSO\n\n7zip es un programa de COMPRESION\nde archivos, no un metodo de encriptacion\npara contraseñas LDAP.\n\nAunque 7zip puede cifrar archivos comprimidos,\nNO se utiliza como metodo de encriptacion\nen el servidor LDAP.",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "7zip", "vf"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "7zip",
+        "vf"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 393,
+      "id": "80bb693f-e9b9-4704-bd67-3941590edeac",
       "front": "Camino valido para directorio personal de usuario LDAP",
       "back": "RESPUESTA CORRECTA:\n\n/home/users/usuari\n\nESTRUCTURA TIPICA:\n/home/[directorio_usuario]\n\nEJEMPLOS:\n- /home/alumno1\n- /home/usuarios/jperez\n- /home/users/admin\n\nSE CREA AUTOMATICAMENTE si se configura\npam_mkhomedir.so correctamente.",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "home", "directorio"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "home",
+        "directorio"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 394,
+      "id": "09927c47-a250-4a61-9ce2-db286e0afbec",
       "front": "DN del usuario 'segundo' en dominio midominio.org",
       "back": "RESPUESTA CORRECTA:\n\ncn=usuario segundo,ou=people,dc=medodominio,dc=org\n\nCOMPONENTES:\n- cn=usuario segundo (nombre completo)\n- ou=people (unidad organizativa)\n- dc=medodominio (dominio)\n- dc=org (extension)\n\nERRORES:\n- Usar dc para el nombre (debe ser cn)\n- Usar ou en lugar de dc para dominio\n- Orden incorrecto de componentes",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "dn", "usuario"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "dn",
+        "usuario"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 395,
+      "id": "7c44f82e-b41f-4673-895f-32e5e19db62e",
       "front": "V/F: Interprete de pedidos al crear usuario LDAP",
       "back": "VERDADERO\n\nEl campo 'Login shell' o 'Interprete de\npedidos' es parte de la informacion\nque se especifica al crear usuario.\n\nEJEMPLOS:\n- /bin/bash (mas comun)\n- /bin/sh\n- /bin/csh\n- /bin/tsh\n\nOTROS CAMPOS REQUERIDOS:\n- Nombre, apellido\n- UID, GID\n- Directorio personal",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "shell", "vf"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "shell",
+        "vf"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 396,
+      "id": "21725ec3-55e6-4698-8cdb-67472c169f39",
       "front": "V/F: Direccion IP al crear usuario LDAP",
       "back": "FALSO\n\nLa direccion IP NO es un campo que se\nespecifique al crear un usuario en LDAP.\n\nCAMPOS TIPICOS DE USUARIO:\n- Nombre, apellido\n- User ID (UID)\n- Group ID (GID)\n- Directorio personal\n- Shell de login\n- Contraseña\n\nLa IP se asigna dinamicamente por DHCP\no configuracion de red del sistema.",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "ip", "vf"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "ip",
+        "vf"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 397,
+      "id": "107621b6-4a5f-4c7a-826b-4b4f18c7ceff",
       "front": "V/F: Identificador de usuario al crear cuenta LDAP",
       "back": "VERDADERO\n\nEl User ID (UID) o 'Identificador de\nusuario' es un campo OBLIGATORIO al\ncrear un usuario en LDAP.\n\nCARACTERISTICAS:\n- Debe ser UNICO en el sistema\n- Se genera automaticamente\n- Se usa para login\n- Ejemplo: jperez, alumno1\n\nRELACIONADO CON:\n- UID Number (numero ID, ej: 1000)\n- GID Number (grupo principal)",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "uid", "vf"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "uid",
+        "vf"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 398,
+      "id": "497db911-b766-4921-b698-2c6da09ce06d",
       "front": "V/F: Directorio personal al crear usuario LDAP",
       "back": "VERDADERO\n\nEl directorio personal (home directory)\nes un campo IMPORTANTE al crear usuario.\n\nEJEMPLOS:\n- /home/jperez\n- /home/alumno1\n- /home/users/admin\n\nFUNCION:\n- Almacena archivos del usuario\n- Se crea automaticamente con pam_mkhomedir\n- Contiene configuraciones personales",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "homedirectory", "vf"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "homedirectory",
+        "vf"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 399,
+      "id": "febd239c-02ad-4fc5-b47b-9c62157c8129",
       "front": "Paquetes para instalar SAMBA e integrar con LDAP",
       "back": "RESPUESTA CORRECTA:\n\nsamba, samba-doc, smbldap-tools\n\nFUNCION DE CADA PAQUETE:\n- samba: servidor SMB/CIFS\n- samba-doc: documentacion y esquemas\n  (incluye samba.schema)\n- smbldap-tools: herramientas de gestion\n  (smbldap-useradd, smbldap-groupadd...)\n\nINSTALACION:\napt-get install samba samba-doc smbldap-tools",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "samba", "paquetes"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "samba",
+        "paquetes"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 400,
+      "id": "c873bfb6-166e-4993-ace7-b07d46602c26",
       "front": "Ruta del archivo samba.schema",
       "back": "RESPUESTA CORRECTA:\n\n/usr/share/doc/samba-doc/examples/LDAP/\n\nPROCESO DE INSTALACION:\n1. samba-schema esta comprimido en samba-doc\n2. Copiar a /etc/ldap/schema/\n3. Descomprimir con gzip -d\n4. Convertir a formato LDIF con slapcat\n5. Importar con ldapadd\n\nCOMANDOS:\ncp samba.schema.gz /etc/ldap/schema/\ngzip -d samba.schema.gz",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "samba", "schema"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "samba",
+        "schema"
+      ],
       "difficulty": "hard"
     },
     {
-      "id": 401,
+      "id": "7047863f-d73f-4cb5-8100-52a2d914410a",
       "front": "Comando para convertir esquemas a formato LDIF",
       "back": "RESPUESTA CORRECTA:\n\nslapcat\n\nSINTAXIS:\nslapcat -f schema_convert.conf \\\n  -F /tmp/ldif_output \\\n  -n0 \\\n  -s 'cn={12}samba,cn=schema,cn=config' \\\n  > /tmp/cn=samba.ldif\n\nPROPOSITO:\nConvierte archivos .schema a formato\n.ldif que puede entender LDAP.",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "slapcat", "schema"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "slapcat",
+        "schema"
+      ],
       "difficulty": "hard"
     },
     {
-      "id": 402,
+      "id": "04db809a-935c-4e1c-99fb-a132e9448f4e",
       "front": "Relacionar comandos Samba con su funcion",
       "back": "restart smbd: Reiniciar servicio Samba\n\nsmbpasswd: Establecer contraseña de\nadministrador LDAP en Samba\n\nsmbldap-useradd: Añadir usuario al\ndirectorio LDAP con atributos Samba\n\nsmbldap-userdel: Eliminar usuario\ndel directorio LDAP\n\nsmbldap-groupadd: Añadir grupo con\natributos Samba\n\nsmbldap-groupmod: Modificar grupo\n(añadir/eliminar usuarios)",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "samba", "comandos"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "samba",
+        "comandos"
+      ],
       "difficulty": "hard"
     },
     {
-      "id": 403,
+      "id": "053a85d5-0b6e-4257-8692-fcb8685a2593",
       "front": "Completar: Paquete para controlador de dominio SAMBA",
       "back": "RESPUESTA:\n\nlibpam-smbpass\n\nINSTALACION:\napt-get install samba libpam-smbpass\n\nFUNCION:\nPermite a Samba funcionar como\ncontrolador de dominio primario (PDC)\ngestionando autenticacion de usuarios.",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "samba", "pdc"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "samba",
+        "pdc"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 404,
+      "id": "0414c900-faab-4e4a-a072-5717f951495f",
       "front": "Archivo de configuracion de SAMBA",
       "back": "RESPUESTA:\n\n/etc/samba/smb.conf\n\nPARAMETROS IMPORTANTES:\n- workgroup: nombre del dominio\n- security: modo de seguridad\n- domain logons: activar controlador\n- logon path: ruta del perfil\n- logon home: directorio personal\n- passdb backend: ldapsam para LDAP",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "samba", "configuracion"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "samba",
+        "configuracion"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 405,
+      "id": "84d843e1-147e-4531-8b62-ab07af7d195d",
       "front": "Parametro para perfil de usuario Windows",
-      "back": "RESPUESTA:\n\nlogon path\n\nCONFIGURACION TIPICA:\nlogon path = \\%N\%U\profile\n\nSIGNIFICADO:\n- %N: nombre NetBIOS del servidor\n- %U: nombre de usuario\n- Perfil movil almacenado en servidor\n\nOTROS PARAMETROS RELACIONADOS:\n- logon drive = H:\n- logon home = \\%N\%U",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "samba", "perfil"],
+      "back": "RESPUESTA:\n\nlogon path\n\nCONFIGURACION TIPICA:\nlogon path = \\%N\\%U\\profile\n\nSIGNIFICADO:\n- %N: nombre NetBIOS del servidor\n- %U: nombre de usuario\n- Perfil movil almacenado en servidor\n\nOTROS PARAMETROS RELACIONADOS:\n- logon drive = H:\n- logon home = \\%N\\%U",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "samba",
+        "perfil"
+      ],
       "difficulty": "hard"
     },
     {
-      "id": 406,
+      "id": "f0682f7a-78e8-451d-9d2c-d3adc7f7a592",
       "front": "Directorio compartido para archivos de inicio de sesion",
       "back": "RESPUESTA:\n\n[netlogon]\n\nCONFIGURACION:\n[netlogon]\ncomment = Network Logon Service\npath = /srv/samba/netlogon\nguest ok = yes\nread only = yes\nshare modes = no\n\nFUNCION:\nContiene scripts de inicio de sesion\n(logon.cmd) que se ejecutan al iniciar\nsesion los usuarios Windows.",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "samba", "netlogon"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "samba",
+        "netlogon"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 407,
+      "id": "78b7dd1d-c51d-4042-a15e-3fec49ad5289",
       "front": "Relacionar plantillas de usuario phpLDAPadmin",
       "back": "Generic: User Account\n→ Cuenta generica de creacion de usuarios\n\nSamba: Account\n→ Usuarios con atributos Samba\n(para integracion LDAP-Samba)\n\nDefault\n→ Plantilla por defecto\n\nCourier Mail: Account\n→ Cuenta de correo electronico\n(NO para inicio de sesion interactivo)",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "phpldapadmin", "plantillas"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "phpldapadmin",
+        "plantillas"
+      ],
       "difficulty": "medium"
     },
     {
-      "id": 408,
+      "id": "71bb7fe8-d337-496a-81f9-f7a7e8980b27",
       "front": "Formato de archivos de plantilla phpLDAPadmin",
       "back": "RESPUESTA CORRECTA:\n\nXML\n\nUBICACION:\n/usr/share/phpldapadmin/templates/\n\nCARACTERISTICAS:\n- Archivos con extension .xml\n- Estructura jerarquica de nodos\n- Atributos y parametros definidos\n- Personalizables (prefix custom_)\n\nEJEMPLO:\nposixAccount.xml (plantilla usuario)",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "phpldapadmin", "xml"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "phpldapadmin",
+        "xml"
+      ],
       "difficulty": "easy"
     },
     {
-      "id": 409,
+      "id": "b4ccf4ec-7fc0-41dd-9328-1584129ecf10",
       "front": "Relacionar variables de entorno Samba",
       "back": "%U: Nombre de usuario\n\n%G: Nombre del grupo primario del usuario\n\n%I: Direccion IP de la maquina cliente\n\n%H: Directorio personal del usuario\n\n%m: NetBIOS de la maquina cliente\n\n%a: Arquitectura de la maquina remota\n(WinXP, WinNT, Samba, etc.)",
-      "tags": ["unidad-3", "ldap", "autoevaluacion", "samba", "variables"],
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "autoevaluacion",
+        "samba",
+        "variables"
+      ],
       "difficulty": "medium"
     }
   ]
