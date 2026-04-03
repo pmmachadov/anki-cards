@@ -91,6 +91,7 @@ Contenido traducido del catalán al español:
 | **Unidad 2** | Autoevaluación archivos (V/F, umask, mklink, dpkg) | 30 |
 | **Unidad 3** | Dominios LDAP (conceptos, DIT, DN, instalación) | 25 |
 | **Unidad 3** | Actividades prácticas LDAP (slapd, phpLDAPadmin) | 6 |
+| **Unidad 3** | Autoevaluación LDAP (conceptos, operaciones, V/F) | 23 |
 
 **Temas principales cubiertos:**
 - 🔧 **Hardware**: CPU, RAM, GPU, placa base, almacenamiento
