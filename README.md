@@ -90,6 +90,7 @@ Contenido traducido del catalán al español:
 | **Unidad 2** | Actividades archivos (permisos, enlaces, find, dpkg) | 16 |
 | **Unidad 2** | Autoevaluación archivos (V/F, umask, mklink, dpkg) | 30 |
 | **Unidad 3** | Dominios LDAP (conceptos, DIT, DN, instalación) | 25 |
+| **Unidad 3** | Actividades prácticas LDAP (slapd, phpLDAPadmin) | 6 |
 
 **Temas principales cubiertos:**
 - 🔧 **Hardware**: CPU, RAM, GPU, placa base, almacenamiento
