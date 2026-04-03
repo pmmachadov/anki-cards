@@ -1,0 +1,137 @@
+{
+  "cards": [
+    {
+      "id": 185,
+      "front": "Actividad: Crear tabla de particiones nueva con fdisk",
+      "back": "PASOS:\n1. fdisk /dev/sdb\n2. Opcion 'o' → nueva tabla DOS\n3. Opcion 'n' → nueva particion\n4. Seleccionar tipo (p primaria, e extendida, l logica)\n5. Elegir numero y tamaño (+500M)\n6. Opcion 'p' → ver tabla\n7. Opcion 'w' → guardar cambios\n\nIMPORTANTE: Los cambios no se aplican hasta escribir con 'w'",
+      "tags": ["actividades", "discos", "fdisk", "practica", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 186,
+      "front": "Actividad: Esquema de particiones solicitado (8 particiones)",
+      "back": "DISCO 2 GB → 8 PARTICIONES:\n\nPRIMARIAS (3):\n- sdb1: 500 MB, ext4\n- sdb2: 200 MB, ext3\n- sdb3: 100 MB, NTFS\n\nEXTENDIDA (1):\n- sdb4: resto del espacio\n\nLOGICAS (4 dentro de sdb4):\n- sdb5: 200 MB, FAT32\n- sdb6: 400 MB, ext2\n- sdb7: 100 MB, swap\n- sdb8: resto, sin formato",
+      "tags": ["actividades", "discos", "particiones", "practica", "unidad-2"],
+      "difficulty": "hard"
+    },
+    {
+      "id": 187,
+      "front": "Actividad: Formatear las 8 particiones del ejercicio",
+      "back": "COMANDOS DE FORMATO:\n\n# mkfs.ext4 /dev/sdb1\n# mkfs.ext3 /dev/sdb2\n# mkfs.ntfs /dev/sdb3\n# mkfs.vfat -F 32 /dev/sdb5\n# mkfs.ext2 /dev/sdb6\n# mkswap /dev/sdb7\n\nNOTA: sdb4 (extendida) y sdb8 (sin formato) no se formatean.",
+      "tags": ["actividades", "discos", "mkfs", "formateo", "practica", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 188,
+      "front": "Actividad: Montar particion FAT32 en directorio del escritorio",
+      "back": "PASOS:\n\n1. Crear punto de montaje:\n   mkdir ~/puntomontaje\n\n2. Montar la particion:\n   mount /dev/sdb5 ~/puntomontaje\n\n3. Verificar montaje:\n   mount -l | grep sdb5",
+      "tags": ["actividades", "discos", "mount", "montaje", "practica", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 189,
+      "front": "Actividad: Desmontar particion por shell",
+      "back": "OPCION 1 (por dispositivo):\numount /dev/sdb5\n\nOPCION 2 (por punto de montaje):\numount ~/puntomontaje\n\nVERIFICAR:\nmount -l | grep sdb5 (no debe aparecer)",
+      "tags": ["actividades", "discos", "umount", "practica", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 190,
+      "front": "Actividad: Activar particion swap",
+      "back": "PASOS:\n\n1. Crear swap (si no esta creada):\n   mkswap /dev/sdb7\n\n2. Activar swap:\n   swapon /dev/sdb7\n\n3. Verificar:\n   swapon -s\n   o\n   free -h\n\nPARA DESACTIVAR:\nswapoff /dev/sdb7",
+      "tags": ["actividades", "discos", "swap", "swapon", "practica", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 191,
+      "front": "Actividad: Configurar fstab para montaje especifico",
+      "back": "REQUISITOS:\n- Montar por UUID\n- Punto: /datos\n- Tipo: ext3\n- No auto-montar al inicio\n- Solo lectura (ro)\n- Solo el usuario que monta puede desmontar\n\nLINEA EN /etc/fstab:\nUUID=50387f15-3189-46d1-8072-fbc3c672b75a /datos ext3 noauto,ro,user 0 0",
+      "tags": ["actividades", "discos", "fstab", "configuracion", "practica", "unidad-2"],
+      "difficulty": "hard"
+    },
+    {
+      "id": 192,
+      "front": "Como obtener el UUID de una particion",
+      "back": "METODOS:\n\n1. blkid /dev/sdb2\n\n2. blkid -o value -s UUID /dev/sdb2\n   (muestra solo el UUID)\n\n3. lsblk -f\n   (muestra UUID de todas las particiones)\n\n4. tune2fs -l /dev/sdb2 | grep UUID",
+      "tags": ["discos", "uuid", "blkid", "comandos", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 193,
+      "front": "Significado de opciones en fstab: noauto,ro,user",
+      "back": "noauto:\n- No se monta automaticamente con mount -a\n- Solo se monta cuando se especifica explicitamente\n\nro:\n- Solo lectura (read-only)\n- No permite escritura\n\nuser:\n- Permite a usuarios normales montar\n- Solo el usuario que monto puede desmontar\n\nusers:\n- Cualquier usuario puede montar/desmontar",
+      "tags": ["discos", "fstab", "opciones", "configuracion", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 194,
+      "front": "Actividad LVM: Crear volumenes fisicos",
+      "back": "PARTICIONES A CONVERTIR:\n- sdb1 (ext4)\n- sdb3 (NTFS)\n- sdb6 (ext2)\n\nCOMANDOS:\n# pvcreate /dev/sdb1\n# pvcreate /dev/sdb3\n# pvcreate /dev/sdb6\n\nVERIFICAR:\n# pvdisplay\n# pvs (resumen corto)",
+      "tags": ["actividades", "lvm", "pvcreate", "volumenes", "practica", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 195,
+      "front": "Actividad LVM: Crear grupo de volumenes",
+      "back": "AGRUPAR LOS 3 PVs EN UN VG:\n\n# vgcreate grup01 /dev/sdb1 /dev/sdb3 /dev/sdb6\n\nVERIFICAR INFORMACION:\n# vgdisplay\n# vgs (resumen corto)\n\nDATOS MOSTRADOS:\n- Tamano total del VG\n- PE Size (tamano de extent fisico)\n- PE libres/ocupados",
+      "tags": ["actividades", "lvm", "vgcreate", "grupo-volumenes", "practica", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 196,
+      "front": "Actividad LVM: Crear volumenes logicos",
+      "back": "CREAR 2 LVs EN grup01:\n\n1. LV de 800 MB:\n   # lvcreate -L 800M -n lv800 grup01\n\n2. LV con el resto del espacio:\n   # lvcreate -l 100%FREE -n lvresto grup01\n\nVERIFICAR:\n# lvdisplay\n# lvs\n\nRUTA DE LOS LVs:\n/dev/grup01/lv800\n/dev/grup01/lvresto",
+      "tags": ["actividades", "lvm", "lvcreate", "volumenes-logicos", "practica", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 197,
+      "front": "Actividad LVM: Formatear y montar volumen logico",
+      "back": "PASOS:\n\n1. Formatear con ext4:\n   # mkfs.ext4 /dev/grup01/lv800\n\n2. Crear punto de montaje:\n   # mkdir /mnt/lv800\n\n3. Montar:\n   # mount /dev/grup01/lv800 /mnt/lv800\n\n4. Verificar:\n   # df -h | grep lv800",
+      "tags": ["actividades", "lvm", "mkfs", "mount", "practica", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 198,
+      "front": "Actividad LVM: Eliminar un LV y ampliar otro",
+      "back": "PASOS PARA REDIMENSIONAR:\n\n1. Desmontar el LV a ampliar:\n   # umount /dev/grup01/lv800\n\n2. Eliminar el LV pequeno:\n   # lvremove /dev/grup01/lvresto\n   (confirmar con 'y')\n\n3. Ampliar el LV a 1000 MB:\n   # lvextend -L 1000M /dev/grup01/lv800\n\n4. Redimensionar el sistema de archivos:\n   # resize2fs /dev/grup01/lv800",
+      "tags": ["actividades", "lvm", "lvextend", "lvremove", "resize2fs", "practica", "unidad-2"],
+      "difficulty": "hard"
+    },
+    {
+      "id": 199,
+      "front": "LVM: Orden correcto para eliminar componentes",
+      "back": "ORDEN DE ELIMINACION (SIEMPRE):\n\n1. Desmontar volumenes logicos:\n   umount /dev/grup01/lv800\n\n2. Eliminar volumenes logicos:\n   lvremove /dev/grup01/lv800\n\n3. Eliminar grupo de volumenes:\n   vgremove grup01\n\n4. Eliminar volumenes fisicos:\n   pvremove /dev/sdb1\n\nIMPORTANTE: No se puede eliminar un componente si tiene 'hijos'.",
+      "tags": ["lvm", "eliminacion", "mantenimiento", "practica", "unidad-2"],
+      "difficulty": "hard"
+    },
+    {
+      "id": 200,
+      "front": "Actividad: Forzar fsck al reinicio del sistema",
+      "back": "METODOS PARA FORZAR fsck:\n\nMETODO 1 (archivo forcefsck):\n# touch /forcefsck\n# reboot\n\nMETODO 2 (shutdown con opcion -F):\n# shutdown -rF now\n\nMETODO 3 (tune2fs - marcar como dirty):\n# tune2fs -E force_fsck /dev/sda1\n\nNOTA: El archivo /forcefsck se elimina automaticamente despues del chequeo.",
+      "tags": ["actividades", "mantenimiento", "fsck", "revision", "practica", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 201,
+      "front": "Diferencia entre fdisk -l y fdisk /dev/sdb",
+      "back": "fdisk -l:\n- Lista TODOS los discos y particiones\n- Solo lectura, no modifica nada\n- Ejemplo: fdisk -l /dev/sdb\n\nfdisk /dev/sdb:\n- Abre modo interactivo para ese disco\n- Permite crear/eliminar/modificar particiones\n- Requiere 'w' para guardar cambios\n- Opcion 'q' para salir sin guardar\n\nIMPORTANTE: fdisk sin -l entra en modo interactivo.",
+      "tags": ["discos", "fdisk", "comandos", "diferencias", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 202,
+      "front": "Como verificar que una particion esta montada",
+      "back": "METODOS:\n\n1. mount -l | grep sdb1\n\n2. df -h | grep sdb1\n\n3. cat /proc/mounts | grep sdb1\n\n4. cat /etc/mtab | grep sdb1\n\n5. lsblk (muestra arbol de montajes)",
+      "tags": ["discos", "montaje", "verificacion", "comandos", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 203,
+      "front": "Errores comunes al montar particiones",
+      "back": "ERROR: 'mount: punto de montaje no existe'\n→ Solucion: crear el directorio primero con mkdir\n\nERROR: 'mount: tipo de sistema de archivos incorrecto'\n→ Solucion: especificar -t tipo o verificar con blkid\n\nERROR: 'umount: dispositivo ocupado'\n→ Solucion: cerrar archivos, usar lsof +d /punto_montaje\n\nERROR: 'no se puede escribir en sistema de solo lectura'\n→ Solucion: remontar con -o remount,rw",
+      "tags": ["discos", "montaje", "errores", "soluciones", "unidad-2"],
+      "difficulty": "medium"
+    }
+  ]
+}
