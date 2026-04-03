@@ -1,0 +1,186 @@
+{
+  "cards": [
+    {
+      "id": 101,
+      "front": "Comando para ir de / a /home/estudiante (ruta relativa)",
+      "back": "cd home/estudiante\n\nExplicacion: desde la raiz (/), accedemos directamente al subdirectorio home y luego a estudiante.",
+      "tags": ["ejercicios", "linux", "rutas", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 102,
+      "front": "Comando para ir de /home/estudiante a / (ruta relativa)",
+      "back": "cd ../../\n\nExplicacion: .. sube a /home, otro .. sube a la raiz (/)",
+      "tags": ["ejercicios", "linux", "rutas", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 103,
+      "front": "Comando para ir de /etc a /home/estudiante (ruta relativa)",
+      "back": "cd ../home/estudiante\n\nExplicacion: .. sube a la raiz (/), luego entramos en home/estudiante",
+      "tags": ["ejercicios", "linux", "rutas", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 104,
+      "front": "Comando para ir de C:\\Windows a C:\\Users\\Estudiante (ruta relativa)",
+      "back": "cd ..\\Users\\Estudiante\n\nExplicacion: .. sube a C:\\, luego entramos en Users\\Estudiante",
+      "tags": ["ejercicios", "windows", "rutas", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 105,
+      "front": "Identifica: home/estudiante - ¿Absoluta o relativa?",
+      "back": "RELATIVA\n\nNo comienza por / ni por letra de unidad (C:).\nDepende del directorio actual de trabajo.",
+      "tags": ["ejercicios", "rutas", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 106,
+      "front": "Identifica: C:\\Windows\\System32 - ¿Absoluta o relativa?",
+      "back": "ABSOLUTA\n\nComienza por letra de unidad (C:) y especifica la ruta completa desde la raiz del volumen.",
+      "tags": ["ejercicios", "windows", "rutas", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 107,
+      "front": "Identifica: /etc/passwd - ¿Absoluta o relativa?",
+      "back": "ABSOLUTA\n\nComienza por / (raiz del sistema Linux).\nEspecifica la ruta completa desde la raiz.",
+      "tags": ["ejercicios", "linux", "rutas", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 108,
+      "front": "¿Donde guardar una base de datos en Linux y por que?",
+      "back": "/var/\n\nMOTIVO:\n/var contiene datos VARIABLES de alto volumen:\n- Bases de datos\n- Logs del sistema\n- Colas de correo\n- Archivos temporales que crecen\n\nSeparacion: datos del sistema vs datos de aplicaciones",
+      "tags": ["ejercicios", "linux", "fhs", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 109,
+      "front": "¿Que directorio FHS contiene info del estado del sistema?",
+      "back": "/proc/\n\nCARACTERISTICAS:\n- Sistema de archivos VIRTUAL (solo en RAM)\n- No ocupa espacio en disco\n- Contiene info del estado actual:\n  * Uso de memoria\n  * Procesos en ejecucion\n  * Dispositivos detectados\n  * Info de CPU\n\nCada proceso tiene subdirectorio con su PID",
+      "tags": ["ejercicios", "linux", "fhs", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 110,
+      "front": "Comando Windows: listar archivos PNG",
+      "back": "dir *.png\n\nEl asterisco (*) sustituye cualquier nombre\n.png es la extension buscada",
+      "tags": ["ejercicios", "windows", "comandos", "comodines", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 111,
+      "front": "Comando Windows: archivos que empiecen por win",
+      "back": "dir win*\n\nwin* encuentra:\n- windows\n- winner.txt\n- winrar.exe\n- etc.",
+      "tags": ["ejercicios", "windows", "comandos", "comodines", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 112,
+      "front": "Comando Windows: archivos con z en el nombre",
+      "back": "dir *z*\n\n*z* encuentra cualquier archivo que\nCONTENGA la letra z en cualquier posicion",
+      "tags": ["ejercicios", "windows", "comandos", "comodines", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 113,
+      "front": "Comando Windows: nombres de 5 o menos caracteres",
+      "back": "dir ?????.*\n\n????? = exactamente 5 caracteres (o menos si\nse combina con otros patrones)\n\nPara 5 o menos especificamente:\ndir ?.* dir ??.* dir ???.* dir ????.* dir ?????.*",
+      "tags": ["ejercicios", "windows", "comandos", "comodines", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 114,
+      "front": "¿Por que en C:\\ no aparecen . y .. pero en C:\\Windows si?",
+      "back": "C:\\ es la RAIZ del volumen.\nNo tiene directorio PADRE, por eso no muestra ..\n\nC:\\Windows es un SUBDIRECTORIO.\nTiene directorio padre (C:\\), por eso muestra:\n- . (directorio actual)\n- .. (directorio padre)",
+      "tags": ["ejercicios", "windows", "conceptos", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 115,
+      "front": "Comando Windows: eliminar todos los archivos .txt",
+      "back": "del *.txt\n\no tambien:\nerase *.txt\n\nPRECAUCION: esta operacion no pide confirmacion\npor defecto (a menos que se configure).",
+      "tags": ["ejercicios", "windows", "comandos", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 116,
+      "front": "Script Windows: crear backups .bak de archivos .odt",
+      "back": "REM Copiar con extension .bak\nfor %f in (*.odt) do copy %f %f.bak\n\nREM Crear directorio backup\nmkdir backup\n\nREM Mover los backups\nmove *.odt.bak backup\\",
+      "tags": ["ejercicios", "windows", "comandos", "script", "unidad-2"],
+      "difficulty": "hard"
+    },
+    {
+      "id": 117,
+      "front": "Comando Linux: mostrar archivos ocultos con ls",
+      "back": "ls -a\n\nMUESTRA TODOS los archivos incluyendo\nlos que comienzan por punto (.), que son ocultos.\n\nCOMBINACION COMUN:\nls -la (formato largo + archivos ocultos)",
+      "tags": ["ejercicios", "linux", "comandos", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 118,
+      "front": "Comando Linux: copiar estructura de directorios completa",
+      "back": "cp -R origen destino\n\n-R = Recursivo\nCopia el directorio y TODO su contenido:\n- Subdirectorios\n- Archivos\n- Mantiene estructura jerarquica\n\nEjemplo: cp -R musica copia_musica",
+      "tags": ["ejercicios", "linux", "comandos", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 119,
+      "front": "Comando Linux: ¿que hace cd sin parametros?",
+      "back": "Nos lleva al directorio HOME del usuario actual\n\nEquivalente a:\ncd ~\ncd /home/nombre_usuario\n\nEs un atajo rapido para volver al directorio personal.",
+      "tags": ["ejercicios", "linux", "comandos", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 120,
+      "front": "Comando Linux: interpretar ls /bin/l*n",
+      "back": "Lista archivos en /bin que:\n- Comienzan por l\n- Terminan en n\n- Cualquier caracter(es) en medio\n\nEJEMPLOS que coinciden:\n- ln\n- login\n- lsmod (no, termina en d)\n- ls (no, termina en s)",
+      "tags": ["ejercicios", "linux", "comandos", "comodines", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 121,
+      "front": "Comando Linux: interpretar ls /bin/l???n",
+      "back": "Lista archivos en /bin que:\n- Comienzan por l\n- Terminan en n\n- EXACTAMENTE 5 caracteres en total\n\nPattern: l + ??? + n\n\nEJEMPLO:\n- l??n (4 chars, no)\n- l???n (5 chars, si)",
+      "tags": ["ejercicios", "linux", "comandos", "comodines", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 122,
+      "front": "Comando Linux: interpretar ls /bin/[aeiou]*[af]",
+      "back": "Lista archivos en /bin que:\n- Comienzan por VOCAL [aeiou]\n- Cualquier cosa en medio *\n- Terminan en a o f [af]\n\nEJEMPLOS:\n- arch (a...h, no termina en a/f)\n- awk (si: a...k? no, k no es a/f)",
+      "tags": ["ejercicios", "linux", "comandos", "comodines", "unidad-2"],
+      "difficulty": "hard"
+    },
+    {
+      "id": 123,
+      "front": "Comando Linux: crear directorio en home desde raiz",
+      "back": "cd /\nmkdir ~/nuevo\n\nExplicacion:\n- cd / va a raiz\n- ~ representa /home/usuario\n- ~/nuevo crea directorio 'nuevo' en home",
+      "tags": ["ejercicios", "linux", "comandos", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 124,
+      "front": "Comando Linux: copiar /etc/passwd sin cambiar de directorio",
+      "back": "cp /etc/passwd ~/nuevo/\n\nDesde cualquier ubicacion, copiamos:\n- Origen absoluto: /etc/passwd\n- Destino absoluto: ~/nuevo/ (home/nuevo)\n\nNo necesitamos estar en ningun directorio especifico.",
+      "tags": ["ejercicios", "linux", "comandos", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 125,
+      "front": "Comparativa de compresion: tar vs tar.gz vs tar.bz2",
+      "back": "tar (sin comprimir):\n- Mismo tamaño que original\n- Solo empaqueta archivos\n\ntar.gz (gzip):\n- ~38% reduccion tipica\n- Compresion rapida\n\ntar.bz2 (bzip2):\n- ~41% reduccion tipica\n- Mayor compresion pero mas lento\n\nCOMANDOS:\ntar -cf home.tar ~\ntar -czf home.tar.gz ~\ntar -cjf home.tar.bz2 ~",
+      "tags": ["ejercicios", "linux", "compresion", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 126,
+      "front": "Comando: ver tamaño de directorios y archivos",
+      "back": "LINUX:\ndu -h archivo\ndu -sh directorio\ndu -h --max-depth=1\n\nWINDOWS:\ndir (muestra tamano de archivos)\n(no hay du nativo, se usa PowerShell o herramientas externas)",
+      "tags": ["ejercicios", "linux", "windows", "comandos", "unidad-2"],
+      "difficulty": "easy"
+    }
+  ]
+}
