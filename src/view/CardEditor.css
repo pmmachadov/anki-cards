@@ -1,0 +1,249 @@
+.card-editor {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.editor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.editor-title {
+  text-align: center;
+}
+
+.editor-title h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.editor-title span {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.editor-search {
+  margin-bottom: 24px;
+}
+
+.editor-search .input {
+  background: var(--bg-secondary);
+}
+
+/* Card Form */
+.card-form-container {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.card-form-container h3 {
+  margin-bottom: 20px;
+  font-size: 1.125rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-light);
+}
+
+/* Cards List */
+.cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-item {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 16px;
+  align-items: start;
+  transition: var(--transition);
+}
+
+.card-item:hover {
+  border-color: var(--bg-elevated);
+}
+
+.card-item-number {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding-top: 4px;
+}
+
+.card-item-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.card-item-front,
+.card-item-back {
+  min-width: 0;
+}
+
+.item-label {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.card-item-front p,
+.card-item-back p {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.card-item-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.card-item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: flex-end;
+}
+
+.item-tag {
+  font-size: 0.6875rem;
+  padding: 2px 8px;
+  background: var(--bg-tertiary);
+  border-radius: 10px;
+  color: var(--text-secondary);
+}
+
+.card-item-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-end;
+}
+
+.status-badge {
+  font-size: 0.6875rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.status-badge.new {
+  background: var(--accent-primary);
+  color: white;
+}
+
+.status-badge.learning,
+.status-badge.relearning {
+  background: var(--accent-warning);
+  color: black;
+}
+
+.status-badge.review {
+  background: var(--accent-success);
+  color: white;
+}
+
+.repetition-count {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+}
+
+.card-item-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Empty State */
+.empty-cards {
+  text-align: center;
+  padding: 60px 24px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+}
+
+.empty-cards .empty-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.empty-cards p {
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .form-row,
+  .card-item-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .card-item {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .card-item-number {
+    display: none;
+  }
+  
+  .card-item-meta {
+    align-items: flex-start;
+  }
+  
+  .card-item-tags {
+    justify-content: flex-start;
+  }
+  
+  .card-item-actions {
+    flex-direction: row;
+  }
+}
