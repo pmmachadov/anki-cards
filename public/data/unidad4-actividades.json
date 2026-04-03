@@ -1,0 +1,103 @@
+{
+  "cards": [
+    {
+      "id": 480,
+      "front": "Actividad: Instalacion RAID 1 en Linux - Preparacion",
+      "back": "PREPARACION VM:\n1. Crear maquina virtual Linux\n2. Añadir controladora SCSI\n3. Conectar 2 discos virtuales (2GB cada uno)\n4. Sistema detecta /dev/sdb y /dev/sdc\n\nVERIFICAR DISCOS:\nlsscsi - lista discos SCSI\no revisar /var/log/messages",
+      "tags": ["unidad-4", "raid", "linux", "actividad", "practica"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 481,
+      "front": "Actividad: RAID 1 Linux - Creacion de particiones RAID",
+      "back": "CREAR PARTICIONES:\n1. Crear /dev/sdb1 en disco 1\n2. Crear /dev/sdc1 en disco 2\n3. Tipo de particion: RAID\n\nHerramientas: fdisk o gdisk",
+      "tags": ["unidad-4", "raid", "linux", "actividad", "particiones"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 482,
+      "front": "Actividad: RAID 1 Linux - Comando mdadm",
+      "back": "CREAR RAID 1:\nmdadm --verbose --create /dev/md0 \\\n      --level=mirror --raid-devices=2 \\\n      /dev/sdb1 /dev/sdc1\n\nOPCIONES --level:\n- linear: concatenar particiones\n- stripe: RAID 0\n- mirror: RAID 1\n- 5: RAID 5",
+      "tags": ["unidad-4", "raid", "linux", "actividad", "mdadm"],
+      "difficulty": "hard"
+    },
+    {
+      "id": 483,
+      "front": "Actividad: RAID 1 Linux - Monitoreo y configuracion",
+      "back": "VER ESTADO RAID:\ncat /proc/mdstat\n\nGUARDAR CONFIGURACION:\nmdadm --detail --scan >> /etc/mdadm/mdadm.conf\n\nCREAR SISTEMA DE ARCHIVOS:\nmkfs.ext4 /dev/md0\n\nMONTAR:\nmount /dev/md0 /mnt/punto_montaje",
+      "tags": ["unidad-4", "raid", "linux", "actividad", "configuracion"],
+      "difficulty": "hard"
+    },
+    {
+      "id": 484,
+      "front": "Actividad: Instalacion RAID 1 en Windows - Preparacion",
+      "back": "PREPARACION VM:\n1. Maquina virtual Windows 7\n2. Añadir controladora SCSI\n3. Conectar 2 discos virtuales (100MB cada uno)\n4. Puertos 0 y 1 de la interfaz\n\nINICIALIZAR DISCOS:\nWindows detecta e instala drivers SCSI\nInicializar discos con estilo MBR",
+      "tags": ["unidad-4", "raid", "windows", "actividad", "practica"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 485,
+      "front": "Actividad: RAID 1 Windows - Crear volumen reflejado",
+      "back": "ACCESO CONSOLA DISCOS:\ndiskmgmt.msc (Win + R)\no\nPanel de control > Sistema y seguridad > 
+Herramientas administrativas > Crear y formatear particiones\n\nCREAR RAID 1:\n1. Boton derecho en disco 1\n2. Seleccionar 'Nuevo volumen reflejado'\n3. Añadir segundo disco SCSI\n4. Asignar letra (ej: E:)\n5. Formatear NTFS",
+      "tags": ["unidad-4", "raid", "windows", "actividad", "volumen"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 486,
+      "front": "Actividad: RAID 1 Windows - Simulacion de fallo y recuperacion",
+      "back": "SIMULAR FALLO:\n1. Cerrar Windows\n2. Desconectar un disco SCSI en VirtualBox\n3. Reiniciar - se pierde unidad RAID\n\nRECUPERAR DATOS:\n1. Abrir diskmgmt.msc\n2. Boton derecho en disco RAID\n3. Seleccionar 'Quitar reflejo'\n4. Volumen normal sin redundancia pero datos intactos\n\nNOTA: Urgente hacer backup ahora",
+      "tags": ["unidad-4", "raid", "windows", "actividad", "recuperacion"],
+      "difficulty": "hard"
+    },
+    {
+      "id": 487,
+      "front": "Actividad: RAID 1 Windows - Reconstruccion del RAID",
+      "back": "REPARACION RAID 1:\n\n1. Cerrar Windows\n2. Conectar nuevo disco SCSI\n3. Iniciar Windows\n\nRECONSTRUIR:\n1. Administrador de discos\n2. Nuevo disco: boton derecho > Convertir a basico\n3. Disco operativo: boton derecho > 'Añadir reflejo'\n4. Seleccionar nuevo disco\n5. Sistema sincroniza automaticamente\n\nRESULTADO: RAID 1 operativo con tolerancia",
+      "tags": ["unidad-4", "raid", "windows", "actividad", "reconstruccion"],
+      "difficulty": "hard"
+    },
+    {
+      "id": 488,
+      "front": "Actividad: Punto de restauracion en Windows 7",
+      "back": "CREAR PUNTO DE RESTAURACION:\n\nRUTA:\nPanel de control > Sistema y seguridad > Sistema\nPestaña 'Proteccion del sistema'\nO acceso directo: Win + Pause\n\nACCIONES:\n1. Boton 'Crear'\n2. Nombre descriptivo\n3. Confirmar creacion\n\nRECUPERAR:\nIr a mismo menu > 'Restaurar sistema'\nSeleccionar punto anterior > Siguiente",
+      "tags": ["unidad-4", "windows", "actividad", "punto-restauracion", "practica"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 489,
+      "front": "Actividad: Habilitar registro de arranque en Windows",
+      "back": "REGISTRO DE ARRANQUE:\n\nARCHIVO:\n\\windows\\ntbtlog.txt\n\nFUNCION:\nGraba proceso de carga de controladores\nPermite analizar problemas posteriores\n\nACTIVACION:\n1. Opciones de arranque avanzado (F8)\n2. Seleccionar 'Habilitar registro de arranque'\n3. O usar msconfig.exe (Win + R)",
+      "tags": ["unidad-4", "windows", "actividad", "registro", "arranque"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 490,
+      "front": "Actividad: Diagnostico de memoria en Windows",
+      "back": "DIAGNOSTICO DE MEMORIA:\n\nUTILIDAD:\nWindows Memory Diagnostic\n\nACCEDER:\n1. CD instalacion Windows > Reparar equipo\n2. O disco arranque/reparacion\n3. Herramientas de recuperacion\n\nUSO:\n- Detecta errores en RAM\n- Util ante fallos aleatorios\n- Recomendable si hay inestabilidad",
+      "tags": ["unidad-4", "windows", "actividad", "memoria", "diagnostico"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 491,
+      "front": "Actividad: Copia de seguridad en Linux con tar",
+      "back": "REQUISITOS:\n- Copia total (nivel 0) de /home\n- Nombre: CopiaHome.tgz\n- Ubicacion: /var\n- Comprimida\n\nCOMANDO:\ntar -cvzf /var/CopiaHome.tgz /home\n\nOPCIONES:\n-c: crear\n-v: verbose\n-z: gzip\n-f: archivo",
+      "tags": ["unidad-4", "linux", "actividad", "backup", "tar"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 492,
+      "front": "Actividad: Programar copia con cron en Linux",
+      "back": "PROGRAMAR CON CRON:\n\nOBJETIVO:\nTodos los viernes a medianoche\n\nPASOS:\n\n1. Crear archivo programacion.txt:\n   0 0 * * 5 tar -cvzf /var/CopiaHome.tgz /home\n\n   FORMATO CRON:\n   min hora dia mes dia_semana comando\n\n2. Aplicar programacion:\n   crontab programacion.txt\n\nVERIFICAR:\ncrontab -l (listar tareas)",
+      "tags": ["unidad-4", "linux", "actividad", "cron", "programacion"],
+      "difficulty": "hard"
+    },
+    {
+      "id": 493,
+      "front": "Actividad: Software libre para clonacion de equipos",
+      "back": "HERRAMIENTAS LIBRES:\n\nCLONEZILLA:\nhttp://clonezilla.org/\n- Mas popular\n- Clona particiones/discos completos\n- Soporta multicast\n\nPARTIMAGE:\nhttp://www.partimage.org/\n- Clona particiones\n- Comprime imagenes\n\nPROPIETARIAS:\n- Norton Ghost\n- Acronis True Image",
+      "tags": ["unidad-4", "clonacion", "actividad", "software-libre", "clonezilla"],
+      "difficulty": "easy"
+    }
+  ]
+}
