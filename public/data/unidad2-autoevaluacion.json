@@ -1,0 +1,235 @@
+{
+  "cards": [
+    {
+      "id": 127,
+      "front": "Verdadero o Falso: En Windows se puede usar la contrabarra (\\) en nombres de archivo",
+      "back": "FALSO\n\nLa contrabarra (\\) esta PROHIBIDA en Windows porque\nes el separador de directorios.\n\nCaracteres prohibidos en Windows:\n\\ / : * ? \" < > |",
+      "tags": ["autoevaluacion", "windows", "nomenclatura", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 128,
+      "front": "Verdadero o Falso: En Linux se puede usar la contrabarra (\\) en nombres de archivo",
+      "back": "VERDADERO\n\nEn Linux SI se permite usar la contrabarra en nombres.\n\nLos UNICOS caracteres prohibidos en Linux son:\n- Barra (/): separador de directorios\n- Caracter nulo",
+      "tags": ["autoevaluacion", "linux", "nomenclatura", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 129,
+      "front": "Verdadero o Falso: Windows usa la extension para conocer el tipo de archivo",
+      "back": "VERDADERO\n\nWindows utiliza la extension del archivo para:\n- Determinar su tipo\n- Asociar programas\n- Mostrar iconos apropiados\n\nEjemplo: .txt, .jpg, .exe",
+      "tags": ["autoevaluacion", "windows", "extensiones", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 130,
+      "front": "Verdadero o Falso: Linux usa la extension para conocer el tipo de archivo",
+      "back": "FALSO\n\nLinux NO usa la extension para determinar el tipo.\n\nUsa MAGIC NUMBERS (bytes al inicio del archivo).\n\nLa extension en Linux es solo una convencion para\nque los usuarios lo reconozcan facilmente.",
+      "tags": ["autoevaluacion", "linux", "magic-numbers", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 131,
+      "front": "Verdadero o Falso: mio.txt y meu.txt son el mismo archivo en Windows",
+      "back": "FALSO\n\nWindows es CASE INSENSITIVE (no distingue mayusculas/minusculas)\nPERO\nWindows SI distingue ACENTOS:\n\n- mio.txt != meu.txt (acento diferente)\n\nSi fueran: mi.txt y MI.txt -> serian el mismo archivo",
+      "tags": ["autoevaluacion", "windows", "case-sensitive", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 132,
+      "front": "Verdadero o Falso: Mi.txt y mi.txt son el mismo archivo en Linux",
+      "back": "FALSO\n\nLinux es CASE SENSITIVE (distingue mayusculas/minusculas).\n\nSon archivos COMPLETAMENTE DIFERENTES:\n- Mi.txt\n- mi.txt\n- MI.txt\n- mI.txt\n\nTODOS son archivos distintos en Linux.",
+      "tags": ["autoevaluacion", "linux", "case-sensitive", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 133,
+      "front": "Verdadero o Falso: /var/log/messages es un camino absoluto",
+      "back": "VERDADERO\n\nComienza por / (raiz del sistema Linux),\npor tanto es una ruta ABSOLUTA que especifica\nla ubicacion completa desde la raiz.",
+      "tags": ["autoevaluacion", "linux", "rutas", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 134,
+      "front": "Verdadero o Falso: etc/passwd es un camino absoluto",
+      "back": "FALSO\n\netc/passwd es una ruta RELATIVA.\n\nFalta la barra inicial (/).\n\nLa version absoluta seria: /etc/passwd",
+      "tags": ["autoevaluacion", "linux", "rutas", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 135,
+      "front": "Verdadero o Falso: archivo.pdf es un camino relativo",
+      "back": "VERDADERO\n\narchivo.pdf es una ruta RELATIVA.\n\nNo comienza por / ni por letra de unidad (C:),\npor tanto es relativa al directorio actual.",
+      "tags": ["autoevaluacion", "rutas", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 136,
+      "front": "Verdadero o Falso: C:\\Windows\\System32 es un camino relativo",
+      "back": "FALSO\n\nC:\\Windows\\System32 es una ruta ABSOLUTA.\n\nComienza por letra de unidad (C:) y especifica\nla ruta completa desde la raiz del volumen.",
+      "tags": ["autoevaluacion", "windows", "rutas", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 137,
+      "front": "FHS: ¿Para que sirve el directorio /bin?",
+      "back": "/bin = Binarios esenciales del sistema\n\nContiene:\n- Comandos basicos (ls, cp, mv, rm...)\n- Programas necesarios para el arranque\n- Disponibles para todos los usuarios\n\nSon esenciales para el funcionamiento del sistema.",
+      "tags": ["autoevaluacion", "linux", "fhs", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 138,
+      "front": "FHS: ¿Para que sirve el directorio /boot?",
+      "back": "/boot = Archivos de arranque\n\nContiene:\n- Nucleo de Linux (vmlinuz)\n- Configuracion del gestor de arranque (GRUB)\n- initrd (imagen inicial de RAM)\n\nEsencial para iniciar el sistema.",
+      "tags": ["autoevaluacion", "linux", "fhs", "boot", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 139,
+      "front": "FHS: ¿Para que sirve el directorio /dev?",
+      "back": "/dev = Dispositivos del sistema\n\nContiene:\n- Archivos especiales de dispositivos\n- Discos (sda, sdb...)\n- Terminales (tty)\n- Puertos (lp, usb...)\n\nNo son archivos reales, sino interfaces a hardware.",
+      "tags": ["autoevaluacion", "linux", "fhs", "dispositivos", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 140,
+      "front": "FHS: ¿Para que sirve el directorio /etc?",
+      "back": "/etc = Configuracion del sistema\n\nContiene:\n- Archivos de configuracion del sistema\n- Configuracion de aplicaciones\n- Scripts de inicio\n\nEjemplos: /etc/passwd, /etc/fstab, /etc/hosts",
+      "tags": ["autoevaluacion", "linux", "fhs", "configuracion", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 141,
+      "front": "FHS: ¿Para que sirve el directorio /lost+found?",
+      "back": "/lost+found = Archivos recuperados\n\n- Creado automaticamente por fsck (check disk)\n- Almacena archivos recuperados tras incidentes\n- Sin nombre ni ubicacion original\n\nDeberia estar VACIO en condiciones normales.",
+      "tags": ["autoevaluacion", "linux", "fhs", "recuperacion", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 142,
+      "front": "FHS: ¿Para que sirve el directorio /media?",
+      "back": "/media = Punto de montaje para medios removibles\n\n- USB, CD-ROM, discos externos\n- Montaje automatico\n- Acceso para usuarios\n\nEjemplo: /media/usb, /media/cdrom",
+      "tags": ["autoevaluacion", "linux", "fhs", "montaje", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 143,
+      "front": "FHS: ¿Para que sirve el directorio /var?",
+      "back": "/var = Datos VARIABLES\n\nContiene:\n- Logs del sistema (/var/log)\n- Buzones de correo\n- Colas de impresion\n- Bases de datos\n- Archivos temporales que crecen\n\nDatos que cambian constantemente.",
+      "tags": ["autoevaluacion", "linux", "fhs", "logs", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 144,
+      "front": "FHS: ¿Para que sirve el directorio /root?",
+      "back": "/root = Directorio personal del superusuario (root)\n\n- Equivalente a /home/root\n- Separado del resto de usuarios\n- Por seguridad y organizacion\n- No esta en /home para proteccion",
+      "tags": ["autoevaluacion", "linux", "fhs", "root", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 145,
+      "front": "Windows: Comando para desplazarse por el sistema",
+      "back": "cd (change directory)\n\nEjemplos:\ncd directorio\ncd .. (subir nivel)\ncd \\ (ir a raiz)\nD: (cambiar unidad)",
+      "tags": ["autoevaluacion", "windows", "comandos", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 146,
+      "front": "Windows: Comando para listar contenido de directorio",
+      "back": "dir (directory)\n\nEjemplos:\ndir\ndir /w (formato ancho)\ndir /s (incluir subdirectorios)\ndir *.txt (filtrar extension)",
+      "tags": ["autoevaluacion", "windows", "comandos", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 147,
+      "front": "Windows: Comando para crear directorios",
+      "back": "mkdir o md (make directory)\n\nEjemplos:\nmkdir nuevo_directorio\nmd nuevo_directorio",
+      "tags": ["autoevaluacion", "windows", "comandos", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 148,
+      "front": "Windows: Comando para cambiar nombre de archivo",
+      "back": "rename o ren\n\nSintaxis:\nrename archivo_antiguo archivo_nuevo\nren archivo_antiguo archivo_nuevo",
+      "tags": ["autoevaluacion", "windows", "comandos", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 149,
+      "front": "Windows: Comando para copiar archivos y directorios",
+      "back": "copy (archivos)\nxcopy (directorios recursivamente)\n\nEjemplos:\ncopy archivo.txt destino\\\nxcopy directorio destino\\ /E /I",
+      "tags": ["autoevaluacion", "windows", "comandos", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 150,
+      "front": "Windows: Comando para mover archivos y directorios",
+      "back": "move\n\nSintaxis:\nmove origen destino\n\nTambien sirve para renombrar si el destino\nesta en la misma ubicacion.",
+      "tags": ["autoevaluacion", "windows", "comandos", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 151,
+      "front": "Windows: Comando para eliminar archivos",
+      "back": "del o erase\n\nEjemplos:\ndel archivo.txt\ndel *.txt\nerase documento.doc",
+      "tags": ["autoevaluacion", "windows", "comandos", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 152,
+      "front": "Windows: Comando para eliminar directorios",
+      "back": "rmdir o rd\n\nEjemplos:\nrmdir directorio (vacio)\nrmdir /S directorio (con contenido)\n\n/S = incluir subdirectorios y archivos",
+      "tags": ["autoevaluacion", "windows", "comandos", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 153,
+      "front": "En /home/estudiante1, comando para ir a /home/estudiante2",
+      "back": "cd ../estudiante2\n\nExplicacion:\n.. sube a /home\nluego entra en estudiante2\n\nOtras opciones validas:\ncd /home/estudiante2 (absoluta)\ncd ~estudiante2 (usando ~)",
+      "tags": ["autoevaluacion", "linux", "rutas", "comandos", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 154,
+      "front": "Comando para listar archivos que empiecen por 'a' y extension .txt",
+      "back": "ls a*.txt\n\nEn Windows:\ndir a*.txt\n\nExplicacion:\na* = comienza por 'a'\n.txt = extension txt",
+      "tags": ["autoevaluacion", "linux", "windows", "comodines", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 155,
+      "front": "Parametro de cp que permite copiar estructura completa de directorio",
+      "back": "-R (Recursivo)\n\nSintaxis:\ncp -R origen destino\n\nOTRAS OPCIONES:\n-f: forzar sobrescritura\n-p: preservar permisos\n-u: actualizar solo si origen es mas nuevo",
+      "tags": ["autoevaluacion", "linux", "comandos", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 156,
+      "front": "Verdadero o Falso: mv se usa para cambiar el nombre en Linux",
+      "back": "VERDADERO\n\nmv (move) sirve para:\n1. Mover archivos/directorios\n2. Cambiar nombre (mismo destino)\n\nEjemplo cambio de nombre:\nmv archivo.txt nuevo_nombre.txt",
+      "tags": ["autoevaluacion", "linux", "comandos", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 157,
+      "front": "Verdadero o Falso: rmdir puede borrar cualquier directorio",
+      "back": "FALSO\n\nrmdir SOLO puede eliminar directorios VACIOS.\n\nPara eliminar directorios con contenido:\n- rm -r directorio (Linux)\n- rmdir /S directorio (Windows)\n- rd /S directorio (Windows)",
+      "tags": ["autoevaluacion", "linux", "windows", "comandos", "unidad-2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": 158,
+      "front": "Verdadero o Falso: tar es un compresor de Linux",
+      "back": "FALSO\n\ntar es un EMPAQUETADOR, no un compresor.\n\nSolo agrupa archivos en uno solo (.tar)\nSin reduccion de tamano.\n\nPara comprimir se usa junto con:\n- gzip (.tar.gz)\n- bzip2 (.tar.bz2)\n- xz (.tar.xz)",
+      "tags": ["autoevaluacion", "linux", "compresion", "tar", "unidad-2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": 159,
+      "front": "Verdadero o Falso: bzip2 tiene mejor ratio que gzip",
+      "back": "VERDADERO\n\nbzip2 ofrece mejor compresion que gzip:\n\n- bzip2: ~15-20% mas pequeno\n- Pero: mas lento y usa mas memoria\n\nCOMPARATIVA:\ngzip: rapido, buena compresion\nbzip2: mas lento, mejor compresion",
+      "tags": ["autoevaluacion", "linux", "compresion", "unidad-2"],
+      "difficulty": "easy"
+    }
+  ]
+}
