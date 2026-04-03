@@ -3097,6 +3097,224 @@
         "unidad-2"
       ],
       "difficulty": "easy"
+    },
+    {
+      "id": 253,
+      "front": "Actividad Permisos: Secuencia umask 027, crear archivos y directorios",
+      "back": "PASO 1 - umask 027:\narchivo1: 640 (rw-r-----)\ndirectorio1: 750 (rwxr-x---)\n\nPASO 2 - umask 022:\narchivo2: 644 (rw-r--r--)\ndirectorio2: 755 (rwxr-xr-x)\n\nPASO 3 - umask 000:\narchivo3: 666 (rw-rw-rw-)\ndirectorio3: 777 (rwxrwxrwx)\n\nCALCULO: 666-umask (archivos), 777-umask (directorios)",
+      "tags": [
+        "actividades",
+        "permisos",
+        "umask",
+        "practica",
+        "unidad-2"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 254,
+      "front": "Actividad Permisos: Aplicar cambios chmod a archivo1, archivo2, archivo3",
+      "back": "chmod u+xf * (todos los archivos):\n- archivo1: 751 (rwxr-x--x)\n- archivo2: 645 (rw-r--r-x)\n- archivo3: 667 (rw-rw-rwx)\n\nRESULTADOS FINALES:\narchivo1: 751 (chmod 751 aplicado)\narchivo2: aw = 200 (-w-------) sin x\narchivo3: o=rx = 605 (rw---r-x)\n\nNOTA: Algunos permisos se sobrescriben.",
+      "tags": [
+        "actividades",
+        "permisos",
+        "chmod",
+        "practica",
+        "unidad-2"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 255,
+      "front": "Actividad Permisos: Aplicar cambios chmod a directorios",
+      "back": "chmod 624 directorio1:\n→ rw--w-r--\n\nchmod ug+rx directorio2:\n→ rwxr-xr-x\n\nchmod go-rwx directorio3:\n→ rwx------\n\nRESULTADOS FINALES:\ndirectorio1: 624 (rw--w-r--)\ndirectorio2: 755 (rwxr-xr-x)\ndirectorio3: 700 (rwx------)",
+      "tags": [
+        "actividades",
+        "permisos",
+        "chmod",
+        "directorios",
+        "practica",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 256,
+      "front": "Actividad Enlaces: Crear enlace simbolico a ls y verificar",
+      "back": "COMANDOS EJECUTADOS:\n\n1. Crear enlace simbolico:\n   ln -s /bin/ls ~/mi_ls\n\n2. Verificar numero de enlaces de ls:\n   ls -li /bin/ls\n\nRESULTADO:\n- El numero de enlaces NO aumenta\n- Enlace simbolico tiene inode diferente\n- Es solo un puntero al archivo original\n\nIDENTIFICACION:\nlrwxrwxrwx ... mi_ls -> /bin/ls",
+      "tags": [
+        "actividades",
+        "enlaces",
+        "symlink",
+        "practica",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 257,
+      "front": "Actividad Enlaces: Crear enlace fuerte a ls y verificar",
+      "back": "COMANDOS EJECUTADOS:\n\n1. Crear enlace fuerte:\n   ln /bin/ls ~/ls_hard\n\n2. Verificar numero de enlaces:\n   ls -li /bin/ls\n   ls -li ~/ls_hard\n\nRESULTADO:\n- El numero de enlaces SI aumenta (ej: de 1 a 2)\n- Ambos comparten el MISMO inode\n- Mismo contenido, mismo espacio en disco\n\nIMPORTANTE: Solo funciona en mismo sistema de archivos.",
+      "tags": [
+        "actividades",
+        "enlaces",
+        "hard-link",
+        "practica",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 258,
+      "front": "Actividad Enlaces: Comparativa hard link vs symbolic link",
+      "back": "CREAR AMBOS ENLACES:\nln archivo.txt hard.txt\nln -s archivo.txt sym.txt\n\nENLACE FUERTE (hard.txt):\n- Aumenta numero de enlaces (2+)\n- Comparte inode con original\n- Borrar el enlace: no afecta al original\n- Borrar el original: el enlace sigue funcionando\n\nENLACE SIMBOLICO (sym.txt):\n- No aumenta numero de enlaces\n- Tiene inode propio\n- Borrar el enlace: no afecta al original\n- Borrar el original: el enlace queda ROTO (rojo)",
+      "tags": [
+        "actividades",
+        "enlaces",
+        "comparacion",
+        "practica",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 259,
+      "front": "Actividad Enlaces: Directorio nuevo - numero de links e inodos",
+      "back": "CREAR Y VERIFICAR:\nmkdir mi_directorio\nls -ldi mi_directorio\n\nRESULTADO:\n- Numero de links: 2\n\nPOR QUE 2 LINKS?\n1. Nombre del directorio (mi_directorio)\n2. Entrada '.' dentro del directorio (apunta a si mismo)\n\nINCREMENTAR LINKS:\nCrear subdirectorio aumenta a 3:\n- mi_directorio\n- . (dentro de mi_directorio)\n- .. (dentro del subdirectorio, apunta al padre)",
+      "tags": [
+        "actividades",
+        "enlaces",
+        "directorios",
+        "inodo",
+        "practica",
+        "unidad-2"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 260,
+      "front": "Actividad Enlaces: Cuadro comparativo Windows vs Linux",
+      "back": "WINDOWS:\n| Tipo | Comando | Caracteristicas |\n|------|---------|-----------------|\n| Simbolico | mklink | Acceso directo |\n| Fuerte | mklink /h | Mismo archivo, 2 rutas |\n| Union | mklink /j | Directorios, local |\n\nLINUX:\n| Tipo | Comando | Caracteristicas |\n|------|---------|-----------------|\n| Fuerte | ln archivo enlace | Mismo inode |\n| Simbolico | ln -s origen enlace | Puntero flexible |\n\nDIFERENCIA CLAVE:\nWindows permite enlaces fuertes entre directorios (junctions), Linux no.",
+      "tags": [
+        "actividades",
+        "enlaces",
+        "comparacion",
+        "windows",
+        "linux",
+        "practica",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 261,
+      "front": "Actividad Busqueda: Funcion de find /etc -type d -links +1",
+      "back": "COMANDO:\nfind /etc -type d -links +1\n\nFUNCIONALIDAD:\nBusca directorios (-type d) en /etc\nque tengan MAS de 1 enlace fuerte (-links +1).\n\nRESULTADO:\nDirectorios que contienen subdirectorios.\n\nEXPLICACION:\n- Directorio sin subdirectorios: 2 links (nombre + .)\n- Directorio con subdirectorios: 3+ links\n  (nombre + . + .. de cada subdirectorio)",
+      "tags": [
+        "actividades",
+        "busqueda",
+        "find",
+        "links",
+        "practica",
+        "unidad-2"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 262,
+      "front": "Actividad Busqueda: Funcion de find ~ -size -8192k -type f",
+      "back": "COMANDO:\nfind ~ -size -8192k -type f\n\nFUNCIONALIDAD:\nBusca archivos (-type f) en el home del usuario\nque ocupen MENOS de 8192 KB (8 MB).\n\nEQUIVALENTE:\nfind ~ -size -8M -type f\n\nUSOS:\n- Encontrar archivos pequeños\n- Filtrar por tamaño para backup\n- Liberar espacio (buscando grandes)",
+      "tags": [
+        "actividades",
+        "busqueda",
+        "find",
+        "size",
+        "practica",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 263,
+      "front": "Actividad Busqueda: Funcion de find . -maxdepth 1 -type f -uid 529",
+      "back": "COMANDO:\nfind . -maxdepth 1 -type f -uid 529\n\nFUNCIONALIDAD:\nBusca archivos (-type f) en el directorio actual\n(sin subdirectorios, -maxdepth 1)\nque pertenezcan al usuario con UID 529.\n\nAPLICACIONES:\n- Buscar archivos de usuario especifico\n- Auditoria de permisos\n- Migracion de datos de usuario",
+      "tags": [
+        "actividades",
+        "busqueda",
+        "find",
+        "uid",
+        "practica",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 264,
+      "front": "Actividad Busqueda: Copiar archivos modificados en 48h",
+      "back": "SOLUCION:\n\nfind . -maxdepth 1 -type f -mtime -2 -exec cp {} updated/ \\;\n\nEXPLICACION:\n- . : directorio actual\n- -maxdepth 1 : solo directorio actual\n- -type f : solo archivos (no directorios)\n- -mtime -2 : modificados hace menos de 2 dias (48h)\n- -exec cp {} updated/ \\; : copiar a carpeta updated\n\nALTERNATIVA:\nfind . -maxdepth 1 -type f -mmin -2880 -exec cp {} updated/ \\;",
+      "tags": [
+        "actividades",
+        "busqueda",
+        "find",
+        "exec",
+        "practica",
+        "unidad-2"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 265,
+      "front": "Actividad Busqueda: Buscar archivos con permisos 600 y cambiar a 666",
+      "back": "ENUNCIADO:\nBuscar archivos con permisos rw------- (600)\nen directorio actual y primer nivel de subdirectorios,\ny cambiar a rw-rw-rw- (666).\n\nSOLUCION:\n\nfind . -maxdepth 2 -type f -perm 600 -exec chmod 666 {} \\;\n\nCOMPONENTES:\n- -maxdepth 2: actual + 1 nivel de subdirs\n- -perm 600: solo permisos exactos 600\n- -exec chmod 666: cambiar a rw-rw-rw-",
+      "tags": [
+        "actividades",
+        "busqueda",
+        "find",
+        "chmod",
+        "permisos",
+        "practica",
+        "unidad-2"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 266,
+      "front": "Actividad Software: A que paquete pertenece Snippet.py",
+      "back": "COMANDO:\ndpkg -S Snippet.py\n\nRESULTADO TIPICO:\npython3-examples: /usr/share/doc/python3/examples/Snippet.py\n\nFUNCIONAMIENTO:\nBusca en la base de datos de dpkg que paquete\ninstalo el archivo especificado.\n\nALTERNATIVAS:\n- dpkg -S /ruta/completa/archivo\n- dpkg -S '*/Snippet.py' (con comodin)",
+      "tags": [
+        "actividades",
+        "software",
+        "dpkg",
+        "practica",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 267,
+      "front": "Actividad Software: Consultar estado completo del paquete",
+      "back": "COMANDO:\ndpkg -s python3-examples\n\nINFORMACION MOSTRADA:\n- Package: nombre\n- Status: install ok installed\n- Priority: optional\n- Section: python\n- Installed-Size: tamaño en KB\n- Maintainer: responsable\n- Architecture: arquitectura\n- Version: version instalada\n- Depends: dependencias\n- Description: descripcion",
+      "tags": [
+        "actividades",
+        "software",
+        "dpkg",
+        "practica",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 268,
+      "front": "Actividad Software: Listar archivos instalados por paquete",
+      "back": "COMANDO:\ndpkg -L python3-examples\n\nRESULTADO:\nLista TODOS los archivos instalados por el paquete:\n/.\n/usr\n/usr/share\n/usr/share/doc\n/usr/share/doc/python3-examples\n/usr/share/doc/python3-examples/Snippet.py\n...\n\nUSOS:\n- Saber que archivos instala un programa\n- Encontrar ubicacion de configuraciones\n- Verificar instalacion completa",
+      "tags": [
+        "actividades",
+        "software",
+        "dpkg",
+        "practica",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
     }
   ]
 }

@@ -73,7 +73,7 @@ Haz clic en **"📊"** en cualquier mazo para ver:
 
 ## 📚 Materiales incluidos
 
-### Sistemas Informáticos (252 tarjetas)
+### Sistemas Informáticos (268 tarjetas)
 
 Contenido traducido del catalán al español:
 
@@ -87,6 +87,7 @@ Contenido traducido del catalán al español:
 | **Unidad 2** | Actividades prácticas discos (fdisk, LVM, fstab) | 19 |
 | **Unidad 2** | Autoevaluación discos (V/F, relaciones, completar) | 26 |
 | **Unidad 2** | Trabajo con archivos (permisos, enlaces, búsqueda) | 23 |
+| **Unidad 2** | Actividades archivos (permisos, enlaces, find, dpkg) | 16 |
 
 **Temas principales cubiertos:**
 - 🔧 **Hardware**: CPU, RAM, GPU, placa base, almacenamiento
