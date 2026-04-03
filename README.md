@@ -92,6 +92,7 @@ Contenido traducido del catalán al español:
 | **Unidad 3** | Dominios LDAP (conceptos, DIT, DN, instalación) | 25 |
 | **Unidad 3** | Actividades prácticas LDAP (slapd, phpLDAPadmin) | 6 |
 | **Unidad 3** | Autoevaluación LDAP (conceptos, operaciones, V/F) | 23 |
+| **Unidad 3** | Administración de cuentas y grupos LDAP | 21 |
 
 **Temas principales cubiertos:**
 - 🔧 **Hardware**: CPU, RAM, GPU, placa base, almacenamiento
