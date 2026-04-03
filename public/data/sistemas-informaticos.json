@@ -5739,6 +5739,167 @@
                 "vf"
             ],
             "difficulty": "easy"
+        },
+        {
+            "id": 457,
+            "front": "Conceptos: Fiabilidad, Disponibilidad y Confiabilidad",
+            "back": "FIABILIDAD (Reliability):\nMedida de conformidad del sistema\ncon el comportamiento esperado\n\nDISPONIBILIDAD:\nContinuidad operacional del sistema\nExpresada en porcentaje (ej: 99.99%)\n\nAMENAZAS:\n- Perdida de datos (fuerza mayor, errores)\n- Perdida de disponibilidad (cortes, averias)\n- Intrusiones (pasivas y activas)\n\nEJEMPLO:\n99.99% = menos de 54 minutos/año de caida",
+            "tags": ["unidad-4", "seguridad", "fiabilidad", "disponibilidad", "conceptos"],
+            "difficulty": "easy"
+        },
+        {
+            "id": 458,
+            "front": "Metodos para asegurar la informacion",
+            "back": "PREVENCION DE FALLOS:\n- Componentes fiables y de calidad\n- Software rigurosamente probado\n- Comprobaciones periodicas (memoria, fs)\n\nENMASCARAMIENTO DE FALLOS:\n- Detectar errores sin afectar sistema\n- Ejemplo: CRC en paquetes IP\n\nTOLERANCIA A FALLOS:\n- Sistema continua operativo ante errores\n- Basada en REDUNDANCIA:\n  * Hardware: RAID, clustering\n  * Datos: copias de seguridad",
+            "tags": ["unidad-4", "seguridad", "metodos", "tolerancia", "redundancia"],
+            "difficulty": "medium"
+        },
+        {
+            "id": 459,
+            "front": "CRC (Cyclic Redundancy Check)",
+            "back": "DEFINICION:\nCodigos de redundancia ciclica\n\nFUNCION:\nFunciones polinomicas que generan\nvalor fijo a partir de datos\n\nUSOS:\n- Verificacion de integridad\n- Deteccion de errores\n- Control en transmision de datos\n\nEJEMPLO:\nPaquetes IP llevan campo CRC\npara detectar errores en comunicacion",
+            "tags": ["unidad-4", "seguridad", "crc", "integridad", "errores"],
+            "difficulty": "medium"
+        },
+        {
+            "id": 460,
+            "front": "Volumenes distribuidos y divididos en bandas",
+            "back": "VOLUMENES DISTRIBUIDOS:\n- Combinan espacios libres de distintos discos\n- Un solo volumen logico\n- Aprovechan pequeños espacios\n\nVOLUMENES DIVIDIDOS EN BANDAS (RAID 0):\n- Striped volume\n- Mejoran rendimiento lectura/escritura\n- Datos divididos entre discos\n- Acceso simultaneo\n- NO proporciona redundancia",
+            "tags": ["unidad-4", "raid", "volumenes", "bandas", "striped"],
+            "difficulty": "easy"
+        },
+        {
+            "id": 461,
+            "front": "Niveles de tolerancia a fallos",
+            "back": "TOLERANCIA COMPLETA:\nSistema sigue funcionando sin\nperdida de funcionalidad ni prestaciones\n\nDEGRADACION ACEPTABLE:\nSistema funciona con perdida parcial\nde funcionalidad hasta solucion\n\nPARADA SEGURA:\nSistema se detiene ordenadamente\npara asegurar entorno y datos",
+            "tags": ["unidad-4", "tolerancia", "fallos", "niveles", "degradacion"],
+            "difficulty": "easy"
+        },
+        {
+            "id": 462,
+            "front": "RAID - definicion e implementacion",
+            "back": "DEFINICION:\nRedundant Array of Independent Disks\nMatriz redundante de discos independientes\n\nOBJETIVOS:\n- Aumentar rendimiento\n- Mejorar disponibilidad\n- Proteger datos\n\nIMPLEMENTACION:\n\n1. HARDWARE:\n   - Controlador RAID dedicado\n   - Mas eficaz, rapida y robusta\n\n2. SOFTWARE:\n   - Simulacion por sistema operativo\n   - Coste menor pero mas lento",
+            "tags": ["unidad-4", "raid", "definicion", "implementacion", "hardware", "software"],
+            "difficulty": "easy"
+        },
+        {
+            "id": 463,
+            "front": "RAID 1 (Espejo/Mirror)",
+            "back": "CARACTERISTICAS:\n- Duplicacion de informacion\n- Sin paridad ni bandas\n- Minimo 2 discos\n\nVENTAJAS:\n+ Muy tolerante a fallos\n+ Disponibilidad inmediata\n+ Reconstruccion rapida\n\nDESVENTAJAS:\n- 50% aprovechamiento espacio\n- Escrituras mas lentas (duplicadas)\n\nUSO:\nAplicaciones donde seguridad\ny alta disponibilidad son esenciales",
+            "tags": ["unidad-4", "raid", "raid-1", "mirror", "espejo"],
+            "difficulty": "easy"
+        },
+        {
+            "id": 464,
+            "front": "RAID 3 - Distribucion con paridad dedicada",
+            "back": "CARACTERISTICAS:\n- Distribucion a nivel de BYTE\n- Disco de paridad DEDICADO\n- Minimo 3 discos (2 datos + 1 paridad)\n\nPARIDAD:\nBit adicional para deteccion de errores\nCalculo con puertas XOR\n\nFORMULA APROVECHAMIENTO:\n(n-1)/n donde n = numero de discos\n\nEJEMPLO:\n5 discos → 4 datos + 1 paridad\nAprovechamiento: 80%\n\nPROBLEMA:\nCuello de botella en disco de paridad",
+            "tags": ["unidad-4", "raid", "raid-3", "paridad", "byte"],
+            "difficulty": "medium"
+        },
+        {
+            "id": 465,
+            "front": "RAID 5 - Distribucion con paridad distribuida",
+            "back": "CARACTERISTICAS:\n- Distribucion a nivel de BLOQUE\n- Paridad DISTRIBUIDA en todos los discos\n- Minimo 3 discos\n\nVENTAJAS SOBRE RAID 3:\n+ Sin cuello de botella\n+ Mejor rendimiento\n+ Tolerancia a fallos elevada\n\nAPROVECHAMIENTO:\n(n-1)/n (igual que RAID 3)\n\nRECOMENDADO PARA:\n- Bases de datos relacionales\n- Aplicaciones con muchas transacciones\n- Archivos pequeños",
+            "tags": ["unidad-4", "raid", "raid-5", "paridad", "bloque"],
+            "difficulty": "medium"
+        },
+        {
+            "id": 466,
+            "front": "RAID 6 - Doble paridad distribuida",
+            "back": "CARACTERISTICAS:\n- Similar a RAID 5\n- DOBLE paridad distribuida\n- Minimo 4 discos\n\nFORMULA APROVECHAMIENTO:\n(n-2)/n\n\nEJEMPLO:\n5 discos → 3 datos + 2 paridad\nAprovechamiento: 60%\n\nVENTAJA PRINCIPAL:\nProtege contra fallo de DOS discos\no fallo durante reconstruccion\n\nINCONVENIENTE:\nIneficiente con pocos discos",
+            "tags": ["unidad-4", "raid", "raid-6", "doble-paridad"],
+            "difficulty": "medium"
+        },
+        {
+            "id": 467,
+            "front": "RAID 1+0 (RAID 10) - Espejo de bandas",
+            "back": "ESTRUCTURA:\nRAID 1 (espejo) + RAID 0 (bandas)\n\nFUNCIONAMIENTO:\n1. Datos divididos en bandas (RAID 0)\n2. Cada banda duplicada en espejo (RAID 1)\n\nREQUISITOS:\n- Minimo 4 discos\n- Implementacion costosa\n\nVENTAJAS:\n+ Altas prestaciones de acceso\n+ Gran fiabilidad\n+ Puede soportar fallo de >1 disco\n\nUSO:\nServidores de datos criticos",
+            "tags": ["unidad-4", "raid", "raid-10", "raid-1+0", "multiple"],
+            "difficulty": "hard"
+        },
+        {
+            "id": 468,
+            "front": "RAID 0+1 - Banda de espejos",
+            "back": "ESTRUCTURA:\nRAID 0 (bandas) + RAID 1 (espejo)\n\nFUNCIONAMIENTO:\n1. Datos duplicados (RAID 1)\n2. Cada copia dividida en bandas (RAID 0)\n\nDIFERENCIA CON RAID 1+0:\n- RAID 1+0: espejo de bandas (mejor)\n- RAID 0+1: bandas de espejos\n\nPREFERENCIA:\nRAID 1+0 es superior en:\n- Tolerancia a errores\n- Reconstruccion de datos",
+            "tags": ["unidad-4", "raid", "raid-0+1", "multiple"],
+            "difficulty": "hard"
+        },
+        {
+            "id": 469,
+            "front": "Cluster - definicion y tipos",
+            "back": "DEFINICION:\nAsociacion de ordenadores interconectados\npara procesamiento paralelo y distribuido\n\nOBJETIVOS:\n- Mejorar rendimiento\n- Distribucion de cargas\n- Escalabilidad\n- Alta disponibilidad\n\nAPLICACIONES:\n- Supercomputacion\n- Servidores web\n- Comercio electronico\n- Bases de datos\n\nEJEMPLO:\nGoogle usa miles de servidores Linux\nen cluster para su buscador",
+            "tags": ["unidad-4", "cluster", "definicion", "tipos", "aplicaciones"],
+            "difficulty": "easy"
+        },
+        {
+            "id": 470,
+            "front": "Tipos de clusters segun proposito",
+            "back": "CLUSTERS DE ALTO RENDIMIENTO:\n- Gran capacidad de procesamiento\n- Aplicaciones cientificas complejas\n- Ejemplo: prediccion meteorologica\n\nCLUSTERS BALANCEO DE CARGAS:\n- Comparten y reparten carga de trabajo\n- Mejoran tiempo de respuesta\n- Aprovechan recursos disponibles\n\nCLUSTERS ALTA DISPONIBILIDAD:\n- Redundancia de servidores\n- Detectan fallos y reconfiguran\n- Servicio continuo ante averias",
+            "tags": ["unidad-4", "cluster", "tipos", "rendimiento", "balanceo", "disponibilidad"],
+            "difficulty": "easy"
+        },
+        {
+            "id": 471,
+            "front": "Tipos de clusters segun hardware",
+            "back": "HOMOGENEOS:\n- Todos nodos igual configuracion\n- Hardware y software identicos\n- Programas ejecutan en cualquier nodo\n\nSEMIHOMOGENEOS:\n- Software similar\n- Hardware diferente\n- Programas ejecutan con distintos rendimientos\n\nHETEROGENEOS:\n- Hardware y software diferentes\n- No todos servicios ejecutan en todos nodos",
+            "tags": ["unidad-4", "cluster", "homogeneo", "heterogeneo", "hardware"],
+            "difficulty": "easy"
+        },
+        {
+            "id": 472,
+            "front": "Estrategias de alta disponibilidad en clusters",
+            "back": "ACTIVO-PASIVO:\n- Nodos activos ejecutan aplicaciones\n- Nodos pasivos en espera (soporte)\n- Si activo cae, pasivo se activa\n- Ventaja: mantiene rendimiento\n- Inconveniente: coste elevado\n\nACTIVO-ACTIVO:\n- Todos nodos activos ejecutando\n- Si uno cae, trabajo se reparte\n- Ventaja: sin hardware inactivo\n- Inconveniente: rendimiento reduce\n- Requiere: cluster homogeneo/semihomogeneo",
+            "tags": ["unidad-4", "cluster", "alta-disponibilidad", "activo-pasivo", "activo-activo"],
+            "difficulty": "medium"
+        },
+        {
+            "id": 473,
+            "front": "Copias de seguridad - definicion y niveles",
+            "back": "DEFINICION:\nCopia y almacenamiento de datos en\nsoporte diferente para recuperacion\n\nNIVEL 0 - COPIA TOTAL:\n- Copia completa de todos los datos\n- Simple pero lento y ocupa mucho\n\nNIVEL 1 - COPIA DIFERENCIAL:\n- Solo datos cambiados desde copia total\n- Restaurar: total + ultima diferencial\n\nNIVEL 2 - COPIA INCREMENTAL:\n- Solo datos cambiados desde ultima copia\n- Restaurar: total + todas las incrementales",
+            "tags": ["unidad-4", "copias-seguridad", "backup", "niveles", "total", "diferencial", "incremental"],
+            "difficulty": "easy"
+        },
+        {
+            "id": 474,
+            "front": "Plan de copias de seguridad - decisiones clave",
+            "back": "QUE DATOS COPIAR:\n- Datos criticos identificados\n- Bases de datos, configuraciones\n\nFRECUENCIA:\n- Datos volatiles: copias diarias\n- Datos estables: semanal/mensual\n\nCUANDO PROGRAMAR:\n- Franja horaria sin usuarios\n- O usar copia 'en caliente'\n\nDISPOSITIVO/SOPORTE:\n- Cintas magneticas (empresas)\n- Discos externos, USB, DVD\n- Nube (Dropbox, Ubuntu One)\n\nSOFTWARE:\n- Herramientas nativas del SO\n- Software especializado\n- Amanda (codigo libre)",
+            "tags": ["unidad-4", "copias-seguridad", "plan", "programacion"],
+            "difficulty": "medium"
+        },
+        {
+            "id": 475,
+            "front": "Comando tar para copias de seguridad en Linux",
+            "back": "OPCIONES PRINCIPALES:\n-c: crear archivo tar\n-x: extraer archivos\n-t: listar contenidos\n-z: comprimir/descomprimir (gzip)\n-v: verbose (mostrar progreso)\n-f: especificar archivo\n\nEJEMPLOS:\n\nCrear copia /etc:\ntar -cvf copia_etc.tar /etc\n\nComprimir directorios home:\ntar -cvzf copia_home.tgz /home\n\nRestaurar:\ntar -xvzf copia_home.tgz\n\nCopia con fecha especifica:\ntar cvf file.tar --newer '2010-03-07' /root",
+            "tags": ["unidad-4", "copias-seguridad", "tar", "linux", "comandos"],
+            "difficulty": "medium"
+        },
+        {
+            "id": 476,
+            "front": "Comandos rsync y dump/restore en Linux",
+            "back": "RSYNC:\nCopia remota sincronizada\n\nEJEMPLO:\nrsync -az /home servidor:/var/backup\n-a: archivo, conserva permisos\n-z: compresion\n\nDUMP/RESTORE:\nCopias de sistema de archivos completo\n\nEJEMPLOS:\n\nCopia total a cinta:\ndump -0 -f /dev/tape /dev/hda5\n\nCopia diferencial remota:\ndump -1 -f servidor:/dev/st0 /dev/hda5\n\nRestaurar:\nrestore -if /dev/tape\n\nINSTALACION:\napt-get install dump",
+            "tags": ["unidad-4", "copias-seguridad", "rsync", "dump", "restore", "linux"],
+            "difficulty": "hard"
+        },
+        {
+            "id": 477,
+            "front": "Puntos de restauracion y copias de sistema",
+            "back": "PUNTO DE RESTAURACION:\nFotografia del estado del sistema\nen un momento dado\n\nUSO:\n- Recuperar configuracion anterior\n- Deshacer cambios problematicos\n- Solucionar incompatibilidades\n\nCOPIA DE SEGURIDAD DEL SISTEMA:\nImagen exacta de unidad/particion:\n- SO, configuracion, programas\n\nHERRAMIENTAS:\n- Windows: utilidad de imagen de sistema\n- Clonezilla (libre)\n- Ghost, Acronis (propietario)",
+            "tags": ["unidad-4", "recuperacion", "puntos-restauracion", "imagen-sistema"],
+            "difficulty": "easy"
+        },
+        {
+            "id": 478,
+            "front": "Opciones de arranque avanzado en Windows",
+            "back": "ACCESO:\nPulsar F8 durante arranque\n\nOPCIONES:\n\nModo seguro:\n- Controladores basicos\n- Sin red\n\nModo seguro con red:\n- Controladores basicos + red\n\nModo seguro con simbolo:\n- Solo linea de comandos\n\nHabilitar registro de arranque:\n- Guarda en ntbtlog.txt\n\nUltima configuracion valida:\n- Estado anterior del registro\n\nModo depuracion:\n- Informacion a otro equipo",
+            "tags": ["unidad-4", "recuperacion", "windows", "arranque", "modo-seguro"],
+            "difficulty": "medium"
+        },
+        {
+            "id": 479,
+            "front": "Recuperacion en entornos virtualizados",
+            "back": "VENTAJA DEL ENCAPSULAMIENTO:\n\nLas maquinas virtuales encapsulan:\n- Sistema operativo\n- Configuracion de hardware\n- Programas de aplicacion\n\nBENEFICIOS:\n- Archivos independientes portables\n- Faciles de copiar y clonar\n- Reducen tiempos de parada\n- Migracion en caliente posible\n\nANTE AVERIA:\n1. Instalar VM en otro equipo\n2. Copiar archivo de VM\n3. Arrancar sistema encapsulado\n\nRESULTADO:\nRecuperacion rapida sin reinstalacion",
+            "tags": ["unidad-4", "recuperacion", "virtualizacion", "encapsulamiento", "vm"],
+            "difficulty": "easy"
         }
     ]
 }
