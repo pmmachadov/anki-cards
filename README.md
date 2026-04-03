@@ -73,7 +73,7 @@ Haz clic en **"📊"** en cualquier mazo para ver:
 
 ## 📚 Materiales incluidos
 
-### Sistemas Informáticos (203 tarjetas)
+### Sistemas Informáticos (229 tarjetas)
 
 Contenido traducido del catalán al español:
 
@@ -82,9 +82,10 @@ Contenido traducido del catalán al español:
 | **Unidad 1** | Hardware, Redes, SO y Virtualización | 60 |
 | **Unidad 2** | Sistemas de ficheros, CLI, Directorios | 39 |
 | **Unidad 2** | Ejercicios prácticos (wildcards, compresión) | 26 |
-| **Unidad 2** | Autoevaluación (V/F, comandos, FHS) | 33 |
+| **Unidad 2** | Autoevaluación comandos y FHS | 33 |
 | **Unidad 2** | Administración de discos (teoría: MBR, particiones, LVM) | 25 |
 | **Unidad 2** | Actividades prácticas discos (fdisk, LVM, fstab) | 19 |
+| **Unidad 2** | Autoevaluación discos (V/F, relaciones, completar) | 26 |
 
 **Temas principales cubiertos:**
 - 🔧 **Hardware**: CPU, RAM, GPU, placa base, almacenamiento

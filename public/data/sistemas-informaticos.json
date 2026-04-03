@@ -2439,6 +2439,355 @@
         "unidad-2"
       ],
       "difficulty": "medium"
+    },
+    {
+      "id": 204,
+      "front": "V/F: Maximo de particiones primarias en un disco es 3",
+      "back": "FALSO\n\nEl maximo es 4 particiones primarias.\n\nAlternativas validas:\n- 4 primarias\n- 3 primarias + 1 extendida\n- La extendida contiene logicas",
+      "tags": [
+        "autoevaluacion",
+        "discos",
+        "particiones",
+        "vf",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 205,
+      "front": "V/F: Maximo de particiones primarias en un disco es 4",
+      "back": "VERDADERO\n\nEl maximo es 4 particiones primarias en tabla de particiones MBR.\n\nEsta es la limitacion del MBR tradicional.\nGPT permite mas particiones.",
+      "tags": [
+        "autoevaluacion",
+        "discos",
+        "particiones",
+        "vf",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 206,
+      "front": "V/F: Maximo de particiones extendidas es 4",
+      "back": "FALSO\n\nSolo puede haber 1 particion extendida por disco.\n\nLa extendida actua como contenedor\nde particiones logicas.\nSu proposito es superar el limite de 4 particiones.",
+      "tags": [
+        "autoevaluacion",
+        "discos",
+        "particiones",
+        "vf",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 207,
+      "front": "V/F: Maximo de particiones extendidas es 3",
+      "back": "FALSO\n\nSolo puede haber 1 particion extendida por disco, no 3.\n\nCon 3 primarias + 1 extendida\nse puede tener ilimitadas logicas.",
+      "tags": [
+        "autoevaluacion",
+        "discos",
+        "particiones",
+        "vf",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 208,
+      "front": "V/F: Maximo de particiones logicas es 11",
+      "back": "FALSO\n\nEl numero de particiones logicas NO esta limitado a 11.\n\nDepende de:\n- Puerto del disco (IDE, SATA, SCSI)\n- Kernel del sistema operativo\n- Puede haber muchas mas de 11",
+      "tags": [
+        "autoevaluacion",
+        "discos",
+        "particiones",
+        "vf",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 209,
+      "front": "Relacionar: Segunda particion logica del segundo disco SATA",
+      "back": "RESPUESTA: /dev/sdb6\n\nRazonamiento:\n- Segundo disco SATA = sdb\n- Particiones primarias/extendida: 1-4\n- Primera logica: 5\n- Segunda logica: 6",
+      "tags": [
+        "autoevaluacion",
+        "discos",
+        "nomenclatura",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 210,
+      "front": "Relacionar: Tercera particion primaria del disco maestro IDE 1",
+      "back": "RESPUESTA: /dev/hdc3\n\nRazonamiento:\n- IDE 1 = hdc (IDE 0=hda, IDE 1=hdc)\n- Maestro = letra sin numero (a, c)\n- Tercera particion primaria = 3",
+      "tags": [
+        "autoevaluacion",
+        "discos",
+        "nomenclatura",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 211,
+      "front": "Relacionar: Segunda particion primaria del primer disco SATA",
+      "back": "RESPUESTA: /dev/sda2\n\nRazonamiento:\n- Primer disco SATA = sda\n- Segunda particion primaria = 2\n- Numeros 1-4 son primarias/extendida",
+      "tags": [
+        "autoevaluacion",
+        "discos",
+        "nomenclatura",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 212,
+      "front": "Relacionar: Particion extendida unica del segundo disco SATA",
+      "back": "RESPUESTA: /dev/sdb4\n\nRazonamiento:\n- Segundo disco SATA = sdb\n- Particion extendida: numeros 1-4\n- Si es la unica particion del disco = 1\n- Pero en este caso seria la extendida = 4\n\nNOTA: Normalmente la extendida es la 4 si hay 3 primarias.",
+      "tags": [
+        "autoevaluacion",
+        "discos",
+        "nomenclatura",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 213,
+      "front": "¿Que directorios de Linux pueden ir en particiones independientes?",
+      "back": "PUEDEN ir en particiones independientes:\n✓ /home (datos de usuarios)\n✓ /var (logs y datos variables)\n\nNO PUEDEN (deben estar con /):\n✗ /etc (configuracion)\n✗ /bin (binarios esenciales)\n\nNOTA: /etc, /bin, /sbin, /lib y /dev deben estar en la misma particion que /",
+      "tags": [
+        "autoevaluacion",
+        "discos",
+        "linux",
+        "directorios",
+        "fhs",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 214,
+      "front": "Relacionar: Cifra archivos para proteger su contenido",
+      "back": "RESPUESTA: Sistema de archivos CIFRADO\n\nEjemplos:\n- Windows: BitLocker, EFS\n- Linux: eCryptfs, LUKS\n\nCaracteristicas:\n- Cifrado transparente\n- Solo accesible con autenticacion",
+      "tags": [
+        "autoevaluacion",
+        "sistema-archivos",
+        "cifrado",
+        "seguridad",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 215,
+      "front": "Relacionar: Acceso uniforme a varios sistemas de archivos",
+      "back": "RESPUESTA: Sistema de archivos VIRTUAL\n\nCaracteristicas:\n- Capa de abstraccion\n- Puente entre diferentes FS\n- Ejemplo: VFS en Linux\n- Permite acceso uniforme\n  a NTFS, ext4, FAT, etc.",
+      "tags": [
+        "autoevaluacion",
+        "sistema-archivos",
+        "virtual",
+        "abstraccion",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 216,
+      "front": "Relacionar: Ejecuta acciones de forma atomica (todas o ninguna)",
+      "back": "RESPUESTA: Sistema de archivos TRANSACCIONAL\n\nCaracteristicas:\n- Implementa transacciones\n- COMMIT: confirma cambios\n- ROLLBACK: deshace cambios\n- Journaling para recuperacion\n\nEjemplos: NTFS, ext3, ext4",
+      "tags": [
+        "autoevaluacion",
+        "sistema-archivos",
+        "transaccional",
+        "journaling",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 217,
+      "front": "Relacionar: Integra informacion de cualquier punto de la red",
+      "back": "RESPUESTA: Sistema de archivos DISTRIBUIDO\n\nCaracteristicas:\n- Arbol de archivos unico\n- Acceso transparente a red\n- NFS, CIFS/SMB\n- Carga distribuida entre servidores",
+      "tags": [
+        "autoevaluacion",
+        "sistema-archivos",
+        "distribuido",
+        "red",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 218,
+      "front": "Completar: Herramientas basicas para manipulacion de discos en Linux",
+      "back": "1. fdisk\n   → Manipula la TABLA DE PARTICIONES\n\n2. mkfs\n   → Asigna SISTEMAS DE ARCHIVOS\n\n3. mount\n   → Integra la particion en el sistema",
+      "tags": [
+        "autoevaluacion",
+        "discos",
+        "comandos",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 219,
+      "front": "Archivo de configuracion de automatizacion de montaje en Linux",
+      "back": "RESPUESTA: /etc/fstab\n\nOTROS ARCHIVOS:\n- /etc/passwd: usuarios del sistema\n- /proc/mounts: montajes actuales (temporal)\n- /etc/mtab: montajes actuales (historico)\n\n/etc/fstab contiene la configuracion\nPERSISTENTE de montajes automaticos.",
+      "tags": [
+        "autoevaluacion",
+        "discos",
+        "fstab",
+        "configuracion",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 220,
+      "front": "Relacionar opciones de mount: user",
+      "back": "user:\n\nPermite que cualquier USUARIO\nmonte la particion.\n\nRestriccion:\nSolo el mismo usuario\npuede desmontarla despues.",
+      "tags": [
+        "autoevaluacion",
+        "discos",
+        "mount",
+        "opciones",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 221,
+      "front": "Relacionar opciones de mount: users",
+      "back": "users:\n\nPermite que cualquier usuario\nmonte Y desmonte la particion.\n\nDiferencia con 'user':\n- user: cualquiera monta,\n  solo ese usuario desmonta\n- users: cualquiera monta\n  y desmonta",
+      "tags": [
+        "autoevaluacion",
+        "discos",
+        "mount",
+        "opciones",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 222,
+      "front": "Relacionar opciones de mount: owner",
+      "back": "owner:\n\nSolo el PROPIETARIO del dispositivo\npuede montar y desmontar.\n\nSeguido de nombre de usuario:\nowner=usuario\n\nMas restrictivo que 'user'.",
+      "tags": [
+        "autoevaluacion",
+        "discos",
+        "mount",
+        "opciones",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 223,
+      "front": "Relacionar opciones de mount: group",
+      "back": "group:\n\nSolo los usuarios del GRUPO\nespecificado pueden montar\ny desmontar.\n\nSintaxis: group=nombre_grupo\n\nRestriccion por grupo de usuarios.",
+      "tags": [
+        "autoevaluacion",
+        "discos",
+        "mount",
+        "opciones",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 224,
+      "front": "V/F: Volúmenes simples solo en discos basicos",
+      "back": "FALSO\n\nLos volumenes simples se crean\nen DISCOS DINAMICOS, no basicos.\n\nDiscos basicos:\n→ Usan particiones tradicionales\n\nDiscos dinamicos:\n→ Usan volumenes simples/distribuidos\n→ Mayor flexibilidad",
+      "tags": [
+        "autoevaluacion",
+        "discos",
+        "volumenes",
+        "windows",
+        "vf",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 225,
+      "front": "V/F: Volúmenes distribuidos solo en discos dinamicos",
+      "back": "VERDADERO\n\nLos volumenes distribuidos requieren\nDISCOS DINAMICOS.\n\nCaracteristicas:\n- Unen espacio de varios discos\n- Requieren minimo 2 discos dinamicos\n- Sin tolerancia a fallos\n- Mayor capacidad total",
+      "tags": [
+        "autoevaluacion",
+        "discos",
+        "volumenes",
+        "windows",
+        "vf",
+        "unidad-2"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 226,
+      "front": "V/F: Volúmenes simples no pueden ampliarse",
+      "back": "FALSO\n\nLos volumenes simples SI pueden\nampliarse si hay espacio libre\nen el mismo disco.\n\nVentaja sobre particiones:\n- Se extienden dinamicamente\n- Sin necesidad de reformatear",
+      "tags": [
+        "autoevaluacion",
+        "discos",
+        "volumenes",
+        "windows",
+        "vf",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 227,
+      "front": "V/F: Volúmenes distribuidos no se pueden ampliar",
+      "back": "FALSO\n\nLos volumenes distribuidos SI\nse pueden ampliar.\n\nSe pueden añadir mas discos\nal volumen distribuido para\naumentar su capacidad.",
+      "tags": [
+        "autoevaluacion",
+        "discos",
+        "volumenes",
+        "windows",
+        "vf",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 228,
+      "front": "Completar: Elementos basicos de LVM",
+      "back": "1. Un disco o particion se convierte en:\n   → VOLUMEN FISICO (PV)\n\n2. Varios PV se agrupan en:\n   → GRUPO DE VOLUMENES (VG)\n\n3. Los VG se subdividen en:\n   → VOLUMENES LOGICOS (LV)",
+      "tags": [
+        "autoevaluacion",
+        "lvm",
+        "componentes",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 229,
+      "front": "Diferencia basica entre df y du",
+      "back": "df (disk free):\n→ Muestra ESPACIO LIBRE de\n  sistemas de archivos MONTADOS\n→ Por disco/particion\n\ndu (disk usage):\n→ Muestra ESPACIO USADO por\n  directorios y archivos\n→ Por estructura de carpetas\n\nEjemplo:\ndf -h → /dev/sda1: 20G usado, 80G libre\ndu -sh /home → /home ocupa 15G",
+      "tags": [
+        "autoevaluacion",
+        "discos",
+        "comandos",
+        "estadisticas",
+        "linux",
+        "unidad-2"
+      ],
+      "difficulty": "medium"
     }
   ]
 }
