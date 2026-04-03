@@ -3709,6 +3709,310 @@
         "unidad-2"
       ],
       "difficulty": "medium"
+    },
+    {
+      "id": 299,
+      "front": "Diferencia entre grupo de trabajo (workgroup) y dominio",
+      "back": "GRUPO DE TRABAJO (red de igual a igual):\n- Sin jerarquia\n- Informacion NO centralizada\n- Cada nodo tiene sus usuarios\n- Usuario puede acceder a un nodo pero no a otros\n- Dificil gestion en redes grandes\n\nDOMINIO:\n- Estructura jerarquica\n- Gestion centralizada en servidor\n- Usuarios y recursos centralizados\n- Acceso independiente del equipo fisico\n- Mayor fiabilidad y disponibilidad",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "dominios",
+        "conceptos"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 300,
+      "front": "Que es LDAP y OpenLDAP",
+      "back": "LDAP:\n- Lightweight Directory Access Protocol\n- Protocolo cliente-servidor para acceder a directorios\n- Funciona sobre TCP/IP\n- Version actual: LDAPv3\n- Encriptacion SSL/TLS disponible\n\nOPENLDAP:\n- Implementacion libre de codigo abierto\n- Funciona en GNU/Linux y otros SO\n- Alternativa libre a Active Directory de Windows",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "openldap",
+        "protocolo"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 301,
+      "front": "Estructura cliente-servidor en dominios LDAP",
+      "back": "SERVIDOR:\n- Ordenador con SO orientado a red\n- Funciona ininterrumpidamente\n- Gestiona base de datos de usuarios/recursos\n- Autentica clientes\n\nCLIENTE:\n- Se conecta al servidor\n- Se identifica con usuario/contraseña\n- Acceso a recursos independiente del equipo fisico\n- Usuario definido en servidor, no en cliente",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "arquitectura",
+        "cliente-servidor"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 302,
+      "front": "Que es un directorio en LDAP",
+      "back": "CONCEPTO:\nConjunto de registros ordenados jerarquicamente.\n\nEJEMPLO ANALOGIA:\nLista telefonica ordenada alfabeticamente:\n- Cada persona = entrada\n- Telefono y direccion = atributos\n\nEN LDAP:\n- Almacena usuarios, equipos, recursos\n- Acceso rapido a informacion\n- Estructura de arbol jerarquico",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "directorio",
+        "conceptos"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 303,
+      "front": "DIT (Directory Information Tree) - Arbol de informacion de directorio",
+      "back": "ESTRUCTURA JERARQUICA:\n\n- DIT = arbol de directorio LDAP\n- Entradas organizadas en ramas\n- Raiz = entrada raiz\n- Cada entrada = objeto real o abstracto (persona, ordenador, parametros)\n\nEJEMPLO DE ESTRUCTURA:\ndc=example,dc=com (raiz)\n  ou=People (rama usuarios)\n  ou=Groups (rama grupos)",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "dit",
+        "estructura"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 304,
+      "front": "DN (Distinguished Name) y RDN (Relative Distinguished Name)",
+      "back": "RDN (Relative Distinguished Name):\n- Nombre relativo de la entrada\n- Identifica entrada dentro de su contenedor\n- Ejemplo: uid=jperez\n\nDN (Distinguished Name):\n- Nombre distinguido completo\n- Identificacion univoca en todo el arbol\n- RDN + nombre completo de entrada padre\n\nEJEMPLO:\nDN: uid=jperez,ou=People,dc=example,dc=com\nRDN: uid=jperez",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "dn",
+        "rdn",
+        "nomenclatura"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 305,
+      "front": "Atributos comunes en LDAP",
+      "back": "uid (userid): identificador unico de usuario\ncn (common name): nombre completo\ngivenName: nombre de pila\nsn (surname): apellido\no (organization): organizacion/empresa\nou (organizational unit): departamento/unidad\nmail: correo electronico\ndc (domain component): componente de dominio\n\nEJEMPLO DN:\nuid=jperez,cn=Juan Perez,dc=example,dc=com",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "atributos",
+        "nomenclatura"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 306,
+      "front": "Tipos de atributos en LDAP",
+      "back": "ATRIBUTOS NORMALES:\n- Informacion habitual del objeto\n- Nombre, apellido, correo...\n- Accesibles para consultas\n\nATRIBUTOS OPERACIONALES:\n- Solo accesibles por el servidor\n- Usados para manipular datos del directorio\n- Metadatos de gestion interna",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "atributos"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 307,
+      "front": "Esquema (schema) en LDAP",
+      "back": "DEFINICION:\nColeccion de objetos y definiciones de atributos\nque un servidor LDAP puede manejar.\n\nFUNCION:\n- Define que atributos puede tener un objeto\n- Especifica si atributos son obligatorios u opcionales\n- Indica si atributo puede tener uno o varios valores\n\nEJEMPLOS DE ESQUEMAS:\n- cosine.ldif\n- nis.ldif\n- inetorgperson.ldif",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "schema",
+        "esquema"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 308,
+      "front": "Operaciones principales de LDAP",
+      "back": "BIND: iniciar sesion en servidor\nUNBIND: cerrar sesion\nSEARCH: buscar entradas\nADD: añadir entrada\nDELETE: borrar entrada\nMODIFY: modificar entrada\nCOMPARE: comparar entradas\nRENAME: cambiar nombre de entrada\nABANDON: cancelar operacion previa\nSTART TLS: iniciar conexion segura\n\nLDAPv3 añade soporte para SSL/TLS",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "operaciones",
+        "comandos"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 309,
+      "front": "Formato LDIF (LDAP Data Interchange Format)",
+      "back": "FORMATO DE INTERCAMBIO DE DATOS:\nPermite exportar/importar datos desde/hacia directorio LDAP.\n\nSINTAXIS:\n[<id>]\ndn: <nombre distinguido>\n<atributo>: <valor>\n<atributo>: <valor>\n...\n\nREGLAS:\n- Entradas separadas por linea vacia\n- Atributo multilinea: espacio/tab al inicio de lineas siguientes\n- Valores repetidos: repetir linea de atributo\n- Caracteres especiales: usar :: con base64",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "ldif",
+        "formato"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 310,
+      "front": "Ejemplo de entrada LDIF",
+      "back": "dn: cn=John Doe,dc=example,dc=com\ncn: John Doe\ngivenName: John\nsn: Doe\ntelephoneNumber: +1 888 555 6789\nmail: john@example.com\nobjectClass: inetOrgPerson\nobjectClass: organizationalPerson\nobjectClass: person\nobjectClass: top\n\nNOTAS:\n- dn NO es atributo (identifica entrada)\ncn=John Doe = RDN\ndc=example,dc=com = entrada padre\nobjectClass: define tipo de objeto",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "ldif",
+        "ejemplo"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 311,
+      "front": "Dominio de Internet vs Dominio local",
+      "back": "DOMINIO DE INTERNET:\n- Estructura jerarquica de nombres (DNS)\n- Separa componentes por puntos\n- Traduce nombres a direcciones IP\n- Ejemplo: www.example.com\n\nDOMINIO LOCAL (administracion de sistemas):\n- Equipos interconectados en red local\n- Comparten informacion administrativa centralizada\n- Usuarios, grupos, contraseñas centralizadas\n- Autenticacion mediante servidor",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "dominios",
+        "conceptos"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 312,
+      "front": "Que es un subdominio",
+      "back": "DEFINICION:\nNivel jerarquico inferior a un dominio principal.\n\nUSOS:\n- Organizacion administrativa\n- Clasificacion por departamentos\n- Hosting web (ej: blog.empresa.com)\n\nEJEMPLOS:\nInternet: subdominio.dominio.com\nLocal: ou=Ventas,dc=empresa,dc=com\n\nEn LDAP equivale a un departamento\ndentro de una empresa grande.",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "subdominio",
+        "conceptos"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 313,
+      "front": "Elementos prefijados en un dominio LDAP",
+      "back": "USUARIO ADMINISTRADOR:\ncn=admin\nPuede crear, eliminar, modificar usuarios y grupos\n\nUNIDAD ORGANIZATIVA People (ou=People):\nContiene todos los usuarios individuales\nDistinguibles por uid\n\nUNIDAD ORGANIZATIVA Groups (ou=Groups):\nContiene todos los grupos de usuarios\nAgrupan usuarios por caracteristicas similares",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "estructura",
+        "elementos"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 314,
+      "front": "Elementos a definir al diseñar un dominio LDAP",
+      "back": "NOMBRE DEL DOMINIO:\nEj: dc=miempresa,dc=com\n\nGRUPOS DE USUARIOS:\nEj: cn=desarrolladores,ou=Groups,dc=...\nCrear ANTES que los usuarios\n\nUSUARIOS:\nEj: uid=jperez,ou=People,dc=...\nAsignar a grupos existentes\n\nJERARQUIA EN FORMA DE ARBOL:\nVisualizar relaciones entre elementos",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "diseño",
+        "planificacion"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 315,
+      "front": "Requerimientos de hardware para servidor Ubuntu 10.04 LTS",
+      "back": "UBUNTU SERVER (sin entorno grafico):\n- Procesador: 300 MHz (x86, i686)\n- RAM: 128 MB\n- Disco duro: 1 GB libre\n- Monitor: VGA (640x480)\n\nUBUNTU DESKTOP (cliente):\n- Procesador: 1 GHz\n- RAM: 512 MB\n- Disco duro: 5 GB\n- Monitor: 1024x768\n\nRECOMENDADO:\nRAID, fuentes redundantes para datos importantes",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "hardware",
+        "requisitos"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": 316,
+      "front": "Instalacion de OpenLDAP - pasos 1-3",
+      "back": "PASO 1 - Instalar servidor:\napt-get install slapd ldap-utils\n\nPASO 2 - Instalar esquemas:\nldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/cosine.ldif\nldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/nis.ldif\nldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/inetorgperson.ldif\n\nPASO 3 - Generar contraseña encriptada:\nslappasswd -h {CRYPT}\n→ devuelve hash {CRYPT}xxxxxxxx",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "instalacion",
+        "openldap"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 317,
+      "front": "Instalacion de OpenLDAP - archivos de configuracion",
+      "back": "config.ldif:\nConfiguracion basica del servidor (cn=config)\nDefine olcRootDN (admin) y olcRootPW (contraseña)\n\nbackend.dominio.ldif:\nConfiguracion del backend (base de datos)\nDefine olcSuffix (dc=dominio,dc=org)\nParametros de rendimiento y acceso\n\nfrontend.dominio.ldif:\nContenido del directorio (entradas)\nUsuarios, grupos, unidades organizativas",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "instalacion",
+        "configuracion"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 318,
+      "front": "Comandos ldapadd y ldapsearch",
+      "back": "LDAPADD (añadir entradas):\nldapadd -Y EXTERNAL -H ldapi:/// -f archivo.ldif\n(usa autenticacion SASL externa)\n\nldapadd -x -D cn=admin,dc=dominio,dc=org -W -f archivo.ldif\n(usa autenticacion simple, pide contraseña)\n\nLDAPSEARCH (buscar entradas):\nldapsearch -xLLL -b \"dc=dominio,dc=org\" uid=usuario\n-x: autenticacion simple\n-LLL: formato simplificado\n-b: base de busqueda",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "comandos",
+        "ldapadd",
+        "ldapsearch"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 319,
+      "front": "phpLDAPadmin - interfaz web para administracion",
+      "back": "INSTALACION:\napt-get install phpldapadmin\n\nCONFIGURACION:\nEditar /etc/phpldapadmin/config.php\nModificar:\n- server.base (dc=dominio,dc=org)\n- login.bind_id (cn=admin,dc=dominio,dc=org)\n\nREINICIAR Apache:\n/etc/init.d/apache2 restart\n\nACCESO:\nhttp://127.0.0.1/phpldapadmin\n\nVENTAJAS:\nInterfaz grafica para gestionar el directorio",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "phpldapadmin",
+        "herramientas"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 320,
+      "front": "Configuracion de cliente LDAP para autenticacion",
+      "back": "PASO 1 - Instalar paquetes:\napt-get install libnss-ldap auth-client-config\n\nPASO 2 - Configurar servidor:\nURI: ldapi:///127.0.0.1\nBase DN: dc=dominio,dc=org\nVersion LDAP: 3\n\nPASO 3 - Habilitar perfil:\nauth-client-config -t nss -p lac_ldap\n\nPASO 4 - Configurar PAM:\npam-auth-update\nHabilitar autenticacion LDAP\n\nPASO 5 - Crear directorios home:\nConfigurar pam_mkhomedir.so",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "cliente",
+        "autenticacion",
+        "nss",
+        "pam"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 321,
+      "front": "TLS y SSL para seguridad en LDAP",
+      "back": "SSL (Secure Sockets Layer):\nProtocolo de capa de conexion segura\n\nTLS (Transport Layer Security):\nSucesor de SSL, seguridad de capa de transporte\n\nFUNCION:\n- Encriptar comunicaciones\n- Autenticacion segura\n- Proteger contraseñas en transito\n\nCONFIGURACION:\n- Certificado de autoridad (CA)\n- Certificado del servidor\n- Clave privada\n- Opcion STARTTLS en LDAPv3",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "seguridad",
+        "tls",
+        "ssl"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 322,
+      "front": "Documentacion necesaria para un dominio",
+      "back": "INVENTARIO HARDWARE:\n- Configuraciones de servidores y clientes\n- Routers, switches, impresoras, NAS\n\nSISTEMAS OPERATIVOS:\n- SO instalados en cada equipo\n- Versiones y configuracion de red (IP, hostname)\n\nESQUEMA DE RED:\n- Diagrama visual de la topologia\n\nINVENTARIO SOFTWARE:\n- Aplicaciones instaladas\n- Versiones y actualizaciones\n\nESTRUCTURA DEL DOMINIO:\n- Nombres distinguidos (DN)\n- Esquema visual en arbol\n- Lista de usuarios, grupos, OU",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "documentacion",
+        "gestion"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 323,
+      "front": "Herramientas para documentacion e inventario",
+      "back": "ESQUEMAS Y DIAGRAMAS:\n- OpenOffice Draw\n- Gliffy (online)\n\nINVENTARIO AUTOMATIZADO:\n- OCS Inventory NG\n\nDOCUMENTACION:\n- Audencia: administradores y soporte\n- Contenido: principios de diseño, categorias, grupos\n- Formato: descriptivo pero conciso\n- Colaboracion entre departamentos\n- Niveles de especificacion variables\n- Mantener actualizada",
+      "tags": [
+        "unidad-3",
+        "ldap",
+        "herramientas",
+        "documentacion"
+      ],
+      "difficulty": "easy"
     }
   ]
 }

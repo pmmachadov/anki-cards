@@ -73,7 +73,7 @@ Haz clic en **"📊"** en cualquier mazo para ver:
 
 ## 📚 Materiales incluidos
 
-### Sistemas Informáticos (298 tarjetas)
+### Sistemas Informáticos (323 tarjetas)
 
 Contenido traducido del catalán al español:
 
@@ -89,6 +89,7 @@ Contenido traducido del catalán al español:
 | **Unidad 2** | Trabajo con archivos (permisos, enlaces, búsqueda) | 23 |
 | **Unidad 2** | Actividades archivos (permisos, enlaces, find, dpkg) | 16 |
 | **Unidad 2** | Autoevaluación archivos (V/F, umask, mklink, dpkg) | 30 |
+| **Unidad 3** | Dominios LDAP (conceptos, DIT, DN, instalación) | 25 |
 
 **Temas principales cubiertos:**
 - 🔧 **Hardware**: CPU, RAM, GPU, placa base, almacenamiento
