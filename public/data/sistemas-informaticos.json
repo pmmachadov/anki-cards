@@ -5125,6 +5125,256 @@
                 "variables"
             ],
             "difficulty": "medium"
+        },
+        {
+            "id": 410,
+            "front": "Directorio Activo (Active Directory) de Windows",
+            "back": "IMPLEMENTACION MICROSOFT DE LDAP\n\nCOMPONENTES:\n- LDAP: protocolo de acceso a directorio\n- DNS: sistema de nombres de dominio\n\nCARACTERISTICAS:\n- Estructura jerarquica\n- Directivas de seguridad por dominio\n- Relaciones de confianza entre dominios\n- Limite de seguridad en red Windows\n- Integrado por uno o varios dominios\n\nCADA DOMINIO:\n- Puede abarcar multiples ubicaciones\n- Representa estructura logica de la organizacion",
+            "tags": [
+                "unidad-3",
+                "dominios",
+                "active-directory",
+                "windows",
+                "ldap"
+            ],
+            "difficulty": "easy"
+        },
+        {
+            "id": 411,
+            "front": "Unidad Organizativa (OU) en Active Directory",
+            "back": "DEFINICION:\nContenedor de objetos dentro de un dominio\n\nQUE CONTIENE:\n- Usuarios\n- Grupos\n- Equipos\n- Otros recursos\n- Otras OU (sub-OUs)\n\nUSOS:\n- Organizar equipos por ubicacion\n- Estructura organizativa\n- Aplicar politicas de grupo (GPO)\n- Facilitar administracion delegada\n\nJERARQUIA:\nDominio → OU → Objetos/Sub-OUs",
+            "tags": [
+                "unidad-3",
+                "dominios",
+                "ou",
+                "active-directory",
+                "organizacion"
+            ],
+            "difficulty": "easy"
+        },
+        {
+            "id": 412,
+            "front": "Controlador de Dominio (DC) en Windows",
+            "back": "DEFINICION:\nServidor central que gestiona el dominio\n\nFUNCIONES:\n- Autenticacion de usuarios\n- Acceso a recursos compartidos\n- Validacion de credenciales\n- DNS para resolucion de nombres\n\nTIPOS:\n- DC primario (PDC)\n- DC de copia de seguridad (BDC)\n- RODC (solo lectura)\n\nHERRAMIENTA DE INSTALACION:\ndcpromo (Inicio → Ejecutar → dcpromo)",
+            "tags": [
+                "unidad-3",
+                "dominios",
+                "controlador-dominio",
+                "dc",
+                "windows"
+            ],
+            "difficulty": "medium"
+        },
+        {
+            "id": 413,
+            "front": "Arbol y Bosque en Active Directory",
+            "back": "ARBOL (Tree):\n- Conjunto de uno o mas dominios\n- Comparten espacio de nombres contiguo\n- Ejemplo: ciclesfp.cat → asix.ciclesfp.cat\n\nBOSQUE (Forest):\n- Conjunto de arboles\n- NO comparten espacio de nombres contiguo\n- Conectados mediante relaciones de confianza\n- Relaciones bidireccionales\n\nEJEMPLO BOSQUE:\n- Arbol 1: ciclesfp.cat\n- Arbol 2: empresa.com",
+            "tags": [
+                "unidad-3",
+                "dominios",
+                "arbol",
+                "bosque",
+                "active-directory"
+            ],
+            "difficulty": "medium"
+        },
+        {
+            "id": 414,
+            "front": "Pasos basicos instalacion Active Directory (Windows Server)",
+            "back": "1. Ejecutar dcpromo\n\n2. Crear nuevo dominio en nuevo bosque\n\n3. Definir FQDN (ej: asix.ciclesfp.cat)\n\n4. Establecer nivel funcional (Windows 2008)\n\n5. Configurar opciones DC:\n   - Servidor de catalogo global\n   - Servidor DNS\n\n6. Ubicar base de datos y SYSVOL\n\n7. Establecer contraseña modo restauracion\n\n8. Finalizar instalacion",
+            "tags": [
+                "unidad-3",
+                "dominios",
+                "active-directory",
+                "instalacion",
+                "windows"
+            ],
+            "difficulty": "medium"
+        },
+        {
+            "id": 415,
+            "front": "Grupos en Active Directory - tipos y ambitos",
+            "back": "TIPOS DE GRUPOS:\n1. Distribucion: solo para correos\n2. Seguridad: permisos y recursos\n\nAMBITOS DE GRUPOS DE SEGURIDAD:\n\n1. LOCAL DE DOMINIO:\n   - Pertenencia: cualquier dominio del bosque\n   - Uso: solo en recursos de su dominio\n\n2. GLOBAL:\n   - Pertenencia: solo usuarios de su dominio\n   - Uso: en cualquier dominio del bosque\n\n3. UNIVERSAL:\n   - Pertenencia: cualquier dominio del bosque\n   - Uso: en cualquier dominio del bosque\n   - Replicado en catalogo global",
+            "tags": [
+                "unidad-3",
+                "dominios",
+                "grupos",
+                "active-directory",
+                "ambito"
+            ],
+            "difficulty": "hard"
+        },
+        {
+            "id": 416,
+            "front": "Incorporar equipo cliente a dominio Windows",
+            "back": "CONFIGURACION RED:\n1. IP estatica en misma subred que DC\n2. DNS primario = IP del controlador de dominio\n\nCONFIGURACION SISTEMA:\n1. Propiedades del ordenador\n2. Cambiar configuracion\n3. Especificar dominio (ej: asix.ciclesfp.cat)\n4. Introducir credenciales administrador\n5. Reiniciar sistema\n\nVERIFICACION:\n- Equipo aparece en AD (Usuarios y Equipos)\n- Puede iniciar sesion con usuarios del dominio",
+            "tags": [
+                "unidad-3",
+                "dominios",
+                "cliente",
+                "active-directory",
+                "windows"
+            ],
+            "difficulty": "medium"
+        },
+        {
+            "id": 417,
+            "front": "Recursos compartidos en red Windows",
+            "back": "RECURSOS LOCALES:\n- Impresora conectada al PC\n- Unidades de disco (C:, USB)\n- Disco duro externo\n\nRECURSOS DE RED:\n- Compartidos mediante red\n- Accesibles desde otros equipos\n- Configurados en servidor\n\nRECURSOS COMPARTIDOS PREDEFINIDOS:\n- ADMIN$: carpeta del sistema\n- PRINT$: drivers de impresora\n- IPC$: administracion remota\n- NETLOGON: inicios de sesion\n- SYSVOL: scripts de inicio\n- C$, D$: unidades (ocultos con $)",
+            "tags": [
+                "unidad-3",
+                "dominios",
+                "recursos",
+                "compartir",
+                "windows"
+            ],
+            "difficulty": "easy"
+        },
+        {
+            "id": 418,
+            "front": "Samba - definicion y protocolos",
+            "back": "DEFINICION:\nPaquete de software libre que implementa\nservicios SMB/CIFS en sistemas Unix/Linux\n\nORIGEN DEL NOMBRE:\nSMB (Server Message Block) → Samba\n\nPROTOCOLOS:\n- SMB: compartir archivos e impresoras\n- CIFS: Common Internet File System\n- NetBIOS sobre TCP/IP\n\nFUNCION:\nPermite intercambio de archivos e impresoras\nentre sistemas Windows y GNU/Linux\n\nPRINCIPAL VENTAJA:\nSoftware libre y gratuito, equivalente a\nservidor Windows NT/2000",
+            "tags": [
+                "unidad-3",
+                "samba",
+                "smb",
+                "cifs",
+                "compartir",
+                "linux"
+            ],
+            "difficulty": "easy"
+        },
+        {
+            "id": 419,
+            "front": "Demonios (servicios) de Samba",
+            "back": "smbd:\n- Ofrece acceso remoto a archivos e impresoras\n- Implementa protocolo SMB\n- Autentica y autoriza usuarios\n- Modos: share-level y user-level\n\nnmbd:\n- Resolucion de nombres NetBIOS\n- Anuncio en grupo de trabajo\n- Lista de ordenadores del grupo\n- Publicacion de recursos compartidos\n\nwinbindd:\n- Autenticacion unificada (PAM)\n- Resolucion de identidad (NSS)\n- Base de datos winbind_idmap.tdb\n- Asocia UID/GID UNIX con SID NT",
+            "tags": [
+                "unidad-3",
+                "samba",
+                "demonios",
+                "smbd",
+                "nmbd",
+                "winbindd"
+            ],
+            "difficulty": "medium"
+        },
+        {
+            "id": 420,
+            "front": "Niveles de seguridad en Samba",
+            "back": "SHARE:\n- Cada recurso tiene contraseña\n- Usuario anonimo/guest\n- No recomendado actualmente\n\nUSER (por defecto):\n- Autenticacion usuario/contraseña\n- Usuario debe existir en Linux y Samba\n\nSERVER:\n- Usa otro servidor para autenticar\n- Obsoleto, no recomendado\n\nDOMAIN:\n- Miembro de dominio Windows NT\n- Usa PDC/BDC para autenticacion\n- Requiere cuenta de maquina\n\nADS:\n- Miembro de Active Directory\n- Requiere Windows 2000/2003 Server",
+            "tags": [
+                "unidad-3",
+                "samba",
+                "seguridad",
+                "niveles",
+                "autenticacion"
+            ],
+            "difficulty": "hard"
+        },
+        {
+            "id": 421,
+            "front": "Comando smbpasswd para gestion de usuarios Samba",
+            "back": "CREAR USUARIO:\nsmbpasswd -a usuario\n\nELIMINAR USUARIO:\nsmbpasswd -x usuario\n\nDESHABILITAR USUARIO:\nsmbpasswd -d usuario\n\nHABILITAR USUARIO:\nsmbpasswd -e usuario\n\nSIN CONTRASEÑA:\nsmbpasswd -n usuario\n(requiere null passwords = yes)\n\nCUENTA DE MAQUINA:\nsmbpasswd -m maquina$\n\nREQUISITO:\nUsuario debe existir previamente en Linux",
+            "tags": [
+                "unidad-3",
+                "samba",
+                "smbpasswd",
+                "usuarios",
+                "comandos"
+            ],
+            "difficulty": "medium"
+        },
+        {
+            "id": 422,
+            "front": "Archivo de configuracion /etc/samba/smb.conf",
+            "back": "SECCIONES PRINCIPALES:\n\n[global]:\n- Parametros globales del servidor\n- Workgroup, netbios name, seguridad\n\n[homes]:\n- Directorios personales de usuarios\n- Crea recurso automatico por usuario\n- Path = /home/%u\n\n[printers]:\n- Impresoras compartidas\n- Similar a [homes] pero para impresoras\n\n[recurso_personalizado]:\n- Recursos adicionales a compartir\n- Cada seccion = nombre de recurso en red",
+            "tags": [
+                "unidad-3",
+                "samba",
+                "smb.conf",
+                "configuracion",
+                "linux"
+            ],
+            "difficulty": "medium"
+        },
+        {
+            "id": 423,
+            "front": "Permisos vs Derechos en Samba",
+            "back": "DERECHOS:\n- Autorizan operaciones sobre servidor/estacion\n- Ejemplos: hacer backup, cambiar hora,\n  apagar sistema, acceder a red\n- Prevalecen sobre permisos\n\nPERMISOS:\n- Regulan acceso a recursos de red\n- Archivos, directorios, impresoras\n- Marcas (bits) por recurso\n- Lectura, escritura, ejecucion\n\nGESTION EN SAMBA:\n- Usa permisos GNU/Linux (mas eficiente)\n- Tambien puede usar ACL (mas flexible)\n- Permiso efectivo = mas restrictivo",
+            "tags": [
+                "unidad-3",
+                "samba",
+                "permisos",
+                "derechos",
+                "seguridad"
+            ],
+            "difficulty": "hard"
+        },
+        {
+            "id": 424,
+            "front": "NFS (Network File System)",
+            "back": "DEFINICION:\nProtocolo de sistema de archivos por red\n\nUSOS:\n- Centralizar directorios home\n- Compartir directorios comunes\n- Compartir software instalado\n- Compartir dispositivos de almacenamiento\n\nARQUITECTURA:\n- Cliente-Servidor\n- Servidor exporta directorios\n- Cliente monta directorios remotos\n\nCARACTERISTICAS:\n- Operaciones sincronas\n- Sin autenticacion de usuarios\n- Basado en UID/GID\n- Inseguro para redes publicas",
+            "tags": [
+                "unidad-3",
+                "nfs",
+                "compartir",
+                "linux",
+                "red"
+            ],
+            "difficulty": "medium"
+        },
+        {
+            "id": 425,
+            "front": "Servicios (demonios) NFS",
+            "back": "SERVICIOS SERVIDOR:\n\nportmap:\n- Mapeo de puertos RPC\n- Base para otros servicios NFS\n\nmountd:\n- Atiende peticiones de montaje\n- Valida permisos de acceso\n- Controla opciones de montaje\n\nnfsd:\n- Atiende acceso a archivos\n- Resuelve peticiones de clientes\n- Opera despues del montaje\n\nINSTALACION:\napt-get install nfs-kernel-server",
+            "tags": [
+                "unidad-3",
+                "nfs",
+                "servicios",
+                "mountd",
+                "nfsd",
+                "portmap"
+            ],
+            "difficulty": "medium"
+        },
+        {
+            "id": 426,
+            "front": "Archivo /etc/exports en NFS",
+            "back": "FUNCION:\nDefine directorios exportados y permisos\n\nSINTAXIS:\n/directorio cliente(opciones)\n\nEJEMPLO:\n/home 192.168.1.0/24(rw,sync)\n\nOPCIONES COMUNES:\n- ro: solo lectura (por defecto)\n- rw: lectura/escritura\n- root_squash: convierte root a anonimo\n- no_root_squash: permite acceso root\n- all_squash: todos como anonimos\n- anonuid, anongid: UID/GID anonimo\n- noaccess: denegar acceso\n\nACTUALIZAR:\nexportfs -ra (aplicar cambios)",
+            "tags": [
+                "unidad-3",
+                "nfs",
+                "exports",
+                "configuracion",
+                "linux"
+            ],
+            "difficulty": "hard"
+        },
+        {
+            "id": 427,
+            "front": "Montar recursos NFS en cliente",
+            "back": "MONTAJE MANUAL:\nsudo mount -t nfs servidor:/ruta /punto_montaje\n\nEJEMPLO:\nsudo mount -t nfs 192.168.1.15:/home /home\n\nMONTAJE PERMANENTE (/etc/fstab):\n192.168.1.15:/home /home nfs soft,users,suid,exec 0 0\n\nOPCIONES:\n- soft: error si no responde\n- users: usuarios pueden montar\n- suid: permitir bits SUID\n- exec: ejecutar programas\n\nDESMONTAR:\nsudo umount /punto_montaje",
+            "tags": [
+                "unidad-3",
+                "nfs",
+                "montaje",
+                "cliente",
+                "linux"
+            ],
+            "difficulty": "medium"
+        },
+        {
+            "id": 428,
+            "front": "Comparacion Samba vs NFS",
+            "back": "SAMBA:\n+ Autenticacion de usuarios\n+ Compatible con Windows\n+ Mas seguro para redes publicas\n+ Permisos mas flexibles (ACL)\n- Ligeramente mas lento\n- Mas complejo de configurar\n\nNFS:\n+ Simple y rapido\n+ Nativo en Linux/Unix\n+ Sin autenticacion (basado en UID)\n+ Operaciones sincronas garantizan\n  integridad de archivos\n- Sin seguridad de autenticacion\n- Problemas con usuarios root\n- No recomendable para redes publicas",
+            "tags": [
+                "unidad-3",
+                "samba",
+                "nfs",
+                "comparacion",
+                "compartir"
+            ],
+            "difficulty": "medium"
         }
     ]
 }
