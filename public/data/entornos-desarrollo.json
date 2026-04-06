@@ -1,0 +1,2375 @@
+{
+  "id": "entornos-desarrollo-uf1",
+  "name": "Entornos de Desarrollo",
+  "description": "Conceptos fundamentales sobre desarrollo de software, entornos de desarrollo y Eclipse",
+  "subject": "Entornos de Desarrollo",
+  "cards": [
+    {
+      "id": "ed-001",
+      "front": "¿Qué son los entornos de desarrollo?",
+      "back": "Son herramientas que ofrecen a los programadores facilidades a la hora de crear una aplicación informática.\n\nMuestran el proceso de desarrollo de una aplicación y las características de las herramientas que ayudan en este procedimiento.",
+      "tags": ["concepto-basico", "entornos-desarrollo"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-002",
+      "front": "Menciona 5 ejemplos de dispositivos que utilizamos a diario y que llevan código de programación incorporado",
+      "back": "• Ordenadores de sobremesa\n• Ordenadores portátiles\n• Teléfonos móviles\n• Agendas electrónicas\n• Libros electrónicos\n• Terminales de punto de venta\n• Impresoras y fotocopiadoras\n• Videoconsolas\n• Televisores",
+      "tags": ["ejemplos", "dispositivos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-003",
+      "front": "¿En qué dos apartados está dividida la unidad formativa 'Desarrollo de software'?",
+      "back": "1. 'Desarrollo de software': define los conceptos relacionados con este ámbito y las fases de desarrollo de sistemas informáticos.\n\n2. 'Instalación y uso de entornos de desarrollo': toma como ejemplo Eclipse y explica su instalación y utilización.",
+      "tags": ["estructura", "unidad-formativa"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-004",
+      "front": "¿Qué es Eclipse?",
+      "back": "Es un entorno integrado de desarrollo (IDE) de código abierto que sirve para conocer las características de este tipo de herramientas.\n\nSe utiliza como ejemplo práctico en el módulo para aprender sobre instalación y uso de entornos de desarrollo.",
+      "tags": ["eclipse", "ide", "herramienta"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-005",
+      "front": "¿Qué proceso debe seguir un producto software antes de llegar al mercado?",
+      "back": "Debe seguir un proceso que muchas veces es muy largo y conlleva realizar muchos tipos de pequeños trabajos entre varias personas.\n\nUna parte importante es la programación: el desarrollo del código integrado en el producto que permite mostrar interfaces, interactuar con usuarios y procesar información.",
+      "tags": ["proceso", "ciclo-vida", "desarrollo"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-006",
+      "front": "¿Qué funciones debe cumplir el código de programación de un dispositivo electrónico?",
+      "back": "El código debe permitir:\n\n• Mostrar interfaces al usuario\n• Interactuar con los usuarios\n• Procesar las informaciones y datos vinculados",
+      "tags": ["funciones", "codigo", "software"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-007",
+      "front": "Menciona ejemplos de aplicaciones informáticas en la vida cotidiana",
+      "back": "• Cajeros automáticos con interfaz táctil\n• Carteles luminosos con estado del tráfico en tiempo real\n• Indicadores de espacios libres para aparcar\n• Todos los aparatos electrónicos que usamos a diario",
+      "tags": ["ejemplos", "aplicaciones", "vida-cotidiana"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-008",
+      "front": "¿Qué significa que Eclipse es 'de código abierto'?",
+      "back": "Significa que es software open source: su código fuente está disponible públicamente y puede ser utilizado, modificado y distribuido por cualquiera.\n\nEsto permite que sea gratuito y que la comunidad pueda contribuir a su mejora.",
+      "tags": ["eclipse", "open-source", "codigo-abierto"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-009",
+      "front": "¿Qué es un programa informático?",
+      "back": "Es una serie de órdenes que se llevan a cabo secuencialmente, aplicadas sobre un conjunto de datos.\n\nEl ordenador transforma información o datos siguiendo estas órdenes paso a paso.",
+      "tags": ["concepto", "programa", "definicion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-010",
+      "front": "¿Qué significa 'ejecutar un programa'?",
+      "back": "Significa hacer que el ordenador siga todas sus órdenes, desde la primera hasta la última.\n\nUn ordenador es incapaz de hacer absolutamente nada por sí mismo; siempre necesita que se le ejecute un programa.",
+      "tags": ["ejecucion", "programa", "concepto"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-011",
+      "front": "¿Qué es el código fuente?",
+      "back": "Es el conjunto de archivos de texto donde se encuentran las instrucciones escritas por el programador.\n\nEstas instrucciones siguen las pautas de un lenguaje de programación y deben tener un orden determinado.",
+      "tags": ["codigo-fuente", "compilacion", "lenguaje"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-012",
+      "front": "¿Qué es el código objeto?",
+      "back": "Es el código fuente traducido (por el compilador) a código máquina en formato binario.\n\nEjemplo: 10101001000001101100110\n\nAún no puede ser ejecutado directamente por el ordenador.",
+      "tags": ["codigo-objeto", "compilacion", "binario"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-013",
+      "front": "¿Qué es el código ejecutable?",
+      "back": "Es la traducción completa a código máquina realizada por el enlazador (linker).\n\nEs interpretado directamente por el ordenador y puede ejecutarse.",
+      "tags": ["codigo-ejecutable", "linker", "ejecucion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-014",
+      "front": "¿Qué es un compilador?",
+      "back": "Es un programa que traduce el código fuente (escrito en lenguaje de alto nivel) al lenguaje máquina (código objeto).\n\nDetecta errores de sintaxis y genera un programa ejecutable depurado.",
+      "tags": ["compilador", "traduccion", "lenguaje-maquina"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-015",
+      "front": "¿Qué es un enlazador (linker)?",
+      "back": "Es el encargado de insertar en el código objeto las funciones de las bibliotecas necesarias y generar el archivo ejecutable.\n\nRealiza el proceso de montaje entre el código objeto y las bibliotecas.",
+      "tags": ["linker", "enlazador", "bibliotecas"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-016",
+      "front": "¿Qué es una biblioteca (library)?",
+      "back": "Es una colección de código predefinido que facilita la labor del programador a la hora de codificar un programa.\n\nContiene funciones reutilizables que pueden ser incluidas en el programa.",
+      "tags": ["biblioteca", "library", "codigo"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-017",
+      "front": "¿Qué es una máquina virtual?",
+      "back": "Es un programa nativo que actúa como puente entre el código intermedio (bytecode) y el sistema operativo.\n\nPermite que el mismo código se ejecute en diferentes plataformas sin recompilar.",
+      "tags": ["maquina-virtual", "jvm", "portabilidad"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-018",
+      "front": "¿Qué es la JVM (Máquina Virtual Java)?",
+      "back": "Es el entorno donde se ejecutan los programas Java. Interpreta y ejecuta instrucciones expresadas en bytecode (código de bytes) generado por el compilador Java.\n\nPermite la portabilidad de aplicaciones Java a diferentes sistemas operativos.",
+      "tags": ["jvm", "java", "maquina-virtual"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-019",
+      "front": "¿Qué es el bytecode?",
+      "back": "Es un código de bajo nivel generado por el compilador Java. No es un lenguaje de alto nivel, sino un verdadero código máquina de bajo nivel.\n\nEs interpretado por la JVM y es viable como lenguaje de entrada para un microprocesador físico.",
+      "tags": ["bytecode", "java", "compilacion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-020",
+      "front": "¿Cuáles son las 5 generaciones de lenguajes de programación?",
+      "back": "1ª Generación: Lenguaje máquina\n2ª Generación: Lenguajes de ensamblador\n3ª Generación: Lenguajes de alto nivel\n4ª Generación: Lenguajes de propósito específico\n5ª Generación: Lenguajes para IA y sistemas expertos",
+      "tags": ["generaciones", "lenguajes", "evolucion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-021",
+      "front": "¿Qué es el lenguaje máquina (1ª generación)?",
+      "back": "Es el único lenguaje que entiende directamente el ordenador.\n\n• Instrucciones en código binario (0 y 1)\n• Muy cercano al hardware\n• Programación tediosa y complicada\n• Requiere conocimiento profundo de la arquitectura\n• Muy eficiente pero prácticamente en desuso",
+      "tags": ["lenguaje-maquina", "primera-generacion", "binario"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-022",
+      "front": "¿Qué son los lenguajes de ensamblador (2ª generación)?",
+      "back": "Utilizan códigos mnemotécnicos para indicar operaciones básicas.\n\n• Cada instrucción corresponde a una instrucción máquina\n• Dependen del procesador (orientados a máquinas)\n• Se usan para drivers y aplicaciones de tiempo real\n• Requieren uso eficiente de velocidad y memoria",
+      "tags": ["ensamblador", "segunda-generacion", "mnemotecnicos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-023",
+      "front": "Ventajas e inconvenientes de lenguajes de 1ª y 2ª generación",
+      "back": "Ventajas:\n• Programas muy optimizados que aprovechan el hardware\n• Control exacto de las instrucciones ejecutadas\n\nInconvenientes:\n• Ligados al hardware (no portables)\n• Requieren conocer la arquitectura del sistema\n• No expresan directamente conceptos de algoritmos\n• Difíciles de codificar, documentar y mantener",
+      "tags": ["bajo-nivel", "ventajas", "inconvenientes"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "ed-024",
+      "front": "¿Qué son los lenguajes de alto nivel (3ª generación)?",
+      "back": "Utilizan palabras y frases fáciles de entender, cercanas al lenguaje humano (normalmente inglés).\n\n• Facilitan la programación de aplicaciones grandes\n• Independientes del hardware (portables)\n• Más fáciles de escribir y mantener\n• Requieren compilador o intérprete\n• Ejemplos: C, C++, Java, Pascal",
+      "tags": ["alto-nivel", "tercera-generacion", "portable"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-025",
+      "front": "Diferencia entre compilador e intérprete",
+      "back": "Compilador:\n• Traduce todo el programa a código máquina antes de ejecutar\n• Más rápido en ejecución\n• Genera un archivo ejecutable independiente\n\nIntérprete:\n• Traduce y ejecuta instrucción por instrucción\n• Más lento pero más portable\n• Requiere el intérprete para ejecutar cada vez",
+      "tags": ["compilador", "interprete", "diferencias"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-026",
+      "front": "¿Qué son los lenguajes de 4ª generación (4GL)?",
+      "back": "Lenguajes de propósito específico con muy alto nivel de abstracción.\n\n• Automatizan aspectos que antes se hacían a mano\n• Permiten crear prototipos rápidamente\n• Menor esfuerzo de programación\n• Orientados a aplicaciones de negocio y bases de datos\n• Ejemplos: Visual Basic, PHP, ASP, FileMaker",
+      "tags": ["cuarta-generacion", "4gl", "proposito-especifico"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-027",
+      "front": "¿Qué son los lenguajes de 5ª generación?",
+      "back": "Lenguajes específicos para Inteligencia Artificial y sistemas expertos.\n\n• Capaces de 'pensar' y anticipar necesidades\n• Tratan problemas de IA y sistemas expertos\n• Basados en paradigma lógico\n• Ejemplos: Lisp, Prolog",
+      "tags": ["quinta-generacion", "ia", "sistemas-expertos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-028",
+      "front": "¿Cuáles son los 4 paradigmas de programación principales?",
+      "back": "1. Paradigma imperativo/estructurado\n2. Paradigma de objetos (POO/OOP)\n3. Paradigma funcional\n4. Paradigma lógico",
+      "tags": ["paradigmas", "programacion", "clasificacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-029",
+      "front": "¿Qué es el paradigma imperativo/estructurado?",
+      "back": "Se basa en sentencias imperativas que modifican datos en memoria.\n\nUtiliza tres estructuras de control:\n• Secuencia (ejecución sucesiva)\n• Selección (condiciones if-then-else)\n• Iteración (bucles while)\n\nTécnica: diseño descendente (top-down) con funciones/procedimientos.",
+      "tags": ["paradigma-imperativo", "estructurado", "top-down"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-030",
+      "front": "¿Qué es el paradigma orientado a objetos (POO/OOP)?",
+      "back": "Paradigma basado en abstracciones del mundo real mediante objetos.\n\nUn objeto combina:\n• Datos (atributos)\n• Métodos (funciones/procedimientos)\n\nSe basa en 5 conceptos: abstracción, encapsulación, modularidad, jerarquía y polimorfismo.",
+      "tags": ["poo", "oop", "orientado-objetos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-031",
+      "front": "¿Qué es la programación estructurada?",
+      "back": "Desarrollada por Edsger W. Dijkstra, se basa en el teorema de la estructura.\n\nUtiliza solo tres estructuras:\n• Secuencia\n• Selección\n• Iteración\n\nEvita el uso de GOTO y favorece la claridad y diseño descendente.",
+      "tags": ["programacion-estructurada", "dijkstra", "teorema-estructura"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-032",
+      "front": "¿Qué es un Tipo Abstracto de Datos (TAD)?",
+      "back": "Es la capacidad de definir nuevos tipos de datos y sus operaciones por parte del programador.\n\n• El programador define el tipo y sus posibles operaciones\n• Soluciona problemas de complejidad en la definición de datos\n• Ejemplo: una pila (stack) con operaciones crear, apilar, desapilar",
+      "tags": ["tad", "tipo-abstracto-datos", "abstraccion"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "ed-033",
+      "front": "Los 5 conceptos fundamentales de la POO",
+      "back": "1. Abstracción: separar propiedades importantes de las secundarias\n2. Encapsulación: ocultar información, interfaz pública y datos privados\n3. Modularidad: modificar clases independientemente del resto\n4. Jerarquía: herencia y agregación\n5. Polimorfismo: dar distintas formas a un método",
+      "tags": [
+        "poo",
+        "conceptos",
+        "abstraccion",
+        "encapsulacion",
+        "polimorfismo"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-034",
+      "front": "¿Qué es la herencia en POO?",
+      "back": "Permite que una clase hija herede atributos y métodos de una clase padre.\n\n• Forma de compartir código\n• Se añade solo lo diferente (especialización)\n• Las clases hijas reaprovechan métodos y variables\n• Ejemplo: Administrativo y Profesor heredan de Trabajador",
+      "tags": ["herencia", "poo", "clases", "jerarquia"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-035",
+      "front": "¿Qué es la agregación en POO?",
+      "back": "Es un objeto formado por la combinación de otros objetos o componentes.\n\n• Representa una relación 'todo-parte'\n• Los componentes carecen de sentido sin el objeto completo\n• Ejemplo: Un ordenador se compone de CPU, pantalla, teclado y ratón",
+      "tags": ["agregacion", "poo", "composicion", "objetos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-036",
+      "front": "Diferencia entre sobrecarga (overload) y sobreescritura (override)",
+      "back": "Sobrecarga (overload):\n• Mismo método con parámetros diferentes\n• El compilador decide cuál ejecutar según los parámetros\n\nSobreescritura (override):\n• Reimplementar un método heredado exactamente igual (nombre, parámetros, retorno)\n• Cambia el comportamiento en la clase hija",
+      "tags": ["polimorfismo", "overload", "override", "poo"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "ed-037",
+      "front": "¿Cuáles son las 5 fases del desarrollo de sistemas de información según Métrica v3.0?",
+      "back": "1. Estudio de viabilidad del sistema\n2. Análisis del sistema de información\n3. Diseño del sistema de información\n4. Construcción del sistema de información\n5. Implantación y aceptación del sistema",
+      "tags": ["metrica-v3", "fases", "desarrollo", "sistemas-informacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-038",
+      "front": "¿Qué es el Estudio de viabilidad del sistema (Métrica v3)?",
+      "back": "Analiza necesidades concretas para proponer una solución a corto plazo.\n\n• Criterios tácticos (no estratégicos)\n• Aspectos económicos, técnicos, legales y operativos\n• Resultado: decisión de seguir adelante o abandonar el proyecto",
+      "tags": ["metrica-v3", "viabilidad", "fase1"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-039",
+      "front": "¿Qué es el Análisis del sistema de información (Métrica v3)?",
+      "back": "Consigue la especificación detallada del sistema mediante:\n\n• Catálogo de requisitos\n• Modelos de casos de uso y clases (OO) o datos y procesos (estructurado)\n• Requisitos funcionales y no funcionales\n• Definición de interfaces de usuario",
+      "tags": ["metrica-v3", "analisis", "fase2", "requisitos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-040",
+      "front": "¿Qué es el Diseño del sistema de información (Métrica v3)?",
+      "back": "Obtiene la definición de la arquitectura del sistema y entorno tecnológico.\n\nGenera especificaciones para:\n• Componentes del sistema (módulos/clases)\n• Estructuras de datos\n• Plan de pruebas\n• Procedimientos de migración",
+      "tags": ["metrica-v3", "diseno", "fase3", "arquitectura"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-041",
+      "front": "¿Qué es la Construcción del sistema de información (Métrica v3)?",
+      "back": "Construye y prueba los componentes a partir de las especificaciones del diseño.\n\nActividades:\n• Generación del código\n• Pruebas unitarias e integración\n• Elaboración de manuales de usuario y explotación\n• Componentes de migración y carga inicial",
+      "tags": ["metrica-v3", "construccion", "fase4", "codificacion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-042",
+      "front": "¿Qué es la Implantación y aceptación del sistema (Métrica v3)?",
+      "back": "Entrega y aceptación del sistema completo.\n\nActividades:\n• Pruebas de implantación con usuario de operación\n• Pruebas de aceptación con usuario final\n• Plan de mantenimiento\n• Acuerdo de nivel de servicio (ANS)",
+      "tags": ["metrica-v3", "implantacion", "fase5", "aceptacion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-043",
+      "front": "Roles en el equipo de proyecto según Métrica v3",
+      "back": "• Partes interesadas (stakeholders)\n• Jefe de Proyecto\n• Consultores\n• Analistas\n• Programadores",
+      "tags": ["metrica-v3", "roles", "equipo", "proyecto"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-044",
+      "front": "Comparación: Programación Estructurada vs Orientada a Objetos - Ventajas de POO",
+      "back": "Programación Orientada a Objetos aporta:\n\n• Mantenibilidad: clases como módulos independientes, fáciles de mantener sin afectar otros componentes\n\n• Extensibilidad: gracias a modularidad y herencia, se puede ampliar sin afectar el resto del código\n\n• Reusabilidad: se puede reciclar hasta el 80% de componentes creados previamente",
+      "tags": ["poo", "estructurada", "comparacion", "ventajas"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-045",
+      "front": "Tabla comparativa: Estructurada vs Orientada a Objetos",
+      "back": "Aspecto - Estructurada / POO:\n\n• Claridad: + / +\n• Simplicidad: + / -\n• Reutilización: - / +\n• Favorece modularidad: - / +\n• Abstracción: - / +\n• Encapsulación: - / +\n• Idóneo para algoritmos sencillos: + / -\n• Idóneo para sistemas complejos: - / +\n• Escalabilidad: - / +\n• Rendimiento: + / -\n• Coste de mantenimiento: - / +",
+      "tags": ["comparacion", "estructurada", "poo", "tabla"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-046",
+      "front": "¿Qué es un proyecto según la gestión de proyectos?",
+      "back": "Es el desarrollo de un conjunto de actividades dirigidas a alcanzar un objetivo preciso con unos recursos (temporales, materiales y humanos) específicos y limitados.",
+      "tags": ["proyecto", "definicion", "gestion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-047",
+      "front": "Las 3 variables/objetivos de un proyecto",
+      "back": "1. Coste\n2. Tiempo\n3. Calidad\n\nLa función de gestión de proyectos es buscar el equilibrio entre estas tres variables.",
+      "tags": ["proyecto", "variables", "triangulo", "coste-tiempo-calidad"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-048",
+      "front": "¿Qué es el PMBOK?",
+      "back": "Project Management Body of Knowledge - Cuerpo de Conocimiento de Gestión de Proyectos.\n\nPublicado por el PMI (Project Management Institute), asociación sin fines de lucro que lidera mundialmente en dirección de proyectos.",
+      "tags": ["pmbok", "pmi", "gestion-proyectos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-049",
+      "front": "Las 9 áreas de conocimiento del PMBOK",
+      "back": "1. Gestión del alcance\n2. Gestión del tiempo\n3. Gestión de costes\n4. Gestión de la calidad\n5. Gestión de recursos humanos\n6. Gestión de comunicaciones\n7. Gestión de riesgos\n8. Gestión de adquisiciones\n9. Integración",
+      "tags": ["pmbok", "areas-conocimiento", "pmi", "gestion"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "ed-050",
+      "front": "Características de las metodologías tradicionales (ej: Métrica v3)",
+      "back": "• Definen desde el inicio los objetivos, coste y tiempo\n• El coste se fija desde el principio para el cliente\n• Planificación cerrada del proyecto\n• Desarrollo secuencial por fases\n• Cambios difíciles de gestionar una vez iniciado",
+      "tags": ["metodologias-tradicionales", "metrica-v3", "cascada"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-051",
+      "front": "Características de las metodologías ágiles",
+      "back": "• Parten de una visión general del producto\n• Desarrollo de pequeños entregables iterativos\n• Orden de prioridad según necesidades del negocio\n• No hay planificación cerrada inicial\n• Se busca dar el mejor valor posible al cliente\n• La información de cada entregable permite replantear la dirección",
+      "tags": ["metodologias-agiles", "agil", "scrum", "xp"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-052",
+      "front": "Diferencia clave entre metodologías tradicionales y ágiles",
+      "back": "Tradicionales:\n• Planificación cerrada desde el inicio\n• Coste fijo definido al principio\n• Cambios costosos\n\nÁgiles:\n• Visión general evolutiva\n• Entregables frecuentes\n• Se adaptan a cambios según se aprende del proyecto\n• Mayor valor acumulado al final",
+      "tags": ["agil", "tradicionales", "diferencias", "comparacion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-053",
+      "front": "Ejemplos de metodologías ágiles",
+      "back": "• Extreme Programming (XP)\n• Scrum\n• Kanban\n• Lean\n• Crystal\n• Feature Driven Development (FDD)",
+      "tags": ["metodologias-agiles", "scrum", "xp", "kanban"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-054",
+      "front": "Definición de las 9 áreas de conocimiento del PMBOK (parte 1)",
+      "back": "1. Alcance: tareas necesarias para cumplir todo el trabajo solicitado\n2. Tiempo: finalizar el proyecto a tiempo\n3. Costes: planificación, presupuesto y control de costes\n4. Calidad: calidad de todos los procesos del proyecto",
+      "tags": ["pmbok", "alcance", "tiempo", "costes", "calidad"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "ed-055",
+      "front": "Definición de las 9 áreas de conocimiento del PMBOK (parte 2)",
+      "back": "5. Recursos humanos: gestión del equipo de trabajo\n6. Comunicaciones: gestión de comunicaciones entre miembros\n7. Riesgos: disminuir impacto de eventos adversos\n8. Adquisiciones: control de adquisiciones necesarias\n9. Integración: coordinación de las distintas partes del proyecto",
+      "tags": [
+        "pmbok",
+        "rrhh",
+        "comunicaciones",
+        "riesgos",
+        "adquisiciones",
+        "integracion"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": "ed-056",
+      "front": "Ejercicio: ¿Cuáles son los 5 conceptos fundamentales de la POO? (Verdadero/Falso)",
+      "back": "Conceptos FUNDAMENTALES de POO (V):\n• Encapsulación\n• Polimorfismo\n• Agregación\n• Modularidad\n• Jerarquía\n\nConceptos NO fundamentales de POO (F):\n• Diseño descendente (es de programación estructurada)\n• TAD (es de programación estructurada)\n• Entidades-Relaciones (es de bases de datos)",
+      "tags": ["ejercicio", "poo", "conceptos", "verdadero-falso"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-057",
+      "front": "Ejercicio: ¿En qué fase se define la arquitectura del sistema y el entorno tecnológico?",
+      "back": "Fase: DISEÑO DEL SISTEMA DE INFORMACIÓN\n\nEl propósito del diseño es obtener:\n• Definición de la arquitectura del sistema\n• Definición del entorno tecnológico\n• Especificación detallada de componentes\n• Generación de especificaciones de construcción",
+      "tags": ["ejercicio", "metrica-v3", "fases", "diseno"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-058",
+      "front": "Ejercicio: Relaciona - Lenguaje de 1ª generación",
+      "back": "Lenguaje de primera generación = LENGUAJE MÁQUINA\n\n• Es el único que entiende directamente el ordenador\n• Código binario (0 y 1)\n• Muy cercano al hardware",
+      "tags": ["ejercicio", "primera-generacion", "lenguaje-maquina"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-059",
+      "front": "Ejercicio: Relaciona - Lenguaje de 2ª generación",
+      "back": "Lenguaje de segunda generación = LENGUAJE ENSAMBLADOR\n\n• Utiliza códigos mnemotécnicos\n• Cada instrucción corresponde a una instrucción máquina\n• Dependiente del procesador",
+      "tags": ["ejercicio", "segunda-generacion", "ensamblador"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-060",
+      "front": "Ejercicio: Relaciona - Lenguaje de 3ª generación",
+      "back": "Lenguaje de tercera generación = LENGUAJE DE ALTO NIVEL\n\n• Cercano al lenguaje humano\n• Independiente del hardware\n• Ejemplos: C, C++, Java, Pascal",
+      "tags": ["ejercicio", "tercera-generacion", "alto-nivel"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-061",
+      "front": "Ejercicio: Relaciona - Lenguaje de 4ª generación",
+      "back": "Lenguaje de cuarta generación = LENGUAJE DE PROPÓSITO ESPECÍFICO (4GL)\n\n• Muy alto nivel de abstracción\n• Automatizan tareas manuales\n• Orientados a bases de datos y negocio\n• Ejemplos: Visual Basic, PHP, ASP, FileMaker",
+      "tags": ["ejercicio", "cuarta-generacion", "4gl"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-062",
+      "front": "Ejercicio: Relaciona - Lenguaje de 5ª generación",
+      "back": "Lenguaje de quinta generación = LENGUAJES PARA IA Y SISTEMAS EXPERTOS\n\n• Tratan problemas de Inteligencia Artificial\n• Capaces de 'pensar' y anticipar necesidades\n• Paradigma lógico\n• Ejemplos: Lisp, Prolog",
+      "tags": ["ejercicio", "quinta-generacion", "ia"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-063",
+      "front": "Ejercicio: Relaciona - Lenguajes compilados vs interpretados",
+      "back": "LENGUAJES COMPILADOS:\n• Traducen todo el código a máquina antes de ejecutar\n• Generan archivo ejecutable independiente\n• Ejemplos: Pascal, C, C++, .NET\n\nLENGUAJES INTERPRETADOS:\n• Traducen y ejecutan instrucción por instrucción\n• Más portables pero más lentos\n• Ejemplos: JavaScript, PHP, ASP",
+      "tags": ["ejercicio", "compilados", "interpretados", "diferencias"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-064",
+      "front": "Ejercicio: Relaciona - Lenguajes imperativos",
+      "back": "Lenguajes imperativos = PARADIGMA IMPERATIVO/ESTRUCTURADO\n\n• Basado en sentencias que modifican datos en memoria\n• Utiliza secuencia, selección e iteración\n• Técnica de diseño descendente (top-down)\n• Ejemplos: C, Basic, Pascal, Cobol",
+      "tags": ["ejercicio", "imperativo", "estructurado", "paradigma"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-065",
+      "front": "Ejercicio: ¿En qué fase se consigue la especificación detallada del sistema con catálogo de requisitos y modelos?",
+      "back": "Fase: ANÁLISIS DEL SISTEMA DE INFORMACIÓN\n\nPropósito:\n• Obtener especificación detallada del SI\n• Crear catálogo de requisitos\n• Crear modelos (casos de uso, clases...)\n• Cubrir necesidades de información de los usuarios",
+      "tags": ["ejercicio", "metrica-v3", "analisis", "fase2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-066",
+      "front": "Ejercicio completa: El _____ es el _____ traducido (por el compilador) a _____, pero este _____ todavía no puede ser ejecutado por el ordenador.",
+      "back": "El CÓDIGO OBJETO es el CÓDIGO FUENTE traducido (por el compilador) a CÓDIGO MÁQUINA, pero este CÓDIGO todavía no puede ser ejecutado por el ordenador.",
+      "tags": ["ejercicio", "codigo-objeto", "codigo-fuente", "compilacion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-067",
+      "front": "Ejercicio completa: El _____ es la traducción completa a _____, efectuada por el _____ (en inglés linker). El _____ es interpretado directamente por el ordenador.",
+      "back": "El CÓDIGO EJECUTABLE es la traducción completa a CÓDIGO MÁQUINA, efectuada por el ENLAZADOR (en inglés linker). El CÓDIGO EJECUTABLE es interpretado directamente por el ordenador.",
+      "tags": ["ejercicio", "codigo-ejecutable", "enlazador", "linker"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-068",
+      "front": "Tipos de aplicaciones que se pueden crear con Java",
+      "back": "• Applets: miniaplicaciones web que se descargan en el navegador\n• Servlets: miniaplicaciones de servidor que responden a HTTP\n• JavaBeans: componentes software reutilizables\n• Aplicaciones independientes: ejecutadas por JRE",
+      "tags": ["java", "tipos-aplicaciones", "applets", "servlets"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-069",
+      "front": "¿Qué son las Applets en Java?",
+      "back": "Son miniaplicaciones que residen en servidores web y se descargan en los navegadores clientes.\n\n• Ejecutadas por el propio navegador\n• Suelen ser de pequeño tamaño (mínimo tiempo de descarga)\n• Se llaman desde páginas HTML",
+      "tags": ["java", "applets", "web"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-070",
+      "front": "¿Qué son los Servlets en Java?",
+      "back": "Son miniaplicaciones de servidor ejecutadas por un servidor de aplicaciones.\n\n• Responden a llamadas HTTP\n• Sirven páginas web dinámicas\n• Funcionan en el lado del servidor",
+      "tags": ["java", "servlets", "servidor", "web"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-071",
+      "front": "Característica: Java es un lenguaje simple. ¿Qué elimina de C++?",
+      "back": "Java elimina de C++:\n\n• Aritmética de punteros\n• Referencias\n• Registros (struct) → sustituidos por clases\n• Typedef → sustituido por clases\n• Macros (#define)\n• Liberación explícita de memoria (free/delete)\n• Herencia múltiple\n• Sentencia GOTO\n• Variables globales",
+      "tags": ["java", "simple", "c++", "caracteristicas"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-072",
+      "front": "Características que incorpora Java (mejoras sobre C++)",
+      "back": "• Garbage Collector (recuperador de memoria): libera memoria automáticamente\n• Resolución dinámica de métodos: conoce la clase en tiempo de ejecución\n• Sintaxis similar a C++ (fácil aprendizaje)",
+      "tags": ["java", "garbage-collector", "mejoras", "c++"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-073",
+      "front": "¿Qué es el Garbage Collector en Java?",
+      "back": "Es un proceso que se ejecuta periódicamente de forma automática y se encarga de liberar la memoria dinámica asignada previamente que ha dejado de ser utilizada.\n\n• Elimina la necesidad de operaciones free/delete de C++\n• Gestión automática de memoria",
+      "tags": ["java", "garbage-collector", "memoria", "gc"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-074",
+      "front": "Resolución dinámica de métodos en Java vs C++",
+      "back": "Java: Es el funcionamiento POR DEFECTO. Si px apunta a un objeto de clase Y, se ejecuta el método de Y aunque px sea de clase X.\n\nC++: Impera el tipo declarado del puntero. Para el comportamiento lógico hay que definir métodos virtuales.\n\nJava es más simple: no necesita el concepto de métodos virtuales.",
+      "tags": ["java", "c++", "resolucion-dinamica", "polimorfismo"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "ed-075",
+      "front": "Característica: Java es un lenguaje distribuido",
+      "back": "Proporciona clases para aplicaciones de red que permiten:\n\n• Abrir sockets\n• Establecer conexiones con servidores/clientes remotos\n• Crear aplicaciones distribuidas fácilmente",
+      "tags": ["java", "distribuido", "red", "sockets"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-076",
+      "front": "Característica: Java es un lenguaje orientado a objetos puro",
+      "back": "• Diseñado como OO desde el principio\n• No existe variable, función o constante fuera de una clase\n• Acceso a miembros mediante objetos\n• Implementa encapsulación, herencia y polimorfismo\n• Solo 8 tipos primitivos (byte, short, int, long, float, double, char, boolean)",
+      "tags": ["java", "orientado-objetos", "poo", "puro"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-077",
+      "front": "Característica: Java es compilado e interpretado (Write Once, Run Anywhere)",
+      "back": "• Código fuente (.java) → compilado → bytecode (.class)\n• Bytecode independiente de la plataforma\n• JVM específica para cada plataforma interpreta el bytecode\n• Eslogan: 'Write Once, Run Anywhere' (escribe una vez, ejecuta en cualquier sitio)",
+      "tags": ["java", "compilado", "interpretado", "portable", "wora"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-078",
+      "front": "Característica: Java es un lenguaje robusto. ¿Qué comprobaciones incluye?",
+      "back": "• Gestión de memoria (sin punteros)\n• Comprobación de límites de tablas\n• Inicialización obligatoria de variables\n• Conversión segura de tipos\n• Gestión de excepciones\n• Clases y métodos final (prohiben herencia/sobreescritura)",
+      "tags": ["java", "robusto", "seguridad", "comprobaciones"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-079",
+      "front": "Las 4 barreras de seguridad en Java",
+      "back": "1. Robustez del lenguaje (gestión memoria, comprobaciones)\n2. Verificador de archivos de clases (class file verifier)\n3. Cargador de clases (class loader)\n4. Gestor de seguridad (SecurityManager)",
+      "tags": ["java", "seguridad", "barreras", "jvm"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "ed-080",
+      "front": "1ª Barrera de seguridad Java: Robustez del lenguaje",
+      "back": "• Gestión automática de memoria (sin punteros)\n• Comprobación límites de tablas\n• Inicialización obligatoria de variables\n• Conversión segura de tipos\n• Gestión de excepciones\n• Clases/métodos final",
+      "tags": ["java", "seguridad", "robustez", "barrera1"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-081",
+      "front": "2ª Barrera de seguridad Java: Verificador de archivos de clases",
+      "back": "• Valida los códigos de bytes a interpretar\n• Distingue código confiable del que no lo es\n• Busca intentos de fabricar punteros\n• Evita ejecución de código nativo\n• Comprueba llamadas con parámetros válidos\n• Verifica uso de variables inicializadas",
+      "tags": ["java", "seguridad", "verificador", "bytecode", "barrera2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-082",
+      "front": "3ª Barrera de seguridad Java: Cargador de clases (Class Loader)",
+      "back": "• Separa las clases para evitar ataques\n• Tres grupos: sistema, extensión, usuario\n• Orden de búsqueda: sistema → extensión → usuario\n• Una aplicación no puede reemplazar clases del sistema\n• Applets no pueden definir su propio cargador",
+      "tags": ["java", "seguridad", "class-loader", "barrera3"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-083",
+      "front": "4ª Barrera de seguridad Java: Gestor de seguridad (SecurityManager)",
+      "back": "• Comprueba acceso a recursos en tiempo de ejecución\n• Controla: E/S de red/archivos, hilos, ejecución de programas nativos...\n• Para applets: implementación restrictiva por defecto\n• Para aplicaciones: acceso total por defecto\n• Una vez cargado NO se puede reemplazar",
+      "tags": ["java", "seguridad", "security-manager", "barrera4"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-084",
+      "front": "Modelo de seguridad Sandbox (JDK 1.0)",
+      "back": "• Entorno muy restringido para código no fiable de la red\n• Dos niveles: acceso total (programas locales) o muy restringido (remotos)\n• Inconveniente: muy restrictivo, no permite que programas remotos hagan casi nada útil",
+      "tags": ["java", "seguridad", "sandbox", "jdk1.0"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-085",
+      "front": "Mejoras de seguridad en JDK 1.1",
+      "back": "• Código remoto firmado: permite salir del sandbox si está firmado por entidad confiable\n• Herramienta Jar: archivador de clases y recursos\n• Herramienta Javakey: firma de clases en archivos JAR\n• API de programación segura con funciones criptográficas",
+      "tags": ["java", "seguridad", "jdk1.1", "firma-digital"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-086",
+      "front": "Mejoras de seguridad en Java 2 (JDK 1.2)",
+      "back": "• Control de acceso de gránulo fino (permisos específicos)\n• Control de acceso aplicado a TODO el código (local y remoto)\n• Facilidad de configuración con archivos de políticas (policy file)\n• Estructura de control de acceso extensible\n• Herramientas: Keytool, Jarsigner, Policytool",
+      "tags": ["java", "seguridad", "java2", "jdk1.2", "permisos"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "ed-087",
+      "front": "Característica: Java es portable entre plataformas",
+      "back": "• Arquitectura independiente (bytecode)\n• Tipos de datos estándar (int siempre 32 bits)\n• Sistema abstracto de ventanas (AWT)\n• Interfaces implementables en cualquier entorno (Linux, Windows, Mac)",
+      "tags": ["java", "portable", "plataformas", "awt"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-088",
+      "front": "Característica: Java es multihilo (multithreading)",
+      "back": "• Soporta sincronización de múltiples hilos de ejecución\n• Un hilo puede comunicar mientras otro interactúa con usuario\n• Otro presenta animación mientras otro calcula\n• Especialmente útil en aplicaciones de red distribuidas",
+      "tags": ["java", "multihilo", "multithreading", "hilos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-089",
+      "front": "Característica: Java es dinámico",
+      "back": "• Clases solo se enlazan cuando se necesitan\n• Enlace dinámico en tiempo de ejecución\n• Permite enlazar nuevos módulos bajo demanda\n• Código puede provenir de fuentes variadas (incluso red)",
+      "tags": ["java", "dinamico", "enlace", "runtime"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-090",
+      "front": "¿Qué es una máquina virtual?",
+      "back": "Es un software que permite la emulación de un ordenador completo, pudiendo ejecutar programas como si se tratara realmente de ese ordenador emulado.\n\nLa JVM permite ejecutar bytecode Java en cualquier arquitectura.",
+      "tags": ["maquina-virtual", "jvm", "emulacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-091",
+      "front": "¿Qué es un IDE (Entorno de Desarrollo Integrado)?",
+      "back": "Es un programa compuesto por una serie de herramientas que utilizan los programadores para desarrollar código.\n\nPuede estar pensado para un único lenguaje o para varios. Su función es proporcionar un marco de trabajo para el lenguaje de programación.",
+      "tags": ["ide", "definicion", "entorno-desarrollo"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-092",
+      "front": "Herramientas principales de un IDE",
+      "back": "• Editor de texto: crea y modifica archivos de código\n• Compilador/Intérprete: traduce el código a lenguaje máquina\n• Depurador: prueba y depura el código fuente\n• Sistema de ayuda para GUI: construcción de interfaces gráficas",
+      "tags": ["ide", "herramientas", "editor", "compilador", "depurador"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-093",
+      "front": "Funcionalidades del Editor de texto en un IDE",
+      "back": "• Resaltado de sintaxis (syntax highlighting): palabras clave con colores\n• Compleción de código (code completion): sugerencia de atributos/métodos\n• Corrector de errores de sintaxis\n• Regiones plegables: ocultar partes del código",
+      "tags": ["ide", "editor", "funcionalidades", "syntax-highlighting"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-094",
+      "front": "Funcionalidades del Depurador (debugger)",
+      "back": "• Ejecución línea a línea del código\n• Validación de valores de variables\n• Puntos de ruptura (breakpoints) para pausar el programa\n• Modificación de variables durante la ejecución",
+      "tags": ["ide", "depurador", "debugger", "breakpoints"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-095",
+      "front": "Herramientas opcionales en un IDE",
+      "back": "• Acceso a bases de datos y gestión de archivos\n• Sistema de control de versiones\n• Sistema de pruebas\n• Sistema de refactorización\n• Generador automático de documentación",
+      "tags": [
+        "ide",
+        "herramientas-opcionales",
+        "versiones",
+        "refactorizacion"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-096",
+      "front": "¿Qué es la refactorización (refactoring)?",
+      "back": "Es una técnica de ingeniería de software dirigida a reestructurar un código fuente, alterando su estructura interna SIN cambiar su comportamiento externo.",
+      "tags": ["refactorizacion", "refactoring", "ingenieria-software"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-097",
+      "front": "Ejemplos de IDE multiplataforma",
+      "back": "• Eclipse: código abierto, fundado por IBM (2001), desarrollado en Java\n• Netbeans: código abierto, fundado por Sun (2000), desarrollado en Java\n• Anjuta DevStudio: para GNU/Linux (1999)\n• JBuilder: propiedad de Borland (1995)\n• JDeveloper: propiedad de Oracle (1998)",
+      "tags": ["ide", "ejemplos", "eclipse", "netbeans", "multiplataforma"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-098",
+      "front": "Diferencia entre JVM, JRE y JDK",
+      "back": "• JVM: interpreta bytecode y genera código máquina (necesaria una por entorno)\n• JRE: JVM + librerías + software para ejecutar aplicaciones cliente\n• JDK: JRE + herramientas para desarrolladores (compilar, empaquetar, documentar)",
+      "tags": ["java", "jvm", "jre", "jdk", "diferencias"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-099",
+      "front": "Diferencia entre Java SE y Java EE",
+      "back": "• Java SE (Standard Edition): versión estándar, base para desarrollo en Java. Aplicaciones cliente, escritorio y web.\n\n• Java EE (Enterprise Edition): versión más grande para aplicaciones grandes cliente/servidor y WebServices.",
+      "tags": ["java", "se", "ee", "ediciones", "diferencias"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-100",
+      "front": "Variables de entorno para Java: JAVA_HOME y PATH",
+      "back": "• JAVA_HOME: indica la carpeta donde se instaló JDK (no obligatoria pero conveniente)\n• PATH: debe apuntar al directorio bin de JDK para que el sistema encuentre los ejecutables\n• Configurar PATH es imprescindible",
+      "tags": [
+        "java",
+        "variables-entorno",
+        "java_home",
+        "path",
+        "configuracion"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-101",
+      "front": "¿Qué es un servidor web?",
+      "back": "Es un programa que atiende y responde peticiones de navegadores, proporcionando recursos mediante protocolo HTTP o HTTPS.\n\nBucle de ejecución:\n1. Espera peticiones en puerto TCP (80 para HTTP)\n2. Recibe petición\n3. Busca el recurso\n4. Envía el recurso por la misma conexión",
+      "tags": ["servidor-web", "http", "tomcat", "apache"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-102",
+      "front": "¿Qué es Eclipse?",
+      "back": "Es una plataforma de código abierto desarrollada por la Fundación Eclipse.\n\n• Independiente de plataformas/sistemas operativos\n• Desarrollado originalmente por IBM como sucesor de VisualAge\n• Para desarrollar IDEs como JDT (Java Development Toolkit)\n• Requiere JRE instalado previamente",
+      "tags": ["eclipse", "ide", "fundacion-eclipse", "codigo-abierto"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-103",
+      "front": "Versiones de Eclipse a instalar",
+      "back": "• Eclipse IDE for Java EE Developers: para desarrollo Java Enterprise\n• Eclipse IDE for Java Developers: para desarrollo Java estándar\n• Otras versiones para C/C++, PHP, etc.",
+      "tags": ["eclipse", "versiones", "instalacion", "java-ee"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-104",
+      "front": "Componentes principales del entorno Eclipse",
+      "back": "• Editor: ventana principal donde se desarrolla el código\n• Vistas: ventanas secundarias (jerarquía, tareas, consola...)\n• Barra de herramientas principal: accesos a operaciones usuales\n• Barra de perspectivas: cambiar entre conjuntos de ventanas",
+      "tags": ["eclipse", "componentes", "editor", "vistas", "perspectivas"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-105",
+      "front": "¿Qué es una perspectiva en Eclipse?",
+      "back": "Es un conjunto de ventanas (editores y vistas) relacionadas entre sí para una tarea específica.\n\nEjemplos:\n• Perspectiva Java: para desarrollo de aplicaciones Java\n• Perspectiva Debug: para depuración\n\nSe puede personalizar y guardar.",
+      "tags": ["eclipse", "perspectiva", "vistas", "editor"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-106",
+      "front": "Conceptos clave en Eclipse: Proyecto",
+      "back": "Un proyecto agrupa un conjunto de recursos relacionados:\n• Código fuente\n• Diagramas de clases\n• Documentación\n• Bibliotecas (JAR)",
+      "tags": ["eclipse", "proyecto", "workspace", "recursos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-107",
+      "front": "Compilación en Eclipse",
+      "back": "• NO hay botón de compilar individual\n• La compilación es automática al guardar cambios\n• Rebuild Project: compila todo el proyecto\n• Rebuild All: compila todos los proyectos abiertos\n• Genera archivos .class en carpeta bin",
+      "tags": ["eclipse", "compilacion", "build", "automatica"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-108",
+      "front": "Code Completion (Compleción de código) en Eclipse",
+      "back": "• Al dejar de escribir: muestra términos que comienzan con lo escrito\n• Al escribir un punto (.): muestra atributos y métodos disponibles\n• En llamadas a funciones: muestra tipos de parámetros esperados",
+      "tags": ["eclipse", "code-completion", "autocompletado", "productividad"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-109",
+      "front": "Corrector de errores en Eclipse",
+      "back": "• Detecta errores de compilación en tiempo real\n• Marca sentencias erróneas con línea ondulada roja (error) o amarilla (aviso)\n• Muestra explicación al posar el ratón\n• Iconos en barra lateral con soluciones sugeridas",
+      "tags": ["eclipse", "corrector", "errores", "warnings"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-110",
+      "front": "Codificación de colores (Syntax Highlighting) en Eclipse",
+      "back": "• Palabras reservadas: burdeos y negrita\n• Comentarios: verde\n• Comentarios Javadoc: azul\n• Facilita la lectura y comprensión del código",
+      "tags": ["eclipse", "syntax-highlighting", "colores", "editor"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-111",
+      "front": "Tipos de archivos de encapsulamiento en Java",
+      "back": "• JAR (Java Archive): aplicación completa de fácil movilidad\n• WAR (Web Application Archive): aplicación web (JSP, servlets, HTML)\n• EAR (Enterprise Archive): empaqueta varios módulos JAR+WAR para servidor de aplicaciones",
+      "tags": ["java", "jar", "war", "ear", "empaquetado", "despliegue"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-112",
+      "front": "¿Qué son los conectores (plugins) en Eclipse?",
+      "back": "Son componentes de software que añaden nuevas funcionalidades a Eclipse.\n\n• Desarrollados por la Fundación Eclipse o usuarios\n• Se encuentran en el apartado 'Community' del sitio web\n• Importante seleccionar con cuidado: afectan al rendimiento y tiempo de arranque",
+      "tags": ["eclipse", "plugins", "conectores", "extensiones"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-113",
+      "front": "WindowBuilder Pro en Eclipse",
+      "back": "Es un componente (conector) para desarrollar aplicaciones GUI (interfaces gráficas) visualmente en Eclipse.\n\n• Permite diseñar formularios arrastrando componentes\n• Genera el código Java automáticamente\n• Soporta SWT, Swing y JavaFX",
+      "tags": ["eclipse", "windowbuilder", "gui", "swing", "swt"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-114",
+      "front": "Proceso de instalación completo para desarrollo Java con Eclipse",
+      "back": "1. Descargar e instalar JDK\n2. Configurar variables JAVA_HOME y PATH\n3. Descargar e instalar servidor web (Apache Tomcat)\n4. Descargar e instalar Eclipse\n5. Configurar JDK en Eclipse\n6. Configurar servidor Tomcat en Eclipse\n7. Instalar conectores necesarios (WindowBuilder, etc.)",
+      "tags": ["eclipse", "instalacion", "jdk", "tomcat", "pasos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-115",
+      "front": "Control de versiones en un IDE",
+      "back": "Permite tener un histórico del trabajo realizado y las versiones del código.\n\nBeneficios:\n• Volver a versiones anteriores estables\n• Ver cambios realizados\n• Trabajo colaborativo\n• Ejemplos: Git, SVN",
+      "tags": ["ide", "control-versiones", "git", "svn", "versionado"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-116",
+      "front": "Pasos para crear un proyecto Java en Eclipse",
+      "back": "1. Archivo / Nuevo / Proyecto (o clic derecho en Navigator)\n2. Seleccionar Java / Java Project\n3. Indicar nombre y ubicación\n4. Configurar carpetas para código fuente y archivos binarios\n5. Añadir librerías JAR si es necesario\n6. Eclipse abre automáticamente la Perspectiva Java",
+      "tags": ["eclipse", "proyecto-java", "pasos", "creacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-117",
+      "front": "Perspectiva Java en Eclipse - Vistas principales",
+      "back": "• Package Explorer: navega por paquetes y classpath del proyecto\n• Outline: muestra esquema de la clase en el Editor activo\n• Editor: código Java con botones extra (ejecutar, depurar, crear clases)",
+      "tags": ["eclipse", "perspectiva-java", "vistas", "package-explorer"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-118",
+      "front": "Estructura recomendada de carpetas en un proyecto Java",
+      "back": "• Carpeta src/ (source): código fuente (.java)\n• Carpeta bin/ (o build/): archivos compilados (.class)\n• Separar claramente el origen del código de los binarios generados",
+      "tags": ["eclipse", "estructura", "carpetas", "src", "bin"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-119",
+      "front": "Método main() en Java",
+      "back": "Es el punto de entrada de una aplicación Java.\n\npublic static void main(String[] args) {\n    // Código a ejecutar\n}\n\n• public: accesible desde cualquier lugar\n• static: pertenece a la clase, no a instancias\n• void: no retorna valor\n• args: array de argumentos de línea de comandos",
+      "tags": ["java", "main", "metodo-principal", "entrada"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-120",
+      "front": "¿Qué es un Servlet?",
+      "back": "Es un conjunto de programas que se ejecutan en un servidor web y construyen páginas web dinámicas.\n\n• Residen en el servidor\n• Reciben peticiones del cliente (navegador)\n• Procesan la petición\n• Generan y devuelven una respuesta HTML",
+      "tags": ["java", "servlet", "web", "servidor", "dinamico"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-121",
+      "front": "Ciclo de vida de un Servlet - Métodos principales",
+      "back": "• init(): se ejecuta al crear el servlet (inicialización)\n• doGet(): procesa peticiones HTTP GET\n• doPost(): procesa peticiones HTTP POST\n• destroy(): se ejecuta al destruir el servlet (liberar recursos)",
+      "tags": ["java", "servlet", "ciclo-vida", "doget", "dopost"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-122",
+      "front": "Diferencia entre doGet() y doPost() en Servlets",
+      "back": "doGet():\n• Recibe peticiones del cliente (lectura, navegación)\n• Parámetros visibles en URL\n• Usado para obtener datos\n\ndoPost():\n• Recibe datos de formularios (escritura)\n• Parámetros en el cuerpo de la petición (no visibles en URL)\n• Usado para enviar datos sensibles o grandes",
+      "tags": ["java", "servlet", "doget", "dopost", "diferencias"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-123",
+      "front": "¿Qué es JSP (JavaServer Pages)?",
+      "back": "Tecnología Java para crear páginas web dinámicas con código Java embebido en HTML.\n\n• Permite mezclar código Java con HTML\n• Se ejecutan en el servidor\n• Generan contenido HTML dinámico\n• Compilados internamente como servlets",
+      "tags": ["java", "jsp", "web", "paginas-dinamicas"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-124",
+      "front": "Archivo web.xml (descriptor de despliegue)",
+      "back": "Archivo de configuración XML que registra servlets con el contenedor.\n\nDefine:\n• Nombre del servlet\n• Clase Java del servlet\n• URL pattern (ruta de acceso)\n• Mapeo servlet-name con url-pattern",
+      "tags": ["java", "web-xml", "despliegue", "servlet", "configuracion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-125",
+      "front": "¿Qué es HttpSession en Java?",
+      "back": "Objeto que permite almacenar información del usuario durante su navegación (sesión).\n\n• Mantiene datos entre peticiones del mismo usuario\n• Se obtiene con request.getSession()\n• Almacena atributos con session.setAttribute()\n• Recupera atributos con session.getAttribute()",
+      "tags": ["java", "httpsession", "sesion", "web", "estado"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-126",
+      "front": "RequestDispatcher en Servlets",
+      "back": "Permite redirigir la petición a otra página (JSP o servlet).\n\n• getRequestDispatcher(\"/ruta\"): obtiene el dispatcher\n• forward(request, response): transfiere el control a otra página\n• Mantiene los atributos de la request",
+      "tags": [
+        "java",
+        "servlet",
+        "requestdispatcher",
+        "forward",
+        "redireccion"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-127",
+      "front": "sendRedirect vs RequestDispatcher",
+      "back": "sendRedirect():\n• Envía respuesta al navegador para que haga nueva petición\n• URL cambia en el navegador\n• Puede redirigir a sitios externos\n\nRequestDispatcher.forward():\n• Transfiere control internamente\n• URL no cambia en navegador\n• Solo dentro de la misma aplicación\n• Mantiene objetos request",
+      "tags": ["java", "servlet", "redirect", "forward", "diferencias"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "ed-128",
+      "front": "Creación de un proyecto Dynamic Web Project en Eclipse",
+      "back": "1. Archivo / Nuevo / Dynamic Web Project\n2. Nombre del proyecto\n3. Target runtime (servidor: Tomcat, etc.)\n4. Configurar carpetas:\n   - Java Resources/src: código fuente\n   - WebContent: páginas web, JSP, HTML\n5. Añadir referencia a servlet-api.jar",
+      "tags": ["eclipse", "dynamic-web-project", "web", "tomcat"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-129",
+      "front": "Estructura de un Dynamic Web Project en Eclipse",
+      "back": "• Java Resources/src: clases Java (.java)\n• WebContent/: páginas web\n  - WEB-INF/: configuración no accesible directamente\n    - web.xml: descriptor de despliegue\n  - JSP, HTML, CSS, JS\n• build/classes: archivos compilados (.class)",
+      "tags": ["eclipse", "estructura", "web-project", "webcontent", "web-inf"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-130",
+      "front": "¿Qué es el patrón MVC en aplicaciones web?",
+      "back": "Modelo-Vista-Controlador: patrón de arquitectura para separar responsabilidades.\n\n• Modelo: datos y lógica de negocio (clases Java)\n• Vista: presentación (JSP, HTML)\n• Controlador: gestiona peticiones y coordina (Servlets)",
+      "tags": ["java", "mvc", "patron", "web", "arquitectura"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-131",
+      "front": "Patrón DAO (Data Access Object)",
+      "back": "Patrón que simula el acceso a base de datos.\n\n• Separa la lógica de acceso a datos del resto de la aplicación\n• Ejemplo: clase AsignaturaDB que gestiona colección de asignaturas\n• Métodos típicos: obtener, guardar, eliminar, listar",
+      "tags": ["java", "dao", "patron", "acceso-datos", "simulacion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-132",
+      "front": "Scriptlets en JSP",
+      "back": "Código Java embebido en páginas JSP usando <% %>.\n\nEjemplo:\n<%\n  Collection asignaturas = (Collection)request.getAttribute(\"asignaturas\");\n  for (Iterator iter = asignaturas.iterator(); iter.hasNext();) {\n    // código...\n  }\n%>\n\nPermite iterar y mostrar datos dinámicos.",
+      "tags": ["java", "jsp", "scriptlet", "codigo-embebido"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-133",
+      "front": "Expresiones JSP <%= %>",
+      "back": "Sintaxis para mostrar valores de variables Java directamente en HTML.\n\nEjemplo:\n<input value=\"<%=asignatura.getNombre()%>\">\n\nMuestra el nombre de la asignatura en el campo de texto.\nSe evalúa y convierte automáticamente a String.",
+      "tags": ["java", "jsp", "expresiones", "salida"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-134",
+      "front": "request.getParameter() vs request.getAttribute()",
+      "back": "getParameter():\n• Obtiene datos enviados por el cliente (formularios, URL)\n• Devuelve String\n• Uso: request.getParameter(\"nombreCampo\")\n\ngetAttribute():\n• Obtiene objetos guardados en la request por el servlet\n• Devuelve Object (requiere cast)\n• Uso: request.getAttribute(\"nombreObjeto\")",
+      "tags": ["java", "servlet", "request", "parametro", "atributo"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-135",
+      "front": "Operaciones CRUD",
+      "back": "Create, Read, Update, Delete - Operaciones básicas de gestión de datos:\n\n• Create: crear nuevos registros (INSERT)\n• Read: leer/ consultar registros (SELECT)\n• Update: actualizar registros existentes (UPDATE)\n• Delete: eliminar registros (DELETE)",
+      "tags": ["crud", "operaciones", "base-datos", "gestion-datos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-136",
+      "front": "Flujo de una aplicación web con Servlet y JSP",
+      "back": "1. Cliente (navegador) envía petición HTTP\n2. Servlet (Controlador) recibe en doGet()/doPost()\n3. Servlet procesa y accede al Modelo (datos)\n4. Servlet guarda datos en request con setAttribute()\n5. RequestDispatcher.forward() a JSP (Vista)\n6. JSP genera HTML y lo envía al cliente",
+      "tags": ["java", "web", "flujo", "mvc", "servlet-jsp"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-137",
+      "front": "Ejercicio: Componentes POR DEFECTO de un IDE (Verdadero/Falso)",
+      "back": "COMPONENTES POR DEFECTO (V):\n• Editor de texto\n• Compilador\n• Intérprete\n• Depurador\n\nCOMPONENTES OPCIONALES (F):\n• Code completion y syntax highlighting (mejora del editor)\n• Generación automática de código\n• Refactorización\n• Generador automático de documentación\n• Creador de modelo Entidad-Relación\n• Ayuda a construcción de interfaces gráficas",
+      "tags": ["ejercicio", "ide", "componentes", "por-defecto", "opcionales"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-138",
+      "front": "Ejercicio: ¿Cuáles son ejemplos de IDE?",
+      "back": "SÍ son IDE:\n• Eclipse\n• Netbeans\n• Dev C++\n• Borland C\n\nNO es IDE (es solo editor de texto):\n• UltraEdit",
+      "tags": ["ejercicio", "ide", "ejemplos", "eclipse", "netbeans"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-139",
+      "front": "Ejercicio: Relaciona - Formato de archivo para aplicación completa de fácil movilidad",
+      "back": "Respuesta: JAR (Java Archive)\n\n• Formato independiente de la plataforma\n• Encapsula varios archivos en uno solo\n• Aplicación completa de fácil movilidad y ejecución",
+      "tags": ["ejercicio", "jar", "empaquetado", "java"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-140",
+      "front": "Ejercicio: Relaciona - Archivo para distribuir JSP, servlets y contenido web",
+      "back": "Respuesta: WAR (Web Application Archive)\n\n• Archivo JAR con extensión WAR\n• Contiene: JSP, servlets, clases Java, XML, HTML\n• En conjunto constituye una aplicación web",
+      "tags": ["ejercicio", "war", "web", "aplicacion-web"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-141",
+      "front": "Ejercicio: Relaciona - Formato para empaquetar varios módulos en servidor de aplicaciones",
+      "back": "Respuesta: EAR (Enterprise Archive File)\n\n• Empaqueta varios módulos (JAR + WAR) en un solo archivo\n• Permite desplegar en servidor de aplicaciones\n• Contiene descriptores de despliegue XML\n• EAR = JAR + WAR",
+      "tags": ["ejercicio", "ear", "enterprise", "despliegue", "servidor"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-142",
+      "front": "Configuración de variables de entorno JAVA_HOME y PATH en Linux/Mac",
+      "back": "1. Crear archivo en /etc/profile.d/ (ej: varsjava.sh)\n2. Necesita permisos de root\n3. Contenido:\n   export JAVA_HOME=/usr/java/jdk-11\n   PATH=$JAVA_HOME/bin:$PATH\n4. Se ejecuta automáticamente al iniciar sesión",
+      "tags": ["java", "variables-entorno", "linux", "mac", "bash"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-143",
+      "front": "Pasos para configurar variables de entorno en Windows",
+      "back": "1. Clic derecho en Equipo → Propiedades\n2. Configuración avanzada del sistema\n3. Pestaña Opciones avanzadas → Variables de entorno\n4. Editar JAVA_HOME (ruta JDK) y PATH (añadir %JAVA_HOME%\\bin)",
+      "tags": ["java", "variables-entorno", "windows", "configuracion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-144",
+      "front": "¿Qué es Apache Tomcat?",
+      "back": "Es un servidor web y contenedor de servlets de código abierto.\n\n• Desarrollado por Apache Software Foundation\n• Implementa especificaciones Java Servlet y JSP\n• Se instala como servicio en Windows\n• Ya viene instalado en Mac OS",
+      "tags": ["tomcat", "servidor", "servlet", "jsp", "apache"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-145",
+      "front": "Instalación de Apache Tomcat en GNU Linux",
+      "back": "1. Descargar desde web oficial\n2. Copiar a carpeta de instalación\n3. Descomprimir\n4. Crear CATALINA_HOME (carpeta raíz de Tomcat)\n5. Modificar PATH para incluir %CATALINA_HOME%\\bin",
+      "tags": ["tomcat", "instalacion", "linux", "catalina_home"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-146",
+      "front": "Variable de entorno CATALINA_HOME",
+      "back": "Indica la carpeta raíz de la instalación de Apache Tomcat.\n\n• Usada por scripts de inicio/parada\n• Debe apuntar al directorio base de Tomcat\n• Ejemplo: /opt/tomcat o C:\\apache-tomcat",
+      "tags": ["tomcat", "catalina_home", "variable-entorno"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-147",
+      "front": "¿Qué es un archivo CSV?",
+      "back": "Comma-Separated Values (Valores separados por comas).\n\n• Cada línea = una fila de la tabla\n• Comas o punto y comas separan columnas\n• Formato simple para datos tabulados\n• Ejemplo:\n  Nombre,Edad,Ciudad\n  Juan,25,Madrid\n  Ana,30,Barcelona",
+      "tags": ["csv", "archivo", "datos", "tabular"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-148",
+      "front": "Instalación de conectores en Eclipse - Eclipse Marketplace",
+      "back": "1. Help → Eclipse Marketplace\n2. Buscar conector en campo Find\n3. Seleccionar y clicar Install\n4. Aceptar términos de licencia\n5. Confirmar instalación (Install Anyway si hay advertencias)\n6. Reiniciar Eclipse para activar",
+      "tags": [
+        "eclipse",
+        "conectores",
+        "marketplace",
+        "plugins",
+        "instalacion"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-149",
+      "front": "Instalación manual de conectores en Eclipse",
+      "back": "Método alternativo a Eclipse Marketplace:\n\n1. Descargar archivo del conector desde web\n2. Descomprimir en carpeta Plugins de Eclipse\n3. Reiniciar Eclipse\n4. El conector se reconoce automáticamente",
+      "tags": ["eclipse", "conectores", "instalacion-manual", "plugins"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-150",
+      "front": "¿Por qué son necesarias las pruebas de software?",
+      "back": "• Evitar que la aplicación llegue al usuario con errores visibles\n• Detectar errores cuanto antes (menos costoso de solucionar)\n• Mantener la confianza de los usuarios\n• Entre 30% y 50% del coste del proyecto se dedica a pruebas\n• Un error no detectado al inicio puede costar 50x más arreglarlo",
+      "tags": ["pruebas", "importancia", "calidad", "costes"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-151",
+      "front": "Fases del ciclo de vida de un proyecto informático",
+      "back": "1. Toma de requerimientos\n2. Análisis\n3. Diseño\n4. Desarrollo\n5. Pruebas\n6. Finalización\n7. Transferencia",
+      "tags": ["ciclo-vida", "fases", "proyecto", "desarrollo"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-152",
+      "front": "Ciclo de vida en V: pruebas por fase",
+      "back": "• Requerimientos ↔ Pruebas de aceptación\n• Análisis ↔ Pruebas de sistema\n• Diseño ↔ Pruebas de integración\n• Implementación ↔ Pruebas unitarias\n\nCuanto antes se detecta un error, más fácil y barato es solucionarlo.",
+      "tags": ["ciclo-vida", "v", "pruebas", "fases"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-153",
+      "front": "Diferencia entre Verificación y Validación",
+      "back": "Verificación:\n• ¿Se está construyendo el producto correctamente?\n• Cubre diseño e implementación\n• Realizada por desarrolladores e ingenieros de pruebas\n\nValidación:\n• ¿Se está construyendo el producto correcto?\n• ¿Cumple los requisitos del análisis?\n• Realizada por ingenieros de pruebas",
+      "tags": ["pruebas", "verificacion", "validacion", "diferencias"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-154",
+      "front": "Pruebas de aceptación",
+      "back": "• Realizadas por el cliente/usuario final\n• Dan el visto bueno al producto\n• Basadas en condiciones firmadas en el contrato\n• Se realizan una vez finalizado el desarrollo\n• Incluyen pruebas alfa (en entorno desarrollador) y beta (en entorno cliente)",
+      "tags": ["pruebas", "aceptacion", "cliente", "alfa", "beta"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-155",
+      "front": "Procedimientos de pruebas según IEEE 829-2008",
+      "back": "1. Planificación de pruebas\n2. Diseño de pruebas (casos de prueba)\n3. Ejecución de pruebas\n4. Evaluación de resultados y depuración\n5. Análisis estadístico de errores",
+      "tags": ["pruebas", "procedimientos", "ieee", "829"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-156",
+      "front": "Contenidos de un Plan de Pruebas (IEEE 829)",
+      "back": "• Identificador del plan\n• Descripción y alcance\n• Elementos a probar y no probar\n• Estrategia (técnicas, herramientas)\n• Configuración del plan\n• Documentos a entregar\n• Tareas especiales\n• Recursos y responsables\n• Calendario (Diagrama de Gantt)",
+      "tags": ["plan-pruebas", "ieee", "contenidos", "documentacion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-157",
+      "front": "Tipos de pruebas de software",
+      "back": "• Unitarias (caja blanca/negra)\n• Funcionales (caja negra)\n• Integración (ascendente/descendente)\n• Sistema\n• Carga\n• Aceptación\n• Seguridad\n• Regresión\n• Humo (smoke tests)",
+      "tags": ["pruebas", "tipos", "clasificacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-158",
+      "front": "Pruebas unitarias",
+      "back": "• Pruebas de menor nivel\n• Se realizan durante el desarrollo\n• Las efectúan los propios programadores\n• Objetivo: detectar errores en datos, algoritmos y lógica\n• Enfoque estructural (caja blanca) o funcional (caja negra)",
+      "tags": ["pruebas", "unitarias", "caja-blanca", "caja-negra"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-159",
+      "front": "Pruebas de caja blanca (estructurales)",
+      "back": "• Se centran en la implementación interna del código\n• Analizan todos los posibles caminos de ejecución\n• El tester conoce el código fuente\n• Técnicas: cobertura de flujo de control, complejidad ciclomática\n• Diseñan casos de prueba para recorrer todas las ramas",
+      "tags": ["pruebas", "caja-blanca", "estructurales", "cobertura"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-160",
+      "front": "Cobertura de flujo de control",
+      "back": "Método que utiliza la estructura de control del programa para obtener casos de prueba que garanticen pasar al menos una vez por cada camino.\n\nElementos:\n• Camino simple: sin ramas repetidas\n• Camino independiente: simple con alguna rama no incluida\n• Conjunto básico: caminos independientes a cubrir",
+      "tags": ["pruebas", "caja-blanca", "cobertura", "flujo-control"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "ed-161",
+      "front": "Complejidad ciclomática (Métrica de McCabe)",
+      "back": "Fórmula: CC = número de ramas - número de nodos + 2\n\nIndica el número máximo de caminos linealmente independientes.\n\nEjemplo: 8 ramas - 7 nodos + 2 = 3 casos de prueba necesarios.",
+      "tags": ["pruebas", "complejidad-ciclomatica", "mccabe", "metrica"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "ed-162",
+      "front": "Pruebas de caja negra (funcionales)",
+      "back": "• Prueban la funcionalidad del programa sin conocer el código interno\n• Se centran en entradas y salidas\n• Detectan errores en funciones, interfaces, rendimiento\n• Independientes del lenguaje de programación\n• Técnicas: clases de equivalencia, valores límite, errores típicos",
+      "tags": ["pruebas", "caja-negra", "funcionales", "entradas-salidas"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-163",
+      "front": "Técnica de Clases de Equivalencia",
+      "back": "Divide los datos de entrada en clases que se tratan de la misma forma:\n\n• Una clase válida (datos correctos)\n• Dos clases no válidas (inferiores y superiores al rango)\n• Un valor representativo por clase es suficiente\n• Deben probarse tanto datos válidos como erróneos",
+      "tags": ["pruebas", "caja-negra", "clases-equivalencia", "tecnica"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-164",
+      "front": "Técnica de Análisis de Valores Límite",
+      "back": "Se centra en los valores extremos porque estadísticamente tienen más tendencia a detectar errores.\n\nRecomendaciones:\n• En rangos: tomar extremos y valor intermedio\n• En listas: primero, último e intermedio\n• Cero suele provocar errores (división por cero)",
+      "tags": ["pruebas", "caja-negra", "valores-limite", "extremos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-165",
+      "front": "Pruebas de integración",
+      "back": "• Se realizan después de las pruebas unitarias\n• Objetivo: detectar errores en interfaces entre módulos\n• Validan que módulos probados individualmente funcionan correctamente al integrarse\n• Estrategias: ascendente (bottom-up) y descendente (top-down)",
+      "tags": ["pruebas", "integracion", "modulos", "interfaces"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-166",
+      "front": "Integración ascendente (Bottom-Up)",
+      "back": "• Se empieza por módulos finales (nivel más bajo)\n• Se crean módulos impulsores (drivers) para probar cada módulo\n• Se va escalando por el árbol de jerarquías\n• Ventaja: primero se evalúan módulos con procesamiento complejo\n• Desventaja: muchos módulos impulsores necesarios",
+      "tags": ["pruebas", "integracion", "ascendente", "bottom-up", "drivers"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-167",
+      "front": "Integración descendente (Top-Down)",
+      "back": "• Se empieza por el módulo principal (nivel más alto)\n• Se utilizan módulos ficticios (stubs) para simular subordinados\n• Se van integrando módulos progresivamente\n• Ventaja: se ve la estructura del sistema desde el principio\n• Desventaja: muchos stubs necesarios, datos difíciles de conseguir",
+      "tags": ["pruebas", "integracion", "descendente", "top-down", "stubs"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-168",
+      "front": "Pruebas de carga y rendimiento",
+      "back": "• Se realizan con datos reales en entorno similar al real\n• Comprueban rendimiento y integridad de la aplicación\n• Verifican respuesta en situaciones de sobrecarga\n• Incluyen: pruebas de rendimiento, resistencia, volumen",
+      "tags": ["pruebas", "carga", "rendimiento", "stress"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-169",
+      "front": "Pruebas alfa y beta",
+      "back": "Pruebas alfa:\n• Cliente prueba en entorno del desarrollador\n• Entorno controlado con experto disponible\n\nPruebas beta:\n• Cliente prueba en su propio entorno\n• Desarrollador no tiene control\n• Cliente busca errores y reporta",
+      "tags": ["pruebas", "aceptacion", "alfa", "beta"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-170",
+      "front": "Pruebas de regresión",
+      "back": "• Detectan errores introducidos al hacer cambios o mejoras\n• Consisten en repetir pruebas ya exitosas antes del cambio\n• Un cambio que soluciona un problema puede crear otros\n• Importantes tras correcciones de errores",
+      "tags": ["pruebas", "regresion", "cambios", "mantenimiento"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-171",
+      "front": "Pruebas de humo (Smoke Tests)",
+      "back": "• Pruebas rápidas de las funciones básicas\n• Se realizan tras cambios en el código\n• Antes de registrar cambios en documentación\n• Si 'no echa humo', funcionará correctamente\n• Validan que el software no tiene errores graves obvios",
+      "tags": ["pruebas", "humo", "smoke-tests", "validacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-172",
+      "front": "Información que debe contener un caso de prueba",
+      "back": "• Identificador único\n• Módulo/función a probar\n• Descripción detallada\n• Entorno requerido\n• Datos de entrada con valores\n• Secuencia de tareas\n• Resultado esperado y obtenido\n• Responsable y fecha\n• Estado (finalizado/pendiente/en proceso)",
+      "tags": ["caso-prueba", "contenido", "documentacion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-173",
+      "front": "Depuración del código fuente (Debugging)",
+      "back": "Consiste en ejecutar paso a paso el código observando estados intermedios de variables para facilitar la corrección de errores.\n\nProcedimientos:\n1. Identificar casuística para reproducir el error\n2. Diagnosticar el problema\n3. Solucionar el error\n4. Verificar corrección y que no se introduzcan nuevos errores",
+      "tags": ["depuracion", "debugging", "errores", "correccion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-174",
+      "front": "Puntos de ruptura (Breakpoints)",
+      "back": "Permiten detener la ejecución del código en una línea específica para:\n\n• Ejecutar paso a paso desde ese punto\n• Observar valores de variables\n• Encontrar el origen de errores\n• Avanzar o retroceder en la ejecución",
+      "tags": ["depuracion", "breakpoint", "punto-ruptura", "ejecucion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-175",
+      "front": "Archivos de registro (Logs)",
+      "back": "Archivos de texto que registran información de la ejecución del software.\n\nUtilidad:\n• Revisión paso a paso de la ejecución\n• Localización de errores\n• Análisis de malos funcionamientos\n• Complemento a la depuración",
+      "tags": ["logs", "registro", "depuracion", "trazas"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-176",
+      "front": "Herramientas de pruebas unitarias: JUnit",
+      "back": "• Automatiza pruebas unitarias e integración\n• Provee clases y métodos para facilitar pruebas\n• Usa anotaciones como @Test\n• Permite usar assertTrue(), assertEquals(), etc.\n• Se integra con Eclipse",
+      "tags": ["herramientas", "junit", "pruebas-unitarias", "automatizacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-177",
+      "front": "Herramientas de análisis estático de código",
+      "back": "• PMD: errores de excepciones, código muerto, duplicado\n• FindBugs: errores comunes, malas prácticas, seguridad\n• YASCA: vulnerabilidades de seguridad, calidad, rendimiento\n\nSe integran en Eclipse y otros IDEs",
+      "tags": ["herramientas", "analisis-estatico", "pmd", "findbugs"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-178",
+      "front": "Herramientas de pruebas de rendimiento",
+      "back": "• JMeter: pruebas de rendimiento, estrés, carga y volumen\n• OpenSTA: captura peticiones del navegador\n• WebLoad: entorno gráfico para scripts de pruebas\n• Grinder: framework Java con scripts Jython",
+      "tags": ["herramientas", "rendimiento", "jmeter", "carga"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-179",
+      "front": "Beneficios y problemas de herramientas de automatización de pruebas",
+      "back": "Beneficios:\n• Automatizan tareas repetitivas\n• Minimizan errores humanos\n• Generan informes estadísticos\n• Facilitan regresión\n\nProblemas:\n• Tiempo de aprendizaje\n• Requieren buena configuración\n• Necesitan mantenimiento",
+      "tags": ["automatizacion", "herramientas", "beneficios", "problemas"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-180",
+      "front": "Ejemplo de depuración: Cálculo de Factorial recursivo",
+      "back": "Ejemplo de función recursiva para calcular factorial:\n\npublic static double factorial(double numero) {\n  if (numero==0) return 1;\n  else {\n    double resultado = numero * factorial(numero-1);\n    return resultado;\n  }\n}\n\nfactorial(5) = 5 × 4 × 3 × 2 × 1 = 120",
+      "tags": ["depuracion", "factorial", "recursividad", "ejemplo"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-181",
+      "front": "Pasos para depurar código en Eclipse",
+      "back": "1. Colocar breakpoint (doble clic en margen izquierdo)\n2. Ejecutar en modo Debug\n3. El programa se detiene en el breakpoint\n4. Usar Step Into (F5) para entrar en métodos\n5. Usar Step Over (F6) para ejecutar línea sin entrar\n6. Observar valores de variables en panel Variables\n7. Continuar (F8) hasta siguiente breakpoint",
+      "tags": ["eclipse", "depuracion", "debug", "pasos", "breakpoints"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-182",
+      "front": "Atajos de teclado para depuración en Eclipse",
+      "back": "• F5 - Step Into: Entra dentro del método\n• F6 - Step Over: Ejecuta línea sin entrar\n• F7 - Step Return: Sale del método actual\n• F8 - Resume: Continúa hasta siguiente breakpoint\n• Ctrl+Shift+B - Toggle Breakpoint: Añade/elimina breakpoint",
+      "tags": ["eclipse", "depuracion", "atajos", "teclado", "debug"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-183",
+      "front": "¿Qué es una Pila (Stack) en programación?",
+      "back": "Estructura de datos LIFO (Last In First Out):\n\n• El último elemento en entrar es el primero en salir\n• Operaciones principales:\n  - apilar (push): añade elemento arriba\n  - desapilar (pop): quita elemento de arriba\n• Ejemplo: pila de platos, pila de llamadas de funciones",
+      "tags": ["estructuras-datos", "pila", "stack", "lifo"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-184",
+      "front": "Estructura de una clase de prueba JUnit",
+      "back": "import static org.junit.Assert.*;\nimport org.junit.Before;\nimport org.junit.Test;\n\npublic class MiClaseTest {\n  @Before\n  public void setUp() { /* inicialización */ }\n\n  @Test\n  public void testMetodo() {\n    assertEquals(esperado, resultado);\n  }\n}",
+      "tags": ["junit", "estructura", "clase-test", "anotaciones"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-185",
+      "front": "Anotaciones principales de JUnit",
+      "back": "• @Test: indica que es un método de prueba\n• @Before: se ejecuta antes de cada test (inicialización)\n• @After: se ejecuta después de cada test (limpieza)\n• @BeforeClass: se ejecuta una vez antes de todos los tests\n• @AfterClass: se ejecuta una vez después de todos los tests",
+      "tags": ["junit", "anotaciones", "test", "before", "after"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-186",
+      "front": "Métodos assert más comunes en JUnit",
+      "back": "• assertEquals(esperado, resultado): valores iguales\n• assertTrue(condición): condición verdadera\n• assertFalse(condición): condición falsa\n• assertNull(objeto): objeto es null\n• assertNotNull(objeto): objeto no es null\n• fail(mensaje): fuerza fallo del test",
+      "tags": ["junit", "assert", "metodos", "verificacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-187",
+      "front": "Pasos para crear pruebas JUnit en Eclipse",
+      "back": "1. Clic derecho en clase → New → JUnit Test Case\n2. Configurar nombre (ej: MiClaseTest)\n3. Seleccionar métodos a probar\n4. Añadir JUnit al Build Path si es necesario\n5. Implementar lógica de pruebas con asserts\n6. Ejecutar con Run As → JUnit Test",
+      "tags": ["eclipse", "junit", "crear-test", "pasos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-188",
+      "front": "Buenas prácticas en pruebas unitarias",
+      "back": "• Nombre descriptivo del test (testOperacionCondicion)\n• Un assert por test (idealmente)\n• Tests independientes entre sí\n• Preparar datos en @Before\n• Limpiar recursos en @After\n• Probar casos límite y errores\n• Cada test debe tener un único propósito",
+      "tags": ["junit", "buenas-practicas", "pruebas-unitarias"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-189",
+      "front": "Ejercicio: Contenidos del Plan de Pruebas IEEE 829 (V/F)",
+      "back": "PERTENECEN al plan (V):\n• Identificador del plan\n• Descripción del plan\n• Elementos que NO deben probarse\n• Definición de configuración\n• Documentos a entregar\n• Responsables y responsabilidades\n• Calendario del plan de pruebas\n\nNO pertenecen (F):\n• Descripción del proyecto (es más amplio)\n• Requisitos del proyecto\n• Partes interesadas/stakeholders (son del proyecto)\n• Calendario de fase de desarrollo",
+      "tags": ["ejercicio", "ieee-829", "plan-pruebas", "contenidos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-190",
+      "front": "Ejercicio: Relaciona - Detectar errores en implementación de requerimientos",
+      "back": "Respuesta: PRUEBAS FUNCIONALES\n\n• Detectan errores en implementación de requerimientos de usuario\n• Las llevan a cabo verificadores y analistas\n• Método: funcional (caja negra)",
+      "tags": ["ejercicio", "pruebas-funcionales", "requerimientos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-191",
+      "front": "Ejercicio: Relaciona - Método caja blanca, top-down y bottom-up",
+      "back": "Respuesta: PRUEBAS DE INTEGRACIÓN\n\n• Métodos: caja blanca, diseño descendente (top-down), bottom-up\n• Detectan fallos en interfaces entre componentes\n• Las realizan los programadores",
+      "tags": ["ejercicio", "pruebas-integracion", "top-down", "bottom-up"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-192",
+      "front": "Ejercicio: Relaciona - Detectar errores en consecución de requerimientos",
+      "back": "Respuesta: PRUEBAS DE SISTEMA\n\n• Finalidad: detectar errores en consecución de requerimientos\n• Las realizan verificadores y analistas\n• Se efectúan en fase de desarrollo",
+      "tags": ["ejercicio", "pruebas-sistema", "requerimientos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-193",
+      "front": "Ejercicio: Relaciona - Validación por parte de usuarios",
+      "back": "Respuesta: PRUEBAS DE ACEPTACIÓN\n\n• Objetivo: validación por parte de usuarios/clientes\n• Se realizan tras finalizar desarrollo\n• Incluyen pruebas alfa y beta",
+      "tags": ["ejercicio", "pruebas-aceptacion", "usuarios"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-194",
+      "front": "Ejercicio completa: Las pruebas _____ prueban la funcionalidad del programa",
+      "back": "Respuesta: DE CAJA NEGRA (o funcionales)\n\n• Prueban la funcionalidad del programa\n• Diseñan casos de prueba que comprueban especificaciones\n• Se centran en entradas y salidas",
+      "tags": ["ejercicio", "caja-negra", "funcionales"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-195",
+      "front": "Ejercicio completa: Las pruebas _____ se centran en la implementación",
+      "back": "Respuesta: DE CAJA BLANCA\n\n• Se centran en la implementación de programas\n• Buscan recorrer todos los caminos del flujo de control\n• Analizan la estructura interna del programa",
+      "tags": ["ejercicio", "caja-blanca", "estructurales"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-196",
+      "front": "Ejercicio: Ventaja de pruebas independientes del lenguaje",
+      "back": "Respuesta: CAJA NEGRA\n\n• Son independientes del lenguaje o paradigma\n• Válidas para programación estructurada y orientada a objetos\n• Se centran en funcionalidad, no en código interno",
+      "tags": ["ejercicio", "caja-negra", "independencia"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-197",
+      "front": "Ejercicio completa: El enfoque estructural o pruebas de _____ sirven para analizar código. El enfoque funcional son pruebas de _____",
+      "back": "Respuesta: CAJA BLANCA y CAJA NEGRA\n\n• Caja blanca: analizan estructuras y caminos del software\n• Caja negra: enfoque funcional, comprueban especificaciones",
+      "tags": ["ejercicio", "caja-blanca", "caja-negra", "enfoques"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-198",
+      "front": "Ejercicio: Tipos de pruebas durante pruebas del sistema",
+      "back": "SÍ son de sistema:\n• Pruebas de rendimiento\n• Pruebas de robustez\n• Pruebas de resistencia\n• Pruebas de seguridad\n• Pruebas de usabilidad\n• Pruebas de instalación\n\nNO son de sistema:\n• Pruebas de aceptación (son del usuario)\n• Pruebas de depuración (es una técnica)\n• Pruebas de caja blanca (son unitarias)\n• Pruebas de humo (son de regresión)",
+      "tags": ["ejercicio", "pruebas-sistema", "tipos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-199",
+      "front": "Diferencias entre JUnit 4 y JUnit 5 - Anotaciones",
+      "back": "JUnit4 → JUnit5:\n• @Test (igual)\n• @Before → @BeforeEach\n• @After → @AfterEach\n• @BeforeClass → @BeforeAll\n• @AfterClass → @AfterAll\n• @Ignore → @Disabled\n\nJUnit5 requiere Java 8+ y los parámetros de @Test(timeout, expected) desaparecen (usan declaraciones)",
+      "tags": ["junit", "junit4", "junit5", "anotaciones", "diferencias"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-200",
+      "front": "Anotación @BeforeAll / @BeforeClass en JUnit",
+      "back": "• JUnit4: @BeforeClass\n• JUnit5: @BeforeAll\n\nSe ejecuta UNA ÚNICA VEZ antes de todos los tests.\n\nUso típico: conexión a base de datos, inicialización costosa que no debe repetirse.",
+      "tags": ["junit", "beforeall", "beforeclass", "inicializacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-201",
+      "front": "Anotación @AfterAll / @AfterClass en JUnit",
+      "back": "• JUnit4: @AfterClass\n• JUnit5: @AfterAll\n\nSe ejecuta UNA ÚNICA VEZ después de todos los tests.\n\nUso típico: liberar conexión a base de datos, cerrar recursos.",
+      "tags": ["junit", "afterall", "afterclass", "limpieza"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-202",
+      "front": "Anotación @Disabled / @Ignore en JUnit",
+      "back": "• JUnit4: @Ignore\n• JUnit5: @Disabled\n\nIgnora el test (no se ejecuta).\n\nUso típico: cuando se está modificando código y las pruebas aún no están adaptadas.",
+      "tags": ["junit", "disabled", "ignore", "anotacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-203",
+      "front": "Diferencias en aserciones entre JUnit 4 y JUnit 5",
+      "back": "JUnit4: mensaje al principio\nassertEquals(mensaje, esperado, actual)\n\nJUnit5: mensaje al final\nassertEquals(esperado, actual, mensaje)\n\nJUnit5 añade:\n• assertThrows() - verifica excepción\n• assertTimeout() - verifica tiempo máximo",
+      "tags": ["junit", "aserciones", "junit4", "junit5", "diferencias"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-204",
+      "front": "assertEquals con tolerancia en JUnit (valores decimales)",
+      "back": "Para float/double se usa tolerancia por precisión finita de CPU:\n\nJUnit4: assertEquals(mensaje, esperado, actual, tolerancia)\nJUnit5: assertEquals(esperado, actual, tolerancia, mensaje)\n\nLa tolerancia es la máxima diferencia absoluta permitida entre valores.",
+      "tags": ["junit", "assertequals", "tolerancia", "float", "double"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-205",
+      "front": "Verificar excepciones en JUnit",
+      "back": "JUnit4 (con parámetro):\n@Test(expected = ArithmeticException.class)\n\nJUnit5 (con assertThrows):\nassertThrows(ArithmeticException.class, () -> {\n    // código que lanza excepción\n});\n\nJUnit5 usa expresiones lambda (interfaz funcional Executable).",
+      "tags": ["junit", "excepciones", "assertthrows", "expected"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "ed-206",
+      "front": "¿Qué es una expresión lambda en Java?",
+      "back": "Es una forma abreviada de escribir una clase anónima que implementa una interfaz funcional (una sola interfaz con un método).\n\nSintaxis: (parámetros) -> { código }\n\nEjemplo:\n() -> { calculadora.dividir(5, 0); }\n\nEquivale a crear una clase anónima que implementa Executable.",
+      "tags": ["java", "lambda", "expresion", "interfaz-funcional"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "ed-207",
+      "front": "Interfaz funcional Executable en JUnit 5",
+      "back": "Es una interfaz con un solo método:\nvoid execute() throws Throwable\n\nSe usa en assertThrows() y assertTimeout() para pasar bloques de código como parámetro.\n\nEjemplo con lambda:\nassertThrows(Exception.class, () -> { código });",
+      "tags": ["junit5", "executable", "interfaz-funcional", "lambda"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "ed-208",
+      "front": "Clase Duration en Java (JUnit 5)",
+      "back": "Representa una cantidad de tiempo. Desde Java 8.\n\nMétodos estáticos:\n• Duration.ofMillis(milis)\n• Duration.ofSeconds(segundos)\n• Duration.ofMinutes(minutos)\n\nEjemplo: Duration.ofSeconds(1) = 1 segundo",
+      "tags": ["java", "duration", "tiempo", "junit5"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-209",
+      "front": "Herramientas de pruebas - Resumen por categoría",
+      "back": "Unitarias: JUnit\n\nEstáticas de código: PMD, FindBugs, YASCA\n\nRendimiento: JMeter, OpenSTA, WebLoad, Grinder\n\nAceptación: Fitness, Aviñón",
+      "tags": ["herramientas", "pruebas", "categorias", "resumen"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-210",
+      "front": "PMD - Características",
+      "back": "Herramienta de análisis estático de código.\n\nDetecta:\n• Errores en manejo de excepciones\n• Código muerto\n• Código sin optimizar\n• Código duplicado\n\nIntegración: JDeveloper, Eclipse, jEdit\nLicencia: BSD",
+      "tags": ["pmd", "analisis-estatico", "herramienta", "calidad"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-211",
+      "front": "FindBugs - Características",
+      "back": "Herramienta de análisis estático de código Java.\n\nDetecta:\n• Errores comunes\n• Malas prácticas\n• Código vulnerable\n• Problemas de rendimiento\n• Problemas de seguridad\n\nIntegración: Eclipse\nLicencia: GPL",
+      "tags": ["findbugs", "analisis-estatico", "herramienta", "bugs"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-212",
+      "front": "JMeter - Características",
+      "back": "Herramienta de pruebas de rendimiento Apache.\n\nPermite:\n• Pruebas de rendimiento\n• Pruebas de estrés\n• Pruebas de carga\n• Pruebas de volumen\n\nSobre recursos estáticos o dinámicos\nLicencia: Apache",
+      "tags": ["jmeter", "rendimiento", "carga", "apache"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-213",
+      "front": "Refactorización vs Refacción",
+      "back": "Son términos equivalentes.\n\nRefactorización (refactoring):\n• Cambios en el código sin modificar comportamiento externo\n• Mejora estructura interna\n• Optimiza el código\n• Facilita mantenimiento\n\nTérmino acuñado por William F. Opdyke en 1992.",
+      "tags": ["refactorizacion", "refaccion", "concepto", "optimizacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-214",
+      "front": "Ventajas de la refactorización",
+      "back": "• Prevención de problemas por mantenimientos\n• Aumento de simplicidad del diseño\n• Mayor entendimiento del código\n• Detección más sencilla de errores\n• Agiliza la programación\n• Aumenta calidad del código\n• Mayor satisfacción de desarrolladores",
+      "tags": ["refactorizacion", "ventajas", "calidad"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-215",
+      "front": "Limitaciones de la refactorización",
+      "back": "• Personal poco preparado\n• Exceso de obsesión por código perfecto\n• Dedicación excesiva de tiempo\n• Repercusiones en el equipo\n• Problemas de comunicación\n• Limitaciones con bases de datos\n• Limitaciones con interfaces gráficas publicadas",
+      "tags": ["refactorizacion", "limitaciones", "inconvenientes"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-216",
+      "front": "Patrones de refactorización más usuales en Eclipse",
+      "back": "• Renombrar (cambiar nombres de variables, métodos, clases)\n• Mover (mover métodos entre clases)\n• Extraer variable local\n• Extraer constante\n• Convertir variable local en campo\n• Extraer interfaz\n• Extraer método",
+      "tags": ["refactorizacion", "patrones", "eclipse", "herramientas"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-217",
+      "front": "¿Qué es un sistema de control de versiones?",
+      "back": "Herramienta que almacena el histórico de cambios del código fuente.\n\nFuncionalidades:\n• Comparar cambios entre versiones\n• Ver quién modificó cada línea\n• Volver a versiones anteriores\n• Trabajo colaborativo sin conflictos\n• Crear ramas paralelas de desarrollo",
+      "tags": ["control-versiones", "vcs", "definicion", "git", "svn"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-218",
+      "front": "Tipos de sistemas de control de versiones",
+      "back": "1. LOCALES: repositorio en máquina local\n\n2. CENTRALIZADOS: servidor central (CVS, SVN)\n   - Ventaja: colaboración\n   - Desventaja: dependencia del servidor\n\n3. DISTRIBUIDOS: cada cliente tiene copia completa (Git, Mercurial)\n   - Ventaja: no dependencia del servidor\n   - Trabajo offline posible",
+      "tags": [
+        "control-versiones",
+        "tipos",
+        "local",
+        "centralizado",
+        "distribuido"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-219",
+      "front": "Términos de control de versiones",
+      "back": "• Repositorio: almacén de datos y versiones\n• Tronco/Master: rama principal\n• Rama/Branch: bifurcación del desarrollo\n• Commit: guardar cambios en repositorio\n• Clone: copiar repositorio\n• Merge: fusionar ramas\n• Conflicto: cambios incompatibles en mismo archivo",
+      "tags": [
+        "control-versiones",
+        "terminologia",
+        "repositorio",
+        "commit",
+        "merge"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-220",
+      "front": "Comandos básicos de Git",
+      "back": "• git init: inicializa repositorio\n• git add: añade archivos al staging\n• git commit: guarda cambios en repositorio\n• git status: muestra estado actual\n• git log: historial de commits\n• git clone: copia repositorio remoto\n• git push: sube cambios a remoto\n• git pull: descarga cambios de remoto",
+      "tags": ["git", "comandos", "basico", "terminal"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-221",
+      "front": "Git - Staging y Commit",
+      "back": "Área de staging (índice):\n• Archivos preparados para commit\n• git add los coloca aquí\n\nCommit:\n• Guarda cambios del staging al repositorio\n• Crea un punto en el historial\n• Requiere mensaje descriptivo\n\n.gitignore: archivos que Git debe ignorar",
+      "tags": ["git", "staging", "commit", "add", "ignore"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-222",
+      "front": "Git - Ramas (branches)",
+      "back": "• git branch: lista o crea ramas\n• git checkout: cambia de rama\n• git merge: fusiona ramas\n\nRama master/trunk: rama principal\nRamas de características: desarrollo paralelo\n\nVentaja: aislar cambios sin afectar producción",
+      "tags": ["git", "ramas", "branch", "checkout", "merge"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-223",
+      "front": "Resolución de conflictos en Git",
+      "back": "Ocurre cuando dos personas modifican las mismas líneas.\n\nMarcas en el archivo:\n<<<<<<< HEAD (cambios locales)\n=======\n>>>>>>> rama (cambios remotos)\n\nSolución:\n1. Editar archivo manualmente\n2. Eliminar marcas de conflicto\n3. git add + git commit",
+      "tags": ["git", "conflicto", "resolucion", "merge"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-224",
+      "front": "Git vs GitHub",
+      "back": "Git:\n• Sistema de control de versiones\n• Software de código abierto\n• Funciona localmente\n\nGitHub:\n• Plataforma web de hosting para repositorios Git\n• Servicio en la nube\n• Añade funcionalidades sociales (issues, pull requests, wiki)\n• Repositorios públicos (gratis) y privados (de pago)",
+      "tags": ["git", "github", "diferencias", "hosting"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-225",
+      "front": "Herramientas de control de versiones",
+      "back": "Software libre:\n• Git (más popular)\n• Mercurial\n• SVN (Subversion)\n• CVS\n\nSoftware privativo:\n• Team Foundation Server (TFS)\n• ClearCase\n\nIntegración con Eclipse: EGit (viene por defecto)",
+      "tags": ["control-versiones", "herramientas", "git", "svn", "tfs"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-226",
+      "front": "JavaDoc - Documentación en Java",
+      "back": "Herramienta de Oracle para generar documentación HTML a partir de comentarios especiales en el código.\n\nSintaxis:\n/** Comentario JavaDoc */\n\nGenera automáticamente:\n• Documentación técnica en HTML\n• Estructura de clases y métodos",
+      "tags": ["javadoc", "documentacion", "java", "html"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-227",
+      "front": "Etiquetas (tags) más comunes en JavaDoc",
+      "back": "• @author: autor del código\n• @version: versión\n• @param: descripción de parámetros\n• @return: valor de retorno\n• @exception/@throws: excepciones lanzadas\n• @see: referencia a otra clase/método\n• @deprecated: indica que está obsoleto",
+      "tags": ["javadoc", "etiquetas", "tags", "documentacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-228",
+      "front": "Tipos de comentarios en Java",
+      "back": "1. Comentarios internos (código):\n   // una línea\n   /* múltiples líneas */\n\n2. JavaDoc (documentación API):\n   /** documentación */\n   Se coloca antes de clases y métodos\n   Genera HTML automáticamente",
+      "tags": ["java", "comentarios", "javadoc", "documentacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-229",
+      "front": "Generar documentación JavaDoc en Eclipse",
+      "back": "1. Añadir comentarios JavaDoc en clases y métodos\n2. Menú Proyecto → Generar JavaDoc\n3. Seleccionar ubicación de javadoc.exe\n4. Configurar carpeta destino\n5. Se genera documentación HTML automáticamente",
+      "tags": ["eclipse", "javadoc", "generar", "documentacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-230",
+      "front": "Ejercicio: Pruebas unitarias - Cálculo de coste de personal",
+      "back": "Clase CostPersonal con método costDelPersonal que calcula:\n\n• Directores/Subdirectores: solo nómina\n• Otros trabajadores: nómina + (horas extras × 20)\n\nPruebas:\n• testDirectivos() - validar cálculo sin extras\n• testNoDirectivos() - validar cálculo con extras\n• testTiposTrabajadores() - mixto\n• testNoTrabajadores() - array vacío\n• testNull() - excepción con null",
+      "tags": ["ejercicio", "pruebas-unitarias", "junit", "coste-personal"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-231",
+      "front": "Ejercicio: Refactorización - Extracción de método",
+      "back": "Código original calcula coste dentro de un bucle.\n\nRefactorización aplicada:\n1. Extraer método costeTrabajador() - calcula coste individual\n2. Extraer constante COST_HORA_EXTRA = 20\n3. Extraer método esDirectivo() - verifica tipo de trabajador\n\nResultado: código más modular, legible y mantenible.",
+      "tags": [
+        "ejercicio",
+        "refactorizacion",
+        "extraccion-metodo",
+        "constante"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-232",
+      "front": "¿Cómo validar que la refactorización es correcta?",
+      "back": "Utilizando las PRUEBAS UNITARIAS existentes.\n\n• Antes de refactorizar: ejecutar tests y asegurar que pasan\n• Después de refactorizar: volver a ejecutar tests\n• Si todos los tests pasan: la refactorización es correcta\n• El comportamiento externo no ha cambiado",
+      "tags": ["refactorizacion", "validacion", "pruebas-unitarias", "tests"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-233",
+      "front": "Ejercicio: Refactorización con Eclipse - Matrícula y Asignatura",
+      "back": "Cambios realizados:\n\n1. Encapsular atributos (private + getters/setters)\n2. Extraer constante COST_CREDIT = 15\n3. Desfragmentar clase Matrícula en dos:\n   - Estudiante (datos personales)\n   - Matrícula (datos de matrícula)\n4. Usar getCredits() en lugar de acceso directo",
+      "tags": ["ejercicio", "refactorizacion", "eclipse", "encapsulacion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-234",
+      "front": "Ejercicio: Documentación JavaDoc - Calculadora",
+      "back": "Pasos para documentar:\n\n1. Añadir comentario JavaDoc antes de la clase\n2. Documentar cada método con:\n   - Descripción de funcionalidad\n   - @param para parámetros\n   - @return para valor de retorno\n3. Generar documentación HTML con Eclipse\n\nResultado: documentación técnica automática en HTML.",
+      "tags": ["ejercicio", "javadoc", "documentacion", "calculadora"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-235",
+      "front": "Ejercicio: Concepto de Repositorio",
+      "back": "Las 4 afirmaciones describen el REPOSITORIO:\n\n• Almacén de datos de una aplicación informática\n• Parte principal de un sistema de control de versiones\n• Servidor de archivos que recuerda todos los cambios\n• Indica estructuras de archivos, datos o clases",
+      "tags": ["ejercicio", "repositorio", "control-versiones"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-236",
+      "front": "Ejercicio: Elementos de un sistema de control de versiones",
+      "back": "SÍ son elementos:\n• Repositorio\n• Módulo (carpeta/directorio específico)\n• Revisión (versión en momento determinado)\n• Rama (branch)\n• Etiqueta (tag)\n\nNO son elementos:\n• Control (genérico)\n• Trabajo (genérico)\n• Descargar (es una operación)\n• Depósito (sinónimo de repositorio, no elemento separado)\n• JavaDoc (herramienta de documentación)",
+      "tags": ["ejercicio", "control-versiones", "elementos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-237",
+      "front": "Ejercicio: Definición de refactorización",
+      "back": "1. La refactorización es TRANSFORMAR el código fuente manteniendo intacto su COMPORTAMIENTO EXTERNO.\n\n2. La refactorización se considera muy importante para el desarrollo mediante programación EXTREMA (XP).\n\n3. Las pruebas indican hasta qué punto se puede APLICAR una técnica de refactorización sobre un código fuente.",
+      "tags": ["ejercicio", "refactorizacion", "definicion", "comportamiento"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-238",
+      "front": "Ejercicio: Metodología de refactorización (V/F)",
+      "back": "PERTENECEN a la metodología (V):\n• Desarrollo del código fuente\n• Analizar el código fuente\n• Diseñar e implementar pruebas unitarias y funcionales\n• Analizar cambios a efectuar\n• Definir estrategia de aplicación de cambios\n• Modificar el código fuente\n• Ejecución de las pruebas\n\nNO pertenecen (F):\n• Análisis de requerimientos (fase previa)\n• Comentar con usuarios la estrategia\n• Validación de pruebas por usuario\n• Calendario de fase de desarrollo",
+      "tags": ["ejercicio", "refactorizacion", "metodologia", "fases"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-239",
+      "front": "UML - Lenguaje Unificado de Modelización",
+      "back": "UML (Unified Modeling Language):\n\n• Conjunto de notaciones gráficas para especificar, diseñar y documentar sistemas\n• Estándar reconocido por OMG (Object Management Group)\n• Utilizado en análisis y diseño de aplicaciones\n• 14 tipos de diagramas en versión 2.4.1\n• No es una metodología, es una notación",
+      "tags": ["uml", "definicion", "modelizacion", "omg"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-240",
+      "front": "Tipos de diagramas UML",
+      "back": "ESTÁTICOS/ESTRUCTURALES (7):\n• Diagrama de clases\n• Diagrama de objetos\n• Diagrama de componentes\n• Diagrama de despliegue\n• Diagrama de paquetes\n• Diagrama de estructuras compuestas\n• Diagrama de perfiles\n\nDINÁMICOS/DE COMPORTAMIENTO (7):\n• Diagrama de casos de uso\n• Diagrama de estados\n• Diagrama de actividades\n• Diagramas de interacción (secuencias, comunicación, etc.)",
+      "tags": ["uml", "diagramas", "estaticos", "dinamicos", "tipos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-241",
+      "front": "Diagrama de clases - Elementos",
+      "back": "Representa las clases del sistema y sus relaciones.\n\nElementos:\n• Clase (nombre, atributos, métodos)\n• Atributos: características/estado\n• Operaciones/Métodos: comportamiento\n• Visibilidad: + público, - privado, # protegido\n• Relaciones: herencia, asociación, agregación, composición",
+      "tags": ["uml", "diagrama-clases", "elementos", "clase"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-242",
+      "front": "Visibilidad en UML",
+      "back": "• + (público/public): accesible por todos\n• - (privado/private): solo accesible dentro de la clase\n• # (protegido/protected): accesible en clase y subclases\n• ~ (paquete/package): accesible dentro del paquete\n\nRelacionado con el concepto de encapsulación de POO.",
+      "tags": ["uml", "visibilidad", "public", "private", "protected"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-243",
+      "front": "Relaciones en UML - Asociación",
+      "back": "ASOCIACIÓN:\n• Línea continua sin flechas\n• Relación estructural entre clases\n• Define conexiones con significado\n• Puede tener multiplicidad (0..1, 1..*, etc.)\n• Ejemplo: Cliente --- Pedido",
+      "tags": ["uml", "asociacion", "relaciones", "multiplicidad"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-244",
+      "front": "Relaciones en UML - Agregación",
+      "back": "AGREGACIÓN (todo-parte débil):\n• Rombo vacío en el lado del 'todo'\n• Relación todo-parte\n• Las partes pueden existir sin el todo\n• Ejemplo: Frutería ◇--- Fruta\n  (Si cierra la frutería, las frutas siguen existiendo)",
+      "tags": ["uml", "agregacion", "todo-parte", "rombo-vacio"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-245",
+      "front": "Relaciones en UML - Composición",
+      "back": "COMPOSICIÓN (todo-parte fuerte):\n• Rombo relleno/pintado en el lado del 'todo'\n• Relación todo-parte fuerte\n• Las partes NO pueden existir sin el todo\n• Si desaparece el todo, desaparecen las partes\n• Ejemplo: Mano ◆--- Dedo",
+      "tags": ["uml", "composicion", "todo-parte", "rombo-relleno"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-246",
+      "front": "Relaciones en UML - Herencia/Generalización",
+      "back": "HERENCIA/GENERALIZACIÓN:\n• Flecha vacía apuntando a la superclase\n• Clase hija hereda atributos y métodos de clase padre\n• Relación 'es-un'\n• Ejemplo: Perro ──▷ Animal",
+      "tags": ["uml", "herencia", "generalizacion", "subclase", "superclase"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-247",
+      "front": "Diferencia entre Agregación y Composición",
+      "back": "AGREGACIÓN:\n• Rombo vacío ◇\n• Partes pueden existir independientemente\n• Ciclo de vida independiente\n\nCOMPOSICIÓN:\n• Rombo relleno ◆\n• Partes dependen del todo\n• Ciclo de vida vinculado (mueren con el todo)",
+      "tags": ["uml", "agregacion", "composicion", "diferencias"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-248",
+      "front": "Interfaz en UML",
+      "back": "• Contiene declaración de operaciones sin implementación\n• Se representa con estereotipo «interface»\n• Clases que la implementan deben definir todos los métodos\n• Diferencia con clase abstracta: interfaz solo tiene métodos no implementados",
+      "tags": ["uml", "interfaz", "interface", "implementacion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-249",
+      "front": "Diagrama de objetos",
+      "back": "• Instancia del diagrama de clases\n• Representa objetos concretos en un momento específico\n• Muestra instancias y enlaces entre ellas\n• Funciona como ejemplo/ilustración del diagrama de clases",
+      "tags": ["uml", "diagrama-objetos", "instancia", "ejemplo"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-250",
+      "front": "Otros diagramas UML estáticos",
+      "back": "• Diagrama de paquetes: organización en grupos semánticos\n• Diagrama de componentes: piezas reutilizables del sistema\n• Diagrama de despliegue: configuración en tiempo de ejecución\n• Diagrama de estructuras compuestas: objetos compuestos precisos\n• Diagrama de perfiles: personalización del modelo",
+      "tags": [
+        "uml",
+        "diagramas-estaticos",
+        "paquetes",
+        "componentes",
+        "despliegue"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-251",
+      "front": "Ejercicio: Agregación vs Composición",
+      "back": "AGREGACIÓN (relación débil):\n• Significado: 'tener'\n• Ejemplo: Curso tiene Asignaturas\n• Si elimino el curso, las asignaturas siguen existiendo\n• Rombo vacío\n\nCOMPOSICIÓN (relación fuerte):\n• Significado: 'estar compuesto de'\n• Ejemplo: Avión se compone de 2 Alas\n• Si elimino el avión, las alas desaparecen\n• Rombo relleno",
+      "tags": ["uml", "ejercicio", "agregacion", "composicion", "ejemplo"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-252",
+      "front": "Clase asociativa - Definición",
+      "back": "• Asociación que tiene propiedades propias\n• Se representa con línea discontinua a la asociación\n• Modela atributos de la relación entre clases\n• Ejemplo: Nota entre Estudiante y Asignatura\n• NO existe en lenguajes de programación → requiere transformación",
+      "tags": ["uml", "clase-asociativa", "definicion", "transformacion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-253",
+      "front": "Transformación de clase asociativa a código",
+      "back": "Pasos:\n1. Convertir la clase asociativa en clase normal\n2. Añadir atributo único (las propiedades de la asociación)\n3. Crear relaciones con las clases originales\n\nEjemplo: Clase Nota pasa a ser clase con atributo 'calificacion', relacionada con Estudiante y Asignatura",
+      "tags": ["uml", "clase-asociativa", "transformacion", "codigo"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-254",
+      "front": "Diferencia: Clase asociativa vs Clase ternaria",
+      "back": "CLASE ASOCIATIVA:\n• Relación binaria con atributos\n• Conecta 2 clases con información adicional\n• Representada con línea discontinua\n\nCLASE TERNARIA:\n• Relación entre 3 o más clases simultáneamente\n• Representada con línea a un rombo central\n• Conecta múltiples clasificadores en una asociación",
+      "tags": ["uml", "clase-asociativa", "clase-ternaria", "diferencias"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "ed-255",
+      "front": "Ejercicio: Herencia - Ingeniería inversa",
+      "back": "Dado el código Java de FiguraGeometrica, Rectángulo y Triángulo:\n\n• FiguraGeometrica: clase padre con atributos protegidos (ancho, longitud) y constructor\n• Rectángulo extends FiguraGeometrica: método area() = ancho * longitud\n• Triángulo extends FiguraGeometrica: método area() = (ancho * longitud) / 2\n\nRepresentar con flecha vacía (herencia) desde hijas hacia padre.",
+      "tags": ["uml", "herencia", "ingenieria-inversa", "ejercicio"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-256",
+      "front": "Ejercicio: Diagrama de clases - Gestión de proyectos",
+      "back": "Elementos del diagrama:\n\n• Herencia: Persona ← JefeProyecto, Persona ← Programador\n• Persona: nombre, DNI\n• Proyecto: liderado por 1 JefeProyecto (max 3 proyectos/jefe)\n• Proyecto tiene 1..* Actividades\n• Actividad pertenece a 1 Proyecto\n• Relación Programador-Actividad: many-to-many (cada programador tiene ≥1 actividad, cada actividad tiene ≥1 programador)",
+      "tags": ["uml", "ejercicio", "diagrama-clases", "gestion-proyectos"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "ed-257",
+      "front": "Multiplicidad en relaciones UML",
+      "back": "Sintaxis: min..max\n\n• 0..1: cero o uno\n• 1: exactamente uno\n• 0..*: cero o muchos\n• 1..*: uno o muchos\n• *: muchos (sin límite)\n\nEjemplo: Un JefeProyecto gestiona 0..3 Proyectos",
+      "tags": ["uml", "multiplicidad", "cardinalidad", "relaciones"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-258",
+      "front": "Ejercicio: Diagramas UML de visión ESTÁTICA/ESTRUCTURAL",
+      "back": "Pertenecen a visión ESTÁTICA (✓):\n• Diagrama de perfil\n• Diagrama de objetos\n• Diagrama de estructuras compuestas\n• Diagrama de clases\n• Diagrama de paquetes\n• Diagrama de despliegue\n• Diagrama de componentes\n\nNO pertenecen (dinámicos): casos de uso, estados, actividades, interacción, secuencias, comunicaciones, visión general de interacción, temporal",
+      "tags": [
+        "uml",
+        "ejercicio",
+        "vision-estatica",
+        "diagramas-estructurales"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-259",
+      "front": "Ejercicio: Verdadero/Falso sobre diagramas UML",
+      "back": "VERDADERO (V):\n• Diagrama de actividades describe comportamiento complejo en secuencias condicionales\n• Diagrama de secuencias enfatiza secuencia temporal de participaciones\n• Diagrama temporal se basa en diagrama de estados + énfasis en cambios de estado en el tiempo\n• Diagrama de componentes es diagrama de clases y estructuras compuestas simplificado\n\nFALSO (F):\n• Diagrama temporal = énfasis temporal de secuencias (es el de secuencias)\n• Diagrama de estados se basa en diagrama de estados (no, es el temporal)\n• Diagrama de objetos = diagrama de clases simplificado (no, es el de componentes)",
+      "tags": ["uml", "ejercicio", "verdadero-falso", "diagramas"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "ed-260",
+      "front": "Ejercicio: Símbolos de visibilidad UML",
+      "back": "Relación símbolo - visibilidad:\n\n• ~ (tilde) = package\n• + = public\n• # = protected\n• - = private",
+      "tags": ["uml", "ejercicio", "visibilidad", "simbolos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-261",
+      "front": "Ejercicio: Diagramas UML de visión DINÁMICA/COMPORTAMIENTO",
+      "back": "Pertenecen a visión DINÁMICA (✓):\n• Diagrama de casos de uso\n• Diagrama de estados\n• Diagrama de actividades\n• Diagramas de interacción\n• Diagrama de secuencias\n• Diagrama de comunicaciones\n• Diagrama de visión general de la interacción\n• Diagrama temporal\n\nNO pertenecen (estáticos): perfil, objetos, estructuras compuestas, clases, paquetes, despliegue, componentes",
+      "tags": [
+        "uml",
+        "ejercicio",
+        "vision-dinamica",
+        "diagramas-comportamiento"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-262",
+      "front": "Ejercicio: Visibilidad en código Java",
+      "back": "Analizando el código de Habitacion y Persona:\n\n1. reserva.getClient() tiene VISIBILIDAD PÚBLICA a atributos/métodos PÚBLICOS de Persona. Puede usar getNom() pero NO puede acceder al atributo privado 'nombre'.\n\n2. Los métodos getNom() y setNom() de Persona tienen visibilidad a elementos PRIVADOS de su propia clase, pudiendo acceder al atributo 'nombre'.",
+      "tags": ["uml", "ejercicio", "visibilidad", "java", "encapsulacion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-263",
+      "front": "Ejercicio: Diagramas de INTERACCIÓN",
+      "back": "Pertenecen a diagramas de INTERACCIÓN (✓):\n• Diagrama de secuencias\n• Diagrama de comunicaciones\n• Diagrama de visión general de la interacción\n• Diagrama temporal\n\nNO pertenecen: perfil, casos de uso, estados, actividades, objetos, estructuras compuestas, clases, paquetes, despliegue, componentes",
+      "tags": ["uml", "ejercicio", "diagramas-interaccion", "tipos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-264",
+      "front": "Fases de análisis y diseño en metodologías estructuradas vs OO",
+      "back": "METODOLOGÍAS ESTRUCTURADAS:\n• Fases muy definidas y separadas\n• Analista y diseñador: perfiles diferentes\n• Analista: capacidad de comunicación, conocimiento del negocio\n• Diseñador: conocimiento tecnológico\n\nMETODOLOGÍAS ORIENTADAS A OBJETOS:\n• Línea delgada entre análisis y diseño\n• Ambos perfiles necesitan conocimientos de ambas áreas\n• Difícil determinar dónde termina el análisis y empieza el diseño",
+      "tags": [
+        "metodologias",
+        "analisis",
+        "diseno",
+        "estructurado",
+        "orientado-objetos"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-265",
+      "front": "Tipos de requisitos en desarrollo de software",
+      "back": "REQUISITOS FUNCIONALES:\n• Describen el comportamiento del software\n• Qué debe hacer el sistema\n\nREQUISITOS NO FUNCIONALES:\n• Propiedades exigidas por el cliente\n• Restricciones del entorno y tecnología\n\nREQUISITOS DE PROCESO:\n• Especifican procesos/funciones que debe realizar\n• Flujo de trabajo de procesos afectados\n\nREQUISITOS DE INTERFAZ:\n• Contenido y funcionamiento de la interfaz de usuario\n• Características de los usuarios",
+      "tags": [
+        "requisitos",
+        "funcionales",
+        "no-funcionales",
+        "proceso",
+        "interfaz"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-266",
+      "front": "Fuentes de información para recogida de requisitos",
+      "back": "• Entrevistas y encuestas a futuros usuarios\n• Documentación existente sobre procesos actuales\n• Compañeros de los usuarios (otros puntos de vista)\n• Software similar en el mercado (funciones importantes que usuarios no mencionan)",
+      "tags": ["requisitos", "fuentes", "informacion", "recogida"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-267",
+      "front": "Modelo del dominio vs Modelo del negocio",
+      "back": "MODELO DEL DOMINIO:\n• Diagrama de clases con conceptos importantes\n• Objetos del mundo real y conceptos relacionados\n• Eventos o acciones\n• Glosario de términos\n\nMODELO DEL NEGOCIO:\n• Describe parte de la actividad empresarial\n• Diagrama de clases (objetos del negocio)\n• Casos de uso o diagramas de actividades (procesos)\n• Información generalmente superficial\n\nNOTA: Ambos son descartables tras la recogida de requisitos",
+      "tags": ["modelo-dominio", "modelo-negocio", "contexto", "software"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-268",
+      "front": "Historia de UML",
+      "back": "• Años 80: Aparición de programación orientada a objetos\n• Años 90: Necesidad de unificar metodologías\n• 1994-1995: Rational Software (Booch, Rumbaugh, Jacobson)\n• 1997: UML aceptado por OMG\n• 2003: UML 2.0 con innovaciones significativas\n• OMG mantiene el estándar UML",
+      "tags": [
+        "uml",
+        "historia",
+        "rational",
+        "booch",
+        "rumbaugh",
+        "jacobson",
+        "omg"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-269",
+      "front": "Elementos básicos de UML",
+      "back": "• MODELO: Documentación descriptiva formalizada del sistema\n• ELEMENTO: Concepto con representación en el modelo\n• CLASIFICADOR: Tipo con características estructurales y de comportamiento\n• COMPORTAMIENTO: Parte de la actividad de un clasificador\n• PROPIEDAD: Características con nombre, tipo y valores\n• ESTEREOTIPO: Especialización dentro del metamodelo",
+      "tags": ["uml", "elementos", "modelo", "clasificador", "estereotipo"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-270",
+      "front": "Generalización, especialización y herencia",
+      "back": "• GENERALIZACIÓN: Paso de clase hija a clase padre\n• ESPECIALIZACIÓN: Paso de clase padre a clase hija\n• HERENCIA: Clase hija tiene todas las características de la clase padre\n• Clase hija puede tener características NO heredadas (propias)\n\nEjemplo: EstudianteCFGM y EstudianteCFGS heredan de Estudiante",
+      "tags": [
+        "uml",
+        "generalizacion",
+        "especializacion",
+        "herencia",
+        "clasificadores"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-271",
+      "front": "Pilares de la programación orientada a objetos",
+      "back": "1. ABSTRACCIÓN: Representar elementos del mundo real mediante objetos\n2. HERENCIA: Reaprovechamiento de código entre clases\n3. ENCAPSULACIÓN: Ocultación de información, control de acceso\n4. POLIMORFISMO: Mismo método, diferentes comportamientos\n5. MODULARIDAD: Trabajo independiente por módulos/clases",
+      "tags": [
+        "poo",
+        "pilares",
+        "abstraccion",
+        "herencia",
+        "encapsulacion",
+        "polimorfismo",
+        "modularidad"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-272",
+      "front": "Abstracción en POO",
+      "back": "• Mayor nivel de abstracción que programación imperativa\n• Aislamiento de un objeto respecto a su alrededor\n• Identificar características y comportamientos esenciales\n• CLASE: Descripción genérica de objetos con características comunes\n• Importante: definición de componentes más que implementación",
+      "tags": ["poo", "abstraccion", "clase", "objeto"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-273",
+      "front": "Encapsulación en POO",
+      "back": "• Unir y preservar atributos y métodos de un objeto\n• Controlar qué datos están disponibles/protegidos\n• También llamada ocultación de la información\n\nNIVELES DE ACCESO:\n• Público (+): acceso sin restricciones\n• Protegido (#): clase y subclases\n• Privado (-): solo la misma clase\n\nHabitual: atributos privados, métodos públicos",
+      "tags": [
+        "poo",
+        "encapsulacion",
+        "visibilidad",
+        "public",
+        "private",
+        "protected"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-274",
+      "front": "Polimorfismo en POO",
+      "back": "• Un mismo método puede tener diferentes formas y funcionalidades\n• Dos tipos:\n\n1. SOBREESCRITURA (override):\n   - Reimplementación en clase hija\n   - Mismo nombre, mismos parámetros\n\n2. SOBRECARGA (overload):\n   - Mismo nombre, diferentes parámetros\n   - El compilador elige según los argumentos",
+      "tags": [
+        "poo",
+        "polimorfismo",
+        "sobrescritura",
+        "sobrecarga",
+        "override",
+        "overload"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-275",
+      "front": "Críticas a UML",
+      "back": "• SEMÁNTICA NO PRECISA: Interpretación puede variar según el lector\n• FALTA DE SOLUCIONES PARA SISTEMAS DISTRIBUIDOS: No representa persistencia, serialización o elementos remotos\n• NECESIDAD DE ADAPTACIÓN: Según el lenguaje de programación elegido, los diagramas pueden ser más o menos eficientes",
+      "tags": [
+        "uml",
+        "criticas",
+        "semantica",
+        "sistemas-distribuidos",
+        "adaptacion"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-276",
+      "front": "Ventajas de UML frente a notaciones anteriores",
+      "back": "• NOTACIÓN UNIFICADA: No necesidad de aprender múltiples notaciones\n• TERMINOLOGÍA COMÚN: Facilita comunicación entre profesionales\n• HERRAMIENTAS INFORMATIZADAS: Mercado unificado permite más competencia y mejores herramientas\n• ACEPTACIÓN UNIVERSAL: Estándar reconocido internacionalmente",
+      "tags": ["uml", "ventajas", "unificacion", "notacion", "herramientas"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-277",
+      "front": "Diagramas dinámicos vs estáticos",
+      "back": "DIAGRAMAS DINÁMICOS/COMPORTAMIENTO:\n• Representan comportamiento del sistema\n• Indican acciones y procesos entre elementos\n• 7 tipos en UML 2.2\n• Divididos en: casos de uso, actividades, estados, interacción\n\nDIAGRAMAS ESTÁTICOS/ESTRUCTURALES:\n• Representan estructura del sistema\n• Elementos que existen sin considerar interacciones",
+      "tags": [
+        "uml",
+        "diagramas-dinamicos",
+        "diagramas-estaticos",
+        "comportamiento",
+        "estructura"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-278",
+      "front": "Tipos de diagramas de comportamiento",
+      "back": "NO AGRUPADOS (3):\n• Diagrama de casos de uso\n• Diagrama de actividades\n• Diagrama de estados\n\nAGRUPADOS - Diagramas de interacción (4):\n• Diagrama de comunicaciones\n• Diagrama de secuencia\n• Diagrama de tiempo\n• Diagrama general de interacción",
+      "tags": ["uml", "diagramas-comportamiento", "interaccion", "tipos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-279",
+      "front": "Conceptos compartidos en diagramas dinámicos",
+      "back": "• SEÑAL: Instancia transmitida de un objeto a otro\n• MENSAJE: Comunicación entre instancias\n• EVENTO: Suceso que puede afectar a un comportamiento\n• ACTIVIDAD: Comportamiento jerárquico (puede descomponerse)\n• ACCIÓN: Actividad que no se puede descomponer",
+      "tags": ["uml", "conceptos", "senal", "mensaje", "evento", "actividad"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-280",
+      "front": "Mensajes síncronos vs asíncronos",
+      "back": "MENSAJE SÍNCRONO:\n• Flecha línea continua, punta llena\n• El emisor espera respuesta antes de continuar\n• Solo puede ser llamada de operación\n\nMENSAJE ASÍNCRONO:\n• Flecha línea continua, punta abierta\n• El emisor continúa sin esperar respuesta\n• Puede ser señal o llamada de operación",
+      "tags": ["uml", "mensajes", "sincrono", "asincrono", "comunicacion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-281",
+      "front": "Diagrama de actividades - Elementos básicos",
+      "back": "• ESTADO INICIAL: Círculo negro (inicio del proceso)\n• ESTADO FINAL: Círculo negro con anillo (fin del proceso)\n• ACTIVIDAD/ACCIÓN: Rectángulo con esquinas redondeadas\n• TRANSICIÓN/FLUJO DE CONTROL: Flechas entre elementos\n\nOpcional: puede no haber estado final (proceso continuo)",
+      "tags": [
+        "uml",
+        "diagrama-actividades",
+        "elementos",
+        "estado-inicial",
+        "estado-final"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-282",
+      "front": "Diagrama de actividades - Decisión y fusión",
+      "back": "DECISIÓN:\n• Rombo regular\n• Un flujo de entrada, dos o más de salida\n• Cada salida con condición [condición]\n\nFUSIÓN:\n• Rombo regular\n• Dos o más flujos de entrada, uno de salida\n• Agrupa flujos de decisiones previas",
+      "tags": [
+        "uml",
+        "diagrama-actividades",
+        "decision",
+        "fusion",
+        "condicion"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-283",
+      "front": "Fork y Join en diagramas de actividades",
+      "back": "FORK (bifurcación):\n• Línea negra sólida perpendicular\n• Una transición se ramifica en varias\n• Todas las transiciones de salida se ejecutan CONCURRENTEMENTE\n• Es obligatorio pasar por todas\n\nJOIN (unión):\n• Línea negra sólida perpendicular\n• Fusiona transiciones de un fork\n• Todas las acciones previas deben completarse antes de continuar",
+      "tags": ["uml", "diagrama-actividades", "fork", "join", "concurrencia"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-284",
+      "front": "Diagrama de estados - Elementos",
+      "back": "• ESTADO INICIAL: Círculo negro\n• ESTADO FINAL: Círculo negro con anillo exterior\n• ESTADO: Rectángulo con esquinas redondeadas (condición/situación del objeto)\n• TRANSICIÓN: Flecha con nombre del evento que la provoca\n\nRepresenta cambios de estado de un objeto durante su ciclo de vida",
+      "tags": ["uml", "diagrama-estados", "elementos", "transicion", "evento"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-285",
+      "front": "Diagrama de casos de uso - Elementos",
+      "back": "• ACTOR: Figura humana (persona, sistema externo, dispositivo, tiempo)\n• CASO DE USO: Elipse con nombre (funcionalidad/servicio del sistema)\n• SUJETO: Rectángulo que contiene los casos de uso (el sistema)\n• ASOCIACIÓN: Línea que conecta actor con caso de uso\n• ESCENARIO: Camino por un caso de uso",
+      "tags": ["uml", "diagrama-casos-uso", "elementos", "actor", "caso-uso"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-286",
+      "front": "Relaciones entre casos de uso",
+      "back": "• ASOCIACIÓN: Comunicación actor-caso de uso\n• GENERALIZACIÓN/ESPECIALIZACIÓN: Flecha vacía (caso hijo hereda de caso padre)\n• INCLUDE («include»): Flecha punteada, caso A incluye comportamiento de caso B\n• EXTEND («extend»): Flecha punteada, caso A extiende/modifica caso B en puntos de extensión",
+      "tags": [
+        "uml",
+        "casos-uso",
+        "relaciones",
+        "include",
+        "extend",
+        "generalizacion"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-287",
+      "front": "Include vs Extend en casos de uso",
+      "back": "INCLUDE:\n• Relación obligatoria\n• Caso base SIEMPRE incluye el comportamiento del caso incluido\n• Ejemplo: Asentamiento SIEMPRE incluye DatosCuenta\n\nEXTEND:\n• Relación condicional/opcional\n• Caso extendido añade comportamiento bajo ciertas condiciones\n• Define puntos de extensión\n• Ejemplo: CrearCuenta EXTENDE Asentamiento cuando cuenta no existe",
+      "tags": ["uml", "casos-uso", "include", "extend", "diferencias"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-288",
+      "front": "Documento detallado de caso de uso",
+      "back": "Campos típicos:\n• Caso de uso (nombre)\n• Actores (primarios y secundarios)\n• Tipo (flujo básico, inclusión, extensión, generalización)\n• Propósito/objetivo\n• Resumen\n• Secuencia normal/flujo principal\n• Subflujos\n• Precondiciones\n• Excepciones\n• Urgencia, frecuencia, rendimiento\n• Comentarios",
+      "tags": ["uml", "casos-uso", "documentacion", "especificacion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-289",
+      "front": "Ventajas de los diagramas de casos de uso",
+      "back": "• Comunicación efectiva con usuarios finales\n• Documentan funcionalidades de 'caja negra'\n• Ayudan a dividir y gestionar proyectos grandes\n• Complementan documentación del proyecto\n• Seguimiento objetivo del proyecto\n• Apoyan verificación y validación del software",
+      "tags": ["uml", "casos-uso", "ventajas", "documentacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-290",
+      "front": "Diagramas de interacción - Tipos",
+      "back": "Representan comportamiento emergente mediante mensajes entre instancias:\n\n• DIAGRAMA DE SECUENCIAS: Énfasis en orden temporal de mensajes\n• DIAGRAMA DE COMUNICACIONES: Énfasis en relaciones entre objetos\n• DIAGRAMA DE TIEMPO: Cambios de estado a lo largo del tiempo\n• DIAGRAMA DE VISIÓN GENERAL: Vista global de flujos de control",
+      "tags": [
+        "uml",
+        "diagramas-interaccion",
+        "tipos",
+        "secuencias",
+        "comunicacion"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-291",
+      "front": "Diagrama de secuencia - Elementos",
+      "back": "• LÍNEA DE VIDA: Representa elemento conectable (tiempo de existencia)\n• ACTIVACIÓN: Barra rectangular sobre línea de vida (ejecución de operación)\n• MENSAJES: Flechas entre líneas de vida\n  - Síncrono: línea continua, punta llena\n  - Asíncrono: línea continua, punta abierta\n  - Respuesta: línea discontinua, punta llena\n  - Creación objeto: línea discontinua, punta abierta\n• Numeración multinivel: 1, 2, 3.1, 3.2...",
+      "tags": [
+        "uml",
+        "diagrama-secuencia",
+        "elementos",
+        "linea-vida",
+        "mensajes"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-292",
+      "front": "Diagrama de comunicación vs Diagrama de secuencia",
+      "back": "SIMILITUDES:\n• Mismos mensajes entre objetos\n• Mismos tipos de flechas\n\nDIFERENCIAS:\n• Secuencia: énfasis en ORDEN TEMPORAL (eje vertical = tiempo)\n• Comunicación: énfasis en RELACIONES entre objetos\n• Comunicación: disposición libre, numeración indica orden\n• Comunicación: no permite usos de interacción complejos",
+      "tags": [
+        "uml",
+        "diagrama-comunicacion",
+        "diagrama-secuencia",
+        "comparacion"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-293",
+      "front": "Diagrama de tiempo",
+      "back": "• Representa cambios de estado de objetos a lo largo del tiempo\n• Escalera de tiempo horizontal\n• Estados a diferentes alturas o sobre la línea de vida\n• Segmento horizontal = estado estable\n• Segmento inclinado = transición con duración\n• Segmento vertical = transición instantánea\n• Basado en diagrama de estados (un solo camino posible)",
+      "tags": ["uml", "diagrama-tiempo", "temporal", "estados", "cambios"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-294",
+      "front": "Diagrama de visión general de la interacción",
+      "back": "• Visión global del flujo de control de interacciones\n• Permite modularizar interacciones complejas ('divide y vencerás')\n• Descompone interacciones en fragmentos más pequeños\n\nElementos:\n• OCURRENCIA DE INTERACCIÓN: Referencia a diagramas existentes\n• ELEMENTO DE INTERACCIÓN: Representación en marco rectangular del contenido",
+      "tags": [
+        "uml",
+        "diagrama-vision-general",
+        "interaccion",
+        "modularizacion"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-295",
+      "front": "Ejemplo práctico: Diagrama de secuencia - Robot de cocina",
+      "back": "Escenario elaboración Vichyssoise:\n\n1. Cocinero → Robot: pone puerro, programa 4 segundos vel. 5\n2. Robot: bloquea tapa, inicia cronómetro\n3. (espera 4 segundos)\n4. Robot → Cocinero: desbloquea tapa\n5. Cocinero → Robot: coloca aceite y mantequilla, programa 12 min vel. 1 temp. máx\n6. Robot: bloquea tapa, activa cronómetro y resistencia\n\nMensajes síncronos con espera de respuesta",
+      "tags": [
+        "uml",
+        "ejercicio",
+        "diagrama-secuencia",
+        "robot-cocina",
+        "ejemplo"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-296",
+      "front": "Ejercicio: Caso de uso 'Solicitar libro' (Biblioteca)",
+      "back": "Descripción: Socio solicita préstamo de libro a bibliotecario\n\nACTORES: Socio, Bibliotecario\n\nPRECONDICIONES: Bibliotecario registrado en el sistema\n\nFLUJO NORMAL:\n1. Socio solicita préstamo\n2. Bibliotecario verifica usuario registrado\n3. Bibliotecario comprueba disponibilidad\n4. Confirma reserva en sistema\n5. Sistema registra préstamo en ficha del socio\n6. Sistema actualiza catálogo (descuenta stock)\n7. Bibliotecario entrega libro\n\nFLUJOS ALTERNATIVOS:\n• Usuario no registrado → dar de alta\n• No hay copias disponibles → informar imposibilidad",
+      "tags": ["uml", "ejercicio", "caso-uso", "biblioteca", "solicitar-libro"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-297",
+      "front": "Ejercicio: Caso de uso 'Retornar libro' (Biblioteca)",
+      "back": "Descripción: Socio devuelve libro en préstamo\n\nACTORES: Socio, Bibliotecario\n\nPRECONDICIONES: Bibliotecario registrado en sistema\n\nFLUJO NORMAL:\n1. Socio se identifica para devolver libro\n2. Bibliotecario consulta información del socio\n3. Sistema muestra libros en préstamo\n4. Se valida que el libro está en préstamo\n5. Bibliotecario confirma regreso\n6. Sistema registra devolución en ficha del socio\n7. Sistema actualiza catálogo (incrementa stock)\n8. Bibliotecario se queda con el libro\n\nPOSTCONDICIONES:\n• Se descuentan libros prestados del socio\n• Se incrementa stock en catálogo",
+      "tags": ["uml", "ejercicio", "caso-uso", "biblioteca", "retornar-libro"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-298",
+      "front": "Ejercicio: Diagrama de clases - Sistema de Biblioteca",
+      "back": "CLASES PRINCIPALES:\n• Libro: información del título\n• Ejemplar: instancia física de un libro (estado: Disponible/Prestado/No disponible)\n• Socio: usuario registrado de la biblioteca\n• Préstamo: registro de préstamo realizado\n• Catálogo: gestiona ejemplares\n\nRELACIONES:\n• Libro 1---* Ejemplar (uno a muchos)\n• Ejemplar *---1 Catálogo (composición)\n• Socio 1---* Préstamo\n• Ejemplar 1---* Préstamo\n\nOPERACIONES:\n• prestarLibro(), devolverLibro(), darAltaEjemplar(), darBajaEjemplar()",
+      "tags": ["uml", "ejercicio", "diagrama-clases", "biblioteca"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-299",
+      "front": "Ejercicio: Diagrama de secuencia - Préstamo de libro",
+      "back": "Secuencia préstamo en biblioteca:\n\n1. Socio → Bibliotecario: solicitarPréstamo(libro)\n2. Bibliotecario → Sistema: verificarSocio(idSocio)\n3. Sistema → Bibliotecario: confirmarSocio()\n4. Bibliotecario → Sistema: consultarDisponibilidad(libro)\n5. Sistema → Bibliotecario: confirmarDisponibilidad(ejemplar)\n6. Bibliotecario → Sistema: registrarPréstamo(socio, ejemplar)\n7. Sistema: actualizarEstadoEjemplar(Prestado)\n8. Sistema: actualizarPréstamosSocio(+1)\n9. Sistema → Bibliotecario: confirmarRegistro()\n10. Bibliotecario → Socio: entregarLibro(ejemplar)",
+      "tags": [
+        "uml",
+        "ejercicio",
+        "diagrama-secuencia",
+        "biblioteca",
+        "prestamo"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-300",
+      "front": "Ejercicio: Diagrama de estados - Ejemplar de libro",
+      "back": "Estados de un ejemplar en biblioteca:\n\n[ESTADO INICIAL] → Disponible\n\nDisponible --prestar()--> Prestado\n\nPrestado --devolver()--> Disponible\n\nDisponible --dañar()--> NoDisponible\nPrestado --perder()--> NoDisponible\n\nNoDisponible --reparar()--> Disponible\n\n[Posible estado final]\n\nNota: El ejemplar debe estar Disponible para poder ser prestado.",
+      "tags": [
+        "uml",
+        "ejercicio",
+        "diagrama-estados",
+        "biblioteca",
+        "ejemplar"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ed-301",
+      "front": "Ejercicio: Diagramas que NO son de interacción",
+      "back": "NO son diagramas de interacción:\n\n• Diagrama de perfil\n• Diagrama de casos de uso\n• Diagrama de estados\n• Diagrama de actividades\n• Diagrama de objetos\n• Diagrama de estructuras compuestas\n• Diagrama de clases\n• Diagrama de paquetes\n• Diagrama de despliegue\n• Diagrama de componentes\n\nSÍ son de interacción: secuencias, comunicaciones, visión general de interacción, temporal",
+      "tags": ["uml", "ejercicio", "diagramas-interaccion", "clasificacion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-302",
+      "front": "Ejercicio: Elementos en diagrama de secuencias (V/F)",
+      "back": "VERDADERO (V):\n• Elementos conectables\n• Conectores\n• Mensajes\n• Interacciones subordinadas\n• Operaciones\n\nFALSO (F):\n• Elemento de lista de picos\n• Estados (son del diagrama de estados)\n• Actividades (son del diagrama de actividades)\n• Fork (es del diagrama de actividades)\n• Estado inicial (es del diagrama de estados/actividades)\n• Join (es del diagrama de actividades)",
+      "tags": [
+        "uml",
+        "ejercicio",
+        "diagrama-secuencia",
+        "elementos",
+        "verdadero-falso"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-303",
+      "front": "Ejercicio: Completar definiciones de diagramas",
+      "back": "1. Los diagramas de TIEMPO (o diagramas TEMPORALES) representan una interacción entre diferentes ESTADOS y destacan los aspectos TEMPORALES y, en especial, los cambios de estado o de valor de una línea de vida (es decir, de las instancias que contiene) o de varias a lo largo del TIEMPO. Los diagramas de TIEMPO muestran los cambios del estado de un objeto a lo largo del TIEMPO como consecuencia de eventos.\n\n2. La finalidad de los diagramas de COMUNICACIÓN es representar la COMUNICACIÓN entre los elementos del sistema que se desea modelizar. Trabajando en su conjunto, los elementos podrán cumplir los objetivos del sistema.\n\n3. El diagrama de CASOS DE USO identifica los COMPORTAMIENTOS ejecutantes de un clasificador generalmente complejo (por ejemplo, un software) y especifica con qué usuarios y otras entidades exteriores tienen interacción.",
+      "tags": ["uml", "ejercicio", "completar", "definiciones", "diagramas"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-304",
+      "front": "Ejercicio: Tipos de mensajes en UML",
+      "back": "Relación tipo de mensaje - representación:\n\n• Punta abierta y línea continua = Mensaje ASÍNCRONO\n• Punta llena y línea continua = Mensaje SÍNCRONO\n• Punta llena y línea discontinua = Mensaje de RESPUESTA (a síncrono)\n• Punta abierta y línea discontinua = Mensaje que provoca CREACIÓN de objeto",
+      "tags": ["uml", "ejercicio", "mensajes", "tipos", "representacion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-305",
+      "front": "Fragmentos combinados en diagrama de secuencias",
+      "back": "Operador PAR (par):\n• Ejecuta fragmentos de interacción en PARALELO\n• Los fragmentos se ejecutan simultáneamente\n\nOtros operadores comunes:\n• ALT: Alternativa (if/else)\n• LOOP: Bucle\n• OPT: Opcional\n• BREAK: Interrupción\n• REF: Referencia a otra interacción",
+      "tags": [
+        "uml",
+        "diagrama-secuencia",
+        "fragmentos-combinados",
+        "operadores"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": "ed-306",
+      "front": "Restricciones de tiempo en diagrama de secuencias",
+      "back": "Se pueden especificar restricciones de duración y tiempo:\n\n• d = duración de transmisión de un mensaje\n• Entre recepción y emisión: intervalo de tiempo (ej: entre d y 5d)\n• Entre emisión y recepción: rango de unidades de tiempo\n\nEjemplo: 'entre emisión de op2() y recepción pueden transcurrir de 1 a 4 unidades de tiempo'",
+      "tags": [
+        "uml",
+        "diagrama-secuencia",
+        "restricciones",
+        "tiempo",
+        "duracion"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": "ed-307",
+      "front": "Línea de vida en diagrama de secuencias - Notación",
+      "back": "Estructura de una línea de vida:\n\n• CABECERA: Rectángulo con ':NombreClase'\n  - Opcionalmente precedido por nombre de la línea de vida\n  - Ejemplo: 'o1:Cl1' o ':Cl1'\n\n• LÍNEA VERTICAL: Discontinua, representa duración del elemento\n\n• ACTIVACIONES: Rectángulos alargados verticales durante ejecución de operaciones\n\n• MARCA X: Indica destrucción del objeto",
+      "tags": [
+        "uml",
+        "diagrama-secuencia",
+        "linea-vida",
+        "notacion",
+        "activacion"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-308",
+      "front": "Diagrama de comunicaciones - Limitaciones",
+      "back": "LIMITACIONES respecto al diagrama de secuencias:\n\n• No permite representar usos de interacción complejos\n• Solo tiene representación para algunos operadores de interacción\n• Adecuado solo para interacciones relativamente SENCILLAS\n\nSIMILITUDES:\n• Mismos mensajes entre objetos\n• Mismos tipos de flechas que en secuencias",
+      "tags": ["uml", "diagrama-comunicacion", "limitaciones", "comparacion"],
+      "difficulty": "medium"
+    }
+  ]
+}

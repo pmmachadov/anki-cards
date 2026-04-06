@@ -16,28 +16,51 @@ function App() {
   // Cargar mazos al iniciar
   useEffect(() => {
     const loadData = async () => {
-      const savedDecks = DataStore.loadDecks()
+      let savedDecks = DataStore.loadDecks()
       
-      if (savedDecks.length === 0) {
-        // Cargar mazo por defecto desde JSON
-        try {
-          const response = await fetch('/data/sistemas-informaticos.json')
-          const data = await response.json()
-          const defaultDeck = new Deck(data.name, data.id)
-          defaultDeck.description = data.description
-          defaultDeck.subject = data.subject
-          
-          data.cards.forEach(card => {
-            defaultDeck.addCard(card.front, card.back, card.tags || [])
+      try {
+        // Cargar mazos por defecto desde JSON
+        const [response1, response2] = await Promise.all([
+          fetch('/data/sistemas-informaticos.json'),
+          fetch('/data/entornos-desarrollo.json')
+        ])
+        
+        const data1 = await response1.json()
+        const data2 = await response2.json()
+        
+        // Verificar si los mazos por defecto ya existen
+        const existingIds = savedDecks.map(d => d.id)
+        const newDecks = []
+        
+        if (!existingIds.includes(data1.id)) {
+          const deck1 = new Deck(data1.name, data1.id)
+          deck1.description = data1.description
+          deck1.subject = data1.subject
+          data1.cards.forEach(card => {
+            deck1.addCard(card.front, card.back, card.tags || [])
           })
-          
-          const newDecks = [defaultDeck]
-          setDecks(newDecks)
-          DataStore.saveDecks(newDecks)
-        } catch (error) {
-          console.error('Error loading default deck:', error)
+          newDecks.push(deck1)
         }
-      } else {
+        
+        if (!existingIds.includes(data2.id)) {
+          const deck2 = new Deck(data2.name, data2.id)
+          deck2.description = data2.description
+          deck2.subject = data2.subject
+          data2.cards.forEach(card => {
+            deck2.addCard(card.front, card.back, card.tags || [])
+          })
+          newDecks.push(deck2)
+        }
+        
+        // Combinar mazos guardados con nuevos mazos por defecto
+        if (newDecks.length > 0) {
+          savedDecks = [...savedDecks, ...newDecks]
+          DataStore.saveDecks(savedDecks)
+        }
+        
+        setDecks(savedDecks)
+      } catch (error) {
+        console.error('Error loading default decks:', error)
         setDecks(savedDecks)
       }
       
@@ -113,23 +136,6 @@ function App() {
 
   return (
     <div className="app">
-      <header className="app-header">
-        <div className="header-content">
-          <h1 onClick={handleBack} className="logo">
-            <span className="logo-icon">◈</span>
-            <span>AnkiCards</span>
-          </h1>
-          <nav className="nav">
-            <button 
-              className={`nav-btn ${currentView === 'decks' ? 'active' : ''}`}
-              onClick={handleBack}
-            >
-              Mazos
-            </button>
-          </nav>
-        </div>
-      </header>
-
       <main className="app-main">
         {currentView === 'decks' && (
           <DeckList 
@@ -167,10 +173,6 @@ function App() {
           />
         )}
       </main>
-
-      <footer className="app-footer">
-        <p>AnkiCards • Repeticion espaciada • {new Date().getFullYear()}</p>
-      </footer>
     </div>
   )
 }
