@@ -720,3 +720,73 @@
     padding: 24px;
   }
 }
+
+
+/* Moviles pequenos (iPhone SE, Galaxy S8) */
+@media (max-width: 375px) {
+  .stats-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .stats-title {
+    order: -1;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .stat-mastery {
+    grid-column: span 1;
+  }
+  
+  .stat-card {
+    padding: 16px;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
+  }
+  
+  .chart-card {
+    padding: 16px;
+  }
+  
+  .retention-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Moviles muy pequenos (iPhone 5, antiguos) */
+@media (max-width: 320px) {
+  .stats-view {
+    padding: 12px;
+  }
+  
+  .stats-overview {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+  
+  .stat-icon-bg {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .chart-legend {
+    grid-template-columns: 1fr;
+  }
+  
+  .legend-item {
+    padding: 6px 10px;
+  }
+  
+  .modal {
+    padding: 20px 16px;
+  }
+}

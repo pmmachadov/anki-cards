@@ -1,6 +1,15 @@
 import { useState } from 'react'
 import './DeckList.css'
 
+// Icono de advertencia para el modal
+const WarningIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+    <line x1="12" y1="9" x2="12" y2="13"/>
+    <line x1="12" y1="17" x2="12.01" y2="17"/>
+  </svg>
+)
+
 // Iconos SVG
 const Icons = {
   book: (
@@ -108,11 +117,21 @@ export function DeckList({
   onStudyDeck, 
   onEditDeck,
   onStatsDeck,
-  onResetDeck 
+  onResetDeck,
+  onClearAllData 
 }) {
   const [showCreateModal, setShowCreateModal] = useState(false)
   const [newDeckName, setNewDeckName] = useState('')
   const [newDeckDesc, setNewDeckDesc] = useState('')
+  
+  // Modal de confirmación para reiniciar progreso
+  const [showResetModal, setShowResetModal] = useState(false)
+  const [resetStep, setResetStep] = useState(1) // 1: primera confirmación, 2: advertencia final
+  const [deckToReset, setDeckToReset] = useState(null)
+
+  // Modal de confirmación para borrar TODOS los datos
+  const [showClearModal, setShowClearModal] = useState(false)
+  const [clearStep, setClearStep] = useState(1)
 
   const handleCreate = (e) => {
     e.preventDefault()
@@ -121,6 +140,47 @@ export function DeckList({
       setNewDeckName('')
       setNewDeckDesc('')
       setShowCreateModal(false)
+    }
+  }
+
+  // Funciones para el modal de reinicio
+  const openResetModal = (deck) => {
+    setDeckToReset(deck)
+    setResetStep(1)
+    setShowResetModal(true)
+  }
+
+  const closeResetModal = () => {
+    setShowResetModal(false)
+    setDeckToReset(null)
+    setResetStep(1)
+  }
+
+  // Funciones para el modal de borrar todos los datos
+  const closeClearModal = () => {
+    setShowClearModal(false)
+    setClearStep(1)
+  }
+
+  const handleClearConfirm = () => {
+    if (clearStep === 1) {
+      setClearStep(2)
+    } else {
+      onClearAllData()
+      closeClearModal()
+    }
+  }
+
+  const handleResetConfirm = () => {
+    if (resetStep === 1) {
+      // Primera confirmación - pasar a la advertencia final
+      setResetStep(2)
+    } else {
+      // Segunda confirmación - ejecutar el reinicio
+      if (deckToReset) {
+        onResetDeck(deckToReset.id)
+      }
+      closeResetModal()
     }
   }
 
@@ -184,25 +244,15 @@ export function DeckList({
           
           return (
             <div key={deck.id} className={`deck-card ${hasDueCards ? 'has-due' : ''}`}>
-              {/* Card Header with Icon */}
-              <div className="deck-card-visual">
-                <div className="deck-icon-wrapper">
-                  <span className="deck-subject-icon">{subjectIcon}</span>
-                </div>
+              {/* Card Content */}
+              <div className="deck-card-content">
                 {hasDueCards && (
-                  <div className="due-badge">
+                  <div className="due-badge-inline">
                     <span>{stats.due} pendientes</span>
                   </div>
                 )}
-              </div>
-              
-              {/* Card Content */}
-              <div className="deck-card-content">
                 <div className="deck-card-header">
                   <h3 className="deck-name">{deck.name}</h3>
-                  {deck.subject && (
-                    <span className="deck-subject">{deck.subject}</span>
-                  )}
                 </div>
                 
                 {deck.description && (
@@ -273,25 +323,10 @@ export function DeckList({
                   </button>
                   <button 
                     className="btn btn-icon-only btn-reset"
-                    onClick={() => {
-                      if (confirm(`¿Reiniciar el progreso de "${deck.name}"?\n\nSe perderá todo el historial de estudio pero las tarjetas se mantendrán.`)) {
-                        onResetDeck(deck.id)
-                      }
-                    }}
+                    onClick={() => openResetModal(deck)}
                     title="Reiniciar progreso"
                   >
                     {Icons.reset}
-                  </button>
-                  <button 
-                    className="btn btn-icon-only btn-delete"
-                    onClick={() => {
-                      if (confirm(`¿Eliminar el mazo "${deck.name}" completamente?\n\nEsta acción no se puede deshacer.`)) {
-                        onDeleteDeck(deck.id)
-                      }
-                    }}
-                    title="Eliminar mazo"
-                  >
-                    {Icons.delete}
                   </button>
                 </div>
               </div>
@@ -314,6 +349,19 @@ export function DeckList({
           </button>
         </div>
       )}
+
+      {/* Botón para borrar todos los datos - discreto, al final */}
+      <div className="clear-data-section">
+        <button 
+          className="btn btn-clear-data"
+          onClick={() => setShowClearModal(true)}
+          title="Borrar todos los datos guardados"
+        >
+          <span className="btn-icon">{Icons.database}</span>
+          <span>Borrar todos los datos</span>
+        </button>
+        <p className="clear-data-hint">Elimina todo el progreso y restaura los mazos originales</p>
+      </div>
 
       {/* Create Modal */}
       {showCreateModal && (
@@ -354,6 +402,165 @@ export function DeckList({
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* Reset Progress Modal - Doble Confirmación */}
+      {showResetModal && deckToReset && (
+        <div className="modal-overlay" onClick={closeResetModal}>
+          <div className="modal modal-reset" onClick={e => e.stopPropagation()}>
+            {resetStep === 1 ? (
+              // Primera confirmación
+              <>
+                <div className="modal-header">
+                  <div className="modal-icon warning-icon">
+                    <WarningIcon />
+                  </div>
+                  <h3>¿Reiniciar progreso?</h3>
+                </div>
+                <div className="modal-body">
+                  <p className="modal-text">
+                    Vas a reiniciar el progreso de <strong>"{deckToReset.name}"</strong>.
+                  </p>
+                  <p className="modal-text">
+                    Se perderá todo el historial de estudio, pero las <strong>tarjetas se mantendrán</strong>.
+                  </p>
+                  <div className="modal-info-box">
+                    <span className="info-label">⚠️ Esta acción no se puede deshacer</span>
+                  </div>
+                </div>
+                <div className="modal-actions">
+                  <button type="button" className="btn btn-secondary" onClick={closeResetModal}>
+                    Cancelar
+                  </button>
+                  <button type="button" className="btn btn-warning" onClick={handleResetConfirm}>
+                    Continuar
+                  </button>
+                </div>
+              </>
+            ) : (
+              // Segunda confirmación - Advertencia final
+              <>
+                <div className="modal-header">
+                  <div className="modal-icon danger-icon">
+                    <WarningIcon />
+                  </div>
+                  <h3>⚠️ Advertencia</h3>
+                </div>
+                <div className="modal-body">
+                  <p className="modal-text danger-text">
+                    <strong>¡Atención!</strong> Estás a punto de borrar definitivamente:
+                  </p>
+                  <ul className="modal-list">
+                    <li>Todo tu progreso de estudio</li>
+                    <li>La fecha de tus repeticiones</li>
+                    <li>Tu racha actual</li>
+                    <li>Las estadísticas del mazo</li>
+                  </ul>
+                  <p className="modal-text highlight-text">
+                    Las tarjetas permanecerán, pero volverán al estado "nuevas".
+                  </p>
+                  <div className="modal-danger-box">
+                    <span className="danger-label">¿Estás completamente seguro?</span>
+                  </div>
+                </div>
+                <div className="modal-actions">
+                  <button type="button" className="btn btn-secondary" onClick={closeResetModal}>
+                    No, cancelar
+                  </button>
+                  <button type="button" className="btn btn-danger" onClick={handleResetConfirm}>
+                    Sí, reiniciar todo
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Clear All Data Modal - Doble Confirmación */}
+      {showClearModal && (
+        <div className="modal-overlay" onClick={closeClearModal}>
+          <div className="modal modal-reset modal-clear" onClick={e => e.stopPropagation()}>
+            {clearStep === 1 ? (
+              // Primera confirmación
+              <>
+                <div className="modal-header">
+                  <div className="modal-icon danger-icon">
+                    <WarningIcon />
+                  </div>
+                  <h3>¿Borrar todos los datos?</h3>
+                </div>
+                <div className="modal-body">
+                  <p className="modal-text">
+                    Esta acción <strong>borrará completamente</strong> toda la información guardada en tu navegador.
+                  </p>
+                  <div className="modal-info-box">
+                    <span className="info-label">📦 Se eliminará:</span>
+                  </div>
+                  <ul className="modal-list">
+                    <li>Todos tus mazos y tarjetas personalizadas</li>
+                    <li>Todo tu progreso de estudio</li>
+                    <li>Todas las estadísticas y repeticiones</li>
+                    <li>Cualquier configuración guardada</li>
+                  </ul>
+                  <div className="modal-info-box info-green">
+                    <span className="info-label">✅ Se restaurarán:</span>
+                  </div>
+                  <ul className="modal-list">
+                    <li>Los mazos originales (Sistemas Informáticos, Entornos de Desarrollo)</li>
+                    <li>Todo el contenido predefinido de las materias</li>
+                  </ul>
+                  <div className="modal-danger-box">
+                    <span className="danger-label">⚠️ Esta acción es irreversible</span>
+                  </div>
+                </div>
+                <div className="modal-actions">
+                  <button type="button" className="btn btn-secondary" onClick={closeClearModal}>
+                    Cancelar
+                  </button>
+                  <button type="button" className="btn btn-warning" onClick={handleClearConfirm}>
+                    Entendido, continuar
+                  </button>
+                </div>
+              </>
+            ) : (
+              // Segunda confirmación - Advertencia final
+              <>
+                <div className="modal-header">
+                  <div className="modal-icon danger-icon">
+                    <WarningIcon />
+                  </div>
+                  <h3>⚠️ Última advertencia</h3>
+                </div>
+                <div className="modal-body">
+                  <p className="modal-text danger-text">
+                    <strong>¡Atención!</strong> Estás a punto de eliminar todo:
+                  </p>
+                  <ul className="modal-list">
+                    <li><strong>510 tarjetas</strong> de Sistemas Informáticos con tu progreso</li>
+                    <li><strong>308 tarjetas</strong> de Entornos de Desarrollo con tu progreso</li>
+                    <li>Cualquier mazo o tarjeta que hayas creado</li>
+                    <li>Todo tu historial de estudio y estadísticas</li>
+                  </ul>
+                  <p className="modal-text highlight-text">
+                    Los mazos originales se recargarán, pero <strong>perderás todo tu avance</strong>.
+                  </p>
+                  <div className="modal-danger-box">
+                    <span className="danger-label">¿Estás completamente seguro de borrar TODO?</span>
+                  </div>
+                </div>
+                <div className="modal-actions">
+                  <button type="button" className="btn btn-secondary" onClick={closeClearModal}>
+                    No, mantener mis datos
+                  </button>
+                  <button type="button" className="btn btn-danger" onClick={handleClearConfirm}>
+                    Sí, borrar todo
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         </div>
       )}

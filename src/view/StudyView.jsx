@@ -5,6 +5,7 @@ import './StudyView.css'
 export function StudyView({ deck, onBack, onUpdateDeck }) {
   const [currentCardIndex, setCurrentCardIndex] = useState(0)
   const [isFlipped, setIsFlipped] = useState(false)
+  const [flipRotation, setFlipRotation] = useState(0)
   const [cards, setCards] = useState([])
   const [sessionStats, setSessionStats] = useState({
     again: 0,
@@ -33,6 +34,7 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
 
   const handleFlip = () => {
     setIsFlipped(!isFlipped)
+    setFlipRotation(prev => prev + 180)
   }
 
   const handleRate = useCallback((difficulty) => {
@@ -86,8 +88,12 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
     return (
       <div className="study-view animate-fade-in">
         <div className="study-header">
-          <button className="btn btn-secondary btn-sm" onClick={onBack}>
-            ← Volver
+          <button className="btn btn-back" onClick={onBack}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{width: '20px', height: '20px'}}>
+              <line x1="19" y1="12" x2="5" y2="12"/>
+              <polyline points="12 19 5 12 12 5"/>
+            </svg>
+            <span>Volver</span>
           </button>
           <h2>{deck.name}</h2>
           <div></div>
@@ -97,9 +103,19 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
           <div className="empty-icon">🎉</div>
           <h3>No hay tarjetas pendientes</h3>
           <p>Has completado todas las tarjetas de este mazo por ahora.</p>
-          <button className="btn btn-primary" onClick={onBack}>
-            Volver a mazos
-          </button>
+          <div className="empty-actions">
+            <button className="btn btn-secondary" onClick={onBack}>
+              Volver a mazos
+            </button>
+            <button className="btn btn-primary" onClick={() => {
+              // Repasar todo el mazo de nuevo
+              setCards(deck.cards)
+              setCurrentCardIndex(0)
+              setIsFlipped(false)
+            }}>
+              Repasar todo el mazo
+            </button>
+          </div>
         </div>
       </div>
     )
@@ -156,8 +172,12 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
   return (
     <div className="study-view animate-fade-in">
       <div className="study-header">
-        <button className="btn btn-secondary btn-sm" onClick={onBack}>
-          ← Volver
+        <button className="btn btn-back" onClick={onBack}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{width: '20px', height: '20px'}}>
+            <line x1="19" y1="12" x2="5" y2="12"/>
+            <polyline points="12 19 5 12 12 5"/>
+          </svg>
+          <span>Volver</span>
         </button>
         <div className="study-info">
           <h2>{deck.name}</h2>
@@ -174,35 +194,42 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
         </div>
       </div>
 
+      {/* Card Navigator Slider */}
+      <div className="card-slider-container">
+        <span className="card-slider-label">{currentCardIndex + 1}</span>
+        <input
+          type="range"
+          min={1}
+          max={cards.length}
+          value={currentCardIndex + 1}
+          onChange={(e) => {
+            const newIndex = parseInt(e.target.value) - 1
+            setCurrentCardIndex(newIndex)
+            setIsFlipped(false)
+          }}
+          className="card-slider"
+        />
+        <span className="card-slider-label">{cards.length}</span>
+      </div>
+
       <div className="flashcard-container">
         <div 
-          className={`flashcard ${isFlipped ? 'flipped' : ''}`}
+          className="flashcard"
           onClick={handleFlip}
+          style={{ transform: `rotateY(${flipRotation}deg)` }}
         >
           <div className="flashcard-inner">
             <div className="flashcard-front">
               <div className="card-content">
-                <span className="card-label">PREGUNTA</span>
                 <p className="card-text">{currentCard.front}</p>
-              </div>
-              <div className="card-hint">
-                Haz clic para voltear (Espacio)
               </div>
             </div>
             <div className="flashcard-back">
               <div className="card-content">
-                <span className="card-label">RESPUESTA</span>
                 <p className="card-text" style={{ whiteSpace: 'pre-line' }}>
                   {currentCard.back}
                 </p>
               </div>
-              {currentCard.tags?.length > 0 && (
-                <div className="card-tags">
-                  {currentCard.tags.map((tag, i) => (
-                    <span key={i} className="card-tag">{tag}</span>
-                  ))}
-                </div>
-              )}
             </div>
           </div>
         </div>
@@ -216,7 +243,7 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
           >
             <span className="rating-label">Otra vez</span>
             <span className="rating-key">1</span>
-            <span className="rating-time">&lt;1m</span>
+            <span className="rating-time">1d</span>
           </button>
           <button 
             className="rating-btn hard"
@@ -224,7 +251,7 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
           >
             <span className="rating-label">Dificil</span>
             <span className="rating-key">2</span>
-            <span className="rating-time">5m</span>
+            <span className="rating-time">2d</span>
           </button>
           <button 
             className="rating-btn good"
@@ -232,7 +259,7 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
           >
             <span className="rating-label">Bien</span>
             <span className="rating-key">3</span>
-            <span className="rating-time">10m</span>
+            <span className="rating-time">3d</span>
           </button>
           <button 
             className="rating-btn easy"
@@ -240,13 +267,11 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
           >
             <span className="rating-label">Facil</span>
             <span className="rating-key">4</span>
-            <span className="rating-time">20m</span>
+            <span className="rating-time">4d</span>
           </button>
         </div>
       ) : (
-        <div className="flip-hint">
-          Haz clic en la tarjeta o presiona Espacio para ver la respuesta
-        </div>
+        <div style={{height: '60px'}}></div>
       )}
     </div>
   )

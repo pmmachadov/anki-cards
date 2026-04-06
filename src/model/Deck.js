@@ -7,12 +7,12 @@ export const DIFFICULTY = {
   EASY: 3      // Fácil - intervalo largo
 };
 
-// Factores de intervalo base (en minutos para demo, en días para uso real)
+// Factores de intervalo base (en días)
 const INTERVAL_FACTORS = {
-  [DIFFICULTY.AGAIN]: 1,      // 1 minuto
-  [DIFFICULTY.HARD]: 5,       // 5 minutos
-  [DIFFICULTY.GOOD]: 10,      // 10 minutos
-  [DIFFICULTY.EASY]: 20       // 20 minutos
+  [DIFFICULTY.AGAIN]: 1,      // 1 día
+  [DIFFICULTY.HARD]: 2,       // 2 días
+  [DIFFICULTY.GOOD]: 3,       // 3 días
+  [DIFFICULTY.EASY]: 4        // 4 días
 };
 
 export class Card {
@@ -60,7 +60,7 @@ export class Card {
       this.status = this.repetitions >= 2 ? 'review' : 'learning';
     }
     
-    this.nextReview = Date.now() + (this.interval * 60 * 1000);
+    this.nextReview = Date.now() + (this.interval * 24 * 60 * 60 * 1000);
     
     return {
       interval: this.interval,
@@ -79,14 +79,9 @@ export class Card {
     
     if (diff <= 0) return 'Ahora';
     
-    const minutes = Math.ceil(diff / (60 * 1000));
-    if (minutes < 60) return `${minutes}m`;
-    
-    const hours = Math.floor(minutes / 60);
-    if (hours < 24) return `${hours}h`;
-    
-    const days = Math.floor(hours / 24);
-    return `${days}d`;
+    const days = Math.ceil(diff / (24 * 60 * 60 * 1000));
+    if (days === 1) return '1 día';
+    return `${days} días`;
   }
 }
 

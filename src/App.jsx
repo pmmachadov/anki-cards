@@ -7,16 +7,31 @@ import { DataStore } from './model/DataStore'
 import { Deck } from './model/Deck'
 import './App.css'
 
+// Iconos SVG
+const FullscreenIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+  </svg>
+)
+
+const ExitFullscreenIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/>
+  </svg>
+)
+
 function App() {
   const [decks, setDecks] = useState([])
   const [currentView, setCurrentView] = useState('decks') // decks, study, edit, stats
   const [selectedDeck, setSelectedDeck] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [isFullscreen, setIsFullscreen] = useState(false)
 
   // Cargar mazos al iniciar
   useEffect(() => {
     const loadData = async () => {
-      let savedDecks = DataStore.loadDecks()
+      // FORZAR RECARGA: Limpiar localStorage y recrear mazos por defecto
+      localStorage.removeItem('anki-decks')
       
       try {
         // Cargar mazos por defecto desde JSON
@@ -28,40 +43,27 @@ function App() {
         const data1 = await response1.json()
         const data2 = await response2.json()
         
-        // Verificar si los mazos por defecto ya existen
-        const existingIds = savedDecks.map(d => d.id)
-        const newDecks = []
+        // Crear mazos frescos
+        const deck1 = new Deck(data1.name, data1.id)
+        deck1.description = data1.description
+        deck1.subject = data1.subject
+        data1.cards.forEach(card => {
+          deck1.addCard(card.front, card.back, card.tags || [])
+        })
         
-        if (!existingIds.includes(data1.id)) {
-          const deck1 = new Deck(data1.name, data1.id)
-          deck1.description = data1.description
-          deck1.subject = data1.subject
-          data1.cards.forEach(card => {
-            deck1.addCard(card.front, card.back, card.tags || [])
-          })
-          newDecks.push(deck1)
-        }
+        const deck2 = new Deck(data2.name, data2.id)
+        deck2.description = data2.description
+        deck2.subject = data2.subject
+        data2.cards.forEach(card => {
+          deck2.addCard(card.front, card.back, card.tags || [])
+        })
         
-        if (!existingIds.includes(data2.id)) {
-          const deck2 = new Deck(data2.name, data2.id)
-          deck2.description = data2.description
-          deck2.subject = data2.subject
-          data2.cards.forEach(card => {
-            deck2.addCard(card.front, card.back, card.tags || [])
-          })
-          newDecks.push(deck2)
-        }
-        
-        // Combinar mazos guardados con nuevos mazos por defecto
-        if (newDecks.length > 0) {
-          savedDecks = [...savedDecks, ...newDecks]
-          DataStore.saveDecks(savedDecks)
-        }
-        
-        setDecks(savedDecks)
+        const newDecks = [deck1, deck2]
+        setDecks(newDecks)
+        DataStore.saveDecks(newDecks)
       } catch (error) {
         console.error('Error loading default decks:', error)
-        setDecks(savedDecks)
+        setDecks([])
       }
       
       setLoading(false)
@@ -125,6 +127,38 @@ function App() {
     }
   }
 
+  const handleClearAllData = async () => {
+    // Limpiar localStorage
+    DataStore.clearAll()
+    // Recargar la página para recrear los mazos desde cero
+    window.location.reload()
+  }
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().then(() => {
+        setIsFullscreen(true)
+      }).catch(err => {
+        console.log('Error al entrar en pantalla completa:', err)
+      })
+    } else {
+      document.exitFullscreen().then(() => {
+        setIsFullscreen(false)
+      }).catch(err => {
+        console.log('Error al salir de pantalla completa:', err)
+      })
+    }
+  }
+
+  // Escuchar cambios de fullscreen (por si el usuario usa ESC)
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement)
+    }
+    document.addEventListener('fullscreenchange', handleFullscreenChange)
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange)
+  }, [])
+
   if (loading) {
     return (
       <div className="app-loading">
@@ -135,7 +169,14 @@ function App() {
   }
 
   return (
-    <div className="app">
+    <div className={`app ${isFullscreen ? 'fullscreen-mode' : ''}`}>
+      <button 
+        className="fullscreen-btn" 
+        onClick={toggleFullscreen}
+        title={isFullscreen ? 'Salir de pantalla completa' : 'Pantalla completa'}
+      >
+        {isFullscreen ? <ExitFullscreenIcon /> : <FullscreenIcon />}
+      </button>
       <main className="app-main">
         {currentView === 'decks' && (
           <DeckList 
@@ -146,6 +187,7 @@ function App() {
             onEditDeck={handleEditDeck}
             onStatsDeck={handleStatsDeck}
             onResetDeck={handleResetProgress}
+            onClearAllData={handleClearAllData}
           />
         )}
         

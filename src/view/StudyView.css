@@ -10,8 +10,31 @@
   margin-bottom: 24px;
 }
 
+.study-header .btn-back {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.study-header .btn-back:hover {
+  background: var(--bg-elevated);
+  border-color: var(--accent-primary);
+}
+
 .study-info {
   text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .study-info h2 {
@@ -43,6 +66,73 @@
   transition: width 0.3s ease;
 }
 
+/* Card Navigator Slider */
+.card-slider-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-slider-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  min-width: 24px;
+  text-align: center;
+}
+
+.card-slider {
+  flex: 1;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--bg-tertiary);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.card-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid var(--bg-secondary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.card-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  background: var(--accent-secondary);
+}
+
+.card-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid var(--bg-secondary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.card-slider::-moz-range-thumb:hover {
+  transform: scale(1.2);
+  background: var(--accent-secondary);
+}
+
 /* Flashcard 3D Flip */
 .flashcard-container {
   perspective: 1000px;
@@ -55,11 +145,7 @@
   position: relative;
   transform-style: preserve-3d;
   cursor: pointer;
-  transition: transform 0.6s;
-}
-
-.flashcard.flipped {
-  transform: rotateY(180deg);
+  transition: transform 0.6s ease;
 }
 
 .flashcard-inner {
@@ -75,7 +161,7 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  background: var(--bg-secondary);
+  background: #000000;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   padding: 32px;
@@ -93,7 +179,7 @@
 
 .flashcard-back {
   transform: rotateY(180deg);
-  background: var(--bg-tertiary);
+  background: #000000;
 }
 
 .card-content {
@@ -120,17 +206,11 @@
   color: var(--text-primary);
   max-height: 480px;
   overflow-y: auto;
-  text-align: left;
+  text-align: center;
   width: 100%;
 }
 
-.card-hint {
-  text-align: center;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  padding-top: 16px;
-  border-top: 1px solid var(--border-light);
-}
+
 
 .card-tags {
   display: flex;
@@ -149,60 +229,67 @@
   color: var(--text-secondary);
 }
 
-/* Rating Buttons */
+/* Rating Buttons - Dark Flat Style */
 .rating-buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+  gap: 16px;
+  padding: 4px;
 }
 
 .rating-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  padding: 16px 8px;
+  gap: 6px;
+  padding: 18px 12px;
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: 14px;
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.2s ease;
   color: white;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.rating-btn:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.1);
+.rating-btn:active {
+  transform: scale(0.98);
 }
 
-.rating-btn.again { background: var(--accent-danger); }
-.rating-btn.hard { background: #9e6a03; }
-.rating-btn.good { background: var(--accent-success); }
-.rating-btn.easy { background: var(--accent-primary); }
+.rating-btn.again { 
+  background: #7c1d1d;
+}
+.rating-btn.hard { 
+  background: #9a3412;
+}
+.rating-btn.good { 
+  background: #166534;
+}
+.rating-btn.easy { 
+  background: #1e3a5f;
+}
 
 .rating-label {
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   font-weight: 600;
+  letter-spacing: -0.3px;
 }
 
 .rating-key {
-  font-size: 0.75rem;
-  opacity: 0.8;
-  padding: 2px 8px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 3px 10px;
   background: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 .rating-time {
   font-size: 0.75rem;
-  opacity: 0.9;
+  font-weight: 500;
+  opacity: 0.85;
 }
 
-.flip-hint {
-  text-align: center;
-  color: var(--text-muted);
-  font-size: 0.875rem;
-  padding: 20px;
-}
+
 
 /* Empty State */
 .empty-study {
@@ -226,6 +313,13 @@
 .empty-study p {
   color: var(--text-secondary);
   margin-bottom: 24px;
+}
+
+.empty-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* Complete View */
@@ -305,6 +399,61 @@
   justify-content: center;
 }
 
+/* Tablets landscape */
+@media (max-width: 1024px) {
+  .study-view {
+    padding: 16px;
+  }
+  
+  .flashcard {
+    height: 500px;
+  }
+  
+  .card-text {
+    font-size: 1.25rem;
+  }
+  
+  .rating-buttons {
+    gap: 12px;
+  }
+  
+  .rating-btn {
+    padding: 16px 10px;
+  }
+}
+
+/* Tablets portrait */
+@media (max-width: 768px) {
+  .flashcard {
+    height: 450px;
+  }
+  
+  .study-header {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .study-info {
+    order: -1;
+    width: 100%;
+    position: static;
+    transform: none;
+    margin-bottom: 8px;
+  }
+  
+  .study-header .btn-back {
+    order: 1;
+  }
+  
+  .study-header .btn-reset {
+    order: 2;
+  }
+  
+  .card-slider-container {
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 640px) {
   .flashcard {
     height: 350px;
@@ -320,23 +469,124 @@
   }
   
   .rating-buttons {
-    gap: 8px;
+    gap: 10px;
   }
   
   .rating-btn {
-    padding: 12px 4px;
+    padding: 14px 6px;
+    border-radius: 14px;
+  }
+  
+  .rating-btn::before {
+    border-radius: 14px;
   }
   
   .rating-label {
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
   }
   
   .rating-key,
   .rating-time {
-    font-size: 0.625rem;
+    font-size: 0.6875rem;
   }
   
   .session-stats {
     grid-template-columns: repeat(2, 1fr);
   }
+  
+  .card-slider-container {
+    padding: 6px 12px;
+    gap: 10px;
+  }
+  
+  .card-slider-label {
+    font-size: 0.75rem;
+    min-width: 20px;
+  }
+
+
+/* Moviles pequenos (iPhone SE, Galaxy S8) */
+@media (max-width: 375px) {
+  .flashcard {
+    height: 350px;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+  }
+  
+  .rating-buttons {
+    gap: 6px;
+  }
+  
+  .rating-btn {
+    padding: 12px 2px;
+  }
+  
+  .rating-label {
+    font-size: 0.6875rem;
+  }
+  
+  .rating-key {
+    font-size: 0.6rem;
+    padding: 2px 6px;
+  }
+  
+  .rating-time {
+    font-size: 0.6rem;
+  }
+  
+  .card-slider-container {
+    padding: 6px 10px;
+  }
+  
+  .card-slider {
+    height: 6px;
+  }
 }
+
+/* Moviles muy pequenos (iPhone 5, antiguos) */
+@media (max-width: 320px) {
+  .study-view {
+    padding: 12px;
+  }
+  
+  .flashcard {
+    height: 320px;
+  }
+  
+  .flashcard-front,
+  .flashcard-back {
+    padding: 16px;
+  }
+  
+  .card-text {
+    font-size: 0.9375rem;
+  }
+  
+  .rating-buttons {
+    gap: 4px;
+  }
+  
+  .rating-btn {
+    padding: 10px 2px;
+    border-radius: 10px;
+  }
+  
+  .rating-label {
+    font-size: 0.625rem;
+  }
+  
+  .complete-view {
+    padding: 24px 16px;
+  }
+  
+  .complete-icon {
+    font-size: 3rem;
+  }
+  
+  .complete-view h2 {
+    font-size: 1.25rem;
+  }
+}
+
