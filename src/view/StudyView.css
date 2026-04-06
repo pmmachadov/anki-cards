@@ -161,7 +161,7 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  background: #000000;
+  background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   padding: 32px;
@@ -179,7 +179,7 @@
 
 .flashcard-back {
   transform: rotateY(180deg);
-  background: #000000;
+  background: var(--bg-secondary);
 }
 
 .card-content {
