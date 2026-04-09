@@ -137,6 +137,8 @@
 .flashcard-container {
   perspective: 1000px;
   margin-bottom: 32px;
+  position: relative;
+  z-index: 1;
 }
 
 .flashcard {
@@ -240,6 +242,8 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   padding: 4px;
+  position: relative;
+  z-index: 2;
 }
 
 .rating-btn {
