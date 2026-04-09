@@ -242,32 +242,24 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
             onClick={() => handleRate(DIFFICULTY.AGAIN)}
           >
             <span className="rating-label">Otra vez</span>
-            <span className="rating-key">1</span>
-            <span className="rating-time">1d</span>
           </button>
           <button 
             className="rating-btn hard"
             onClick={() => handleRate(DIFFICULTY.HARD)}
           >
             <span className="rating-label">Dificil</span>
-            <span className="rating-key">2</span>
-            <span className="rating-time">2d</span>
           </button>
           <button 
             className="rating-btn good"
             onClick={() => handleRate(DIFFICULTY.GOOD)}
           >
             <span className="rating-label">Bien</span>
-            <span className="rating-key">3</span>
-            <span className="rating-time">3d</span>
           </button>
           <button 
             className="rating-btn easy"
             onClick={() => handleRate(DIFFICULTY.EASY)}
           >
             <span className="rating-label">Facil</span>
-            <span className="rating-key">4</span>
-            <span className="rating-time">4d</span>
           </button>
         </div>
       ) : (
