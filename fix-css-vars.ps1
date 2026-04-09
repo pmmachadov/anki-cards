@@ -24,6 +24,14 @@ $vars = @{
     '--accent-danger' = '#da3633'
     '--border-color' = '#30363d'
     '--border-light' = '#21262d'
+    '--shadow-sm' = '0 1px 2px rgba(0, 0, 0, 0.3)'
+    '--shadow-md' = '0 4px 12px rgba(0, 0, 0, 0.4)'
+    '--shadow-lg' = '0 8px 24px rgba(0, 0, 0, 0.5)'
+    '--shadow-xl' = '0 16px 48px rgba(0, 0, 0, 0.6)'
+    '--radius-sm' = '6px'
+    '--radius-md' = '8px'
+    '--radius-lg' = '12px'
+    '--transition' = 'all 0.2s ease'
 }
 
 # Reemplazar cada var(--variable) con su valor
