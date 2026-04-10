@@ -1,6 +1,8 @@
 .study-view {
   max-width: 1000px;
   margin: 0 auto;
+  background: #000000;
+  min-height: 100vh;
 }
 
 .study-header {
@@ -170,13 +172,13 @@
   min-height: 400px;
   height: auto;
   backface-visibility: hidden;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
+  background: #050505;
+  border: 1px solid #1a1a1a;
   border-radius: var(--radius-lg);
   padding: 48px;
   display: flex;
   flex-direction: column;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
   transition: var(--transition);
   grid-area: 1 / 1;
 }
@@ -223,7 +225,88 @@
   white-space: pre-wrap;
 }
 
+/* Contenido con código */
+.card-content-code {
+  align-items: stretch;
+  text-align: left;
+  gap: 12px;
+}
 
+.card-text-paragraph {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  margin: 0;
+  text-align: center;
+  white-space: pre-wrap;
+}
+
+.code-block-wrapper {
+  width: 100%;
+  margin: 12px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.code-block-wrapper pre {
+  margin: 0 !important;
+  text-align: left !important;
+  background: #000000 !important;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  padding: 20px !important;
+}
+
+.code-block-wrapper code {
+  font-family: 'Fira Code', 'JetBrains Mono', 'Consolas', monospace !important;
+  font-size: 1rem !important;
+  background: transparent !important;
+}
+
+/* Colores más vibrantes para sintaxis */
+.code-block-wrapper .token.keyword {
+  color: #ff79c6 !important;
+  font-weight: bold;
+}
+
+.code-block-wrapper .token.string {
+  color: #f1fa8c !important;
+}
+
+.code-block-wrapper .token.function {
+  color: #50fa7b !important;
+}
+
+.code-block-wrapper .token.comment {
+  color: #6272a4 !important;
+  font-style: italic;
+}
+
+.code-block-wrapper .token.number {
+  color: #bd93f9 !important;
+}
+
+.code-block-wrapper .token.operator {
+  color: #ff79c6 !important;
+}
+
+.code-block-wrapper .token.punctuation {
+  color: #f8f8f2 !important;
+}
+
+.code-block-wrapper .token.tag {
+  color: #ff79c6 !important;
+}
+
+.code-block-wrapper .token.attr-name {
+  color: #50fa7b !important;
+}
+
+.code-block-wrapper .token.attr-value {
+  color: #f1fa8c !important;
+}
 
 .card-tags {
   display: flex;
