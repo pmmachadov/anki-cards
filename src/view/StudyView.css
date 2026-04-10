@@ -70,13 +70,14 @@
 .card-slider-container {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
-  padding: 8px 16px;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 12px 24px;
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
-  border-radius: 20px;
-  max-width: 600px;
+  border-radius: 24px;
+  max-width: 100%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -91,11 +92,11 @@
 
 .card-slider {
   flex: 1;
-  height: 4px;
+  height: 8px;
   -webkit-appearance: none;
   appearance: none;
   background: var(--bg-tertiary);
-  border-radius: 2px;
+  border-radius: 4px;
   outline: none;
   cursor: pointer;
 }
@@ -103,14 +104,14 @@
 .card-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
   background: var(--accent-primary);
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.2s ease;
-  border: 2px solid var(--bg-secondary);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  border: 3px solid var(--bg-secondary);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
 .card-slider::-webkit-slider-thumb:hover {
@@ -119,13 +120,13 @@
 }
 
 .card-slider::-moz-range-thumb {
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
   background: var(--accent-primary);
   border-radius: 50%;
   cursor: pointer;
-  border: 2px solid var(--bg-secondary);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  border: 3px solid var(--bg-secondary);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
 .card-slider::-moz-range-thumb:hover {
@@ -139,11 +140,14 @@
   margin-bottom: 32px;
   position: relative;
   z-index: 1;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .flashcard {
   width: 100%;
-  min-height: 300px;
+  min-height: 400px;
   position: relative;
   transform-style: preserve-3d;
   cursor: pointer;
@@ -153,24 +157,28 @@
 .flashcard-inner {
   position: relative;
   width: 100%;
-  min-height: 300px;
+  min-height: 400px;
+  height: auto;
   transform-style: preserve-3d;
+  display: grid;
 }
 
 .flashcard-front,
 .flashcard-back {
   position: relative;
   width: 100%;
-  min-height: 300px;
+  min-height: 400px;
+  height: auto;
   backface-visibility: hidden;
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: 32px;
+  padding: 48px;
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-md);
   transition: var(--transition);
+  grid-area: 1 / 1;
 }
 
 .flashcard:hover .flashcard-front,
@@ -182,10 +190,6 @@
 .flashcard-back {
   transform: rotateY(180deg);
   background: var(--bg-secondary);
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
 }
 
 .card-content {
@@ -195,7 +199,8 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-height: 200px;
+  min-height: 300px;
+  padding: 24px 0;
 }
 
 .card-label {
@@ -209,12 +214,13 @@
 
 .card-text {
   font-size: 1.5rem;
-  line-height: 1.6;
+  line-height: 1.8;
   color: var(--text-primary);
-  overflow-y: auto;
+  overflow-y: visible;
   text-align: center;
   width: 100%;
   word-break: break-word;
+  white-space: pre-wrap;
 }
 
 
@@ -416,12 +422,12 @@
   
   .flashcard,
   .flashcard-inner {
-    min-height: 280px;
+    min-height: auto;
   }
   
   .flashcard-front,
   .flashcard-back {
-    min-height: 280px;
+    min-height: auto;
   }
   
   .card-text {
@@ -441,12 +447,12 @@
 @media (max-width: 768px) {
   .flashcard,
   .flashcard-inner {
-    min-height: 260px;
+    min-height: auto;
   }
   
   .flashcard-front,
   .flashcard-back {
-    min-height: 260px;
+    min-height: auto;
     padding: 24px;
   }
   
@@ -479,12 +485,12 @@
 @media (max-width: 640px) {
   .flashcard,
   .flashcard-inner {
-    min-height: 240px;
+    min-height: auto;
   }
   
   .flashcard-front,
   .flashcard-back {
-    min-height: 240px;
+    min-height: auto;
     padding: 20px;
   }
   
@@ -533,12 +539,12 @@
 @media (max-width: 375px) {
   .flashcard,
   .flashcard-inner {
-    min-height: 220px;
+    min-height: auto;
   }
   
   .flashcard-front,
   .flashcard-back {
-    min-height: 220px;
+    min-height: auto;
     padding: 16px;
   }
   
@@ -584,12 +590,12 @@
   
   .flashcard,
   .flashcard-inner {
-    min-height: 200px;
+    min-height: auto;
   }
   
   .flashcard-front,
   .flashcard-back {
-    min-height: 200px;
+    min-height: auto;
     padding: 12px;
   }
   

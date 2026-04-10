@@ -62,6 +62,11 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
     }
   }, [currentCard, currentCardIndex, cards.length, deck, onUpdateDeck])
 
+  // Scroll al inicio cuando cambia la tarjeta
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [currentCardIndex])
+
   // Keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e) => {
