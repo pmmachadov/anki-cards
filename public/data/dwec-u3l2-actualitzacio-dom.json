@@ -88,6 +88,48 @@
       "back": "// a) Modificar contingut de text\ndocument.getElementById('titol-principal').textContent = \n  'Cataleg dinamic actualitzat amb JavaScript';\n\nconst resum = document.getElementById('resum');\nresum.innerHTML = 'Aquest cataleg <strong>actualitzat</strong> ' +\n  'mostra productes. <a href=\"#\">Mes info</a>.';\nresum.innerHTML += '<br>Amb JavaScript i el DOM.';\n\n// b) Modificar atributs\nconst enllac = document.getElementById('enllac-botiga');\nenllac.setAttribute('href', 'https://www.ioc.cat');\nenllac.setAttribute('title', \"Obre la nova botiga de l'IOC\");\n\n// c) Crear i afegir productes\nconst llista = document.getElementById('llista-productes');\nconst crearProducte = (nom, preu) => { /* ... */ };\nllista.prepend(crearProducte('Producte Inici', '12.00'));\nllista.append(crearProducte('Producte Final', '5.99'));\n\n// d) Clonar plantilla\nconst plantilla = document.getElementById('plantilla-producte');\nconst clon = plantilla.cloneNode(true);\nclon.removeAttribute('id');\nllista.appendChild(clon);\n\n// e) Eliminar i reemplaçar\ndocument.getElementById('missatge-banner').remove();",
       "tags": ["dom", "codicomplet", "activitat", "ioc", "appjs"],
       "difficulty": "medium"
+    },
+    {
+      "id": "u3l2-act-013",
+      "front": "HTML complet: index.html de l'activitat Mini cataleg DOM",
+      "back": "<!DOCTYPE html>\n<html lang=\"ca\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Mini cataleg DOM</title>\n</head>\n<body>\n  <h1 id=\"titol-principal\">Cataleg per defecte</h1>\n\n  <p id=\"resum\">\n    Aquest es un cataleg estatic. Encara no s'ha actualitzat amb JavaScript.\n  </p>\n\n  <a id=\"enllac-botiga\" href=\"https://example.com\" target=\"_blank\">\n    Visita la nostra botiga antiga\n  </a>\n\n  <section id=\"seccio-productes\">\n    <h2>Productes destacats</h2>\n    <ul id=\"llista-productes\">\n      <li class=\"producte\" data-preu=\"9.99\">\n        <strong class=\"nom-producte\">Producte inicial</strong>\n        <span class=\"preu-producte\">9,99 €</span>\n      </li>\n    </ul>\n  </section>\n\n  <section id=\"plantilles\" style=\"display: none;\">\n    <li id=\"plantilla-producte\" class=\"producte\" data-preu=\"0\">\n      <strong class=\"nom-producte\">Nom per defecte</strong>\n      <span class=\"preu-producte\">0,00 €</span>\n    </li>\n  </section>\n\n  <section id=\"banner\">\n    <p id=\"missatge-banner\">Banner antic: promocio caducada.</p>\n  </section>\n\n  <script src=\"app.js\"></script>\n</body>\n</html>",
+      "tags": ["dom", "html", "activitat", "ioc", "indexhtml"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3l2-act-014",
+      "front": "Solucio completa: app.js amb DOMContentLoaded (IOC versio 2026)",
+      "back": "// Ens assegurem que el DOM esta carregat abans de manipular-lo\ndocument.addEventListener('DOMContentLoaded', () => {\n\n  // a) Modificar contingut de text\n  const titolPrincipal = document.getElementById('titol-principal');\n  titolPrincipal.textContent = 'Cataleg dinamic actualitzat amb JavaScript';\n\n  const resum = document.getElementById('resum');\n  resum.innerHTML = \n    '<strong>Benvinguts al nostre cataleg dinamic!</strong><br>' +\n    'Ara actualitzem aquest contingut amb <em>JavaScript</em> i el DOM.';\n\n  // b) Modificar atributs i data-*\n  const enllacBotiga = document.getElementById('enllac-botiga');\n  enllacBotiga.setAttribute('href', 'https://www.ioc.cat');\n  enllacBotiga.setAttribute('title', \"Obre la nova botiga de l'IOC\");\n  enllacBotiga.textContent = \"Visitem la nova botiga de l'IOC\";\n\n  // Llegir data-preu del primer producte\n  const primerProducte = document.querySelector('#llista-productes .producte');\n  const preuOriginal = primerProducte.dataset.preu;\n  console.log('Preu original:', preuOriginal);\n\n  // Actualitzar data-preu a 14.5\n  primerProducte.dataset.preu = '14.5';\n  primerProducte.querySelector('.preu-producte').textContent = '14,50 €';\n\n  // c) Crear i inserir nous elements\n  const llistaProductes = document.getElementById('llista-productes');\n\n  function crearProducte(nom, preuNumeric) {\n    const li = document.createElement('li');\n    li.classList.add('producte');\n    li.dataset.preu = String(preuNumeric);\n\n    const strong = document.createElement('strong');\n    strong.classList.add('nom-producte');\n    strong.textContent = nom;\n\n    const span = document.createElement('span');\n    span.classList.add('preu-producte');\n    span.textContent = preuNumeric.toFixed(2).replace('.', ',') + ' €';\n\n    li.appendChild(strong);\n    li.appendChild(document.createTextNode(' '));\n    li.appendChild(span);\n    return li;\n  }\n\n  llistaProductes.prepend(crearProducte('Producte al principi', 5.99));\n  llistaProductes.append(crearProducte('Producte al final', 12.0));\n\n  // d) Clonar elements amb cloneNode\n  const plantilla = document.getElementById('plantilla-producte');\n  if (plantilla) {\n    const clon = plantilla.cloneNode(true);\n    clon.removeAttribute('id');\n    clon.querySelector('.nom-producte').textContent = 'Producte clonat';\n    clon.querySelector('.preu-producte').textContent = '19,99 €';\n    clon.dataset.preu = '19.99';\n    llistaProductes.appendChild(clon);\n  }\n\n  // e) Eliminar i reemplaçar elements\n  const banner = document.getElementById('banner');\n  const missatgeBannerAntic = document.getElementById('missatge-banner');\n  if (missatgeBannerAntic) missatgeBannerAntic.remove();\n\n  const nouBanner = document.createElement('p');\n  nouBanner.textContent = 'Banner actual: descompte del 20% en tots els productes!';\n  banner.appendChild(nouBanner);\n\n  const infoBanner = document.createElement('p');\n  infoBanner.textContent = 'Aquesta promocio es limitada en el temps.';\n  banner.insertBefore(infoBanner, nouBanner);\n});",
+      "tags": ["dom", "solucio", "activitat", "ioc", "complet"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3l2-act-015",
+      "front": "Diferencia entre textContent, innerText i innerHTML?",
+      "back": "textContent:\n- Retorna/només text, sense etiquetes HTML\n- No interpreta HTML (mostra etiquetes com a text pla)\n- Mes segur contra XSS\n- Rendiment mes rapid\n\ninnerText:\n- Similar a textContent pero considera estils CSS\n- No retorna text ocult (display: none)\n- Interpreta salts de linia segons CSS\n\ninnerHTML:\n- Permet inserir codi HTML amb format\n- Interpreta etiquetes HTML\n- Risc de XSS si el contingut ve de l'usuari\n- Mes lent que textContent\n\nExemple:\nresum.innerHTML = '<strong>Benvinguts!</strong><br>Ara amb JS';",
+      "tags": ["dom", "textcontent", "innertext", "innerhtml", "diferencies"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3l2-act-016",
+      "front": "Com formatejar el preu numeric a text amb coma (5.99 → 5,99 €)?",
+      "back": "Metode per formatejar preus:\n\nfunction crearProducte(nom, preuNumeric) {\n  // ... crear elements ...\n  \n  // Formatejar: 5.99 → '5,99 €'\n  const preuFormatat = preuNumeric\n    .toFixed(2)        // '5.99' (sempre 2 decimals)\n    .replace('.', ','); // '5,99' (canviar punt per coma)\n  \n  span.textContent = preuFormatat + ' €'; // '5,99 €'\n  \n  return li;\n}\n\n// Exemples:\n(5.99).toFixed(2).replace('.', ',')   // '5,99'\n(12).toFixed(2).replace('.', ',')     // '12,00'\n(12.5).toFixed(2).replace('.', ',')   // '12,50'\n\nNota: toFixed sempre retorna string amb el numero de decimals especificat.",
+      "tags": ["dom", "format", "preu", "tofixed", "replace"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3l2-act-017",
+      "front": "Per que eliminar l'atribut 'id' despres de clonar amb cloneNode?",
+      "back": "Problema dels IDs duplicats:\n\nHTML inicial (plantilla oculta):\n<li id=\"plantilla-producte\" class=\"producte\" ...>\n\nDespres de clonar:\nconst clon = plantilla.cloneNode(true);\n// El clon tambe te id=\"plantilla-producte\"\n\nPerill:\n- getElementById() nomes retorna el PRIMER element amb aquest ID\n- Si hi ha multiples elements amb el mateix ID, el comportament es imprevisible\n- Invalida el HTML (els IDs han de ser unics)\n\nSolucio OBLIGATORIA:\nclon.removeAttribute('id'); // Eliminem l'ID del clon\n\nAlternativa:\nclon.id = ''; // També elimina l'atribut id",
+      "tags": ["dom", "clonenode", "id", "duplicats", "validacio"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3l2-act-018",
+      "front": "Metodes d'insercio: diferencies entre append, appendChild, prepend, before, after",
+      "back": "append() vs appendChild():\n- append(): pot afegir multiples nodes o text\n- appendChild(): nomes un node, retorna el node afegit\n\nprepend():\n- Afegeix com a PRIMER fill del pare\n- llista.prepend(nouProducte)\n\nbefore() / after():\n- before(): insereix ABANS de l'element referencia\n- after(): insereix DESPRES de l'element referencia\n- element.before(nouNode)\n\ninsertBefore() (classic):\n- pare.insertBefore(nouNode, nodeReferencia)\n- Insereix nouNode abans de nodeReferencia\n\nExemples:\nllista.prepend(producte);     // Al principi\nllista.append(producte);      // Al final\nbanner.before(nouElement);    // Abans del banner\nbanner.after(nouElement);     // Despres del banner",
+      "tags": ["dom", "append", "prepend", "before", "after", "insercio"],
+      "difficulty": "medium"
     }
   ]
 }
