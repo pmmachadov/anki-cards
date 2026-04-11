@@ -27,9 +27,12 @@ The application includes pre-loaded study materials for computer science subject
 ```
 anki-cards/
 ├── public/
-│   ├── data/                    # JSON deck files (24 subject files)
+│   ├── data/                    # JSON deck files (25+ subject files)
 │   │   ├── sistemas-informaticos.json
 │   │   ├── entornos-desarrollo.json
+│   │   ├── dom-consulta-busqueda.json
+│   │   ├── dwec-unidad3-dom-parte1.json
+│   │   ├── dwec-unidad3-dom-parte2.json
 │   │   └── unidad*.json         # Additional unit files
 │   ├── favicon.svg
 │   └── icons.svg

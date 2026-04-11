@@ -1,0 +1,214 @@
+{
+  "id": "dwec-unidad3-dom-parte2",
+  "name": "DWEC - Unidad 3 - Programacion con el DOM (II)",
+  "description": "Modificacion de elementos, atributos, creacion y eliminacion de nodos, clonacion",
+  "subject": "Desenvolupament Web en Entorn Client",
+  "created": "2026-04-11",
+  "cards": [
+    {
+      "id": "dwec-u3-p2-001",
+      "front": "Para que sirve textContent al modificar elementos?",
+      "back": "Sustituye todo el texto de un elemento sin interpretar HTML.\n\nEjemplo:\nelemento.textContent = \"Texto nuevo sin etiquetas\";\n\nCaracteristicas:\n- Elimina el texto anterior y lo reemplaza\n- No interpreta etiquetas HTML (se muestran como texto literal)\n- Opcion SEGURA contra inyecciones XSS\n- Recomendado cuando solo se quiere cambiar texto",
+      "tags": ["dom", "textcontent", "modificacion", "seguridad"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-u3-p2-002",
+      "front": "Para que sirve innerHTML al modificar elementos?",
+      "back": "Sustituye todo el contenido interno de un elemento, incluyendo etiquetas HTML.\n\nEjemplo:\nelemento.innerHTML = \"<strong>Negrita</strong> y <a href='#'>enlace</a>\";\n\nCaracteristicas:\n- El navegador interpreta la cadena como codigo HTML\n- Crea nuevos nodos internos\n- Util para generar contenido formateado\n- PRECAUCION: riesgo de XSS con datos de usuario",
+      "tags": ["dom", "innerhtml", "modificacion", "xss"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-u3-p2-003",
+      "front": "Cual es la diferencia entre textContent e innerHTML?",
+      "back": "TEXTCONTENT:\n- Solo texto plano\n- No interpreta HTML (etiquetas se ven como texto)\n- Seguro contra XSS\n- Mas rapido\n\nINNERHTML:\n- Interpreta codigo HTML\n- Permite etiquetas y formato\n- Riesgo de inyeccion XSS\n- Reconstruye el DOM interno\n\nRegla: usar textContent para texto simple, innerHTML solo cuando se necesite HTML."
+      ,
+      "tags": ["dom", "textcontent", "innerhtml", "diferencias"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-u3-p2-004",
+      "front": "Para que sirve innerText?",
+      "back": "Lee y escribe texto teniendo en cuenta el estilo y layout de la pagina (solo texto visible).\n\nEjemplo:\nelemento.innerText = \"Texto visible\";\n\nCaracteristicas:\n- Solo devuelve texto visible (ignora display: none)\n- Tiene en cuenta saltos de linea segun renderizado\n- Mas lento que textContent (consulta CSS)\n- Puede variar entre navegadores\n\nPreferir textContent para la mayoria de casos."
+      ,
+      "tags": ["dom", "innertext", "modificacion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-u3-p2-005",
+      "front": "Como leer el valor de un atributo con getAttribute?",
+      "back": "Metodo: element.getAttribute('nombreAtributo')\n\nEjemplo:\nconst enlace = document.querySelector(\"a\");\nconst url = enlace.getAttribute(\"href\");\n\n- Devuelve el valor del atributo como string\n- Devuelve null si el atributo no existe\n- Funciona con cualquier atributo HTML estandar o personalizado"
+      ,
+      "tags": ["dom", "atributos", "getattribute"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-u3-p2-006",
+      "front": "Como modificar o crear un atributo con setAttribute?",
+      "back": "Metodo: element.setAttribute('nombre', 'valor')\n\nEjemplo:\nconst enlace = document.querySelector(\"a\");\nenlace.setAttribute(\"href\", \"https://www.ioc.cat\");\nenlace.setAttribute(\"target\", \"_blank\");\n\n- Crea el atributo si no existe\n- Sobrescribe el valor si ya existe\n- Funciona con cualquier atributo HTML"
+      ,
+      "tags": ["dom", "atributos", "setattribute"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-u3-p2-007",
+      "front": "Como eliminar un atributo con removeAttribute?",
+      "back": "Metodo: element.removeAttribute('nombreAtributo')\n\nEjemplo:\nconst enlace = document.querySelector(\"a\");\nenlace.removeAttribute(\"title\");\n\n- Elimina completamente el atributo del elemento\n- Si el atributo no existe, no da error\n- Util para limpiar elementos antes de clonarlos"
+      ,
+      "tags": ["dom", "atributos", "removeattribute"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-u3-p2-008",
+      "front": "Como acceder a atributos como propiedades directas?",
+      "back": "Muchos atributos estan disponibles como propiedades del objeto Element:\n\nconst input = document.querySelector(\"input\");\n\n// Propiedades equivalentes a atributos\ninput.id = \"usuario\";           // igual que setAttribute(\"id\", ...)\ninput.value = \"Anna\";           // valor del formulario\ninput.disabled = true;          // desactiva el campo\ninput.checked = true;           // para checkbox\ninput.src = \"imagen.jpg\";       // para imagenes\n\nVentaja: sintaxis mas corta y comoda."
+      ,
+      "tags": ["dom", "atributos", "propiedades"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-u3-p2-009",
+      "front": "Que son los atributos de datos (data-*)?",
+      "back": "Atributos personalizados HTML5 para almacenar informacion adicional.\n\nHTML:\n<li data-precio=\"12.5\" data-id=\"123\">Producto X</li>\n\nJavaScript - Acceso via dataset:\nconst item = document.querySelector(\"li\");\nconst precio = item.dataset.precio;      // \"12.5\"\nconst id = item.dataset.id;              // \"123\"\n\n// Modificar\nitem.dataset.precio = \"15.0\";\n\n- El guion se convierte en camelCase: data-product-id → dataset.productId"
+      ,
+      "tags": ["dom", "data-attributes", "dataset", "html5"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-u3-p2-010",
+      "front": "Como crear un nuevo elemento con createElement?",
+      "back": "Metodo: document.createElement('nombreEtiqueta')\n\nEjemplo:\n// Crear un nuevo elemento li\nconst nuevoLi = document.createElement(\"li\");\n\n// Configurar contenido\nnuevoLi.textContent = \"Elemento nuevo\";\n\n// Insertar en el DOM\nlista.appendChild(nuevoLi);\n\nPasos tipicos:\n1. Crear el elemento\n2. Configurar (texto, atributos, clases...)\n3. Insertar en el arbol DOM"
+      ,
+      "tags": ["dom", "createelement", "creacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-u3-p2-011",
+      "front": "Como crear un nodo de texto con createTextNode?",
+      "back": "Metodo: document.createTextNode('texto')\n\nEjemplo:\nconst nuevoLi = document.createElement(\"li\");\nconst texto = document.createTextNode(\"Texto del elemento\");\n\n// Unir texto al elemento\nnuevoLi.appendChild(texto);\n\n// Insertar en la lista\nlista.appendChild(nuevoLi);\n\nAlternativa mas sencilla:\nnuevoLi.textContent = \"Texto del elemento\";",
+      "tags": ["dom", "createtextnode", "texto"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-u3-p2-012",
+      "front": "Como insertar un elemento al final con appendChild?",
+      "back": "Metodo: padre.appendChild(nuevoHijo)\n\nEjemplo:\nconst lista = document.getElementById(\"lista\");\nconst nuevoLi = document.createElement(\"li\");\nnuevoLi.textContent = \"Ultimo elemento\";\n\nlista.appendChild(nuevoLi);\n\n- Anade el elemento como ULTIMO hijo del padre\n- Si el elemento ya existe en el DOM, lo MUEVE a la nueva posicion\n- Metodo clasico, compatible con todos los navegadores"
+      ,
+      "tags": ["dom", "appendchild", "insercion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-u3-p2-013",
+      "front": "Como insertar antes de otro elemento con insertBefore?",
+      "back": "Metodo: padre.insertBefore(nuevoNodo, nodoReferencia)\n\nEjemplo:\nconst lista = document.getElementById(\"lista\");\nconst primerElemento = lista.firstElementChild;\nconst nuevoLi = document.createElement(\"li\");\n\n// Insertar antes del primer elemento\nlista.insertBefore(nuevoLi, primerElemento);\n\n- Primer parametro: nuevo nodo a insertar\n- Segundo parametro: nodo antes del cual insertar\n- Si segundo parametro es null, inserta al final"
+      ,
+      "tags": ["dom", "insertbefore", "insercion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-u3-p2-014",
+      "front": "Metodos modernos: append() y prepend()",
+      "back": "append() → Inserta al FINAL como ultimo hijo\nprepend() → Inserta al PRINCIPIO como primer hijo\n\nEjemplos:\nconst lista = document.getElementById(\"lista\");\n\n// Al final\nlista.append(nuevoElemento);\n\n// Al principio\nlista.prepend(nuevoElemento);\n\nVentajas sobre appendChild:\n- Pueden insertar multiples elementos a la vez\n- Aceptan strings (se convierten en nodos de texto)\n- Mas flexible y modernos"
+      ,
+      "tags": ["dom", "append", "prepend", "moderno"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-u3-p2-015",
+      "front": "Metodos modernos: before() y after()",
+      "back": "before() → Inserta antes del elemento actual\nafter() → Inserta despues del elemento actual\n\nEjemplos:\nconst referencia = document.querySelector(\".elemento\");\n\n// Insertar antes\nreferencia.before(nuevoElemento);\n\n// Insertar despues\nreferencia.after(nuevoElemento);\n\n- Se llaman sobre el elemento de referencia (no sobre el padre)\n- No requieren conocer el elemento padre"
+      ,
+      "tags": ["dom", "before", "after", "moderno"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-u3-p2-016",
+      "front": "Para que sirve cloneNode()?",
+      "back": "Duplica un nodo existente en el DOM.\n\nEjemplo:\nconst original = document.querySelector(\".tarjeta\");\nconst copia = original.cloneNode(true);\n\nParametro booleano:\n- cloneNode(false) → Clon SUPERFICIAL (solo el elemento, sin hijos)\n- cloneNode(true) → Clon PROFUNDO (elemento + todos los descendientes)\n\nEl clon existe en memoria pero NO en el DOM hasta insertarlo."
+      ,
+      "tags": ["dom", "clonenode", "clonacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-u3-p2-017",
+      "front": "Diferencia entre cloneNode(true) y cloneNode(false)",
+      "back": "CLONE NODE(TRUE) - CLON PROFUNDO:\n- Copia el elemento y TODO su subarbol\n- Incluye hijos, nietos, texto...\n- Util para duplicar estructuras completas\n\nCLONE NODE(FALSE) - CLON SUPERFICIAL:\n- Copia solo el elemento mismo\n- Mismas etiqueta y atributos\n- Sin hijos (ni textos ni elementos)\n- Util para crear elementos vacios con mismos atributos"
+      ,
+      "tags": ["dom", "clonenode", "diferencias"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-u3-p2-018",
+      "front": "Cuidado al clonar elementos con id",
+      "back": "Problema: los atributos id deben ser UNICOS en la pagina.\n\nEjemplo problematico:\nconst original = document.getElementById(\"elemento-unico\");\nconst clon = original.cloneNode(true);\nlista.appendChild(clon);\n\n// ¡Ahora hay dos elementos con el mismo id!\n\nSoluciones:\n1. Eliminar el id del clon:\nclon.removeAttribute(\"id\");\n\n2. Cambiar el id del clon:\nclon.id = \"elemento-unico-2\";\n\nRecomendacion: usar clases en lugar de ids para elementos reutilizables."
+      ,
+      "tags": ["dom", "clonenode", "id", "buenas-practicas"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-u3-p2-019",
+      "front": "Patron de plantilla oculta con cloneNode",
+      "back": "Patron util para crear elementos dinamicos:\n\nHTML:\n<li id=\"plantilla\" style=\"display: none;\">\n  <span class=\"titulo\"></span>\n</li>\n\nJavaScript:\nfunction agregarElemento(texto) {\n  const plantilla = document.getElementById(\"plantilla\");\n  const clon = plantilla.cloneNode(true);\n  \n  clon.removeAttribute(\"id\");    // Evitar duplicar id\n  clon.style.display = \"\";       // Hacer visible\n  clon.querySelector(\".titulo\").textContent = texto;\n  \n  lista.appendChild(clon);\n}\n\nVentaja: se define la estructura en HTML y se clona dinamicamente."
+      ,
+      "tags": ["dom", "patrones", "clonenode", "plantilla"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-u3-p2-020",
+      "front": "Como eliminar un elemento con remove()?",
+      "back": "Metodo moderno: element.remove()\n\nEjemplo:\nconst aEliminar = document.querySelector(\".elemento-a-eliminar\");\naEliminar.remove();\n\n- Elimina el elemento del DOM directamente\n- No necesita referencia al elemento padre\n- Metodo moderno (ES6+), mas sencillo\n- Compatible con navegadores modernos"
+      ,
+      "tags": ["dom", "remove", "eliminacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-u3-p2-021",
+      "front": "Como eliminar un elemento con removeChild()?",
+      "back": "Metodo clasico: padre.removeChild(hijo)\n\nEjemplo:\nconst elemento = document.querySelector(\".elemento\");\nelemento.parentNode.removeChild(elemento);\n\nObtener primero el padre:\nconst padre = document.getElementById(\"contenedor\");\nconst hijo = document.getElementById(\"hijo\");\npadre.removeChild(hijo);\n\n- Requiere conocer el elemento padre\n- Metodo clasico, maxima compatibilidad\n- remove() es mas moderno y sencillo"
+      ,
+      "tags": ["dom", "removechild", "eliminacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-u3-p2-022",
+      "front": "Como vaciar todo el contenido de un elemento?",
+      "back": "Opcion 1: innerHTML vacio\ncontenedor.innerHTML = \"\";\n\nOpcion 2: bucle con removeChild (metodo clasico)\nwhile (contenedor.firstChild) {\n  contenedor.removeChild(contenedor.firstChild);\n}\n\nOpcion 3: replaceChildren (moderno)\ncontenedor.replaceChildren();\n\nLa opcion 1 (innerHTML) es la mas corta y comun.\nLa opcion 2 es util para navegadores muy antiguos."
+      ,
+      "tags": ["dom", "vaciar", "eliminacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-u3-p2-023",
+      "front": "Como reemplazar un elemento con replaceChild()?",
+      "back": "Metodo: padre.replaceChild(nuevoNodo, nodoViejo)\n\nEjemplo:\nconst viejo = document.getElementById(\"banner-viejo\");\nconst nuevo = document.createElement(\"div\");\nnuevo.textContent = \"Nuevo banner\";\n\nviejo.parentNode.replaceChild(nuevo, viejo);\n\n- Requiere referencia al elemento padre\n- Primer parametro: nuevo elemento\n- Segundo parametro: elemento a reemplazar\n- El elemento viejo se elimina completamente"
+      ,
+      "tags": ["dom", "replacechild", "reemplazo"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-u3-p2-024",
+      "front": "Como reemplazar un elemento de forma moderna?",
+      "back": "Metodo moderno: replaceWith()\n\nEjemplo:\nconst viejo = document.getElementById(\"elemento-viejo\");\nconst nuevo = document.createElement(\"div\");\nnuevo.textContent = \"Contenido nuevo\";\n\nviejo.replaceWith(nuevo);\n\n- Se llama sobre el elemento a reemplazar\n- No requiere conocer el padre\n- Mas intuitivo que replaceChild\n- Puede recibir multiples elementos o strings"
+      ,
+      "tags": ["dom", "replacewith", "moderno", "reemplazo"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-u3-p2-025",
+      "front": "Resumen: metodos de insercion de nodos",
+      "back": "CLASICOS:\n- appendChild(hijo) → al final\n- insertBefore(nuevo, referencia) → antes de\n\nMODERNOS (ES6+):\n- append(...nodos) → al final (multiples)\n- prepend(...nodos) → al principio\n- before(...nodos) → antes del elemento\n- after(...nodos) → despues del elemento\n\nTodos pueden recibir elementos o strings."
+      ,
+      "tags": ["dom", "resumen", "insercion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-u3-p2-026",
+      "front": "Resumen: metodos de eliminacion de nodos",
+      "back": "CLASICOS:\n- padre.removeChild(hijo)\n- while (padre.firstChild) padre.removeChild(...)\n\nMODERNOS (ES6+):\n- elemento.remove()\n- padre.replaceChildren() → vacia todo\n- elemento.replaceWith(...) → reemplaza\n\nRecomendacion: usar remove() para eliminar, replaceWith() para reemplazar."
+      ,
+      "tags": ["dom", "resumen", "eliminacion"],
+      "difficulty": "medium"
+    }
+  ]
+}

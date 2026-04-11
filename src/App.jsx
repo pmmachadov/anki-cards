@@ -35,17 +35,19 @@ function App() {
       
       try {
         // Cargar mazos por defecto desde JSON
-        const [response1, response2, response3, response4] = await Promise.all([
+        const [response1, response2, response3, response4, response5] = await Promise.all([
           fetch('/data/sistemas-informaticos.json'),
           fetch('/data/entornos-desarrollo.json'),
           fetch('/data/shoptimus-fundamentos.json'),
-          fetch('/data/dom-consulta-busqueda.json')
+          fetch('/data/dom-consulta-busqueda.json'),
+          fetch('/data/dwec-unidad3-dom-parte2.json')
         ])
         
         const data1 = await response1.json()
         const data2 = await response2.json()
         const data3 = await response3.json()
         const data4 = await response4.json()
+        const data5 = await response5.json()
         
         // Crear mazos frescos
         const deck1 = new Deck(data1.name, data1.id)
@@ -76,7 +78,14 @@ function App() {
           deck4.addCard(card.front, card.back, card.tags || [])
         })
         
-        const newDecks = [deck1, deck2, deck3, deck4]
+        const deck5 = new Deck(data5.name, data5.id)
+        deck5.description = data5.description
+        deck5.subject = data5.subject
+        data5.cards.forEach(card => {
+          deck5.addCard(card.front, card.back, card.tags || [])
+        })
+        
+        const newDecks = [deck1, deck2, deck3, deck4, deck5]
         setDecks(newDecks)
         DataStore.saveDecks(newDecks)
       } catch (error) {
