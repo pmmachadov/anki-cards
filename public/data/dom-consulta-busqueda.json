@@ -109,6 +109,153 @@
       "back": "getElementsByClassName('clase'):\n- HTMLCollection VIVA (se actualiza automaticamente)\n- Mas rapido\n- Solo busca por clase exacta\n\nquerySelectorAll('.clase'):\n- NodeList ESTATICA (captura snapshot del momento)\n- Mas lento\n- Permite selectores CSS complejos (.clase1.clase2)",
       "tags": ["dom", "busqueda", "diferencias"],
       "difficulty": "hard"
+    },
+    {
+      "id": "dom-016",
+      "front": "Como obtener un elemento por su ID en JavaScript?",
+      "back": "Metodo: document.getElementById('id')\n\nEjemplo:\nconst menu = document.getElementById('menu');\n\n- Devuelve el elemento si existe\n- Devuelve null si no existe\n- Es el metodo mas rapido para encontrar un elemento",
+      "tags": ["dom", "getelementbyid", "practica"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-017",
+      "front": "Como acceder al elemento padre de un nodo?",
+      "back": "Propiedad: parentNode\n\nEjemplo:\nconst menu = document.getElementById('menu');\nconsole.log(menu.parentNode);\n\n- Devuelve el nodo padre del elemento\n- Para el elemento <nav>, el padre seria el <header>",
+      "tags": ["dom", "parentnode", "navegacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-018",
+      "front": "Como buscar un elemento dentro de otro usando querySelector?",
+      "back": "Se puede usar querySelector sobre cualquier elemento para buscar SOLO dentro de sus descendientes.\n\nEjemplo:\nconst menu = document.getElementById('menu');\nconst listaMenu = menu.querySelector('ul');\n\n- Busca el primer <ul> que sea descendiente de #menu\n- Limita el area de busqueda, mejor rendimiento",
+      "tags": ["dom", "queryselector", "busqueda-relativa"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-019",
+      "front": "Como obtener la cantidad de hijos elementos de un nodo?",
+      "back": "Propiedad: children.length\n\nEjemplo:\nconst listaMenu = menu.querySelector('ul');\nconsole.log(listaMenu.children.length);\n\n- children devuelve solo elementos HTML (ignora nodos de texto)\n- childNodes.length incluiria nodos de texto",
+      "tags": ["dom", "children", "conteo"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-020",
+      "front": "Como acceder al primer y tercer elemento hijo usando children?",
+      "back": "children es una coleccion indexada (como un array).\n\nEjemplos:\nconst listaMenu = menu.querySelector('ul');\n\n// Primer hijo (indice 0)\nconst primerLi = listaMenu.children[0];\n\n// Tercer hijo (indice 2)\nconst tercerLi = listaMenu.children[2];\n\n// Nota: los indices empiezan en 0",
+      "tags": ["dom", "children", "indices"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-021",
+      "front": "Como navegar al hermano siguiente de un elemento?",
+      "back": "Propiedad: nextElementSibling\n\nEjemplo:\nconst primerLi = listaMenu.children[0];\nconst segundoLi = primerLi.nextElementSibling;\n\n- Devuelve el siguiente elemento hermano\n- Ignora nodos de texto (espacios, saltos de linea)\n- Si no hay hermano siguiente, devuelve null",
+      "tags": ["dom", "nextelementsibling", "hermanos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-022",
+      "front": "Como navegar al hermano anterior de un elemento?",
+      "back": "Propiedad: previousElementSibling\n\nEjemplo:\nconst tercerLi = listaMenu.children[2];\nconst segundoLi = tercerLi.previousElementSibling;\n\n- Devuelve el elemento hermano anterior\n- Ignora nodos de texto\n- Si no hay hermano anterior, devuelve null",
+      "tags": ["dom", "previouselementsibling", "hermanos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-023",
+      "front": "Diferencia entre childNodes y children",
+      "back": "CHILDNODES:\n- Incluye TODOS los nodos hijos\n- Elementos, nodos de texto, comentarios\n- Espacios y saltos de linea crean nodos #text\n\nCHILDREN:\n- Solo incluye elementos HTML\n- Ignora nodos de texto y comentarios\n- Mas util para trabajar solo con elementos",
+      "tags": ["dom", "childnodes", "children", "diferencias"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-024",
+      "front": "Para que sirve hasChildNodes()?",
+      "back": "Metodo que comprueba si un nodo tiene hijos.\n\nEjemplo:\nconsole.log(listaMenu.hasChildNodes());\n\n- Devuelve true si tiene al menos un hijo\n- Devuelve false si no tiene hijos\n- Cuenta cualquier tipo de nodo (texto, elemento, etc.)",
+      "tags": ["dom", "haschildnodes", "metodos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-025",
+      "front": "Como obtener todos los elementos de una etiqueta especifica con getElementsByTagName?",
+      "back": "Metodo: getElementsByTagName('etiqueta')\n\nEjemplo:\nconst secciones = contenido.getElementsByTagName('section');\n\n- Devuelve HTMLCollection (coleccion viva)\n- Se puede usar sobre document o cualquier elemento\n- Busca elementos descendientes (directos o no)",
+      "tags": ["dom", "getelementsbytagname", "colecciones"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-026",
+      "front": "Como obtener elementos por su clase con getElementsByClassName?",
+      "back": "Metodo: getElementsByClassName('clase')\n\nEjemplo:\nconst articulos = document.getElementsByClassName('articulo');\n\n- Devuelve HTMLCollection viva\n- Busca en todo el documento\n- Si se usa sobre un elemento, busca solo dentro de ese elemento",
+      "tags": ["dom", "getelementsbyclassname", "clases"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-027",
+      "front": "Como seleccionar un elemento con querySelector usando ID?",
+      "back": "Sintaxis CSS: #id\n\nEjemplo:\nconst tituloPrincipal = document.querySelector('#titulo-principal');\n\n- El # indica que es un ID\n- Devuelve el PRIMER elemento que coincida\n- Mas flexible que getElementById (permite selectores compuestos)",
+      "tags": ["dom", "queryselector", "id"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-028",
+      "front": "Como seleccionar multiples elementos con querySelectorAll?",
+      "back": "Metodo: querySelectorAll('selector')\n\nEjemplos:\n// Todos los h3 con clase titulo-articulo\nconst titulos = document.querySelectorAll('.titulo-articulo');\n\n// Todos los enlaces dentro de #menu\nconst enlaces = document.querySelectorAll('#menu a');\n\n- Devuelve NodeList estatica\n- Acepta cualquier selector CSS valido",
+      "tags": ["dom", "queryselectorall", "selectores-css"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-029",
+      "front": "Como seleccionar un elemento con multiples clases usando querySelector?",
+      "back": "Sintaxis CSS: .clase1.clase2 (sin espacio)\n\nEjemplo:\nconst destacado = document.querySelector('.articulo.destacado');\n\n- Selecciona elementos que tengan AMBAS clases\n- Sin espacio entre clases = elemento con todas las clases\n- Con espacio = descendiente (.padre .hijo)",
+      "tags": ["dom", "queryselector", "multiples-clases"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-030",
+      "front": "Como obtener el texto de un elemento usando textContent?",
+      "back": "Propiedad: textContent\n\nEjemplo:\nconst enlacesMenu = document.querySelectorAll('#menu a');\nconsole.log(enlacesMenu[1].textContent);\n\n- Devuelve el texto contenido en el elemento\n- Incluye texto de todos los descendientes\n- No interpreta HTML (seguro contra XSS)",
+      "tags": ["dom", "textcontent", "texto"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-031",
+      "front": "Como anadir una clase a un elemento?",
+      "back": "Metodo: classList.add('clase')\n\nEjemplo:\nlistaMenu.children[2].classList.add('resaltado');\n\n- Anade la clase sin eliminar las existentes\n- Si la clase ya existe, no hace nada\n- classList proporciona metodos para manipular clases facilmente",
+      "tags": ["dom", "classlist", "add", "clases"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-032",
+      "front": "Como cambiar el texto de un elemento?",
+      "back": "Propiedad: textContent\n\nEjemplo:\nconst titulo = document.querySelector('#titulo-principal');\ntitulo.textContent = 'Blog de tecnologia y programacion';\n\n- Reemplaza TODO el contenido textual\n- No interpreta etiquetas HTML\n- Mas seguro que innerHTML para texto simple",
+      "tags": ["dom", "textcontent", "modificacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-033",
+      "front": "Como modificar elementos de una coleccion querySelectorAll?",
+      "back": "querySelectorAll devuelve NodeList, accesible por indice.\n\nEjemplo:\nconst titulos = document.querySelectorAll('.titulo-articulo');\ntitulos[0].textContent = 'Introduccion a JavaScript';\n\n- Se accede con corchetes [indice]\n- Se puede iterar con forEach()\n- La coleccion es estatica (no se actualiza automaticamente)",
+      "tags": ["dom", "queryselectorall", "modificacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-034",
+      "front": "Como anadir texto al final de un elemento existente?",
+      "back": "Operador += con textContent\n\nEjemplo:\nconst tituloDestacado = document.querySelector('.articulo.destacado .titulo-articulo');\ntituloDestacado.textContent += ' (DESTACADO)';\n\n- += concatena texto al existente\n- Seleccion combinada: .clase1 .clase2 (descendiente)",
+      "tags": ["dom", "textcontent", "concatenacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-035",
+      "front": "Como cambiar el contenido HTML de un elemento?",
+      "back": "Propiedad: innerHTML\n\nEjemplo:\nconst parrafo = document.querySelector('#contacto p');\nparrafo.innerHTML = 'Envianos un correo a <a href=\"mailto:info@ejemplo.com\">info@ejemplo.com</a>.';\n\n- Permite insertar etiquetas HTML\n- Reemplaza todo el contenido anterior\n- PRECAUCION: riesgo de XSS con datos de usuario",
+      "tags": ["dom", "innerhtml", "html"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-036",
+      "front": "Como seleccionar un elemento descendiente especifico?",
+      "back": "Selector CSS: ancestro descendiente (con espacio)\n\nEjemplo:\n// <p> dentro de #contacto\nconst parrafo = document.querySelector('#contacto p');\n\n// .titulo-articulo dentro de .articulo.destacado\nconst titulo = document.querySelector('.articulo.destacado .titulo-articulo');\n\n- El espacio indica relacion descendiente\n- Puede ser hijo directo o indirecto",
+      "tags": ["dom", "queryselector", "descendientes"],
+      "difficulty": "easy"
     }
   ]
 }
