@@ -114,6 +114,7 @@ const SubjectIcons = {
   'Bases de Datos': '🗄️',
   'Programacion': '⚡',
   'Lenguajes de Marcas': '🏷️',
+  'Desenvolupament Web en Entorn Client': '🌐',
   'default': '📚'
 }
 

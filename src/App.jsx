@@ -35,7 +35,7 @@ function App() {
       
       try {
         // Cargar mazos por defecto desde JSON
-        const [response1, response2, response3, response4, response5, response6, response7, response8] = await Promise.all([
+        const [response1, response2, response3, response4, response5, response6, response7, response8, response9] = await Promise.all([
           fetch('/data/sistemas-informaticos.json'),
           fetch('/data/entornos-desarrollo.json'),
           fetch('/data/shoptimus-fundamentos.json'),
@@ -43,7 +43,8 @@ function App() {
           fetch('/data/dwec-unidad3-dom-parte2.json'),
           fetch('/data/dom-eventos.json'),
           fetch('/data/dom-estilos-css.json'),
-          fetch('/data/dom-actualizacion-elementos.json')
+          fetch('/data/dom-actualizacion-elementos.json'),
+          fetch('/data/dwec-u3l2-actualitzacio-dom.json')
         ])
         
         const data1 = await response1.json()
@@ -54,6 +55,7 @@ function App() {
         const data6 = await response6.json()
         const data7 = await response7.json()
         const data8 = await response8.json()
+        const data9 = await response9.json()
         
         // Crear mazos frescos
         const deck1 = new Deck(data1.name, data1.id)
@@ -112,7 +114,14 @@ function App() {
           deck8.addCard(card.front, card.back, card.tags || [])
         })
         
-        const newDecks = [deck1, deck2, deck3, deck4, deck5, deck6, deck7, deck8]
+        const deck9 = new Deck(data9.name, data9.id)
+        deck9.description = data9.description
+        deck9.subject = data9.subject
+        data9.cards.forEach(card => {
+          deck9.addCard(card.front, card.back, card.tags || [])
+        })
+        
+        const newDecks = [deck1, deck2, deck3, deck4, deck5, deck6, deck7, deck8, deck9]
         setDecks(newDecks)
         DataStore.saveDecks(newDecks)
       } catch (error) {
