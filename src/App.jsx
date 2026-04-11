@@ -35,12 +35,15 @@ function App() {
       
       try {
         // Cargar mazos por defecto desde JSON
-        const [response1, response2, response3, response4, response5] = await Promise.all([
+        const [response1, response2, response3, response4, response5, response6, response7, response8] = await Promise.all([
           fetch('/data/sistemas-informaticos.json'),
           fetch('/data/entornos-desarrollo.json'),
           fetch('/data/shoptimus-fundamentos.json'),
           fetch('/data/dom-consulta-busqueda.json'),
-          fetch('/data/dwec-unidad3-dom-parte2.json')
+          fetch('/data/dwec-unidad3-dom-parte2.json'),
+          fetch('/data/dom-eventos.json'),
+          fetch('/data/dom-estilos-css.json'),
+          fetch('/data/dom-actualizacion-elementos.json')
         ])
         
         const data1 = await response1.json()
@@ -48,6 +51,9 @@ function App() {
         const data3 = await response3.json()
         const data4 = await response4.json()
         const data5 = await response5.json()
+        const data6 = await response6.json()
+        const data7 = await response7.json()
+        const data8 = await response8.json()
         
         // Crear mazos frescos
         const deck1 = new Deck(data1.name, data1.id)
@@ -85,7 +91,28 @@ function App() {
           deck5.addCard(card.front, card.back, card.tags || [])
         })
         
-        const newDecks = [deck1, deck2, deck3, deck4, deck5]
+        const deck6 = new Deck(data6.name, data6.id)
+        deck6.description = data6.description
+        deck6.subject = data6.subject
+        data6.cards.forEach(card => {
+          deck6.addCard(card.front, card.back, card.tags || [])
+        })
+        
+        const deck7 = new Deck(data7.name, data7.id)
+        deck7.description = data7.description
+        deck7.subject = data7.subject
+        data7.cards.forEach(card => {
+          deck7.addCard(card.front, card.back, card.tags || [])
+        })
+        
+        const deck8 = new Deck(data8.name, data8.id)
+        deck8.description = data8.description
+        deck8.subject = data8.subject
+        data8.cards.forEach(card => {
+          deck8.addCard(card.front, card.back, card.tags || [])
+        })
+        
+        const newDecks = [deck1, deck2, deck3, deck4, deck5, deck6, deck7, deck8]
         setDecks(newDecks)
         DataStore.saveDecks(newDecks)
       } catch (error) {

@@ -1,0 +1,129 @@
+{
+  "id": "dom-estilos-css",
+  "name": "DOM: Modificacion de Estilos CSS",
+  "description": "Manipulacion de estilos con style, className y classList (add, remove, toggle, contains)",
+  "subject": "Desenvolupament Web en Entorn Client",
+  "created": "2026-04-11",
+  "cards": [
+    {
+      "id": "dom-css-001",
+      "front": "Como modificar estilos CSS inline con la propiedad style?",
+      "back": "Cada elemento tiene una propiedad style que corresponde al atributo HTML style.\n\nEjemplos:\nelemento.style.color = 'red';\nelemento.style.backgroundColor = 'lightyellow';\nelemento.style.fontSize = '18px';\nelemento.style.marginBottom = '1rem';\n\nREGLAS IMPORTANTES:\n- Las propiedades CSS con guion se convierten a camelCase\n  background-color → backgroundColor\n  font-size → fontSize\n  margin-bottom → marginBottom\n- Los valores son strings (con unidades si es necesario)"
+      ,
+      "tags": ["dom", "css", "style", "inline"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-css-002",
+      "front": "Como leer el estilo calculado de un elemento?",
+      "back": "Metodo: window.getComputedStyle(elemento)\n\nEjemplo:\nconst targeta = document.getElementById('targeta');\nconst estilos = window.getComputedStyle(targeta);\n\nconsole.log(estilos.backgroundColor);  // rgb(255, 255, 255)\nconsole.log(estilos.fontSize);         // 16px\nconsole.log(estilos.marginTop);        // 0px\n\nCaracteristicas:\n- Devuelve TODOS los estilos aplicados (CSS + inline)\n- Los valores son computados (convertidos a pixeles, colores en rgb, etc.)\n- Es de solo lectura (no se pueden modificar)"
+      ,
+      "tags": ["dom", "css", "getcomputedstyle", "lectura"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-css-003",
+      "front": "Como eliminar todos los estilos inline de un elemento?",
+      "back": "Dos formas de eliminar estilos inline:\n\n// 1. Asignar cadena vacia (elimina todos)\nelemento.style = '';\n\n// 2. Eliminar propiedades especificas\nelemento.style.color = '';\nelemento.style.backgroundColor = '';\n\nEjemplo practico - boton reset:\nbotonReset.addEventListener('click', function() {\n  targeta.style = '';\n  parrafo.style = '';\n  targeta.classList.remove('resaltat');\n});\n\nAl asignar '' se eliminan todos los estilos del atributo HTML style."
+      ,
+      "tags": ["dom", "css", "reset", "eliminar"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-css-004",
+      "front": "Como obtener y modificar la clase de un elemento con className?",
+      "back": "La propiedad className devuelve/modifica TODA la cadena de clases.\n\n// LEER clases\nconsole.log(elemento.className);  // \"missatge info\"\n\n// SOBREESCRIBIR todas las clases (CUIDADO)\nelemento.className = 'missatge avis';\n// Resultado: pierde 'info', ahora solo tiene 'missatge avis'\n\n// Añadir clase (forma manual con className)\nelemento.className += ' nova-classe';\n\nATENCION: className reemplaza todas las clases. Para añadir/quitar clases individualmente, usar classList."
+      ,
+      "tags": ["dom", "css", "classname", "clases"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-css-005",
+      "front": "Como añadir una clase con classList.add()?",
+      "back": "Metodo: elemento.classList.add('nombreClase')\n\nEjemplo:\nconst missatge = document.getElementById('missatge');\n\n// Añadir una clase\nmissatge.classList.add('error');\n\n// Añadir multiples clases\nmissatge.classList.add('clase1', 'clase2', 'clase3');\n\nCaracteristicas:\n- Si la clase ya existe, no hace nada (no duplica)\n- Mas seguro que className += (evita espacios dobles)\n- Metodo preferido para añadir clases"
+      ,
+      "tags": ["dom", "css", "classlist", "add"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-css-006",
+      "front": "Como eliminar una clase con classList.remove()?",
+      "back": "Metodo: elemento.classList.remove('nombreClase')\n\nEjemplo:\nconst missatge = document.getElementById('missatge');\n\n// Eliminar una clase\nmissatge.classList.remove('info');\n\n// Eliminar multiples clases\nmissatge.classList.remove('avis', 'error');\n\n// Eliminar solo si existe\nmissatge.classList.remove('clase-que-puede-no-existir');  // No da error\n\nCaracteristicas:\n- Si la clase no existe, no da error\n- Se pueden eliminar varias clases a la vez"
+      ,
+      "tags": ["dom", "css", "classlist", "remove"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-css-007",
+      "front": "Como alternar una clase con classList.toggle()?",
+      "back": "Metodo: elemento.classList.toggle('nombreClase')\n\nEjemplo - alternar modo oscuro:\nbotonFosc.addEventListener('click', function() {\n  document.body.classList.toggle('mode-fosc');\n});\n\nFuncionamiento:\n- Si la clase NO existe → la AÑADE (return true)\n- Si la clase EXISTE → la ELIMINA (return false)\n\nEjemplo practico - resaltar targeta:\nbotonResaltat.addEventListener('click', function() {\n  targeta.classList.toggle('resaltat');\n});\n// Cada clic activa/desactiva el resaltado"
+      ,
+      "tags": ["dom", "css", "classlist", "toggle"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-css-008",
+      "front": "Como comprobar si un elemento tiene una clase con classList.contains()?",
+      "back": "Metodo: elemento.classList.contains('nombreClase')\n\nEjemplo - cambiar texto del boton segun estado:\nbotonToggle.addEventListener('click', function() {\n  missatge.classList.toggle('ocult');\n  \n  if (missatge.classList.contains('ocult')) {\n    botonToggle.textContent = 'Mostrem missatge';\n  } else {\n    botonToggle.textContent = 'Amaguem missatge';\n  }\n});\n\nDevuelve:\n- true si el elemento tiene la clase\n- false si no la tiene\n\nUtil para condicionales y validaciones."
+      ,
+      "tags": ["dom", "css", "classlist", "contains"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-css-009",
+      "front": "Como mostrar/ocultar elementos con una clase CSS?",
+      "back": "Patron tipico con classList.toggle() y clase CSS .ocult:\n\nCSS:\n.ocult {\n  display: none;\n}\n\nJavaScript:\nconst botoToggle = document.getElementById('boto-missatge-toggle');\nconst missatge = document.getElementById('missatge');\n\nbotoToggle.addEventListener('click', function() {\n  missatge.classList.toggle('ocult');\n  \n  // Actualizar texto del boton\n  if (missatge.classList.contains('ocult')) {\n    botoToggle.textContent = 'Mostrem missatge';\n  } else {\n    botoToggle.textContent = 'Amaguem missatge';\n  }\n});\n\nVentaja: separacion de responsabilidades (CSS define como ocultar, JS solo alterna la clase)."
+      ,
+      "tags": ["dom", "css", "ocultar", "mostrar", "toggle"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-css-010",
+      "front": "Como implementar un modo oscuro/claro con classList?",
+      "back": "Patron completo para modo oscuro:\n\nCSS:\n.mode-fosc {\n  background-color: #222;\n  color: #f5f5f5;\n}\n\n.mode-fosc .targeta {\n  background-color: #333;\n  border-color: #555;\n}\n\nJavaScript:\nbotoModeFosc.addEventListener('click', function() {\n  document.body.classList.toggle('mode-fosc');\n  \n  if (document.body.classList.contains('mode-fosc')) {\n    missatge.textContent = 'Estat: mode fosc activat';\n  } else {\n    missatge.textContent = 'Estat: mode clar activat';\n  }\n});\n\nConsejo: aplicar la clase al body para que afecte a toda la pagina."
+      ,
+      "tags": ["dom", "css", "modo-oscuro", "dark-mode", "toggle"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-css-011",
+      "front": "Como cambiar el estado visual de un mensaje con clases?",
+      "back": "Patron para cambiar entre estados (info, avis, error):\n\nfunction mostrarMissatge(tipus, text) {\n  // Eliminar clases de estado anteriores\n  missatge.classList.remove('info', 'avis', 'error');\n  \n  // Añadir la nueva clase\n  missatge.classList.add(tipus);\n  \n  // Actualizar texto\n  missatge.textContent = text;\n}\n\n// Uso:\nbotoInfo.addEventListener('click', function() {\n  mostrarMissatge('info', 'Informacio general');\n});\n\nbotoAvis.addEventListener('click', function() {\n  mostrarMissatge('avis', 'Atencio necessaria');\n});\n\nbotoError.addEventListener('click', function() {\n  mostrarMissatge('error', 'S\'ha produit un error');\n});"
+      ,
+      "tags": ["dom", "css", "estados", "mensajes", "remove", "add"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-css-012",
+      "front": "Como centrar un elemento y modificar su dimension con style?",
+      "back": "Ejemplo de modificaciones comunes:\n\nconst targeta = document.getElementById('targeta');\n\n// Centrar elemento\ntargeta.style.margin = '0 auto';  // arriba/abajo 0, izquierda/derecha auto\n\n// Ancho maximo\ntargeta.style.maxWidth = '600px';\n\n// Marge inferior de controles\nconst controls = document.getElementById('controls');\ncontrols.style.marginBottom = '1rem';\n\n// Modificar tipografia\nconst text = document.getElementById('text-principal');\ntext.style.fontSize = '1.1rem';\ntext.style.lineHeight = '1.8';\n\nLos valores deben incluir unidades cuando sea necesario (px, rem, %)."
+      ,
+      "tags": ["dom", "css", "style", "dimensiones", "centrar"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-css-013",
+      "front": "Resumen de classList: metodos principales",
+      "back": "CLASSLIST - Interfaz para manipular clases CSS:\n\nADD(clase1, clase2, ...)\n- Añade una o varias clases\n- Ignora duplicados\n\nREMOVE(clase1, clase2, ...)\n- Elimina una o varias clases\n- No da error si no existen\n\nTOGGLE(clase)\n- Si existe la quita, si no la añade\n- Ideal para interruptores (on/off)\n\nCONTAINS(clase)\n- Devuelve true/false\n- Para comprobaciones condicionales\n\nEjemplo:\nelemento.classList.add('activa');\nelemento.classList.remove('ocult');\nelemento.classList.toggle('seleccionada');\nconsole.log(elemento.classList.contains('activa')); // true"
+      ,
+      "tags": ["dom", "css", "classlist", "resumen"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-css-014",
+      "front": "Cuando usar style vs classList?",
+      "back": "USAR STYLE cuando:\n- Valores dinamicos (calculados en JS)\n- Ajustes puntuales especificos\n- Animaciones con valores cambiantes\n\nEjemplo:\nelemento.style.width = calculo + 'px';\nelemento.style.transform = `translate(${x}px, ${y}px)`;\n\nUSAR CLASSLIST cuando:\n- Estilos predefinidos en CSS\n- Estados visuales (activo/inactivo, modo oscuro)\n- Reutilizacion de estilos\n- Separacion de responsabilidades\n\nEjemplo:\nelemento.classList.add('error');\nelemento.classList.toggle('mode-fosc');\n\nRECOMENDACION: Preferir classList para mantener CSS en archivos .css"
+      ,
+      "tags": ["dom", "css", "style", "classlist", "buenas-practicas"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-css-015",
+      "front": "Ejemplo completo: panel de control de estilos",
+      "back": "Patron completo para un panel de control:\n\ndocument.addEventListener('DOMContentLoaded', function() {\n  // Seleccionar elementos\n  const targeta = document.getElementById('targeta');\n  const text = document.getElementById('text-principal');\n  const missatge = document.getElementById('missatge');\n  \n  // Ajustes iniciales con style\n  targeta.style.maxWidth = '600px';\n  targeta.style.margin = '0 auto';\n  \n  // Boton texto rojo\n  document.getElementById('boto-vermell').addEventListener('click', function() {\n    text.style.color = 'red';\n  });\n  \n  // Boton alternar resaltado\n  document.getElementById('boto-resaltat').addEventListener('click', function() {\n    targeta.classList.toggle('resaltat');\n  });\n  \n  // Boton reset\n  document.getElementById('boto-reset').addEventListener('click', function() {\n    targeta.style = '';\n    text.style = '';\n    targeta.classList.remove('resaltat');\n  });\n});"
+      ,
+      "tags": ["dom", "css", "ejemplo", "panel-control", "completo"],
+      "difficulty": "medium"
+    }
+  ]
+}

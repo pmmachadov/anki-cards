@@ -1,0 +1,153 @@
+{
+  "id": "dom-eventos",
+  "name": "DOM: Eventos y Event Listeners",
+  "description": "addEventListener, removeEventListener, objeto event, propagacion y stopPropagation",
+  "subject": "Desenvolupament Web en Entorn Client",
+  "created": "2026-04-11",
+  "cards": [
+    {
+      "id": "dom-ev-001",
+      "front": "Como añadir un detector de eventos con addEventListener?",
+      "back": "Metodo: elemento.addEventListener('tipoEvento', funcionManejadora)\n\nEjemplo:\nconst boton = document.getElementById('miBoton');\nboton.addEventListener('click', function() {\n  console.log('¡Clic!');\n});\n\nParametros:\n1. Tipo de evento (string): 'click', 'mouseenter', 'submit'...\n2. Funcion manejadora (callback): se ejecuta cuando ocurre el evento\n3. Opciones (opcional): objeto con opciones como capture, once, passive"
+      ,
+      "tags": ["dom", "eventos", "addeventlistener"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-002",
+      "front": "Como eliminar un detector de eventos con removeEventListener?",
+      "back": "Metodo: elemento.removeEventListener('tipoEvento', funcionReferencia)\n\nEjemplo:\n// Definir la funcion por separado\nfunction manejadorClick() {\n  console.log('Clic detectado');\n}\n\n// Añadir listener\nboton.addEventListener('click', manejadorClick);\n\n// Eliminar listener (misma referencia de funcion)\nboton.removeEventListener('click', manejadorClick);\n\nIMPORTANTE: Debe ser la MISMA referencia de funcion, no una funcion anonima."
+      ,
+      "tags": ["dom", "eventos", "removeeventlistener"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-003",
+      "front": "Por que no funciona removeEventListener con funciones anonimas?",
+      "back": "Porque removeEventListener requiere la MISMA referencia de funcion que se uso en addEventListener.\n\n// ❌ NO FUNCIONA:\nboton.addEventListener('click', function() { ... });\nboton.removeEventListener('click', function() { ... });\n\n// ✅ FUNCIONA:\nfunction miFuncion() { ... }\nboton.addEventListener('click', miFuncion);\nboton.removeEventListener('click', miFuncion);\n\nLas funciones anonimas son objetos diferentes cada vez que se crean."
+      ,
+      "tags": ["dom", "eventos", "removeeventlistener", "funciones"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-ev-004",
+      "front": "Que es el objeto event en los manejadores de eventos?",
+      "back": "Objeto que el navegador pasa automaticamente a la funcion manejadora con informacion sobre el evento ocurrido.\n\nEjemplo:\nboton.addEventListener('click', function(event) {\n  console.log(event.type);     // 'click'\n  console.log(event.target);   // elemento donde ocurrio el clic\n  console.log(event.clientX);  // coordenada X del clic\n});\n\nTambien puede escribirse como 'e' o 'evt' por convencion."
+      ,
+      "tags": ["dom", "eventos", "objeto-event"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-005",
+      "front": "Diferencia entre event.target y event.currentTarget",
+      "back": "EVENT.TARGET:\n- Elemento donde realmente ocurrio el evento\n- El elemento mas profundo que recibio el clic\n\nEVENT.CURRENTTARGET:\n- Elemento al que esta asociado el listener\n- El elemento donde se añadio addEventListener\n\nEjemplo:\n<div id=\"padre\">\n  <button id=\"hijo\">Clic</button>\n</div>\n\n// Listener en el div\npadre.addEventListener('click', function(e) {\n  e.target;       // <button> (donde se hizo clic)\n  e.currentTarget; // <div> (donde esta el listener)\n});"
+      ,
+      "tags": ["dom", "eventos", "target", "currenttarget", "diferencias"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-ev-006",
+      "front": "Como usar forEach para añadir listeners a multiples elementos?",
+      "back": "Ejemplo con querySelectorAll:\n\nconst items = document.querySelectorAll('#llista li');\n\nitems.forEach(function(item) {\n  item.addEventListener('click', function(event) {\n    console.log('Clic en:', item.textContent);\n    console.log('data-id:', item.dataset.id);\n  });\n});\n\n- querySelectorAll devuelve NodeList\n- forEach itera sobre cada elemento\n- Cada elemento tiene su propio listener"
+      ,
+      "tags": ["dom", "eventos", "foreach", "queryselectorall"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-007",
+      "front": "Que es la propagacion de eventos (event bubbling)?",
+      "back": "Cuando un evento ocurre en un elemento, este se propaga hacia arriba en el arbol DOM (del hijo al padre, al abuelo, etc.).\n\nEjemplo:\n<body>\n  <div id=\"contenedor\">\n    <button id=\"boton\">Clic</button>\n  </div>\n</body>\n\n// Si hay listeners en button, div y body:\n// 1. Se ejecuta el listener del BUTTON\n// 2. Se ejecuta el listener del DIV\n// 3. Se ejecuta el listener del BODY\n\nFase de propagacion = evento sube desde el target hasta el document."
+      ,
+      "tags": ["dom", "eventos", "propagacion", "bubbling"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-ev-008",
+      "front": "Como detener la propagacion de un evento?",
+      "back": "Metodo: event.stopPropagation()\n\nEjemplo:\nconst boton = document.getElementById('boto-propagacio');\nconst contenedor = document.getElementById('contenidor-propagacio');\n\nboton.addEventListener('click', function(event) {\n  event.stopPropagation();  // ← Detiene la propagacion\n  console.log('Clic en boton (no sube al contenedor)');\n});\n\ncontenedor.addEventListener('click', function() {\n  console.log('Clic en contenedor');\n});\n\n// Al hacer clic en el boton:\n// Solo se ejecuta el listener del boton,\n// NO se ejecuta el del contenedor"
+      ,
+      "tags": ["dom", "eventos", "stoppropagation", "propagacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-009",
+      "front": "Eventos de raton comunes en el DOM",
+      "back": "CLICK - Clic completo (presionar y soltar)\nMOUSEDOWN - Boton del raton presionado\nMOUSEUP - Boton del raton soltado\n\nMOUSEENTER - Raton entra en el elemento\nMOUSELEAVE - Raton sale del elemento\n\nMOUSEMOVE - Raton se mueve sobre el elemento\n\nEjemplo hover:\nelemento.addEventListener('mouseenter', function() {\n  this.style.backgroundColor = '#e6f7ff';\n});\n\nelemento.addEventListener('mouseleave', function() {\n  this.style.backgroundColor = '';\n});"
+      ,
+      "tags": ["dom", "eventos", "raton", "mouse"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-010",
+      "front": "Como cambiar estilos CSS desde eventos?",
+      "back": "Accediendo a la propiedad style del elemento:\n\n// En el manejador de evento:\nelemento.style.backgroundColor = '#e6f7ff';\nelemento.style.color = 'red';\nelemento.style.fontSize = '20px';\n\n// Notas importantes:\n// - Las propiedades CSS con guion se convierten a camelCase\n//   background-color → backgroundColor\n//   font-size → fontSize\n\n// Para eliminar un estilo inline:\nelemento.style.backgroundColor = '';  // Vuelve al valor por defecto"
+      ,
+      "tags": ["dom", "eventos", "estilos", "css", "style"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-011",
+      "front": "Como vaciar el contenido de un elemento (como un log)?",
+      "back": "Tres formas de vaciar un elemento:\n\n// 1. innerHTML vacio (mas directo)\nelementoLog.innerHTML = '';\n\n// 2. Reemplazar todos los hijos (moderno)\nelementoLog.replaceChildren();\n\n// 3. Bucle eliminando hijos (clasico)\nwhile (elementoLog.firstChild) {\n  elementoLog.removeChild(elementoLog.firstChild);\n}\n\nEjemplo tipico - boton limpiar log:\nbotonNeteja.addEventListener('click', function() {\n  log.innerHTML = '';\n});"
+      ,
+      "tags": ["dom", "eventos", "vaciar", "log"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-012",
+      "front": "Como crear dinamicamente elementos en el log?",
+      "back": "Ejemplo de funcion auxiliar para añadir mensajes:\n\nfunction afegeixAlLog(text) {\n  // 1. Crear elemento li\n  const nouLi = document.createElement('li');\n  \n  // 2. Añadir texto\n  nouLi.textContent = text;\n  \n  // 3. Añadir al final de la lista\n  log.appendChild(nouLi);\n}\n\n// Uso en listeners:\ntargeta.addEventListener('click', function(e) {\n  const text = `Hem clicat a ${e.target.nodeName}`;\n  afegeixAlLog(text);\n});"
+      ,
+      "tags": ["dom", "eventos", "log", "crear-elementos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-013",
+      "front": "Como detectar el evento DOMContentLoaded?",
+      "back": "Se dispara cuando el HTML ha sido completamente cargado y parseado.\n\nEjemplo:\ndocument.addEventListener('DOMContentLoaded', function() {\n  // El DOM esta listo para manipular\n  const boton = document.getElementById('miBoton');\n  const lista = document.getElementById('miLista');\n  \n  // Configurar listeners...\n  boton.addEventListener('click', ...);\n});\n\nIMPORTANTE: Siempre envolver el codigo DOM en este evento para asegurar que los elementos existen."
+      ,
+      "tags": ["dom", "eventos", "domcontentloaded", "ready"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-014",
+      "front": "Que pasa si añades el mismo listener dos veces?",
+      "back": "Si se añade el MISMO listener (misma funcion referencia) multiples veces:\n\n// Solo se ejecuta UNA VEZ por evento:\nfunction miFuncion() { console.log('click'); }\n\nelemento.addEventListener('click', miFuncion);\nelemento.addEventListener('click', miFuncion);  // Ignorado\n\n// Pero si son funciones DIFERENTES (anonimas):\nelemento.addEventListener('click', function() { ... });\nelemento.addEventListener('click', function() { ... });\n// Se ejecutan AMBAS (son funciones distintas)\n\nEl navegador detecta duplicados solo si es la misma referencia."
+      ,
+      "tags": ["dom", "eventos", "duplicados", "addeventlistener"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-ev-015",
+      "front": "Como acceder a atributos data-* desde eventos?",
+      "back": "Usando la propiedad dataset del elemento:\n\nHTML:\n<li data-id=\"123\" data-rol=\"admin\">Usuario</li>\n\nJavaScript:\nitems.forEach(function(item) {\n  item.addEventListener('click', function() {\n    const id = item.dataset.id;      // \"123\"\n    const rol = item.dataset.rol;    // \"admin\"\n    console.log(`ID: ${id}, Rol: ${rol}`);\n  });\n});\n\n// Para convertir a numero:\nconst idNumerico = parseInt(item.dataset.id);"
+      ,
+      "tags": ["dom", "eventos", "dataset", "data-attributes"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-016",
+      "front": "Ejemplo completo: activar/desactivar listeners",
+      "back": "Patron completo para botones de activar/desactivar:\n\n// Funciones nombradas para poder eliminarlas luego\nfunction gestionarClick() {\n  console.log('Clic detectado');\n}\n\nfunction activarListener() {\n  targeta.addEventListener('click', gestionarClick);\n  afegeixAlLog('Listener activado');\n}\n\nfunction desactivarListener() {\n  targeta.removeEventListener('click', gestionarClick);\n  afegeixAlLog('Listener desactivado');\n}\n\n// Botones de control\nbotoActivar.addEventListener('click', activarListener);\nbotoDesactivar.addEventListener('click', desactivarListener);"
+      ,
+      "tags": ["dom", "eventos", "activar", "desactivar", "patron"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-ev-017",
+      "front": "Como obtener informacion del elemento clicado en una lista?",
+      "back": "Ejemplo practico con data attributes:\n\nconst listaItems = document.querySelectorAll('#llista li');\n\nlistaItems.forEach(function(elemento) {\n  elemento.addEventListener('click', function() {\n    const texto = elemento.textContent;\n    const id = elemento.dataset.id;\n    \n    afegeixAlLog(\n      `Hem clicat: ${texto} (data-id: ${id})`\n    );\n  });\n});\n\n// HTML correspondiente:\n// <li data-id=\"1\">Elemento 1</li>\n// <li data-id=\"2\">Elemento 2</li>"
+      ,
+      "tags": ["dom", "eventos", "lista", "data-id"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-018",
+      "front": "Resumen: flujo completo de trabajo con eventos",
+      "back": "PASOS TIPICOS:\n\n1. Esperar a DOMContentLoaded\n2. Seleccionar elementos del DOM\n3. Definir funciones manejadoras (nombradas si se necesitan eliminar)\n4. Añadir listeners con addEventListener\n5. En el manejador:\n   - Usar event.target/currentTarget\n   - Ejecutar logica\n   - Actualizar DOM si es necesario\n6. Opcional: eliminar listeners con removeEventListener\n\nEJEMPLO:\ndocument.addEventListener('DOMContentLoaded', function() {\n  const boton = document.getElementById('boton');\n  \n  boton.addEventListener('click', function(e) {\n    console.log('Clic en:', e.target);\n  });\n});"
+      ,
+      "tags": ["dom", "eventos", "resumen", "flujo"],
+      "difficulty": "medium"
+    }
+  ]
+}

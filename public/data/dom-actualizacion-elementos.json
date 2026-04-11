@@ -1,0 +1,105 @@
+{
+  "id": "dom-actualizacion-elementos",
+  "name": "DOM: Actualizacion de Elementos (Practica)",
+  "description": "Modificacion de contenido, atributos, creacion, clonacion y eliminacion de elementos - Practica catalogo de productos",
+  "subject": "Desenvolupament Web en Entorn Client",
+  "created": "2026-04-11",
+  "cards": [
+    {
+      "id": "dom-act-001",
+      "front": "Como cambiar el texto de un titulo h1 con textContent?",
+      "back": "Ejemplo practico - actualizar titulo de catalogo:\n\nconst titol = document.getElementById('titol-principal');\ntitol.textContent = 'Cataleg dinamic actualitzat amb JavaScript';\n\nCaracteristicas:\n- Reemplaza TODO el texto del elemento\n- No interpreta HTML (etiquetas se muestran como texto)\n- Opcion segura contra XSS\n- Mas rapido que innerHTML"
+      ,
+      "tags": ["dom", "textcontent", "practica", "titulo"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-act-002",
+      "front": "Como insertar HTML con formato usando innerHTML?",
+      "back": "Ejemplo - reemplazar parrafo con HTML formateado:\n\nconst resum = document.getElementById('resum');\nresum.innerHTML = \n  'Aquest cataleg <strong>actualitzat dinamicament</strong> ' +\n  'mostra productes en temps real. <a href=\"#\">Mes informacio</a>.';\n\n// Añadir salto de linea adicional\nresum.innerHTML += '<br>Amb JavaScript i el DOM.';\n\nCaracteristicas:\n- Interpreta etiquetas HTML\n- Permite formato (negrita, enlaces, etc.)\n- Riesgo de XSS si el contenido viene de usuario"
+      ,
+      "tags": ["dom", "innerhtml", "practica", "html"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-act-003",
+      "front": "Como modificar el atributo href de un enlace?",
+      "back": "Dos formas de cambiar atributos:\n\n// 1. Con setAttribute (generico)\nconst enllac = document.getElementById('enllac-botiga');\nenllac.setAttribute('href', 'https://www.ioc.cat');\nenllac.setAttribute('title', 'Obre la nova botiga de l\'IOC');\n\n// 2. Como propiedad directa (mas corto)\nenllac.href = 'https://www.ioc.cat';\n\n// Verificar el cambio\nconsole.log(enllac.getAttribute('href')); // https://www.ioc.cat"
+      ,
+      "tags": ["dom", "atributos", "href", "setattribute"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-act-004",
+      "front": "Como leer y modificar atributos data-* con dataset?",
+      "back": "HTML:\n<li class=\"producte\" data-preu=\"9.99\">...</li>\n\nJavaScript:\nconst primerProducte = document.querySelector('.producte');\n\n// LEER data-preu\nconst preuActual = primerProducte.dataset.preu;\nconsole.log(preuActual); // \"9.99\"\n\n// MODIFICAR data-preu\nprimerProducte.dataset.preu = '14.5';\n\n// Actualizar el texto visible\nconst preuText = primerProducte.querySelector('.preu-producte');\npreuText.textContent = '14,50 €';\n\nNota: dataset converte data-preu a dataset.preu (camelCase)"
+      ,
+      "tags": ["dom", "dataset", "data-attributes", "practica"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-act-005",
+      "front": "Como crear un nuevo producto completo con createElement?",
+      "back": "Ejemplo completo - crear elemento de producto:\n\n// 1. Crear el li contenedor\nconst nouProducte = document.createElement('li');\nnouProducte.className = 'producte';\nnouProducte.dataset.preu = '5.99';\n\n// 2. Crear nombre del producto\nconst nom = document.createElement('strong');\nnom.className = 'nom-producte';\nnom.textContent = 'Nou Producte A';\n\n// 3. Crear precio\nconst preu = document.createElement('span');\npreu.className = 'preu-producte';\npreu.textContent = '5,99 €';\n\n// 4. Anadir partes al li\nnouProducte.appendChild(nom);\nnouProducte.appendChild(preu);\n\n// 5. Anadir a la lista\nllista.appendChild(nouProducte);"
+      ,
+      "tags": ["dom", "createelement", "practica", "producto"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-act-006",
+      "front": "Como añadir un producto al principio de la lista con prepend?",
+      "back": "Metodo prepend() - inserta como primer hijo:\n\nconst llista = document.getElementById('llista-productes');\n\n// Crear nuevo producto\nconst producteInicial = document.createElement('li');\nproducteInicial.className = 'producte';\nproducteInicial.dataset.preu = '12.00';\nproducteInicial.innerHTML = \n  '<strong class=\"nom-producte\">Producte Inicial</strong>' +\n  '<span class=\"preu-producte\">12,00 €</span>';\n\n// Insertar al PRINCIPIO de la lista\nllista.prepend(producteInicial);\n\n// Comparacion:\n// prepend() → al principio\n// append() o appendChild() → al final"
+      ,
+      "tags": ["dom", "prepend", "practica", "insercion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-act-007",
+      "front": "Como clonar una plantilla de producto con cloneNode?",
+      "back": "Patron plantilla - clonar desde elemento oculto:\n\n// 1. Obtener la plantilla\nconst plantilla = document.getElementById('plantilla-producte');\n\n// 2. Clonar CON todo su contenido\nconst clon = plantilla.cloneNode(true);\n\n// 3. IMPORTANTE: eliminar el id para evitar duplicados\nclon.removeAttribute('id');\n\n// 4. Personalizar el clon\nclon.dataset.preu = '19.99';\nclon.querySelector('.nom-producte').textContent = 'Producte clonat';\nclon.querySelector('.preu-producte').textContent = '19,99 €';\n\n// 5. Anadir a la lista\nllista.appendChild(clon);\n\nNota: cloneNode(true) copia el elemento y todos sus descendientes"
+      ,
+      "tags": ["dom", "clonenode", "plantilla", "practica"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-act-008",
+      "front": "Como eliminar un elemento del DOM con remove()?",
+      "back": "Metodo moderno para eliminar elementos:\n\n// Seleccionar y eliminar directamente\nconst missatgeBanner = document.getElementById('missatge-banner');\nmissatgeBanner.remove();\n\n// Ventajas de remove():\n// - Sintaxis mas corta y clara\n// - No necesita referencia al elemento padre\n// - Metodo moderno (ES6+)\n\n// Alternativa clasica (tambien valida):\nconst banner = document.getElementById('banner');\nbanner.removeChild(missatgeBanner);"
+      ,
+      "tags": ["dom", "remove", "eliminacion", "practica"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-act-009",
+      "front": "Como crear e insertar un nuevo parrafo en una seccion?",
+      "back": "Ejemplo - reemplazar banner antiguo:\n\n// 1. Crear nuevo parrafo\nconst nouMissatge = document.createElement('p');\nnouMissatge.textContent = \n  'Banner actual: descompte del 20% en tots els productes!';\n\n// 2. Insertar en la seccion\nconst seccioBanner = document.getElementById('banner');\nseccioBanner.appendChild(nouMissatge);\n\n// O usar append para mas flexibilidad:\nseccioBanner.append(nouMissatge);\n\n// Insertar HTML directamente (alternativa rapida):\nseccioBanner.innerHTML = \n  '<p>Banner actual: descompte del 20%!</p>';"
+      ,
+      "tags": ["dom", "createelement", "practica", "banner"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-act-010",
+      "front": "Como insertar un elemento antes de otro con before()?",
+      "back": "Metodo before() - inserta antes del elemento referencia:\n\n// Crear segundo parrafo\nconst missatgeLimitat = document.createElement('p');\nmissatgeLimitat.textContent = \n  'Aquesta promocio es limitada en el temps.';\n\n// Insertar ANTES del parrafo del banner\nconst paragrafBanner = document.querySelector('#banner p');\nparagrafBanner.before(missatgeLimitat);\n\n// Alternativa clasica con insertBefore:\n// banner.insertBefore(missatgeLimitat, paragrafBanner);\n\n// Comparacion metodos modernos:\n// before()  → antes del elemento\n// after()   → despues del elemento\n// prepend() → primer hijo del padre\n// append()  → ultimo hijo del padre"
+      ,
+      "tags": ["dom", "before", "practica", "insercion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-act-011",
+      "front": "Resumen: metodos para insertar elementos en el DOM",
+      "back": "METODOS MODERNOS (recomendados):\n\nparent.append(child)      → al final de los hijos\nparent.prepend(child)     → al principio de los hijos\nelement.before(newNode)   → antes del elemento\nelement.after(newNode)    → despues del elemento\n\nMETODO CLASICO:\nparent.appendChild(child) → al final\nparent.insertBefore(new, ref) → antes del nodo de referencia\n\nHTML directo:\nparent.innerHTML = '<p>HTML</p>' → reemplaza todo el contenido"
+      ,
+      "tags": ["dom", "resumen", "insercion", "metodos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-act-012",
+      "front": "Ejemplo completo: flujo de actualizacion de catalogo",
+      "back": "Flujo completo practico:\n\n// 1. Actualizar textos\ndocument.getElementById('titol-principal').textContent = 'Nou titol';\n\n// 2. Actualizar atributos\ndocument.getElementById('enllac').setAttribute('href', 'https://ioc.cat');\n\n// 3. Crear y añadir productos\nconst llista = document.getElementById('llista-productes');\n\n// Producto al final\nconst producte1 = crearProducte('Producte A', '10.00');\nllista.append(producte1);\n\n// Producto al principio\nconst producte2 = crearProducte('Producte B', '5.50');\nllista.prepend(producte2);\n\n// 4. Clonar plantilla\nconst plantilla = document.getElementById('plantilla-producte');\nconst clon = plantilla.cloneNode(true);\nclon.removeAttribute('id');\nllista.append(clon);\n\n// 5. Eliminar elemento\ndocument.getElementById('missatge-banner').remove();"
+      ,
+      "tags": ["dom", "practica", "completo", "flujo"],
+      "difficulty": "medium"
+    }
+  ]
+}
