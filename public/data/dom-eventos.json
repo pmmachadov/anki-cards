@@ -148,6 +148,102 @@
       ,
       "tags": ["dom", "eventos", "resumen", "flujo"],
       "difficulty": "medium"
+    },
+    {
+      "id": "dom-ev-019",
+      "front": "Actividad U3L2: Estructura de la practica de eventos",
+      "back": "ARCHIVOS:\n- events.html (estructura, no se modifica)\n- events.js (toda la logica JavaScript)\n\nSECCIONES DEL HTML:\n1. #controls - Botones para activar/desactivar listeners\n2. #targeta - Targeta interactiva con clic y hover\n3. #llista - Lista de elementos clicables\n4. #contenidor-propagacio - Demo de propagacion\n5. #log - Registro de eventos"
+      ,
+      "tags": ["dom", "eventos", "actividad", "practica"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-020",
+      "front": "Actividad U3L2: Funcion afegeixAlLog para el registro",
+      "back": "Funcion auxiliar para añadir mensajes al log:\n\nfunction afegeixAlLog(text) {\n  const li = document.createElement('li');\n  li.textContent = text;\n  log.appendChild(li);\n}\n\nUSO EN LISTENERS:\ntargeta.addEventListener('click', function(e) {\n  afegeixAlLog('Hem clicat a la targeta');\n});"
+      ,
+      "tags": ["dom", "eventos", "actividad", "log"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-021",
+      "front": "Actividad U3L2: Gestionar clic en la targeta (currentTarget vs target)",
+      "back": "Funcion que muestra la diferencia entre currentTarget y target:\n\nfunction gestionarClicTargeta(event) {\n  const nomCurrent = event.currentTarget.tagName;\n  const nomTarget = event.target.tagName;\n  \n  afegeixAlLog(\n    `Hem clicat (currentTarget: ${nomCurrent}, target: ${nomTarget})`\n  );\n}\n\n- currentTarget: elemento con el listener (DIV #targeta)\n- target: elemento exacto clicado (p, button, h2...)"
+      ,
+      "tags": ["dom", "eventos", "actividad", "target", "currenttarget"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-ev-022",
+      "front": "Actividad U3L2: Como añadir listener a cada elemento de una lista",
+      "back": "Usar forEach sobre NodeList de querySelectorAll:\n\nconst elementsLlista = llista.querySelectorAll('li');\n\nelementsLlista.forEach((element) => {\n  element.addEventListener('click', () => {\n    const text = element.textContent.trim();\n    const id = element.dataset.id;\n    afegeixAlLog(`Hem clicat: ${text} (data-id: ${id})`);\n  });\n});\n\nNota: Se lee dataset.id para obtener el atributo data-id"
+      ,
+      "tags": ["dom", "eventos", "actividad", "foreach", "lista"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-023",
+      "front": "Actividad U3L2: Botones para activar/desactivar listeners",
+      "back": "ACTIVAR listener:\nbotoActivarClick.addEventListener('click', () => {\n  targeta.addEventListener('click', gestionarClicTargeta);\n  afegeixAlLog('Afegim el listener de clic');\n});\n\nDESACTIVAR listener:\nbotoDesactivarClick.addEventListener('click', () => {\n  targeta.removeEventListener('click', gestionarClicTargeta);\n  afegeixAlLog('Eliminem el listener de clic');\n});\n\nIMPORTANTE: usar la misma referencia de funcion (gestionarClicTargeta)"
+      ,
+      "tags": ["dom", "eventos", "actividad", "activar", "desactivar"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-024",
+      "front": "Actividad U3L2: Efecto hover con mouseenter/mouseleave",
+      "back": "Funciones para efecto hover en la targeta:\n\nfunction gestionarMouseEnterTargeta() {\n  targeta.style.backgroundColor = '#e6f7ff';\n  afegeixAlLog('El ratoli ha entrat a la targeta');\n}\n\nfunction gestionarMouseLeaveTargeta() {\n  targeta.style.backgroundColor = '';\n  afegeixAlLog('El ratoli ha sortit de la targeta');\n}\n\n// Activar hover\ntargeta.addEventListener('mouseenter', gestionarMouseEnterTargeta);\ntargeta.addEventListener('mouseleave', gestionarMouseLeaveTargeta);"
+      ,
+      "tags": ["dom", "eventos", "actividad", "hover", "mouseenter"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-025",
+      "front": "Actividad U3L2: Vaciar el registro de eventos",
+      "back": "Boton para limpiar el log:\n\nbotoNetejaLog.addEventListener('click', () => {\n  log.innerHTML = '';\n});\n\nAlternativa moderna:\nlog.replaceChildren();\n\nNota: No añadimos mensaje de confirmacion porque entonces el log no quedaria vacio."
+      ,
+      "tags": ["dom", "eventos", "actividad", "vaciar", "log"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-026",
+      "front": "Actividad U3L2: Demostracion de propagacion de eventos",
+      "back": "Sin stopPropagation:\n\ncontenidor.addEventListener('click', () => {\n  afegeixAlLog('Clic al contenidor');\n});\n\nbotoPropagacio.addEventListener('click', () => {\n  afegeixAlLog('Clic al boto intern');\n});\n\nRESULTADO al clicar el boton:\n1. 'Clic al boto intern'\n2. 'Clic al contenidor' (propagacion/bubbling)\n\nEl evento sube desde el hijo al padre."
+      ,
+      "tags": ["dom", "eventos", "actividad", "propagacion", "bubbling"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-ev-027",
+      "front": "Actividad U3L2: Detener propagacion con stopPropagation()",
+      "back": "Usar event.stopPropagation() para evitar que el evento suba:\n\nfunction gestionarClicBotoPropagacio(event) {\n  event.stopPropagation();  // Detiene la propagacion\n  afegeixAlLog('Clic al boto (propagacio aturada)');\n}\n\nbotoPropagacio.addEventListener('click', gestionarClicBotoPropagacio);\n\nRESULTADO:\n- Clic en el boton: solo log del boton\n- Clic en el contenidor (fuera boton): log del contenidor"
+      ,
+      "tags": ["dom", "eventos", "actividad", "stoppropagation"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-028",
+      "front": "Actividad U3L2: Codigo completo de la practica",
+      "back": "document.addEventListener('DOMContentLoaded', () => {\n  // Seleccionar elementos\n  const targeta = document.getElementById('targeta');\n  const log = document.getElementById('log');\n  const llista = document.getElementById('llista');\n  \n  // Funcion auxiliar log\n  function afegeixAlLog(text) {\n    const li = document.createElement('li');\n    li.textContent = text;\n    log.appendChild(li);\n  }\n  \n  // Listener targeta\n  function gestionarClicTargeta(e) {\n    afegeixAlLog(\n      `currentTarget: ${e.currentTarget.tagName}, ` +\n      `target: ${e.target.tagName}`\n    );\n  }\n  \n  targeta.addEventListener('click', gestionarClicTargeta);\n  \n  // Listeners lista\n  llista.querySelectorAll('li').forEach(el => {\n    el.addEventListener('click', () => {\n      afegeixAlLog(`Element: ${el.textContent} (id: ${el.dataset.id})`);\n    });\n  });\n});"
+      ,
+      "tags": ["dom", "eventos", "actividad", "codigo-completo"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-ev-029",
+      "front": "Por que es importante usar funciones nombradas para removeEventListener?",
+      "back": "removeEventListener requiere la MISMA referencia de funcion que addEventListener.\n\n// ❌ NO funciona - funciones anonimas diferentes\ntargeta.addEventListener('click', () => { ... });\ntargeta.removeEventListener('click', () => { ... });\n\n// ✅ FUNCIONA - misma referencia\nfunction gestionarClick() { ... }\ntargeta.addEventListener('click', gestionarClick);\ntargeta.removeEventListener('click', gestionarClick);\n\nEn la practica, las funciones gestionarClicTargeta, gestionarMouseEnterTargeta, etc. deben ser nombradas."
+      ,
+      "tags": ["dom", "eventos", "removeeventlistener", "funciones-nombradas"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-ev-030",
+      "front": "Que sucede si añades el mismo listener dos veces con addEventListener?",
+      "back": "Si es la MISMA referencia de funcion:\n- El navegador lo detecta y NO lo duplica\n- Solo se ejecuta una vez por evento\n\nEjemplo:\nfunction miFuncion() { console.log('click'); }\n\ntargeta.addEventListener('click', miFuncion);\ntargeta.addEventListener('click', miFuncion);  // Ignorado\n\nNota: Esto permite llamar addEventListener sin preocuparse por duplicados si usamos la misma referencia."
+      ,
+      "tags": ["dom", "eventos", "addeventlistener", "duplicados"],
+      "difficulty": "medium"
     }
   ]
 }
