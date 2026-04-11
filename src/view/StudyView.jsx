@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { DIFFICULTY } from '../model/Deck'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import './StudyView.css'
 
 export function StudyView({ deck, onBack, onUpdateDeck }) {
@@ -32,6 +34,94 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
   const currentCard = cards[currentCardIndex]
   const progress = cards.length > 0 ? ((currentCardIndex) / cards.length) * 100 : 0
 
+  // Función para procesar texto y resaltar código
+  const renderCardContent = (text) => {
+    if (!text) return null
+    
+    const lines = text.split('\n')
+    const elements = []
+    let currentText = []
+    let codeBlock = null
+    let codeLines = []
+    
+    lines.forEach((line, index) => {
+      const codeBlockStart = line.match(/^```(\w+)?$/)
+      const codeBlockEnd = line === '```'
+      
+      if (codeBlockStart && !codeBlock) {
+        // Inicia bloque de código
+        if (currentText.length > 0) {
+          elements.push(
+            <p key={`text-${index}`} className="card-text-paragraph">
+              {currentText.join('\n')}
+            </p>
+          )
+          currentText = []
+        }
+        codeBlock = codeBlockStart[1] || 'text'
+      } else if (codeBlockEnd && codeBlock) {
+        // Termina bloque de código
+        elements.push(
+          <div key={`code-${index}`} className="code-block-wrapper">
+            <SyntaxHighlighter
+              language={codeBlock}
+              style={dracula}
+              customStyle={{
+                margin: '0',
+                borderRadius: '0',
+                fontSize: '1rem',
+                lineHeight: '1.6',
+                background: '#000000'
+              }}
+            >
+              {codeLines.join('\n')}
+            </SyntaxHighlighter>
+          </div>
+        )
+        codeBlock = null
+        codeLines = []
+      } else if (codeBlock) {
+        // Dentro del bloque de código
+        codeLines.push(line)
+      } else {
+        // Texto normal
+        currentText.push(line)
+      }
+    })
+    
+    // Agregar texto restante
+    if (currentText.length > 0) {
+      elements.push(
+        <p key="text-final" className="card-text-paragraph">
+          {currentText.join('\n')}
+        </p>
+      )
+    }
+    
+    // Agregar código restante (si no se cerró)
+    if (codeLines.length > 0) {
+      elements.push(
+        <div key="code-final" className="code-block-wrapper">
+          <SyntaxHighlighter
+            language={codeBlock || 'text'}
+            style={dracula}
+            customStyle={{
+              margin: '0',
+              borderRadius: '0',
+              fontSize: '1rem',
+              lineHeight: '1.6',
+              background: '#000000'
+            }}
+          >
+            {codeLines.join('\n')}
+          </SyntaxHighlighter>
+        </div>
+      )
+    }
+    
+    return elements
+  }
+
   const handleFlip = () => {
     setIsFlipped(!isFlipped)
     setFlipRotation(prev => prev + 180)
@@ -57,10 +147,16 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
     if (currentCardIndex < cards.length - 1) {
       setCurrentCardIndex(prev => prev + 1)
       setIsFlipped(false)
+      setFlipRotation(0)
     } else {
       setShowComplete(true)
     }
   }, [currentCard, currentCardIndex, cards.length, deck, onUpdateDeck])
+
+  // Scroll al inicio cuando cambia la tarjeta
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [currentCardIndex])
 
   // Keyboard shortcuts
   useEffect(() => {
@@ -206,6 +302,7 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
             const newIndex = parseInt(e.target.value) - 1
             setCurrentCardIndex(newIndex)
             setIsFlipped(false)
+            setFlipRotation(0)
           }}
           className="card-slider"
         />
@@ -214,6 +311,7 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
 
       <div className="flashcard-container">
         <div 
+          key={currentCardIndex}
           className="flashcard"
           onClick={handleFlip}
           style={{ transform: `rotateY(${flipRotation}deg)` }}
@@ -225,10 +323,8 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
               </div>
             </div>
             <div className="flashcard-back">
-              <div className="card-content">
-                <p className="card-text" style={{ whiteSpace: 'pre-line' }}>
-                  {currentCard.back}
-                </p>
+              <div className="card-content card-content-code">
+                {renderCardContent(currentCard.back)}
               </div>
             </div>
           </div>
@@ -241,25 +337,25 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
             className="rating-btn again"
             onClick={() => handleRate(DIFFICULTY.AGAIN)}
           >
-            <span className="rating-label">Otra vez</span>
+            Otra vez
           </button>
           <button 
             className="rating-btn hard"
             onClick={() => handleRate(DIFFICULTY.HARD)}
           >
-            <span className="rating-label">Dificil</span>
+            Dificil
           </button>
           <button 
             className="rating-btn good"
             onClick={() => handleRate(DIFFICULTY.GOOD)}
           >
-            <span className="rating-label">Bien</span>
+            Bien
           </button>
           <button 
             className="rating-btn easy"
             onClick={() => handleRate(DIFFICULTY.EASY)}
           >
-            <span className="rating-label">Facil</span>
+            Facil
           </button>
         </div>
       ) : (

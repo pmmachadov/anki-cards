@@ -42,6 +42,7 @@ html, body {
   display: flex;
   flex-direction: column;
   position: relative;
+  background: #000000;
 }
 
 /* Botón de pantalla completa */
@@ -270,7 +271,7 @@ html, body {
 }
 
 .btn-hard {
-  background: #7d4e00;
+  background: #b45309;
   color: white;
 }
 

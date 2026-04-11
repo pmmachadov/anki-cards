@@ -238,7 +238,7 @@
     {
       "id": "b75da951-ce6f-4d23-b062-855427dc1986",
       "front": "Modelo OSI - 7 capas",
-      "back": "7. APLICACION: HTTP, FTP, DNS\n6. PRESENTACION: SSL/TLS, codificacion\n5. SESION: control de dialogo\n4. TRANSPORTE: TCP, UDP\n3. RED: IP, routers, ICMP\n2. ENLACE: Ethernet, switches, MAC\n1. FISICA: cables, conectores, bits\n\nMnemotecnia: APPTRRF",
+      "back": "MODELO OSI (Open Systems Interconnection):\nModelo de referencia ISO que estandariza las funciones de comunicacion en 7 capas. Permite que sistemas diferentes se comuniquen usando protocolos estandar, facilitando el diseno de redes y la solucion de problemas.\n\n7. APLICACION: HTTP, FTP, DNS\n6. PRESENTACION: SSL/TLS, codificacion\n5. SESION: control de dialogo\n4. TRANSPORTE: TCP, UDP\n3. RED: IP, routers, ICMP\n2. ENLACE: Ethernet, switches, MAC\n1. FISICA: cables, conectores, bits\n\nMnemotecnia: APPTRRF",
       "tags": [
         "redes",
         "osi",

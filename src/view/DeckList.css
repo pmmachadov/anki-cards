@@ -161,6 +161,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(520px, 1fr));
   gap: 24px;
+  align-items: start;
 }
 
 /* Deck Card */
@@ -172,6 +173,7 @@
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
+  height: auto;
 }
 
 .deck-card:hover {
@@ -390,7 +392,7 @@
 
 .btn-icon-only {
   padding: 12px !important;
-  background: #1a1a1a !important;
+  background: #0a0a0a !important;
   border: 1px solid var(--border-color) !important;
 }
 
@@ -416,7 +418,7 @@
 }
 
 .btn-icon-only:hover {
-  background: #262626 !important;
+  background: #141414 !important;
 }
 
 /* Empty State */
