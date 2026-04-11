@@ -1,0 +1,93 @@
+{
+  "id": "dwec-unidad3-dom-parte1",
+  "name": "DWEC - Unidad 3 - Programacion con el DOM (I)",
+  "description": "Estructura del DOM, tipos de nodos, acceso y modificacion de contenido",
+  "subject": "Desenvolupament Web en Entorn Client",
+  "created": "2026-04-11",
+  "cards": [
+    {
+      "id": "dwec-u3-001",
+      "front": "Que es el DOM (Document Object Model)?",
+      "back": "Representacion en forma de arbol jerarquico de todos los elementos que componen una pagina HTML.\n\nCARACTERISTICAS:\n- Cada etiqueta, texto o atributo se convierte en un nodo\n- Es un modelo interno que mantiene el navegador en memoria\n- NO es el codigo HTML en si mismo\n- Permite acceder, modificar, agregar o eliminar elementos en tiempo real\n- Facilita crear interfaces web dinamicas e interactivas",
+      "tags": ["dom", "conceptos-basicos", "javascript"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-u3-002",
+      "front": "Como se construye el DOM?",
+      "back": "PROCESO:\n1. El navegador lee el fichero HTML\n2. Lo transforma en un arbol de nodos\n3. Cada etiqueta, texto, comentario... se convierte en un nodo\n4. JavaScript puede acceder y modificar estos nodos durante la ejecucion\n\nEJEMPLO:\n<h1 id=\"titol\">Hola DOM</h1>\n<p class=\"resum\">Un petit exemple</p>\n\nSe representa como un arbol jerarquico donde cada elemento es un objeto.",
+      "tags": ["dom", "arbol", "nodos", "construccion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-u3-003",
+      "front": "Estructura de arbol del DOM - Relaciones entre nodos",
+      "back": "NODE PADRE (parent): el nodo que contiene a otro\nNODE FILL (child): un nodo contenido directamente dentro de otro\nNODES GERMANOS (siblings): nodos que comparten el mismo padre\nDESCENDENT: cualquier nodo que esta por debajo (no necesariamente hijo directo)\n\nEJEMPLO:\n<ul>\n  <li>Primer</li>\n  <li id=\"central\">Segon</li>\n  <li>Tercer</li>\n</ul>\n\n- El <ul> es el padre de todos los <li>\n- Cada <li> es hijo del <ul>\n- Los tres <li> son hermanos entre si",
+      "tags": ["dom", "arbol", "padre", "hijo", "hermanos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-u3-004",
+      "front": "Tipos de modelos DOM",
+      "back": "ESPECIFICACIONES HISTORICAS:\n- DOM Level 1, 2, 3\n- DOM Living Standard / DOM4 (actual)\n\nTIPOS POR FORMATO:\n- HTML DOM: modelo para documentos HTML (el que usamos)\n- XML DOM: para documentos XML\n- SVG DOM: para graficos vectoriales SVG\n\nNOTA: Los navegadores modernos implementan de manera homogenea las partes del DOM que utilizamos habitualmente.",
+      "tags": ["dom", "especificaciones", "html", "xml"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-u3-005",
+      "front": "Interfaces principales del DOM",
+      "back": "NODE: Interfaz base de la cual heredan otros tipos. Proporciona propiedades comunes (parentNode, childNodes...)\n\nDOCUMENT: Representa todo el documento. Punto de entrada principal (document). Permite buscar y crear nodos nuevos.\n\nELEMENT: Representa una etiqueta HTML (<p>, <div>, <ul>...). Propiedades especificas de elementos (atributos, clases, estilos...)\n\nTEXT: Representa el contenido textual dentro de un elemento.\n\nOTRAS: Attr, Comment, DocumentFragment, HTMLDocument...",
+      "tags": ["dom", "interfaces", "node", "document", "element"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-u3-006",
+      "front": "Propiedades nodeType y nodeName",
+      "back": "nodeType → numero que indica el tipo de node:\n- 1: ELEMENT_NODE (elementos HTML como <div>, <p>)\n- 3: TEXT_NODE (contenido textual)\n- 8: COMMENT_NODE (comentarios <!-- -->)\n- 9: DOCUMENT_NODE (document)\n\nnodeName → nombre del node en forma de cadena:\n- \"P\" para un <p>\n- \"#text\" para un node de text\n- \"#document\" para el documento\n\nEJEMPLO:\nconsole.log(document.nodeType); // 9\nconsole.log(element.nodeType);  // 1\nconsole.log(element.nodeName);  // \"P\"",
+      "tags": ["dom", "nodeType", "nodeName", "propiedades"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-u3-007",
+      "front": "textContent - Propiedad para texto puro",
+      "back": "Lectura/escritura del texto de un nodo y todos sus descendientes.\n\nCARACTERISTICAS:\n- No interpreta etiquetas HTML (solo trata el contenido como texto)\n- Obtiene todo el texto del nodo y sus hijos\n- Al asignar, elimina el contenido anterior y pone solo el nuevo texto\n- Mas seguro para evitar inyecciones de codigo (XSS)\n\nEJEMPLO:\nconst missatge = document.getElementById(\"missatge\");\nconsole.log(missatge.textContent);   // \"Text original\"\nmissatge.textContent = \"Text modificat\";",
+      "tags": ["dom", "textContent", "texto", "propiedades"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-u3-008",
+      "front": "innerText vs textContent",
+      "back": "INNERTEXT:\n- Solo devuelve el texto VISIBLE\n- Ignora elementos ocultos (display: none)\n- Ajusta saltos de linea segun renderizado\n- Mas lento (consulta el layout del navegador)\n\nTEXTCONTENT:\n- Devuelve TODO el texto (visible y oculto)\n- Incluye texto de elementos con display: none\n- No considera estilos CSS\n- Mas rapido\n\nEJEMPLO:\n<p id=\"exemple\">\n  Hola <span style=\"display: none\">secret</span> mon\n</p>\n\ntextContent → \"Hola secret mon\"\ninnerText   → \"Hola mon\"",
+      "tags": ["dom", "innerText", "textContent", "diferencias"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-u3-009",
+      "front": "innerHTML - Propiedad para contenido HTML",
+      "back": "Permite trabajar con el contenido HTML completo de un elemento (etiquetas + texto).\n\nLECTURA: Obtiene cadena con el codigo HTML interno\nESCRITURA: El navegador analiza la cadena y crea nuevos nodes\n\nEJEMPLO:\nconst contingut = document.getElementById(\"contingut\");\nconsole.log(contingut.innerHTML); // \"<strong>Hola</strong> mon\"\n\ncontingut.innerHTML = \"<em>Text en cursiva</em>\";\n\nPRECAUCION:\n- Cuidado con datos de usuarios externos\n- Riesgo de inyeccion de codigo malicioso (XSS)",
+      "tags": ["dom", "innerHTML", "html", "propiedades"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-u3-010",
+      "front": "Que es una inyeccion de codigo (XSS)?",
+      "back": "Cuando una aplicacion trata datos (texto de usuario o fuente externa) como si fueran codigo ejecutable, permitiendo que alguien ejecute ordenes no previstas.\n\nTIPOS COMUNES:\n1. XSS Web: innerHTML con contenido de usuario\n   → Ejecutar scripts en el navegador de la victima\n\n2. SQL Injection: Construir consultas SQL con strings\n   → Alterar consultas, leer/modificar/borrar datos\n\n3. Command Injection: Pasar texto de usuario a comandos del sistema\n   → Ejecutar comandos en el servidor\n\nPREVENCION:\n- Usar textContent en lugar de innerHTML para texto\n- Validar y sanitizar entradas de usuario",
+      "tags": ["seguridad", "xss", "inyeccion", "prevencion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-u3-011",
+      "front": "Nodos de texto ocultos en el DOM",
+      "back": "Los saltos de linea, espacios en blanco y tabulaciones en el codigo HTML se cuentan como nodos de texto (TEXT_NODE), aunque visualmente no haya nada.\n\nEJEMPLO:\n<div>\n  <p>Texto</p>\n</div>\n\nNODOS EN EL ARBOL:\n- div (elemento)\n  - #text (salto de linea + espacios)\n  - p (elemento)\n    - #text (\"Texto\")\n  - #text (salto de linea)\n\nIMPORTANTE:\n- Estos nodos de texto pueden afectar a la navegacion por el DOM\n- Hay que tenerlos en cuenta al recorrer childNodes",
+      "tags": ["dom", "nodos-texto", "espacios", "arbol"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-u3-012",
+      "front": "Compatibilidad entre navegadores",
+      "back": "SITUACION ACTUAL:\n- La mayor parte de los metodos (Document, Element, Node) son compatibles con todos los navegadores modernos\n- ECMAScript esta en constante evolucion\n\nBUENAS PRACTICAS:\n- Comprobar si una funcionalidad existe antes de usarla\n- Especialmente importante con caracteristicas muy nuevas\n- Usar polyfills si es necesario para navegadores antiguos\n\nNOTA HISTORICA:\n- En versiones antiguas habia diferencias significativas\n- Actualmente el soporte es bastante homogeneo",
+      "tags": ["compatibilidad", "navegadores", "javascript", "dom"],
+      "difficulty": "easy"
+    }
+  ]
+}
