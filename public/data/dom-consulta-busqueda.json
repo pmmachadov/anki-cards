@@ -1,0 +1,114 @@
+{
+  "id": "dom-consulta-busqueda",
+  "name": "DOM: Consulta y Busqueda",
+  "description": "Navegacion por el arbol DOM, relaciones entre nodos y metodos de busqueda de elementos",
+  "subject": "Desarrollo Web en Entorno Cliente",
+  "created": "2026-04-11",
+  "cards": [
+    {
+      "id": "dom-001",
+      "front": "Que significa 'traversing the DOM'?",
+      "back": "Proceso de recorrer el arbol del DOM y seleccionar nodos.\n\nIncluye:\n- Desplazarse por relaciones entre nodos (padres, hijos, hermanos)\n- Realizar busquedas especificas desde el documento o un elemento concreto",
+      "tags": ["dom", "conceptos-basicos", "traversing"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-002",
+      "front": "Que propiedades de Node permiten navegar por las relaciones entre nodos?",
+      "back": "PROPIEDADES DE NAVEGACION:\n\n- parentNode → nodo padre\n- firstChild → primer hijo\n- lastChild → ultimo hijo\n- previousSibling → hermano anterior\n- nextSibling → hermano siguiente\n\nNota: Estas propiedades incluyen nodos de texto (espacios, saltos de linea).",
+      "tags": ["dom", "node", "navegacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-003",
+      "front": "Cual es la diferencia entre firstChild y firstElementChild?",
+      "back": "firstChild:\n- Devuelve el PRIMER hijo de cualquier tipo\n- Puede ser un nodo de texto (espacios, saltos de linea)\n\nfirstElementChild:\n- Devuelve solo el primer hijo que sea ELEMENTO HTML\n- Ignora nodos de texto y comentarios\n\nLo mismo aplica a lastChild vs lastElementChild",
+      "tags": ["dom", "element", "diferencias"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-004",
+      "front": "Cual es la diferencia entre childNodes y children?",
+      "back": "childNodes:\n- NodeList con TODOS los hijos\n- Incluye: elementos, nodos de texto, comentarios\n- Disponible en cualquier Node\n\nchildren:\n- HTMLCollection con SOLO elementos HTML\n- No incluye textos ni comentarios\n- Solo disponible en elementos de tipo Element",
+      "tags": ["dom", "childnodes", "children", "diferencias"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-005",
+      "front": "Para que sirve el metodo hasChildNodes()?",
+      "back": "Metodo que devuelve:\n\n- true → si el nodo tiene al menos un hijo (de cualquier tipo)\n- false → si el nodo no tiene hijos\n\nEjemplo:\nconst lista = document.getElementById('lista');\nconsole.log(lista.hasChildNodes()); // true o false",
+      "tags": ["dom", "metodos", "nodos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-006",
+      "front": "Como funciona document.getElementById()?",
+      "back": "Busca y devuelve UN unico elemento por su atributo id.\n\nSintaxis:\ndocument.getElementById('miId')\n\nRetorna:\n- El elemento si existe\n- null si no existe\n\nEs el metodo mas rapido para encontrar un elemento unico.",
+      "tags": ["dom", "busqueda", "getelementbyid"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-007",
+      "front": "Que devuelve document.getElementsByTagName()?",
+      "back": "Devuelve una HTMLCollection con TODOS los elementos de una etiqueta especifica.\n\nEjemplos:\n- document.getElementsByTagName('p') → todos los parrafos\n- document.getElementsByTagName('li') → todos los items de lista\n\nEs una coleccion VIVA: se actualiza automaticamente si se anaden/eliminan elementos.",
+      "tags": ["dom", "busqueda", "colecciones"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-008",
+      "front": "Que son las colecciones 'vivas' en el DOM?",
+      "back": "Colecciones que se ACTUALIZAN AUTOMATICAMENTE cuando cambia el DOM.\n\nEjemplos:\n- getElementsByTagName()\n- getElementsByClassName()\n\nCaracteristicas:\n- Si se anaden/eliminan elementos, la coleccion se actualiza sola\n- No es necesario volver a ejecutar la busqueda",
+      "tags": ["dom", "colecciones", "htmlcollection"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-009",
+      "front": "Como funcionan querySelector() y querySelectorAll()?",
+      "back": "Permiten buscar elementos usando SELECTORES CSS.\n\nquerySelector(selector):\n- Devuelve el PRIMER elemento que coincide\n- null si no hay coincidencias\n\nquerySelectorAll(selector):\n- Devuelve TODOS los elementos que coinciden (NodeList)\n- NodeList estatica (no se actualiza automaticamente)",
+      "tags": ["dom", "busqueda", "queryselector"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-010",
+      "front": "Ejemplos de selectores CSS con querySelectorAll",
+      "back": "SELECTORES COMUNES:\n\n#id → por ID (#miId)\n.clase → por clase (.resumen)\nh1 → por etiqueta (h1, p, li)\n\nJERARQUIA:\npadre hijo → descendiente (ul li)\npadre > hijo → hijo directo (ul > li)\n\nATRIBUTOS:\n[type='button'] → por atributo\n\nPSEUDOCLASES:\nli:first-child → primer hijo\nli:last-child → ultimo hijo",
+      "tags": ["dom", "css", "selectores"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-011",
+      "front": "Como realizar una busqueda relativa desde un elemento?",
+      "back": "Se pueden usar metodos de Element para buscar SOLO dentro de sus descendientes:\n\nelement.getElementsByTagName(tag)\nelement.getElementsByClassName(clase)\nelement.querySelector(selector)\nelement.querySelectorAll(selector)\n\nVentaja: limita el area de busqueda, mejor rendimiento.",
+      "tags": ["dom", "busqueda", "element"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-012",
+      "front": "Cual es la diferencia entre HTMLCollection y NodeList?",
+      "back": "HTMLCollection:\n- Solo elementos HTML\n- Acceso por indice o nombre/id\n- Metodos: item(), namedItem()\n\nNodeList:\n- Cualquier tipo de nodo\n- Solo acceso por indice\n- Metodo: item()\n- querySelectorAll() devuelve NodeList estatica\n- childNodes devuelve NodeList viva",
+      "tags": ["dom", "colecciones", "diferencias"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "dom-013",
+      "front": "Buenas practicas para consultar y buscar en el DOM",
+      "back": "1. Usar ID para elementos unicos (getElementById es mas rapido)\n\n2. Limitar area de busqueda: obtener el contenedor primero, luego buscar dentro\n\n3. Reutilizar resultados: guardar en variable si se usa varias veces\n\n4. Usar selectores CSS para busquedas complejas (querySelectorAll)\n\n5. Preferir children sobre childNodes si solo se necesitan elementos HTML",
+      "tags": ["dom", "buenas-practicas", "rendimiento"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-014",
+      "front": "Por que previousSibling y nextSibling pueden devolver nodos de texto inesperados?",
+      "back": "Porque el formato del HTML crea nodos de texto:\n\n<ul>\n  <li>A</li>\n  <li id='b'>B</li>\n  <li>C</li>\n</ul>\n\nLos SALTOS DE LINEA y ESPACIOS entre etiquetas crean nodos #text.\n\nSolucion: usar previousElementSibling y nextElementSibling que ignoran los nodos de texto.",
+      "tags": ["dom", "siblings", "nodos-texto"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-015",
+      "front": "Diferencia entre getElementsByClassName() y querySelectorAll('.clase')",
+      "back": "getElementsByClassName('clase'):\n- HTMLCollection VIVA (se actualiza automaticamente)\n- Mas rapido\n- Solo busca por clase exacta\n\nquerySelectorAll('.clase'):\n- NodeList ESTATICA (captura snapshot del momento)\n- Mas lento\n- Permite selectores CSS complejos (.clase1.clase2)",
+      "tags": ["dom", "busqueda", "diferencias"],
+      "difficulty": "hard"
+    }
+  ]
+}
