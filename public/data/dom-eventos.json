@@ -244,6 +244,78 @@
       ,
       "tags": ["dom", "eventos", "addeventlistener", "duplicados"],
       "difficulty": "medium"
+    },
+    {
+      "id": "dom-ev-031",
+      "front": "Como añadir elementos a una lista con addEventListener?",
+      "back": "Ejemplo completo de añadir elementos dinamicamente:\n\nconst botoAfegir = document.getElementById('afegir');\nconst llista = document.getElementById('llista');\nlet comptador = 0;\n\nfunction afegirElement() {\n  comptador++;\n  \n  // Crear nuevo elemento\n  const nouElement = document.createElement('li');\n  nouElement.textContent = 'Element ' + comptador;\n  \n  // Insertar en el DOM\n  llista.appendChild(nouElement);\n}\n\n// Asignar listener\nbotoAfegir.addEventListener('click', afegirElement);\n\nCada clic crea un nuevo <li> y lo añade a la lista."
+      ,
+      "tags": ["dom", "eventos", "crear-elementos", "lista", "appendchild"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-032",
+      "front": "Estructura general de addEventListener",
+      "back": "Sintaxis completa de addEventListener:\n\nelemento.addEventListener(tipo, callback, opciones);\n\nTIPO: string con el nombre del evento\n  'click', 'submit', 'keyup', 'change', 'input'...\n\nCALLBACK: funcion que se ejecuta cuando ocurre el evento\n  Recibe como primer parametro el objeto Event\n\nOPCIONES (objeto opcional):\n  { once: true }       // Se ejecuta solo una vez\n  { capture: true }    // Fase de captura\n  { passive: true }    // Mejora rendimiento scroll\n\nEjemplo:\nboton.addEventListener('click', manejador, { once: true });"
+      ,
+      "tags": ["dom", "eventos", "addeventlistener", "sintaxis", "opciones"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-033",
+      "front": "Ejemplo: boton que solo funciona una vez",
+      "back": "Boton que se auto-desactiva despues del primer uso:\n\nconst botoUnCop = document.getElementById('un-cop');\n\nfunction gestionarClicUnCop() {\n  // Crear y añadir elemento\n  const li = document.createElement('li');\n  li.textContent = 'Accio executada!';\n  resultats.appendChild(li);\n  \n  // Eliminar el listener\n  botoUnCop.removeEventListener('click', gestionarClicUnCop);\n  \n  // Cambiar aspecto del boton\n  botoUnCop.textContent = 'Ja esta fet';\n  botoUnCop.disabled = true;\n}\n\nbotoUnCop.addEventListener('click', gestionarClicUnCop);\n\nEl primer clic ejecuta la accion y elimina el listener."
+      ,
+      "tags": ["dom", "eventos", "removeeventlistener", "una-vez", "desactivar"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-ev-034",
+      "front": "Cuando usar removeEventListener?",
+      "back": "Casos de uso tipicos de removeEventListener:\n\n1. Boton que solo debe funcionar durante un tiempo limitado\n2. Cuando un juego ha terminado\n3. Para bloquear una accion despues de usarla una vez\n4. Limpieza de codigo antes de eliminar un elemento del DOM\n5. Desactivar temporalmente una funcionalidad\n\nEjemplo - desactivar despues de un uso:\nfunction accio() {\n  // hacer algo...\n  boto.removeEventListener('click', accio); // auto-desactivar\n}\nboto.addEventListener('click', accio);"
+      ,
+      "tags": ["dom", "eventos", "removeeventlistener", "cuando-usar"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-035",
+      "front": "Por que removeEventListener requiere la misma funcion?",
+      "back": "El navegador identifica los listeners por su referencia:\n\n// ❌ ERROR - funciones anonimas diferentes\nboto.addEventListener('click', function() { ... });\nboto.removeEventListener('click', function() { ... });\n// Son dos objetos funcion distintos\n\n// ✅ CORRECTO - misma referencia\nfunction miFuncion() { ... }\nboto.addEventListener('click', miFuncion);\nboto.removeEventListener('click', miFuncion);\n// Mismo objeto funcion\n\nConsejo: Si necesitas eliminar un listener,\nsiempre usa una funcion nombrada."
+      ,
+      "tags": ["dom", "eventos", "removeeventlistener", "referencia", "funciones"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-ev-036",
+      "front": "Ejemplo practico: propagacion sin stopPropagation",
+      "back": "Comportamiento por defecto (propagacion activa):\n\nconst caixa = document.getElementById('caixa');\nconst boto = document.getElementById('boto');\n\ncaixa.addEventListener('click', function() {\n  console.log('Has clicat la CAIXA');\n});\n\nboto.addEventListener('click', function() {\n  console.log('Has clicat el BOTO');\n});\n\nRESULTADO al clicar el boton:\n1. 'Has clicat el BOTO' (primero el target)\n2. 'Has clicat la CAIXA' (luego el padre)\n\nEl evento 'sube' desde el boton hasta el div."
+      ,
+      "tags": ["dom", "eventos", "propagacion", "bubbling", "ejemplo"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-ev-037",
+      "front": "Como funciona event.stopPropagation()?",
+      "back": "Detiene la propagacion del evento hacia los elementos padre:\n\nboto.addEventListener('click', function(event) {\n  event.stopPropagation();  // ← Detiene aqui\n  console.log('Solo el boton - no sube al div');\n});\n\ncaixa.addEventListener('click', function() {\n  console.log('Esto NO se ejecuta si clicas el boton');\n});\n\nCOMPARACION:\n- Sin stopPropagation: ambos listeners se ejecutan\n- Con stopPropagation: solo el del boton\n\nUtil cuando tienes elementos anidados con listeners\ny quieres evitar que el padre reaccione."
+      ,
+      "tags": ["dom", "eventos", "stoppropagation", "detener"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-038",
+      "front": "Ejemplo completo: boton dentro de div con propagacion controlada",
+      "back": "Caso tipico - boton dentro de una caja:\n\n<div id=\"caixa\">\n  <p>Clica el boton de dins:</p>\n  <button id=\"boto\">Clica</button>\n</div>\n\nJS con stopPropagation:\n\ncaixa.addEventListener('click', function() {\n  console.log('Caixa');\n});\n\nboto.addEventListener('click', function(e) {\n  e.stopPropagation();\n  console.log('Boto (propagacio aturada)');\n});\n\nRESULTADO:\n- Clic en el boton: solo 'Boto'\n- Clic en el div (fuera boton): 'Caixa'"
+      ,
+      "tags": ["dom", "eventos", "propagacion", "stoppropagation", "ejemplo"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-ev-039",
+      "front": "Patron basico: seleccionar, añadir listener, modificar DOM",
+      "back": "Estructura tipica de trabajo con eventos y DOM:\n\n// 1. SELECCIONAR elementos\nconst boton = document.getElementById('afegir');\nconst lista = document.getElementById('llista');\n\n// 2. DEFINIR funcion manejadora\nfunction añadirElemento() {\n  const li = document.createElement('li');\n  li.textContent = 'Nuevo elemento';\n  lista.appendChild(li);\n}\n\n// 3. AÑADIR listener\nboton.addEventListener('click', añadirElemento);\n\n// 4. OPCIONAL: eliminar listener\n// boton.removeEventListener('click', añadirElemento);\n\nEste patron conecta eventos con manipulacion del DOM."
+      ,
+      "tags": ["dom", "eventos", "patron", "flujo", "dom-manipulacion"],
+      "difficulty": "easy"
     }
   ]
 }

@@ -35,7 +35,7 @@ function App() {
       
       try {
         // Cargar mazos por defecto desde JSON
-        const [response1, response2, response3, response4, response5, response6, response7, response8, response9] = await Promise.all([
+        const [response1, response2, response3, response4, response5, response6, response7, response8, response9, response10, response11] = await Promise.all([
           fetch('/data/sistemas-informaticos.json'),
           fetch('/data/entornos-desarrollo.json'),
           fetch('/data/shoptimus-fundamentos.json'),
@@ -44,7 +44,9 @@ function App() {
           fetch('/data/dom-eventos.json'),
           fetch('/data/dom-estilos-css.json'),
           fetch('/data/dom-actualizacion-elementos.json'),
-          fetch('/data/dwec-u3l2-actualitzacio-dom.json')
+          fetch('/data/dwec-u3l2-actualitzacio-dom.json'),
+          fetch('/data/dom-ejemplos-practicos.json'),
+          fetch('/data/dom-d3js.json')
         ])
         
         const data1 = await response1.json()
@@ -56,6 +58,8 @@ function App() {
         const data7 = await response7.json()
         const data8 = await response8.json()
         const data9 = await response9.json()
+        const data10 = await response10.json()
+        const data11 = await response11.json()
         
         // Crear mazos frescos
         const deck1 = new Deck(data1.name, data1.id)
@@ -121,7 +125,21 @@ function App() {
           deck9.addCard(card.front, card.back, card.tags || [])
         })
         
-        const newDecks = [deck1, deck2, deck3, deck4, deck5, deck6, deck7, deck8, deck9]
+        const deck10 = new Deck(data10.name, data10.id)
+        deck10.description = data10.description
+        deck10.subject = data10.subject
+        data10.cards.forEach(card => {
+          deck10.addCard(card.front, card.back, card.tags || [])
+        })
+        
+        const deck11 = new Deck(data11.name, data11.id)
+        deck11.description = data11.description
+        deck11.subject = data11.subject
+        data11.cards.forEach(card => {
+          deck11.addCard(card.front, card.back, card.tags || [])
+        })
+        
+        const newDecks = [deck1, deck2, deck3, deck4, deck5, deck6, deck7, deck8, deck9, deck10, deck11]
         setDecks(newDecks)
         DataStore.saveDecks(newDecks)
       } catch (error) {

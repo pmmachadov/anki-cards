@@ -88,7 +88,7 @@
     {
       "id": "dom-css-011",
       "front": "Como cambiar el estado visual de un mensaje con clases?",
-      "back": "Patron para cambiar entre estados (info, avis, error):\n\nfunction mostrarMissatge(tipus, text) {\n  // Eliminar clases de estado anteriores\n  missatge.classList.remove('info', 'avis', 'error');\n  \n  // Añadir la nueva clase\n  missatge.classList.add(tipus);\n  \n  // Actualizar texto\n  missatge.textContent = text;\n}\n\n// Uso:\nbotoInfo.addEventListener('click', function() {\n  mostrarMissatge('info', 'Informacio general');\n});\n\nbotoAvis.addEventListener('click', function() {\n  mostrarMissatge('avis', 'Atencio necessaria');\n});\n\nbotoError.addEventListener('click', function() {\n  mostrarMissatge('error', 'S\'ha produit un error');\n});"
+      "back": "Patron para cambiar entre estados (info, avis, error):\n\nfunction mostrarMissatge(tipus, text) {\n  // Eliminar clases de estado anteriores\n  missatge.classList.remove('info', 'avis', 'error');\n  \n  // Añadir la nueva clase\n  missatge.classList.add(tipus);\n  \n  // Actualizar texto\n  missatge.textContent = text;\n}\n\n// Uso:\nbotoInfo.addEventListener('click', function() {\n  mostrarMissatge('info', 'Informacio general');\n});\n\nbotoAvis.addEventListener('click', function() {\n  mostrarMissatge('avis', 'Atencio necessaria');\n});\n\nbotoError.addEventListener('click', function() {\n  mostrarMissatge('error', 'Error produit');\n});"
       ,
       "tags": ["dom", "css", "estados", "mensajes", "remove", "add"],
       "difficulty": "medium"
@@ -124,6 +124,38 @@
       ,
       "tags": ["dom", "css", "ejemplo", "panel-control", "completo"],
       "difficulty": "medium"
+    },
+    {
+      "id": "dom-css-016",
+      "front": "Validacion de formularios: como marcar campos con error?",
+      "back": "Patron para validacion visual de formularios:\n\n// CSS previo:\n// .camp-error { border-color: red; background-color: #ffe6e6; }\n// .mensaje-error { color: red; display: none; }\n// .mensaje-error.visible { display: block; }\n\n// JavaScript:\nform.addEventListener('submit', function(event) {\n  event.preventDefault();\n  \n  // Limpiar errores anteriores\n  campNom.classList.remove('camp-error');\n  errorNom.classList.remove('visible');\n  \n  let hiHaErrors = false;\n  \n  // Validar nombre (minimo 2 caracteres)\n  if (campNom.value.trim().length < 2) {\n    hiHaErrors = true;\n    campNom.classList.add('camp-error');\n    errorNom.classList.add('visible');\n  }\n  \n  // Validar email (contiene @)\n  if (!campEmail.value.includes('@')) {\n    hiHaErrors = true;\n    campEmail.classList.add('camp-error');\n    errorEmail.classList.add('visible');\n  }\n  \n  if (!hiHaErrors) {\n    // Enviar formulario\n  }\n});"
+      ,
+      "tags": ["dom", "css", "formulario", "validacion", "error"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-css-017",
+      "front": "Como limpiar todos los estados de error antes de validar?",
+      "back": "Patron para resetear estados de error:\n\n// Antes de validar, eliminar todas las clases de error\ncampNom.classList.remove('camp-error');\ncampEmail.classList.remove('camp-error');\ncampMissatge.classList.remove('camp-error');\n\nerrorNom.classList.remove('visible');\nerrorEmail.classList.remove('visible');\nerrorMissatge.classList.remove('visible');\n\n// Ocultar mensaje de exito\nmensajeOk.style.display = 'none';\n\nlet hiHaErrors = false;\n\n// Ahora realizar validaciones...\n\n// Si todo correcto\nif (!hiHaErrors) {\n  mensajeOk.style.display = 'block';\n  form.reset(); // Vaciar campos\n}\n\nImportante: Siempre limpiar errores antes de validar para evitar acumulacion de estados."
+      ,
+      "tags": ["dom", "css", "formulario", "reset", "error"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-css-018",
+      "front": "Validacion de formularios: estructura HTML recomendada",
+      "back": "Estructura HTML para validacion con mensajes de error:\n\n<form id=\"formulari-contacte\" novalidate>\n  <div class=\"camp-grup\">\n    <label for=\"nom\">Nombre completo</label>\n    <input type=\"text\" id=\"nom\" name=\"nom\">\n    <p class=\"missatge-error\" id=\"error-nom\">\n      Introduce tu nombre (minimo 2 caracteres).\n    </p>\n  </div>\n  \n  <div class=\"camp-grup\">\n    <label for=\"email\">Correo electronico</label>\n    <input type=\"email\" id=\"email\" name=\"email\">\n    <p class=\"missatge-error\" id=\"error-email\">\n      Introduce un correo electronico valido.\n    </p>\n  </div>\n  \n  <button type=\"submit\">Enviar</button>\n  \n  <div class=\"missatge-ok\" id=\"missatge-ok\" style=\"display: none;\">\n    Formulario enviado correctamente.\n  </div>\n</form>\n\nAtributo novalidate: evita validacion nativa del navegador."
+      ,
+      "tags": ["dom", "css", "formulario", "html", "estructura"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-css-019",
+      "front": "Reglas de camelCase para propiedades CSS en JavaScript",
+      "back": "Conversion de propiedades CSS a JavaScript:\n\nCSS con guion → camelCase en JS\n\nbackground-color → backgroundColor\nfont-size → fontSize\nmargin-bottom → marginBottom\nborder-radius → borderRadius\nbox-shadow → boxShadow\ntext-align → textAlign\nlist-style-type → listStyleType\n\nEjemplos:\nelemento.style.backgroundColor = 'lightyellow';\nelemento.style.fontSize = '18px';\nelemento.style.marginBottom = '1rem';\nelemento.style.borderRadius = '8px';\n\nExcepcion: float en CSS se escribe cssFloat en JS (float es palabra reservada)."
+      ,
+      "tags": ["dom", "css", "style", "camelcase", "propiedades"],
+      "difficulty": "easy"
     }
   ]
 }

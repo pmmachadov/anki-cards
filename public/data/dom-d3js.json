@@ -1,0 +1,129 @@
+{
+  "id": "dom-d3js",
+  "name": "DOM: Ejemplos Practicos con D3.js",
+  "description": "Panel de encuestas con DOM clasico y D3.js - manipulacion de datos y visualizacion con SVG",
+  "subject": "Desenvolupament Web en Entorn Client",
+  "created": "2026-04-11",
+  "cards": [
+    {
+      "id": "dom-d3-001",
+      "front": "Que es D3.js y para que se usa?",
+      "back": "D3.js = Data-Driven Documents\n\nLIBRERIA PARA:\n- Manipular el DOM basado en datos\n- Crear visualizaciones interactivas\n- Trabajar con SVG, Canvas y HTML\n\nCONCEPTO CLAVE:\nUne datos (arrays, JSON) con elementos del DOM\npara crear graficos dinamicos.\n\nEJEMPLOS:\n- Graficos de barras, lineas, pasteles\n- Mapas interactivos\n- Diagramas de fuerza\n- Visualizaciones de datos complejos"
+      ,
+      "tags": ["dom", "d3js", "visualizacion", "datos", "svg"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-d3-002",
+      "front": "Estructura del proyecto Panel de Encuestas",
+      "back": "ARCHIVOS DEL PROYECTO:\n\nindex.html\n- Formulario para añadir respuestas (1-5)\n- Lista <ul> para mostrar respuestas\n- Contenedor <svg> para el grafico\n- Seccion de estadisticas\n\nstyle.css\n- Estilos de la aplicacion\n- Estilos de la lista de respuestas\n\napp.js\n- Logica del DOM clasico\n- Visualizacion con D3.js\n\nLIBRERIA EXTERNA:\n<script src=\"https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js\"></script>"
+      ,
+      "tags": ["dom", "d3js", "estructura", "proyecto", "archivos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-d3-003",
+      "front": "Como seleccionar elementos con D3?",
+      "back": "Metodo d3.select() similar a querySelector:\n\n// Seleccionar un elemento\nconst svg = d3.select('#chart');\n\n// Leer atributos\nconst width = +svg.attr('width');   // 600\nconst height = +svg.attr('height'); // 300\n\n// El '+' convierte string a numero\n\n// Crear grupo dentro del SVG\nconst g = svg.append('g')\n  .attr('transform', 'translate(40, 20)');\n\nDIFERENCIA CON DOM CLASICO:\n- D3 permite encadenar metodos (chaining)\n- Facilita manipulacion de SVG"
+      ,
+      "tags": ["dom", "d3js", "select", "append", "svg"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-d3-004",
+      "front": "Como funcionan las escalas (scales) en D3?",
+      "back": "Escalas = funciones que mapean datos a pixels\n\nESCALA X (bandas para categorias):\nconst xScale = d3.scaleBand()\n  .domain([1, 2, 3, 4, 5])     // valores de entrada\n  .range([0, innerWidth])      // pixels de salida\n  .padding(0.2);               // espacio entre barras\n\nESCALA Y (lineal para valores):\nconst yScale = d3.scaleLinear()\n  .range([innerHeight, 0])     // invertido (0 abajo)\n  .domain([0, maxCount]);      // se actualiza dinamicamente\n\nUSO:\nxScale(3) → posicion X de la barra para valor 3\nyScale(10) → posicion Y para valor 10"
+      ,
+      "tags": ["dom", "d3js", "scales", "escalas", "scaleband", "scalelinear"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-d3-005",
+      "front": "Como crear ejes (axes) en D3?",
+      "back": "Pasos para crear ejes:\n\n// 1. Crear grupo para el eje\nconst xAxisGroup = g.append('g')\n  .attr('transform', `translate(0, ${innerHeight})`);\n\n// 2. Definir el eje\nconst xAxis = d3.axisBottom(xScale)\n  .tickFormat(d => d.toString());\n\n// 3. Dibujar el eje\nxAxisGroup.call(xAxis);\n\nEJE Y (vertical):\nconst yAxis = d3.axisLeft(yScale)\n  .ticks(5)\n  .tickFormat(d3.format('d')); // formato entero\n\nyAxisGroup.call(yAxis);"
+      ,
+      "tags": ["dom", "d3js", "axes", "ejes", "axisbottom", "axisleft"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-d3-006",
+      "front": "Como añadir etiquetas a los ejes?",
+      "back": "Etiquetas de ejes con D3:\n\n// ETIQUETA EJE X (abajo)\ng.append('text')\n  .attr('x', innerWidth / 2)\n  .attr('y', innerHeight + 30)\n  .attr('text-anchor', 'middle')\n  .text('Puntuacion');\n\n// ETIQUETA EJE Y (rotada)\ng.append('text')\n  .attr('x', -innerHeight / 2)\n  .attr('y', -30)\n  .attr('text-anchor', 'middle')\n  .attr('transform', 'rotate(-90)')\n  .text('Numero de respuestas');\n\nNOTA: La rotacion es en grados, -90 para vertical."
+      ,
+      "tags": ["dom", "d3js", "etiquetas", "labels", "ejes"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-d3-007",
+      "front": "Que es el patron enter/update/exit en D3?",
+      "back": "Patron fundamental para actualizar graficos:\n\n1. DATA JOIN (union de datos)\nconst bars = g.selectAll('.bar')\n  .data(counts, d => d.score);\n\n2. EXIT (elementos que sobran)\nbars.exit().remove();\n\n3. ENTER (nuevos elementos)\nconst barsEnter = bars.enter()\n  .append('rect')\n  .attr('class', 'bar');\n\n4. UPDATE (todos los elementos)\nbarsEnter.merge(bars)\n  .attr('x', d => xScale(d.score))\n  .attr('y', d => yScale(d.count))\n  .attr('height', d => innerHeight - yScale(d.count));\n\nRESULTADO: Grafico sincronizado con los datos."
+      ,
+      "tags": ["dom", "d3js", "enter", "update", "exit", "data-join"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-d3-008",
+      "front": "Como contar respuestas para el grafico?",
+      "back": "Preparar datos para D3:\n\n// Contar cuantas respuestas hay de cada puntuacion\nconst counts = [1, 2, 3, 4, 5].map(score => {\n  const count = answers.filter(v => v === score).length;\n  return { score, count };\n});\n\n// Resultado:\n// [{score: 1, count: 3}, {score: 2, count: 5}, ...]\n\n// Calcular maximo para escalar eje Y\nconst maxCount = d3.max(counts, d => d.count) || 0;\nyScale.domain([0, Math.max(maxCount, 1)]);\n\n// Actualizar ejes\nxAxisGroup.call(xAxis);\nyAxisGroup.call(yAxis);"
+      ,
+      "tags": ["dom", "d3js", "datos", "contar", "filter", "d3max"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-d3-009",
+      "front": "Como animar las barras con transiciones?",
+      "back": "Animaciones con D3 usando transition():\n\nbarsEnter.merge(bars)\n  .transition()           // Iniciar transicion\n  .duration(500)          // Duracion en ms\n  .attr('x', d => xScale(d.score))\n  .attr('width', xScale.bandwidth())\n  .attr('y', d => yScale(d.count))\n  .attr('height', d => innerHeight - yScale(d.count))\n  .attr('fill', d => d.count === 0 ? '#ddd' : '#4a90e2');\n\nEFECTO:\n- Las barras crecen desde abajo\n- Suaviza los cambios de altura\n- 500ms = medio segundo de animacion\n\nLas barras nuevas empiezan con height=0."
+      ,
+      "tags": ["dom", "d3js", "transition", "animacion", "duration"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-d3-010",
+      "front": "Como renderizar la lista de respuestas (DOM clasico)?",
+      "back": "Lista de respuestas con DOM vanilla:\n\nfunction renderList() {\n  // Vaciar lista\n  answersList.innerHTML = '';\n  \n  // Crear elementos para cada respuesta\n  answers.forEach((value, index) => {\n    const li = document.createElement('li');\n    \n    // Span con la puntuacion\n    const spanValue = document.createElement('span');\n    spanValue.className = 'value';\n    spanValue.textContent = `Puntuacion: ${value}`;\n    \n    // Boton para eliminar\n    const btnDelete = document.createElement('button');\n    btnDelete.textContent = 'Borrar';\n    btnDelete.addEventListener('click', () => {\n      answers.splice(index, 1);\n      updateAll();\n    });\n    \n    li.appendChild(spanValue);\n    li.appendChild(btnDelete);\n    answersList.appendChild(li);\n  });\n}"
+      ,
+      "tags": ["dom", "d3js", "lista", "createrender", "dom-clasico"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-d3-011",
+      "front": "Como calcular y mostrar estadisticas?",
+      "back": "Estadisticas de la encuesta:\n\nfunction renderStats() {\n  if (answers.length === 0) {\n    stats.textContent = 'Aun no hay respuestas.';\n    return;\n  }\n  \n  // Calcular suma\n  const sum = answers.reduce((acc, v) => acc + v, 0);\n  \n  // Calcular media\n  const avg = sum / answers.length;\n  \n  // Mostrar resultado\n  stats.textContent = \n    `Tenemos ${answers.length} respuestas. ` +\n    `Media: ${avg.toFixed(2)} sobre 5.`;\n}\n\nMETODOS USADOS:\n- reduce(): sumar todos los valores\n- toFixed(2): redondear a 2 decimales"
+      ,
+      "tags": ["dom", "d3js", "estadisticas", "reduce", "media", "tofixed"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-d3-012",
+      "front": "Como añadir respuestas aleatorias?",
+      "back": "Generar respuestas aleatorias (1-5):\n\nbtnRandom.addEventListener('click', () => {\n  for (let i = 0; i < 5; i++) {\n    // Numero aleatorio entre 1 y 5\n    const randomValue = Math.floor(Math.random() * 5) + 1;\n    answers.push(randomValue);\n  }\n  updateAll();\n});\n\nEXPLICACION:\n- Math.random() → numero entre 0 y 1\n- * 5 → entre 0 y 5\n- Math.floor() → redondear hacia abajo\n- + 1 → entre 1 y 5\n\nGenera 5 respuestas aleatorias de golpe."
+      ,
+      "tags": ["dom", "d3js", "random", "aleatorio", "mathrandom"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-d3-013",
+      "front": "Funcion updateAll: sincronizar DOM y D3",
+      "back": "Funcion maestra que actualiza todo:\n\nfunction updateAll() {\n  renderList();   // DOM clasico - lista de respuestas\n  renderStats();  // DOM clasico - estadisticas\n  renderChart();  // D3.js - grafico de barras\n}\n\nUSO:\n// Al añadir respuesta\nbtnAdd.addEventListener('click', () => {\n  answers.push(value);\n  updateAll();  // Todo se actualiza\n});\n\n// Al eliminar respuesta\nbtnDelete.addEventListener('click', () => {\n  answers.splice(index, 1);\n  updateAll();  // Todo se actualiza\n});\n\n// Al vaciar\nbtnClear.addEventListener('click', () => {\n  answers = [];\n  updateAll();\n});"
+      ,
+      "tags": ["dom", "d3js", "update", "sincronizar", "render"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-d3-014",
+      "front": "Margenes y dimensiones del grafico SVG",
+      "back": "Configuracion de margenes (convention margen):\n\nconst margin = {\n  top: 20,\n  right: 20,\n  bottom: 40,\n  left: 40\n};\n\nconst innerWidth = width - margin.left - margin.right;\nconst innerHeight = height - margin.top - margin.bottom;\n\n// Crear grupo trasladado a los margenes\nconst g = svg.append('g')\n  .attr('transform', `translate(${margin.left}, ${margin.top})`);\n\nRESULTADO:\n- El grafico se dibuja dentro del area interna\n- Los ejes se colocan en los margenes\n- 600x300 SVG → area util ~520x240"
+      ,
+      "tags": ["dom", "d3js", "margins", "svg", "dimensions"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-d3-015",
+      "front": "Conceptos clave del proyecto D3.js",
+      "back": "RESUMEN DEL PROYECTO:\n\nDOM CLASICO:\n- Formulario para añadir respuestas\n- Lista dinamica con botones de borrar\n- Estadisticas calculadas con reduce()\n\nD3.JS:\n- Seleccion SVG con d3.select()\n- Escalas xScale (bandas) e yScale (lineal)\n- Ejes con axisBottom y axisLeft\n- Patron enter/update/exit\n- Transiciones para animaciones\n\nINTEGRACION:\n- Array 'answers' como fuente de verdad\n- Funcion updateAll() sincroniza todo\n- DOM y D3 se actualizan juntos"
+      ,
+      "tags": ["dom", "d3js", "resumen", "conceptos", "integracion"],
+      "difficulty": "easy"
+    }
+  ]
+}

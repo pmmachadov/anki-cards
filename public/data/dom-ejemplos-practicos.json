@@ -1,0 +1,129 @@
+{
+  "id": "dom-ejemplos-practicos",
+  "name": "DOM: Ejemplos Practicos con Impress.js",
+  "description": "Proyecto completo Guia interactiva del DOM usando impress.js - integra textos, estilos, listas y eventos",
+  "subject": "Desenvolupament Web en Entorn Client",
+  "created": "2026-04-11",
+  "cards": [
+    {
+      "id": "dom-ej-001",
+      "front": "Que es impress.js y para que se usa?",
+      "back": "Impress.js es un framework de presentaciones para el navegador.\n\nCARACTERISTICAS:\n- Crea diapositivas en un lienzo 2D/3D\n- Usa transformaciones CSS3 (traslaciones, rotaciones, escalas)\n- Estilo similar a Prezi\n- Codigo abierto\n\nUSO TIPICO:\nPresentaciones interactivas donde cada slide puede tener\ncontenido dinamico modificado con JavaScript."
+      ,
+      "tags": ["dom", "ejemplos", "impressjs", "presentaciones"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ej-002",
+      "front": "Estructura basica del HTML con impress.js",
+      "back": "Estructura minima:\n\n<div id=\"impress\">\n  <section id=\"portada\" class=\"step\" data-x=\"0\" data-y=\"0\">\n    <h1>Titulo</h1>\n  </section>\n  \n  <section id=\"slide-2\" class=\"step\" data-x=\"1000\" data-y=\"0\">\n    <h2>Slide 2</h2>\n  </section>\n</div>\n\nATRIBUTOS data-*:\n- data-x, data-y: posicion en el lienzo\n- data-scale: escala de la diapositiva\n\nClase 'step' identifica cada diapositiva."
+      ,
+      "tags": ["dom", "ejemplos", "impressjs", "html", "estructura"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ej-003",
+      "front": "Como inicializar impress.js?",
+      "back": "Incluir la libreria y llamar al metodo init():\n\n<!-- CDN -->\n<script src=\"https://cdn.jsdelivr.net/gh/impress/impress.js@2.0.0/js/impress.js\"></script>\n\n<script>\n  // Inicializar presentacion\n  impress().init();\n</script>\n\nNAVEGACION:\n- Flechas del teclado (arriba/abajo/izquierda/derecha)\n- Barra espaciadora\n- Click en los indicadores"
+      ,
+      "tags": ["dom", "ejemplos", "impressjs", "inicializar"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ej-004",
+      "front": "Como modificar texto con textContent vs innerHTML?",
+      "back": "Ejemplo del slide 2:\n\n// Cambiar texto plano (sin HTML)\nbtnTextSimple.addEventListener('click', () => {\n  parrafo.textContent = 'Texto simple sin formato HTML';\n});\n\n// Cambiar con formato HTML\nbtnTextHtml.addEventListener('click', () => {\n  parrafo.innerHTML = `\n    <strong>Texto con formato!</strong><br>\n    Hemos añadido <em>HTML</em> desde JS.\n  `;\n});\n\n// Restaurar valor original\nconst contenidoInicial = parrafo.textContent;\nbtnReset.addEventListener('click', () => {\n  parrafo.textContent = contenidoInicial;\n});"
+      ,
+      "tags": ["dom", "ejemplos", "textcontent", "innerhtml", "texto"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ej-005",
+      "front": "Como guardar el contenido original antes de modificar?",
+      "back": "Patron para poder restaurar contenido:\n\n// 1. Guardar valor inicial al cargar\nconst contenidoInicial = parrafo.textContent;\n\n// 2. Modificar segun interaccion\nbtnCambiar.addEventListener('click', () => {\n  parrafo.textContent = 'Nuevo texto';\n});\n\n// 3. Restaurar valor original\nbtnReset.addEventListener('click', () => {\n  parrafo.textContent = contenidoInicial;\n});\n\nTIP: Guardar el valor antes de anyadir listeners."
+      ,
+      "tags": ["dom", "ejemplos", "guardar", "restaurar", "contenido"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ej-006",
+      "front": "Como cambiar clases CSS desde botones?",
+      "back": "Ejemplo del slide 3 - manipular clases:\n\nconst caja = document.getElementById('caja-estilo');\n\n// Añadir clase\nbtnAnyadir.addEventListener('click', () => {\n  caja.classList.add('importante');\n});\n\n// Eliminar clase\nbtnSacar.addEventListener('click', () => {\n  caja.classList.remove('importante');\n});\n\n// Alternar clase (toggle)\nbtnAlternar.addEventListener('click', () => {\n  caja.classList.toggle('resaltat');\n});\n\n// CSS predefinido en style.css:\n// .importante { background: #331111; }\n// .resaltat { box-shadow: 0 0 12px yellow; }"
+      ,
+      "tags": ["dom", "ejemplos", "classlist", "clases", "css"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ej-007",
+      "front": "Como crear y añadir elementos a una lista?",
+      "back": "Ejemplo del slide 4 - lista de tareas:\n\nconst lista = document.getElementById('lista-tareas');\nlet contador = 1;\n\nbtnAnyadir.addEventListener('click', () => {\n  contador++;\n  \n  // 1. Crear elemento\n  const li = document.createElement('li');\n  \n  // 2. Añadir contenido\n  li.textContent = `Tarea extra ${contador}: practicar DOM`;\n  \n  // 3. Añadir atributos data-*\n  li.dataset.index = String(contador);\n  \n  // 4. Insertar en el DOM\n  lista.appendChild(li);\n});\n\n// Guardar indice en data-* permite identificar elementos."
+      ,
+      "tags": ["dom", "ejemplos", "crear", "lista", "appendchild", "dataset"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ej-008",
+      "front": "Como vaciar una lista completamente?",
+      "back": "Dos formas de vaciar una lista:\n\n// Forma 1: innerHTML vacio (mas simple)\nbtnVaciar.addEventListener('click', () => {\n  lista.innerHTML = '';\n});\n\n// Forma 2: replaceChildren (metodo moderno)\nbtnVaciar.addEventListener('click', () => {\n  lista.replaceChildren();\n});\n\n// Forma 3: while loop (clasico)\nwhile (lista.firstChild) {\n  lista.removeChild(lista.firstChild);\n}\n\nRecomendacion: innerHTML = '' es la mas usada."
+      ,
+      "tags": ["dom", "ejemplos", "vaciar", "lista", "innerhtml"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ej-009",
+      "front": "Ejemplo completo: log de eventos dinamico",
+      "back": "Funcion auxiliar para añadir mensajes a un log:\n\nconst logEvents = document.getElementById('log-events');\n\nfunction añadirAlLog(texto) {\n  const li = document.createElement('li');\n  li.textContent = texto;\n  logEvents.appendChild(li);\n}\n\n// Uso en listeners:\ncontenedor.addEventListener('click', () => {\n  añadirAlLog('Click en el contenedor');\n});\n\nboton.addEventListener('click', () => {\n  añadirAlLog('Click en el boton');\n});\n\n// El log muestra el historial de eventos."
+      ,
+      "tags": ["dom", "ejemplos", "log", "eventos", "crear-elementos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ej-010",
+      "front": "Como alternar entre dos manejadores de eventos?",
+      "back": "Patron para cambiar comportamiento dinamicamente:\n\n// Version SIN stopPropagation\nfunction clickSinStop(e) {\n  añadirAlLog('Click en boton (propagacion activa)');\n}\n\n// Version CON stopPropagation\nfunction clickConStop(e) {\n  e.stopPropagation();\n  añadirAlLog('Click en boton (stopPropagation)');\n}\n\n// Alternar entre versiones\nbtnActivar.addEventListener('click', () => {\n  boton.removeEventListener('click', clickSinStop);\n  boton.addEventListener('click', clickConStop);\n});\n\nbtnDesactivar.addEventListener('click', () => {\n  boton.removeEventListener('click', clickConStop);\n  boton.addEventListener('click', clickSinStop);\n});\n\nIMPORTANTE: Las funciones deben ser nombradas."
+      ,
+      "tags": ["dom", "ejemplos", "alternar", "manejadores", "removeeventlistener"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-ej-011",
+      "front": "Como controlar la propagacion de eventos en el proyecto?",
+      "back": "Slide 5 - boton dentro de contenedor:\n\n// Listener en el contenedor (siempre activo)\ncontenedor.addEventListener('click', () => {\n  añadirAlLog('Click en CONTENEDOR');\n});\n\n// Boton interno - version sin detener\nfunction clickBotonNormal(e) {\n  añadirAlLog('Click en BOTON (sin stop)');\n  // El evento sube al contenedor\n}\n\n// Boton interno - version con stopPropagation\nfunction clickBotonStop(e) {\n  e.stopPropagation();\n  añadirAlLog('Click en BOTON (con stop)');\n  // El evento NO sube al contenedor\n}\n\nRESULTADOS:\n- Sin stop: aparecen dos mensajes (boton + contenedor)\n- Con stop: aparece solo el del boton"
+      ,
+      "tags": ["dom", "ejemplos", "propagacion", "stoppropagation", "contenedor"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-ej-012",
+      "front": "Como usar banderas (flags) para controlar estado?",
+      "back": "Patron con variable de estado:\n\nlet usandoStop = false;  // bandera/flag\n\n// Activar stopPropagation\nbtnActivar.addEventListener('click', () => {\n  if (!usandoStop) {  // solo si no esta activo\n    boton.removeEventListener('click', clickSinStop);\n    boton.addEventListener('click', clickConStop);\n    usandoStop = true;\n    añadirAlLog('StopPropagation activado');\n  }\n});\n\n// Desactivar stopPropagation\nbtnDesactivar.addEventListener('click', () => {\n  if (usandoStop) {  // solo si esta activo\n    boton.removeEventListener('click', clickConStop);\n    boton.addEventListener('click', clickSinStop);\n    usandoStop = false;\n    añadirAlLog('StopPropagation desactivado');\n  }\n});\n\nLa bandera evita operaciones redundantes."
+      ,
+      "tags": ["dom", "ejemplos", "flags", "estado", "control"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-ej-013",
+      "front": "Estructura de archivos del proyecto impress.js",
+      "back": "PROYECTO GUIA INTERACTIVA DEL DOM:\n\nindex.html    → Estructura + diapositivas\nstyle.css     → Estilos + clases CSS\napp.js        → Logica JavaScript\n\nREFERENCIAS EN HTML:\n<link rel=\"stylesheet\" href=\"style.css\">\n<script src=\"https://cdn.../impress.js\"></script>\n<script src=\"app.js\"></script>\n\nSEPARACION DE RESPONSABILIDADES:\n- HTML: contenido y estructura\n- CSS: apariencia visual\n- JS: interactividad y logica"
+      ,
+      "tags": ["dom", "ejemplos", "estructura", "archivos", "proyecto"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ej-014",
+      "front": "Conceptos practicados en el proyecto",
+      "back": "SLIDE 1: Portada (introduccion)\n\nSLIDE 2: Modificar texto y HTML\n- textContent vs innerHTML\n- Guardar y restaurar contenido\n\nSLIDE 3: Clases y estilos CSS\n- classList.add(), remove(), toggle()\n\nSLIDE 4: Crear y eliminar elementos\n- createElement(), appendChild()\n- innerHTML = '' para vaciar\n- Atributos data-*\n\nSLIDE 5: Eventos y propagacion\n- addEventListener / removeEventListener\n- stopPropagation()\n- Alternar manejadores"
+      ,
+      "tags": ["dom", "ejemplos", "resumen", "conceptos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dom-ej-015",
+      "front": "Ejemplo completo: app.js (estructura general)",
+      "back": "document.addEventListener('DOMContentLoaded', () => {\n  // ===== SLIDE 2: Texto =====\n  const textoOriginal = document.getElementById('text-original');\n  // ... listeners para botones de texto\n\n  // ===== SLIDE 3: Estilos =====\n  const cajaEstilo = document.getElementById('caja-estilo');\n  // ... listeners para clases CSS\n\n  // ===== SLIDE 4: Lista =====\n  const listaTareas = document.getElementById('lista-tareas');\n  // ... listeners para añadir/vaciar\n\n  // ===== SLIDE 5: Eventos =====\n  const contenedor = document.getElementById('contenedor');\n  // ... listeners para propagacion\n});\n\nTODA la logica dentro de DOMContentLoaded."
+      ,
+      "tags": ["dom", "ejemplos", "appjs", "estructura", "completo"],
+      "difficulty": "medium"
+    }
+  ]
+}
