@@ -1,0 +1,359 @@
+{
+  "id": "unidad1-introduccion",
+  "name": "Unidad 1 - Introduccion al software de base y virtualizacion",
+  "description": "Estructura de sistemas informaticos, redes, sistemas operativos, licencias y virtualizacion",
+  "subject": "Sistemas Informaticos",
+  "created": "2026-04-11",
+  "cards": [
+    {
+      "id": "u1-001",
+      "front": "Definicion de sistema informatico",
+      "back": "Conjunto de elementos interrelacionados: maquinari (hardware), programari (software) y recursos humans.\n\nFINALIDAD: Conseguir el mejor tratamiento automatico posible de la informacion.\n\nCOMPONENTES:\n- Hardware: parte fisica\n- Software: parte logica\n- Recursos humanos: personas que gestionan el sistema",
+      "tags": ["sistema-informatico", "conceptos-basicos", "hardware", "software"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u1-002",
+      "front": "Definicion de informatica",
+      "back": "Ciencia que estudia el tratamiento automatico y racional de la informacion.\n\nETIMOLOGIA:\n- Frances: informatique (information + automatique)\n- Ingles: computer science\n\nTAREAS:\n- Desarrollo de maquinas\n- Metodos automaticos de trabajo (SO)\n- Construccion de aplicaciones informaticas",
+      "tags": ["informatica", "conceptos-basicos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u1-003",
+      "front": "Unidades de medida de la informacion",
+      "back": "BIT: unidad minima (0 o 1)\nBYTE (OCTET): 8 bits = 256 combinaciones\n\nMULTIPLOS DEL SI (base 10):\n- KB (kilobyte): 10^3 bytes\n- MB (megabyte): 10^6 bytes\n- GB (gigabyte): 10^9 bytes\n- TB (terabyte): 10^12 bytes\n\nMULTIPLOS BINARIOS IEC (base 2):\n- KiB (kibibyte): 2^10 bytes\n- MiB (mebibyte): 2^20 bytes\n- GiB (gibibyte): 2^30 bytes",
+      "tags": ["informacion", "medida", "bits", "bytes"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u1-004",
+      "front": "Codificacion de la informacion",
+      "back": "NUMERICA:\n- Binaria: 0 y 1\n- Octal: 0-7 (3 bits)\n- Hexadecimal: 0-9, A-F (4 bits)\n\nALFANUMERICA:\n- ASCII: 7 bits (128 simbolos)\n- ASCII extendido: 8 bits (256 simbolos)\n- Unicode: UTF-8, UTF-16, UTF-32 (mas de 50.000 simbolos)\n\nEJEMPLO MAC: 00:16:0A:1C:7B:34 (hexadecimal)",
+      "tags": ["codificacion", "ascii", "unicode", "hexadecimal"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-005",
+      "front": "Tipos de datos",
+      "back": "- Numericos: numeros (0-9)\n- Alfabeticos: letras (A-Z)\n- Alfanumericos: caracteres mixtos sin operaciones matematicas\n\nTRATAMIENTO DE INFORMACION:\n1. Entrada: recogida de datos\n2. Proceso: aritmetico/logico\n3. Salida: resultados y distribucion",
+      "tags": ["datos", "tipos", "procesamiento"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u1-006",
+      "front": "Estructura de Von Neumann",
+      "back": "Cuatro secciones principales:\n\n1. ALU (Unidad Aritmetico-Logica): operaciones matematicas y logicas\n2. Unidad de Control: interpreta instrucciones\n3. Memoria Central: RAM (acceso aleatorio)\n4. Dispositivos de E/S: entrada/salida\n\nINTERCONEXION: Mediante buses (canales de comunicacion)",
+      "tags": ["von-neumann", "arquitectura", "hardware"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-007",
+      "front": "Definicion de perifericos",
+      "back": "Conjunto de dispositivos que permiten operaciones de entrada y salida (E/S), complementarias al proceso de trabajo de la CPU.\n\nCLASIFICACION:\n- De entrada: teclado, raton, escaner\n- De salida: monitor, impresora, plotter\n- De entrada/salida: discos magneticos, unidades de cinta\n- De almacenamiento: discos duros, SSD\n- De comunicacion: modems, tarjetas de red",
+      "tags": ["perifericos", "hardware", "entrada-salida"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u1-008",
+      "front": "Drivers (controladores de dispositivos)",
+      "back": "Programas que permiten al sistema operativo interactuar con los periféricos.\n\nCARACTERISTICAS:\n- Forman parte del nucleo del SO\n- Especificos para cada dispositivo y SO\n- Proporcionados por el fabricante\n\nPROBLEMA EN LINUX:\n- Algunos fabricantes no proporcionan drivers\n- Solucion: drivers programados por la comunidad",
+      "tags": ["drivers", "software", "perifericos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-009",
+      "front": "Tipos de buses",
+      "back": "BUS: conjunto de circuitos para comunicacion entre componentes\n\nTIPOS:\n- Bus de control: senales de control\n- Bus de datos: transmision de datos\n- Bus del sistema: conexion entre CPU, memoria y perifericos\n\nTRANSMISION:\n- Serie: un bit tras otro (USB, SATA, PCI Express)\n- Paralelo: varios bits simultaneos (FSB, ISA, ATA, SCSI, PCI)",
+      "tags": ["buses", "hardware", "conexiones"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-010",
+      "front": "Adaptadores y controladores",
+      "back": "ADAPTADOR: dispositivo que permite conectar un periferico a la placa base (acoplamiento fisico).\n\nCONTROLADOR: hardware que gestiona dispositivos complejos (estado, control, verificacion de datos).\n\nTARGETAS DE EXPANSION:\n- Controladoras: video, sonido\n- De funcionalidad: USB adicionales, capturadoras de video",
+      "tags": ["adaptadores", "controladores", "hardware"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-011",
+      "front": "Definicion de red informatica",
+      "back": "Grupo de ordenadores interconectados con la finalidad de intercambiar datos o compartir recursos.\n\nTIPOS POR ABAST (alcance):\n- PAN: Personal Area Network (1-10m)\n- LAN: Local Area Network (edificio)\n- MAN: Metropolitan Area Network (ciudad)\n- WAN: Wide Area Network (paises/continentes)",
+      "tags": ["redes", "conceptos-basicos", "pan", "lan", "wan"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u1-012",
+      "front": "Tipos de redes por metodo de conexion",
+      "back": "XARXES GUIADES (con cables):\n- Cable coaxial\n- Fibra optica\n- Par trenzado\n\nXARXES NO GUIADES (sin cables/wireless):\n- Ondas de radio\n- Infrarrojos\n- Microondas",
+      "tags": ["redes", "cableado", "wifi", "inalambrico"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u1-013",
+      "front": "Arquitectura cliente-servidor vs P2P",
+      "back": "CLIENTE-SERVIDOR:\n- Jerarquia entre ordenadores\n- Servidor ofrece recursos\n- Clientes consumen recursos\n- Ejemplo: servidor web, correo\n\nPEER-TO-PEER (P2P):\n- Sin jerarquia (igual a igual)\n- Cada maquina es cliente y servidor\n- Comunicacion dinamica\n- Ejemplo: BitTorrent, eDonkey",
+      "tags": ["redes", "cliente-servidor", "p2p", "arquitectura"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-014",
+      "front": "Topologias de red",
+      "back": "ANILLO: cada nodo conecta con el siguiente, el ultimo con el primero\n\nESTRELLA: todos los nodos conectan a un concentrador central (hub/switch)\n\nBUS: todos los nodos conectan a un medio comun bidireccional\n\nARBOL: jerarquia de estrellas conectadas\n\nMALLA: cada nodo conecta con uno o mas nodos (rutas alternativas)",
+      "tags": ["redes", "topologia", "estructura"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-015",
+      "front": "Direccionamiento fisico (MAC)",
+      "back": "MAC (Media Access Control): identificador unico de 48 bits (6 bloques hexadecimales) asignado a cada dispositivo de red.\n\nEJEMPLO: 00-08-74-4C-7F-1D\n\nPROTOCOLO ARP:\n- Address Resolution Protocol\n- Descubre la MAC correspondiente a una IP\n- Mantiene tabla de correspondencia IP-MAC\n\nCOMANDOS:\n- Windows: ipconfig /all\n- Linux: ifconfig -a",
+      "tags": ["redes", "mac", "arp", "direccionamiento"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-016",
+      "front": "Direccionamiento logico (IP)",
+      "back": "IP: identifica unívocamente un dispositivo en una red (nivel 3 OSI).\n\nIPv4: 32 bits divididos en 4 octetos\nEJEMPLO: 192.168.1.234\n\nESTRUCTURA:\n- NetID: identifica la red\n- HostID: identifica la maquina\n\nIP PRIVADAS (no enrutables en Internet):\n- Clase A: 10.0.0.0 - 10.255.255.255\n- Clase B: 172.16.0.0 - 172.31.255.255\n- Clase C: 192.168.0.0 - 192.168.255.255",
+      "tags": ["redes", "ip", "ipv4", "direccionamiento"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-017",
+      "front": "Mascara de red y CIDR",
+      "back": "MASCARA: distingue bits de red y bits de host en una IP.\n\nEJEMPLOS:\n- 255.0.0.0 = /8 (Clase A)\n- 255.255.0.0 = /16 (Clase B)\n- 255.255.255.0 = /24 (Clase C)\n\nEJEMPLO: 192.168.1.0/24\n- Red: 192.168.1.0\n- Hosts: 192.168.1.1 a 192.168.1.254",
+      "tags": ["redes", "mascara", "subnetting", "cidr"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-018",
+      "front": "NAT (Network Address Translation)",
+      "back": "Traduccion de direcciones de red que permite a redes privadas acceder a Internet usando una IP publica.\n\nFUNCION:\n- Traduce IPs privadas a publicas\n- Permite compartir una IP publica entre multiples dispositivos\n- Funciona en routers/gateways\n\nUSO TIPICO:\n- Router domestico con IP publica dinamica\n- Red local con IPs 192.168.x.x",
+      "tags": ["redes", "nat", "router", "internet"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-019",
+      "front": "VPN (Virtual Private Network)",
+      "back": "Red Privada Virtual: tecnologia que permite extender una LAN a traves de una red publica (Internet).\n\nCARACTERISTICAS:\n- Conexion segura entre ubicaciones remotas\n- Cifrado de datos transmitidos\n- Acceso a recursos de la empresa desde fuera\n- Reduccion de costes vs lineas dedicadas\n\nEJEMPLO: Empleados conectandose a la empresa desde casa",
+      "tags": ["redes", "vpn", "seguridad", "remoto"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u1-020",
+      "front": "DHCP (Dynamic Host Configuration Protocol)",
+      "back": "Protocolo que asigna automaticamente direcciones IP a los dispositivos de la red.\n\nFUNCIONAMIENTO:\n1. El dispositivo solicita IP al arrancar\n2. El servidor DHCP responde con una IP disponible\n3. La IP puede cambiar en cada conexion (dinamica)\n\nVENTAJA: No necesita configuracion manual\n\nUSO: Proveedores de Internet (IPs dinamicas), redes locales",
+      "tags": ["redes", "dhcp", "ip", "configuracion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u1-021",
+      "front": "Modelo OSI (Open Systems Interconnection)",
+      "back": "Modelo de referencia ISO con 7 capas para estandarizar funciones de comunicacion en redes.\n\n7. APLICACION: HTTP, FTP, DNS\n6. PRESENTACION: SSL/TLS, codificacion\n5. SESION: control de dialogo\n4. TRANSPORTE: TCP, UDP\n3. RED: IP, enrutamiento\n2. ENLACE: Ethernet, MAC\n1. FISICA: cables, conectores, bits\n\nMNEMOTECNIA: APPTRRF (de arriba a abajo)",
+      "tags": ["redes", "osi", "modelo", "protocolos"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "u1-022",
+      "front": "Modelo TCP/IP",
+      "back": "Modelo practico usado en Internet (4 capas):\n\n4. APLICACION (OSI 7+6+5):\n   HTTP, DNS, FTP, SMTP\n\n3. TRANSPORTE (OSI 4):\n   TCP, UDP\n\n2. INTERNET (OSI 3):\n   IP, ICMP\n\n1. ACCESO A RED (OSI 2+1):\n   Ethernet, WiFi, ARP",
+      "tags": ["redes", "tcp-ip", "internet", "protocolos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-023",
+      "front": "Definicion de sistema operativo",
+      "back": "Software que gestiona los recursos del ordenador y facilita la comunicacion entre hardware y usuario.\n\nPERSPECTIVAS:\n- Funcion: controla el funcionamiento del equipo fisico\n- Usuario: conjunto de programas que ocultan detalles del hardware\n- Gestion de recursos: administra recursos eficientemente\n\nFUNCIONES PRINCIPALES:\n- Gestionar hardware\n- Facilitar trabajo al usuario",
+      "tags": ["sistema-operativo", "conceptos-basicos", "definicion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u1-024",
+      "front": "Estructuras de sistemas operativos",
+      "back": "MONOLITICA: programa unico con rutinas interconectadas (sin estructura)\n\nJERARQUICA/CAPAS: division en capas independientes con funciones especificas\n\nMAQUINA VIRTUAL: monitor virtual crea multiples maquinas virtuales identicas al hardware real\n\nCLIENTE/SERVIDOR: kernel minimo, funciones en procesos de usuario\n\nORIENTADA A OBJETOS: basada en objetos con propiedades y acciones",
+      "tags": ["sistema-operativo", "arquitectura", "estructura"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "u1-025",
+      "front": "Componentes del sistema operativo",
+      "back": "NUCLEO (KERNEL): modulo mas bajo, controla interrupciones, asigna CPU\n\nADMINISTRADOR DE MEMORIA: asigna RAM a programas, gestiona memoria virtual\n\nSISTEMA DE E/S: gestiona perifericos, buffering, spooling\n\nADMINISTRADOR DE ARCHIVOS: organiza datos en disco, permisos\n\nSISTEMA DE PROTECCION: seguridad y control de acceso\n\nINTERFAZ DE USUARIO: CLI (linea de comandos) y GUI (grafica)",
+      "tags": ["sistema-operativo", "componentes", "kernel"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-026",
+      "front": "Funciones del nucleo (kernel)",
+      "back": "FUNCIONES:\n- Manipulacion de interrupciones\n- Creacion y destruccion de procesos\n- Cambio de estados de procesos\n- Despacho (dispatcher)\n- Sincronizacion de procesos\n- Comunicacion entre procesos\n- Soporte de E/S\n- Asignacion de almacenamiento\n\nACCESO AL NUCLEO:\n- Excepciones\n- Interrupciones\n- Saltos no programados (traps)",
+      "tags": ["sistema-operativo", "kernel", "nucleo"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-027",
+      "front": "Modo usuario vs Modo nucleo (kernel)",
+      "back": "MODO USUARIO:\n- Ejecutan aplicaciones de usuario\n- Sin acceso directo al hardware\n- Entornos aislados (Win32, etc.)\n\nMODO NUCLEO (SUPERVISOR/PRIVILEGIADO):\n- Residencia de servicios del SO\n- Acceso completo al hardware\n- Controla operaciones internas\n- Garantiza seguridad entre programas",
+      "tags": ["sistema-operativo", "modos", "seguridad", "kernel"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-028",
+      "front": "Tipos de sistemas operativos por recursos",
+      "back": "MONOPROGRAMADOS:\n- Un solo programa en memoria\n- No permite multiprogramacion\n\nMULTIPROGRAMADOS (MULTITAREA):\n- Multiples programas simultaneamente\n\nTIPOS DE MULTITAREA:\n- Apropiativa (preemptive): el SO puede quitar el control del CPU\n- Cooperativa: el programa cede el control voluntariamente",
+      "tags": ["sistema-operativo", "tipos", "multitarea"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-029",
+      "front": "Tipos de sistemas operativos por interactividad",
+      "back": "POR LOTES (BATCH):\n- Ejecucion secuencial de trabajos\n- Sin interaccion del usuario\n\nTIEMPO COMPARTIDO (TIME-SHARING):\n- Multiples usuarios comparten recursos\n- Quantum de tiempo para cada programa\n\nTIEMPO REAL (REAL-TIME):\n- Respuesta inmediata garantizada\n- Sistemas criticos (industrial, medico)",
+      "tags": ["sistema-operativo", "tipos", "tiempo-real"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-030",
+      "front": "Tipos de sistemas operativos por usuarios y procesadores",
+      "back": "POR USUARIOS:\n- Monousuario: un usuario a la vez\n- Multiusuario: varios usuarios simultaneos\n\nPOR PROCESADORES:\n- Monoprocesador: una CPU\n- Multiprocesador: varias CPUs\n  * Modelo supervisor separado: SO independiente por CPU\n  * Modelo maestro/esclavo: una CPU controla las demas\n  * Modelo simetrico: todas las CPUs iguales",
+      "tags": ["sistema-operativo", "tipos", "usuarios", "cpu"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-031",
+      "front": "Sistemas operativos distribuidos vs de red",
+      "back": "SISTEMA OPERATIVO DE RED:\n- Ordenadores interconectados\n- Usuarios saben donde ejecutan sus tareas\n- Cada maquina tiene su SO\n\nSISTEMA OPERATIVO DISTRIBUIDO:\n- Distribucion transparente de tareas\n- Usuarios no saben donde se ejecutan\n- Un SO gestiona toda la red\n- Modelo interno: cliente/servidor",
+      "tags": ["sistema-operativo", "distribuido", "red", "comparativa"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "u1-032",
+      "front": "Sistemas operativos historicos y actuales",
+      "back": "MULTIUSUARIO:\n- MVS (IBM)\n- VMS (DEC)\n- Unix (Linux, BSD, AIX, Solaris)\n\nMONOUSUARIO:\n- DOS (MS-DOS, PC-DOS)\n- OS/2\n- Windows (3.x, 95, 98, NT, 2000, XP, Vista, 7, 10, 11)\n\nTENDENCIAS:\n- Paralelismo\n- Sistemas tolerantes a fallas\n- Interfaces mas amigables\n- Sistemas abiertos",
+      "tags": ["sistema-operativo", "historia", "windows", "unix"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u1-033",
+      "front": "Propietario vs Sistema abierto",
+      "back": "SISTEMA PROPIETARIO:\n- Uso requiere registro/licencia\n- Codigo cerrado\n- Ejemplo: Windows, OS/400, VMS\n\nSISTEMA ABIERTO:\n- Uso libre\n- Codigo abierto (opcional)\n- Ejemplo: Linux, BSD\n\nVENTAJAS LINUX:\n- Gratuito\n- Codigo fuente disponible\n- Evolucion continua\n- Compatible con multiples arquitecturas",
+      "tags": ["sistema-operativo", "licencias", "propietario", "abierto"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u1-034",
+      "front": "Tipos de software",
+      "back": "SOFTWARE BASICO:\n- Sistema operativo\n- Drivers (controladores de dispositivos)\n\nSOFTWARE DE SERVICIOS:\n- Compiladores\n- Editores de texto\n- Depuradores\n- IDE (Entornos Integrados de Desarrollo)\n\nSOFTWARE DE APLICACION:\n- Horizontal: procesadores de texto, hojas de calculo, bases de datos\n- Vertical: aplicaciones especificas (gestion de nominas, multas)",
+      "tags": ["software", "tipos", "aplicaciones"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u1-035",
+      "front": "Licencias de software - Tipos principales",
+      "back": "SOFTWARE LIBRE:\n- Copiar, distribuir, modificar\n- Codigo fuente incluido\n\nDOMINIO PUBLICO:\n- Sin licencia, uso libre\n- Derechos para toda la humanidad\n\nGRATUITO (FREEWARE):\n- Redistribucion libre\n- Sin codigo fuente (no modificable)\n\nSHAREWARE:\n- Prueba gratuita limitada\n- Pago despues del periodo\n\nPROPIETARIO:\n- Permiso requerido para usar/copiar/modificar",
+      "tags": ["licencias", "software", "libre", "propietario"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u1-036",
+      "front": "Licencia EULA vs GPL",
+      "back": "EULA (Windows):\n- Prohibe la copia\n- Un solo ordenador\n- Registro obligatorio (30 dias)\n- Licencia puede invalidarse con cambios de hardware\n- Solo una transferencia\n- Limitacion de ingenieria inversa\n- Coste\n\nGPL (Linux):\n- Permite copia, modificacion y redistribucion\n- Codigo fuente incluido\n- Multiples instalaciones\n- Sin coste de licencia\n- Garantia de derechos de usuario",
+      "tags": ["licencias", "eula", "gpl", "windows", "linux"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-037",
+      "front": "Copyright vs Copyleft",
+      "back": "COPYRIGHT:\n- Proteccion de derechos de autor\n- Restriccion de uso/copia/distribucion\n- Requiere permiso del autor\n\nCOPYLEFT:\n- Antitesis del copyright\n- Garantiza libertades del software libre\n- Usar, modificar, distribuir\n- Obras derivadas bajo misma licencia\n- Usa legislacion de derechos de autor para asegurar libertad",
+      "tags": ["licencias", "copyright", "copyleft", "legal"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-038",
+      "front": "Tipos de licencias de codigo abierto",
+      "back": "GPL (General Public License):\n- Copyleft\n- Modificaciones bajo GPL\n- Proyecto GNU (1984)\n\nAGPL (Affero GPL):\n- Extension para software en servidores web\n- Obligacion de distribuir si se ejecuta en red\n\nLGPL (Lesser GPL):\n- Para bibliotecas de software\n\nFDL (Free Documentation License):\n- Para manuales y documentacion",
+      "tags": ["licencias", "gpl", "agpl", "lgpl", "codigo-abierto"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-039",
+      "front": "Definicion de virtualizacion",
+      "back": "Abstraccion de los recursos de la maquina para utilizar los que sobran y crear maquinas virtuales que utilizan el hardware como si estuviera libre.\n\nCARACTERISTICAS:\n- Compartir maquina fisica entre varias VMs\n- Cada VM tiene su SO independiente\n- Aislamiento entre maquinas virtuales\n- Encapsulacion de detalles tecnicos\n\nCAPA DE SOFTWARE:\n- Host (maquina fisica)\n- Guest (maquina virtual)",
+      "tags": ["virtualizacion", "conceptos-basicos", "vm"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u1-040",
+      "front": "Tipos de maquinas virtuales",
+      "back": "MAQUINAS VIRTUALES DE PROCESO (Aplicacion):\n- Ejecutan como proceso normal del SO\n- Soportan un solo proceso\n- Ejemplo: JVM (Java Virtual Machine), .NET CLR\n- Portabilidad entre plataformas\n\nMAQUINAS VIRTUALES DE SISTEMA (Hardware):\n- Multiplexan hardware completo\n- Permiten ejecutar SO completos\n- Ejemplo: VirtualBox, VMware, Hyper-V",
+      "tags": ["virtualizacion", "tipos", "jvm", "sistema"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-041",
+      "front": "JVM (Java Virtual Machine)",
+      "back": "Maquina virtual de proceso para ejecutar aplicaciones Java.\n\nCARACTERISTICAS:\n- Independiente del hardware\n- Codigo intermedio (bytecode .class)\n- Motor de ejecucion (procesador virtual)\n- Gestion de memoria (recoleccion de basura)\n- Seguridad (administrador de seguridad)\n\nVENTAJAS:\n- Portabilidad (write once, run anywhere)\n- Dinamismo\n- Seguridad en ejecucion de codigo remoto",
+      "tags": ["virtualizacion", "jvm", "java", "proceso"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-042",
+      "front": "Monitor de Maquina Virtual (MMV) o Hypervisor",
+      "back": "Capa de software que permite la virtualizacion de sistemas.\n\nFUNCION:\n- Gestiona recursos: CPU, Memoria, Red, Almacenamiento\n- Crea abstraccion del hardware\n- Permite virtualizacion completa\n\nTIPOS:\n- Tipo I (Bare-metal): se ejecuta directamente sobre hardware (VMware ESXi, Hyper-V Server)\n- Tipo II (Hosted): se ejecuta sobre un SO anfitrion (VirtualBox, VMware Workstation)",
+      "tags": ["virtualizacion", "hypervisor", "mmv", "monitor"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-043",
+      "front": "Ventajas y desventajas de las maquinas virtuales",
+      "back": "VENTAJAS:\n- Aprovechar recursos ociosos\n- Probar sistemas operativos sin instalarlos\n- Aislamiento entre entornos\n- Simulacion de redes completas\n- Portabilidad\n\nDESVENTAJAS:\n- Sobrecarga de rendimiento\n- Mayor complejidad\n- Consumo adicional de recursos\n- Algunos sistemas requieren compatibilidad de hardware",
+      "tags": ["virtualizacion", "ventajas", "desventajas", "rendimiento"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u1-044",
+      "front": "Arquitectura clasica vs Hosted de virtualizacion",
+      "back": "HIPERVISOR TIPO I (Clasico/Bare-metal):\n- Se ejecuta directamente sobre hardware\n- SO invitados sobre el hipervisor\n- Mayor rendimiento\n- Ejemplo: VMware ESXi, Microsoft Hyper-V\n\nHIPERVISOR TIPO II (Hosted):\n- Se ejecuta sobre un SO anfitrion\n- SO invitados sobre la capa de virtualizacion\n- Mas facil de instalar\n- Ejemplo: VirtualBox, VMware Workstation",
+      "tags": ["virtualizacion", "arquitectura", "tipo1", "tipo2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-045",
+      "front": "Interfaz de usuario - CLI vs GUI",
+      "back": "CLI (Command Line Interface):\n- Interfaz alfanumerica\n- Comandos de texto\n- Mayor control y automatizacion\n- Menor consumo de recursos\n\nGUI (Graphic User Interface):\n- Interfaz grafica\n- Elementos visuales: ventanas, iconos, botones\n- Interaccion intuitiva con raton\n- Mayor consumo de recursos\n\nTENDENCIA: Interfaces graficas cada vez mas amigables y usables.",
+      "tags": ["interfaz", "cli", "gui", "usuario"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u1-046",
+      "front": "Memoria virtual",
+      "back": "Tecnica de gestion de memoria que permite ejecutar programas sin tener toda la informacion en memoria principal (RAM).\n\nFUNCIONAMIENTO:\n- Usa disco como extension de RAM\n- Paginacion: divide memoria en bloques (paginas)\n- Intercambio (swap) entre RAM y disco\n\nVENTAJAS:\n- Programas mas grandes que la RAM fisica\n- Aislamiento de procesos\n- Mejor multitarea",
+      "tags": ["memoria", "virtual", "ram", "sistema-operativo"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-047",
+      "front": "Tecnicas de gestion de E/S",
+      "back": "SPOOLING:\n- Simultaneous Peripheral Operation On-Line\n- Cola temporal en disco para datos de salida\n- Evita retencion de programas por perifericos ocupados\n\nBUFFERING:\n- Espacios de memoria para almacenamiento intermedio\n- Compensan diferencias de velocidad entre dispositivos\n- Incrementan eficiencia en multiprogramacion\n\nDMA (Direct Memory Access):\n- Acceso directo a memoria sin intervencion de CPU\n- Para dispositivos de alta velocidad",
+      "tags": ["entrada-salida", "spooling", "buffer", "dma"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "u1-048",
+      "front": "Sistemas de archivos comparativa",
+      "back": "NTFS (Windows):\n- Max archivo: 16 TiB\n- Journaling, permisos, compresion\n- Windows 2000/XP/Vista/7/10/11\n\nFAT32 (Windows):\n- Max archivo: 4 GB\n- Mayor compatibilidad\n- Sin permisos avanzados\n\nEXT3 (Linux):\n- Journaling\n- Variable: 16 GiB - 2 TiB\n- Distribuciones Linux",
+      "tags": ["sistema-archivos", "ntfs", "fat32", "ext3", "comparativa"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u1-049",
+      "front": "Modelos de proteccion de recursos",
+      "back": "MATRIZ DE ACCESO:\n- Define permisos (lectura, escritura) por sujeto-objeto\n- Matriz[subjeto, objeto]\n\nSEGURIDAD CON ACREDITACION:\n- Niveles de clasificacion de informacion\n- Usuario no puede leer info clasificada por encima de su nivel\n- Usuario no puede rebajar clasificacion\n\nSISTEMA DE PROTECCION:\n- Distingue uso autorizado de no autorizado\n- Especifica controles de seguridad\n- Fuerza mecanismos de proteccion",
+      "tags": ["seguridad", "proteccion", "acceso", "permisos"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "u1-050",
+      "front": "Protocolos de transmision de datos",
+      "back": "SIMPLEX (Unidireccional):\n- Un emisor, un receptor\n- Ejemplo: streaming de audio/video\n\nHALF-DUPLEX (Semiduplex):\n- Bidireccional alternado\n- Cada equipo envia o recibe en cada momento\n\nFULL-DUPLEX (Duplex):\n- Bidireccional simultaneo\n- Ambos equipos envian y reciben a la vez\n- Ejemplo: videoconferencia",
+      "tags": ["redes", "protocolos", "transmision", "duplex"],
+      "difficulty": "easy"
+    }
+  ]
+}

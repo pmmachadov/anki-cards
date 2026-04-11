@@ -1,0 +1,723 @@
+{
+  "id": "unidad3-redes-linux",
+  "name": "Unidad 3 - Configuracion de Red en Linux",
+  "description": "Configuracion del protocolo de red en sistemas operativos libres",
+  "subject": "Sistemas Informaticos",
+  "created": "2026-04-11",
+  "cards": [
+    {
+      "id": "u3-001",
+      "front": "Parametros basicos para configurar la red en GNU/Linux",
+      "back": "- IP: direccion unica del nodo (ej: 192.168.0.x)\n- IP enrutador/gateway: conexion a otras redes (ej: 192.168.0.1)\n- IP servidores DNS: resolucion de nombres\n- Nombre del host (hostname): identificador del nodo\n- Mascara de subred: determina si IPs pertenecen a misma subred (ej: 255.255.255.0 para redes tipo C)",
+      "tags": ["redes", "configuracion", "tcp-ip", "linux"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-002",
+      "front": "Como funciona la mascara de subred?",
+      "back": "Conjunto de 4 numeros (0 o 255) que indica si dos IPs pertenecen a la misma subred mediante operacion AND logica.\n\nRED TIPO C:\n- Mascara: 255.255.255.0\n- Las IPs 192.168.0.10 y 192.168.0.11 estan en misma subred\n- Solo varian los ultimos 8 bits (host)\n- El 0 en la mascara indica parte variable de la IP",
+      "tags": ["redes", "subred", "mascara", "ip"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-003",
+      "front": "Comando ifconfig: para que sirve y como usarlo?",
+      "back": "Ver y configurar TCP/IP desde linea de comandos (equivalente a ipconfig en Windows).\n\nUSO:\n$ /sbin/ifconfig\n$ ifconfig eth0\n# ifconfig eth0 192.168.0.133 netmask 255.255.0.0 broadcast 192.168.255.255 up\n\nINTERFACES:\n- eth0: tarjeta de red Ethernet\n- lo: loopback (127.0.0.1)",
+      "tags": ["redes", "comandos", "ifconfig", "linux"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-004",
+      "front": "Comandos ifup e ifdown",
+      "back": "Permiten activar y desactivar interfaces de red.\n\nSINTAXIS:\n# ifdown eth0\n# ifup eth0\n\nNOTA: Para configurar con ifconfig, es conveniente desactivar primero la interfaz con ifdown.",
+      "tags": ["redes", "comandos", "linux"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-005",
+      "front": "Comando route: para que sirve y sus columnas",
+      "back": "Construye tablas de enrutamiento y configura router/gateway.\n\nCONFIGURAR GATEWAY:\n# route add default gw 192.168.0.1\n\nCOLUMNAS:\n- Destino: IP del nodo destino (default = router)\n- Gateway: pasarela (* = directo)\n- Genmask: mascara de subred\n- Flags: U (habilitada), G (requiere gateway)\n- Metric: distancia al destino\n- Ref: no se usa en GNU/Linux\n- Iface: interfaz de red",
+      "tags": ["redes", "comandos", "route", "enrutamiento"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-006",
+      "front": "Comando hostname",
+      "back": "Configura y muestra el nombre del ordenador en la red.\n\nESTABLECER NOMBRE:\n# hostname usuario-pc\n\nVER NOMBRE:\n$ hostname\n\nNOTA: El nombre se asigna al nodo dentro de la red de area local.",
+      "tags": ["redes", "comandos", "hostname", "linux"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-007",
+      "front": "Herramienta system-config-network",
+      "back": "Utilidad de configuracion de red en modo texto para Red Hat/Fedora.\n\nINICIAR:\n# system-config-network\n\nPERMITE CONFIGURAR:\n- Descripcion del dispositivo\n- Nombre del dispositivo (eth0)\n- IP estatica o DHCP\n- Mascara de subred\n- IP del router",
+      "tags": ["redes", "herramientas", "red-hat", "fedora"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-008",
+      "front": "Archivo /etc/resolv.conf",
+      "back": "Archivo de configuracion de servidores DNS.\n\nFORMATO:\nnameserver 213.176.161.16\nnameserver 213.176.161.18\n\nAGREGAR DNS (alternativa):\n# cat >>/etc/resolv.conf\nnameserver 213.176.161.16\nCtrl+D\n\nFUNCION: resolver nombres de dominio a direcciones IP",
+      "tags": ["redes", "archivos", "dns", "linux"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-009",
+      "front": "Archivo /etc/hosts",
+      "back": "Almacena IPs asociadas a nombres de nodos para resolucion estatica sin DNS.\n\nSINTAXIS:\nip_del_host nombre_del_host\n\nEJEMPLOS:\n127.0.0.1 localhost\n192.168.1.254 despensa\n213.176.161.16 www.xtec.cat\n\nUSO: nodos locales o servidores de Internet",
+      "tags": ["redes", "archivos", "hosts", "linux"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-010",
+      "front": "Archivo /etc/services",
+      "back": "Relacion de servicios de red activos con su puerto y protocolo asociado.\n\nFORMATO:\nservice-name puerto/protocolo [alias] [# comentario]\n\nEJEMPLOS:\necho 7/tcp\necho 7/udp\ndiscard 9/tcp sink null\n\nNOTA: Normalmente 2 entradas por servicio (TCP y UDP). Raramente necesita modificacion.",
+      "tags": ["redes", "archivos", "servicios", "puertos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-011",
+      "front": "Archivo /etc/nsswitch.conf",
+      "back": "Especifica el orden de acceso a servicios del sistema.\n\nEJEMPLO (hosts):\nhosts: files dns mdns\n\nSIGNIFICADO:\n1. Primero consulta /etc/hosts\n2. Si no encuentra, consulta servidor DNS\n3. Finalmente mdns\n\nOTROS SERVICIOS:\npasswd, group, shadow, networks, protocols...",
+      "tags": ["redes", "archivos", "nsswitch", "linux"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "u3-012",
+      "front": "Archivo /etc/host.conf",
+      "back": "Define el orden de busqueda para resolucion de nombres de hosts.\n\nEJEMPLO POR DEFECTO:\norder hosts bind\n\nSIGNIFICADO:\n1. Primero comprueba /etc/hosts\n2. Despues usa servidor DNS (bind)\n\nOPCION NOSPOOF:\nCompara busqueda DNS estandar con inversa para mejorar seguridad.",
+      "tags": ["redes", "archivos", "host.conf", "seguridad"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-013",
+      "front": "Configuracion permanente de red en Red Hat/Fedora",
+      "back": "Archivo: /etc/sysconfig/networking/devices/ifcfg-eth*\n\nPARAMETROS:\nIPADDR=192.168.0.101\nDNS1=213.176.161.16\nGATEWAY=192.168.0.1\n\nAPLICAR CAMBIOS:\n# cd /etc/init.d/\n# ./network restart\n\nNOTA: * corresponde al numero de interfaz (eth0, eth1...)",
+      "tags": ["redes", "configuracion", "red-hat", "fedora"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-014",
+      "front": "Configuracion de red en Debian/Ubuntu",
+      "back": "Archivo: /etc/network/interfaces\n\nCONFIGURACION DHCP:\nauto eth0\niface eth0 inet dhcp\n\nCONFIGURACION ESTATICA:\nauto eth0\niface eth0 inet static\naddress 192.168.3.90\ngateway 192.168.3.1\nnetmask 255.255.255.0\nnetwork 192.168.3.0\nbroadcast 192.168.3.255\n\nREINICIAR RED:\n/etc/init.d/networking restart",
+      "tags": ["redes", "configuracion", "debian", "ubuntu"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-015",
+      "front": "Diferencia entre configuracion con ifconfig y archivos",
+      "back": "CONFIGURACION CON IFCONFIG:\n- Temporal\n- Se pierde al reiniciar o cerrar sesion\n- Util para pruebas\n\nCONFIGURACION EN ARCHIVOS:\n- Permanente\n- Persiste tras reinicios\n- Requiere reiniciar servicio de red\n\nRECOMENDACION: usar archivos para configuracion definitiva.",
+      "tags": ["redes", "configuracion", "linux"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-016",
+      "front": "Comando ping",
+      "back": "Verifica conectividad con otro nodo de la red.\n\nUSO BASICO:\n$ ping 192.168.0.1\n\nPARAMETROS:\n-c4: envia solo 4 paquetes\n\nPARAR: Ctrl+C\n\nINFORMACION MOSTRADA:\n- Paquetes enviados/recibidos/perdidos\n- Tiempo minimo/medio/maximo\n- Porcentaje de perdida (debe ser 0% en red estable)",
+      "tags": ["redes", "comandos", "ping", "diagnostico"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-017",
+      "front": "Comando traceroute",
+      "back": "Muestra todos los hosts (saltos) por los que pasan los paquetes hasta llegar al destino.\n\nUSO:\n$ traceroute www.google.com\n\nEQUIVALENTE WINDOWS: tracert\n\nINFORMACION:\n- Numero de salto\n- Nombre e IP de cada router\n- Tiempos de respuesta (3 mediciones por salto)\n\nMAXIMO: 30 saltos por defecto",
+      "tags": ["redes", "comandos", "traceroute", "diagnostico"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-018",
+      "front": "Comando netstat y sus parametros principales",
+      "back": "Muestra estado de la red y conexiones activas.\n\nPARAMETROS:\n-g: grupos de multidifusion\n-i: interfaces configuradas\n-s: resumen por protocolo\n-v: sockets activos e inactivos\n-c: actualiza cada segundo\n-e: conexiones activas detalladas\n-C: cache de direccionamiento\n\nEJEMPLO:\n$ netstat -e",
+      "tags": ["redes", "comandos", "netstat", "diagnostico"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-019",
+      "front": "NetworkManager en entornos graficos",
+      "back": "Herramienta de configuracion de red en GNOME/Ubuntu.\n\nACCESO:\n- Clic derecho en icono de red\n- Seleccionar 'Informacion de la conexion' o 'Editar las conexiones'\n\nINFORMACION MOSTRADA:\n- Nombre de interfaz\n- Direccion MAC\n- Driver del dispositivo\n- Velocidad de conexion\n- Parametros TCP/IP (IP, mascara, gateway, DNS)",
+      "tags": ["redes", "herramientas", "network-manager", "gui"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-020",
+      "front": "Pestañas de configuracion de NetworkManager",
+      "back": "ALAMBRICA:\n- Nombre de conexion\n- Conexion automatica\n- Direccion MAC, MTU\n\nSEGURIDAD (802.1X):\n- Autenticacion basada en puerto\n- Certificados, claves privadas\n\nPARAMETROS IPv4:\n- DHCP automatico (por defecto)\n- Manual: IP, mascara, gateway, DNS\n\nPARAMETROS IPv6:\n- Soportado pero no esencial actualmente",
+      "tags": ["redes", "herramientas", "network-manager", "configuracion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-021",
+      "front": "Aplicacion GNOME-Network (Herramientas de red)",
+      "back": "Herramienta grafica de diagnostico de red en GNOME.\n\nACCESO: Sistema > Administracion > Herramientas de red\n\nPESTANAS:\n- Dispositivos: info de interfaces (eth0, loopback)\n- Ping: estadisticas graficas de ping\n- Estado de la red: equivalente a netstat\n- Servicios de red: puertos abiertos\n- Traza una ruta: equivalente a traceroute\n- Escaneador de puertos: detecta servicios\n- Finger: info de usuarios\n- Whois: info de dominios",
+      "tags": ["redes", "herramientas", "gnome", "diagnostico"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-022",
+      "front": "ICANN",
+      "back": "Internet Corporation for Assigned Names and Numbers\n\nFUNCIONES:\n- Asignar direcciones IP\n- Gestionar identificadores de protocolo\n- Administrar sistema de dominios (DNS)\n- Gestionar servidores raiz\n\nTIPO: Organizacion internacional sin animo de lucro",
+      "tags": ["redes", "icann", "internet", "organismos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-023",
+      "front": "Servidor DNS y BIND",
+      "back": "SERVIDOR DNS:\n- Ordenador que ejecuta software DNS\n- Resuelve nombres de dominio a IPs\n- La mayoria funcionan sobre UNIX/Linux\n\nBIND:\n- Berkeley Internet Name Domain\n- Software DNS mas extendido\n- Permite configurar servidores de nombres",
+      "tags": ["redes", "dns", "bind", "servidores"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-024",
+      "front": "Valores reservados en direcciones IP (red tipo C)",
+      "back": "RED TIPO C: 192.168.0.0/24\n\nRESERVADOS:\n- .0: direccion de subred (red)\n- .1: router/gateway por defecto\n- .255: direccion de broadcast/multidifusion\n\nRANGO USABLE POR HOSTS:\n192.168.0.1 a 192.168.0.254\n\nNOTA: Cuatro numeros de 8 bits (0-255 cada uno).",
+      "tags": ["redes", "ip", "subred", "tcp-ip"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-025",
+      "front": "Interfaz loopback (lo)",
+      "back": "Interfaz de red ficticia/virtual que siempre existe en el sistema.\n\nCARACTERISTICAS:\n- IP habitual: 127.0.0.1\n- No requiere hardware fisico\n- Usada por servicios del sistema\n- Para comunicacion interna (localhost)\n\nCOMANDO:\n$ ifconfig lo",
+      "tags": ["redes", "loopback", "linux", "interfaz"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-026",
+      "front": "IPv4 vs IPv6",
+      "back": "IPv4:\n- Version actual (32 bits)\n- ~4.300 millones de direcciones\n- Formato: cuatro octetos (192.168.0.1)\n- Agotamiento de direcciones\n\nIPv6:\n- Proxima version (128 bits)\n- Espacio de direcciones practicamente ilimitado\n- Formato hexadecimal\n- Soportado por todas las distribuciones actuales",
+      "tags": ["redes", "ipv4", "ipv6", "protocolos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-027",
+      "front": "Configuracion inalambrica vs alambrica",
+      "back": "PARAMETROS COMUNES:\n- IP, mascara, gateway, DNS\n\nEXCLUSIVOS INALAMBRICA:\n- SSID: identificador de red inalambrica\n- Contraseña/Clave de acceso\n- Encriptacion: WEP o WPA/WPA2\n\nNETWORKMANAGER tambien soporta:\n- Modems ADSL\n- Dispositivos USB 3G",
+      "tags": ["redes", "wifi", "inalambrica", "configuracion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-028",
+      "front": "Herramientas de administracion de red especificas por distribucion",
+      "back": "RED HAT / FEDORA:\n- system-config-network\n\nMANDRIVA:\n- Centro de control de Mandriva\n\nSUSE / OPEN SUSE:\n- YaST (herramienta centralizada)\n\nTODAS INCLUYEN:\n- NetworkManager (entorno grafico)\n- Herramientas de linea de comandos (ifconfig, route, etc.)",
+      "tags": ["redes", "herramientas", "distribuciones", "linux"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-029",
+      "front": "Como clonar una maquina virtual en VirtualBox",
+      "back": "COMANDO VBoxManage:\nVBoxManage clonevdi "rutaorigen\maquina1.vdi" "rutadestino\maquina2.vdi"\n\nUBICACION VBoxManage:\n- Windows XP: C:\Archivos de Programa\Oracle\VirtualBox\n- Windows 7+: C:\Program Files\Oracle\VirtualBox\n\nPROCESO:\n1. Abrir terminal en el directorio de VirtualBox\n2. Ejecutar comando clonevdi\n3. Crear nueva VM y asignar el VDI clonado",
+      "tags": ["virtualbox", "practica", "laboratorio", "clonar"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-030",
+      "front": "Configuracion de red interna entre maquinas virtuales",
+      "back": "REQUISITOS:\n- Dos maquinas virtuales Ubuntu\n- Segunda interfaz de red en cada VM\n\nCONFIGURACION:\n1. Editar propiedades de cada VM\n2. Añadir segunda interfaz de red\n3. Asignar a 'Red Interna'\n\nASIGNACION DE IPs:\n- Maquina 1: 192.168.0.101\n- Maquina 2: 192.168.0.102\n- Mascara ambas: 255.255.255.0",
+      "tags": ["virtualbox", "practica", "red-interna", "laboratorio"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-031",
+      "front": "Pasos para verificar configuracion de red entre VMs",
+      "back": "1. CONFIGURAR IPs:\n   - VM1: 192.168.0.101/24\n   - VM2: 192.168.0.102/24\n\n2. VERIFICAR CON IFCONFIG:\n   $ ifconfig\n   (comprobar IP asignada)\n\n3. TEST DE CONECTIVIDAD:\n   Desde VM1: $ ping 192.168.0.102\n   Desde VM2: $ ping 192.168.0.101\n\n4. RESULTADO ESPERADO:\n   0% packet loss, tiempos de respuesta < 1ms",
+      "tags": ["virtualbox", "practica", "ping", "laboratorio"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-032",
+      "front": "Practica de carpeta compartida entre maquinas Linux",
+      "back": "OBJETIVO: Compartir archivos entre VMs por red\n\nPASOS:\n1. Crear carpeta compartida en servidor\n2. Configurar permisos de acceso\n3. Acceder desde cliente por red\n4. Verificar permisos del usuario conectado\n5. Copiar archivo del servidor al cliente\n\nHERRAMIENTAS:\n- Samba (compartir con Windows/Linux)\n- NFS (Network File System - Linux)\n- SSH/SCP (copia segura)",
+      "tags": ["practica", "compartir", "samba", "nfs", "laboratorio"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-033",
+      "front": "Que es una red interna en VirtualBox",
+      "back": "Tipo de conexion de red que permite comunicacion entre VMs aisladas del host y de Internet.\n\nCARACTERISTICAS:\n- Solo comunicacion entre VMs en misma red interna\n- Aislamiento total del host fisico\n- Sin acceso a Internet\n- Ideal para laboratorios y pruebas\n\nCOMPARACION:\n- NAT: acceso a Internet, sin acceso entre VMs\n- Red interna: sin Internet, si comunicacion entre VMs",
+      "tags": ["virtualbox", "red-interna", "conceptos", "practica"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-034",
+      "front": "Ejercicio 1: Parametros minimos para acceso a Internet en GNU/Linux",
+      "back": "RESPUESTA CORRECTA: La IP, IP del router, y servidores DNS\n\nJUSTIFICACION:\n- IP: identifica el equipo en la red\n- Router: permite salir a otras redes/Internet\n- DNS: resuelve nombres de dominio a IPs\n\nSin DNS se puede navegar usando IPs directamente, pero no nombres de dominio.",
+      "tags": ["autoevaluacion", "configuracion", "internet", "dns"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-035",
+      "front": "Ejercicio 2: Completa - En redes LAN cada nodo debe tener asignada una...",
+      "back": "RESPUESTA: direccion IP\n\nEn las redes de area local, cada uno de los nodos que la forman debe tener asignada una direccion IP que le identifique unicamente.",
+      "tags": ["autoevaluacion", "ip", "lan", "conceptos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-036",
+      "front": "Ejercicio 2: Completa - La ... es un conjunto de cuatro numeros de 8 bits que sirve para saber si dos IPs pertenecen a la misma subred",
+      "back": "RESPUESTA: mascara de subred\n\nLa mascara de subred es un conjunto de cuatro numeros de 8 bits que sirve para saber si dos direcciones IP pertenecen a la misma subred o no.",
+      "tags": ["autoevaluacion", "mascara", "subred", "ip"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-037",
+      "front": "Ejercicio 2: Completa - La ... es necesaria si queremos conectar la LAN con otra red o Internet",
+      "back": "RESPUESTA: IP del router (o IP del enrutador/gateway)\n\nLa IP del router es necesaria si queremos conectar la red de area local con otra o bien a Internet.",
+      "tags": ["autoevaluacion", "router", "gateway", "internet"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-038",
+      "front": "Ejercicio 2: Completa - Las direcciones IP de los ... son necesarias para resolver nombres y navegar por Internet",
+      "back": "RESPUESTA: servidores DNS\n\nLas direcciones IP de los servidores DNS son necesarias si queremos resolver nombres y poder navegar por Internet.",
+      "tags": ["autoevaluacion", "dns", "internet", "nombres"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-039",
+      "front": "Ejercicio 2: Completa - La ... nos permite saber si dos nodos estan en la misma red",
+      "back": "RESPUESTA: mascara de subred\n\nLa mascara de subred nos permite saber si dos nodos estan en la misma red mediante la operacion AND logica entre la IP y la mascara.",
+      "tags": ["autoevaluacion", "mascara", "subred", "conceptos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-040",
+      "front": "Ejercicio 3: Relaciona - ifconfig",
+      "back": "RESPUESTA: Informacion y configuracion de la red\n\nifconfig permite comprobar y configurar el protocolo TCP/IP desde la linea de comandos. Muestra informacion de interfaces (eth0, lo) y permite asignar IPs.",
+      "tags": ["autoevaluacion", "ifconfig", "comandos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-041",
+      "front": "Ejercicio 3: Relaciona - route",
+      "back": "RESPUESTA: Configuracion del encaminamiento y rutas\n\nroute sirve para construir las tablas de direccionamiento, configurar el gateway por defecto (route add default gw), y mostrar la tabla de enrutamiento.",
+      "tags": ["autoevaluacion", "route", "comandos", "enrutamiento"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-042",
+      "front": "Ejercicio 3: Relaciona - hostname",
+      "back": "RESPUESTA: Configuracion del nombre del nodo de la red\n\nhostname establece y muestra el nombre del ordenador o nodo de la red (hostname nombre-del-host).",
+      "tags": ["autoevaluacion", "hostname", "comandos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-043",
+      "front": "Ejercicio 3: Relaciona - system-config-network",
+      "back": "RESPUESTA: Herramienta de configuracion de red en Red Hat/Fedora\n\nsystem-config-network es una utilidad en modo texto (asistente) para configurar la red en sistemas Red Hat, Fedora y derivados.",
+      "tags": ["autoevaluacion", "system-config-network", "red-hat", "fedora"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-044",
+      "front": "Ejercicio 4: Que almacena el archivo /etc/resolv.conf?",
+      "back": "RESPUESTA CORRECTA: Guarda las direcciones IP de los servidores DNS\n\nEl archivo /etc/resolv.conf contiene las lineas 'nameserver' con las IPs de los servidores DNS para resolver nombres de dominio.",
+      "tags": ["autoevaluacion", "resolv.conf", "dns", "archivos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-045",
+      "front": "Ejercicio 5: Que almacena el archivo /etc/hosts?",
+      "back": "RESPUESTA CORRECTA: Guarda informacion sobre las IP asociadas a los nodos de la red\n\n/etc/hosts almacena pares IP-nombre para resolucion estatica de nombres sin necesidad de DNS. Incluye localhost y puede incluir nodos LAN o servidores Internet.",
+      "tags": ["autoevaluacion", "hosts", "archivos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-046",
+      "front": "Ejercicio 6: Que relaciona el archivo /etc/services?",
+      "back": "RESPUESTA CORRECTA: Ofrece una relacion de los servicios de red activos con el puerto asociado\n\n/etc/services lista servicios con su puerto/protocolo (ej: echo 7/tcp, ssh 22/tcp). Normalmente 2 entradas por servicio (TCP y UDP).",
+      "tags": ["autoevaluacion", "services", "puertos", "archivos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-047",
+      "front": "Ejercicio 7: Para que sirve /etc/nsswitch.conf?",
+      "back": "RESPUESTA CORRECTA: Permite especificar en que orden se accede a los servicios del sistema\n\nDesarrollado por Sun Microsystems. La linea 'hosts: files dns' indica que primero consulte /etc/hosts y despues DNS.",
+      "tags": ["autoevaluacion", "nsswitch.conf", "archivos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-048",
+      "front": "Ejercicio 8: Que hace el archivo /etc/host.conf?",
+      "back": "RESPUESTA CORRECTA: Muestra el orden con el que el ordenador buscara la resolucion de los nombres de los hosts\n\nEjemplo: 'order hosts bind' indica primero /etc/hosts, despues DNS. Puede incluir 'nospoof' para seguridad.",
+      "tags": ["autoevaluacion", "host.conf", "archivos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-049",
+      "front": "Ejercicio 9: Para que sirve /etc/sysconfig/networking/devices/ifcfg-eth*?",
+      "back": "RESPUESTA CORRECTA: Sirve para configurar la red manualmente en sistemas Red Hat/Fedora\n\nContiene parametros como IPADDR, DNS1, GATEWAY. Requiere reiniciar servicio de red con /etc/init.d/network restart.",
+      "tags": ["autoevaluacion", "ifcfg", "red-hat", "fedora", "archivos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-050",
+      "front": "Ejercicio 10: Para que sirve /etc/network/interfaces?",
+      "back": "RESPUESTA CORRECTA: Sirve para configurar la red manualmente en sistemas Ubuntu/Debian\n\nSoporta configuracion DHCP (iface eth0 inet dhcp) o estatica (iface eth0 inet static con address, gateway, netmask...).",
+      "tags": ["autoevaluacion", "interfaces", "debian", "ubuntu", "archivos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-051",
+      "front": "Ejercicio 11: Relaciona - /etc/resolv.conf",
+      "back": "RESPUESTA: Direcciones IP de los servidores DNS\n\nArchivo de configuracion de resolucion de nombres que contiene las IPs de los servidores DNS (nameserver).",
+      "tags": ["autoevaluacion", "resolv.conf", "dns", "archivos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-052",
+      "front": "Ejercicio 11: Relaciona - /etc/hosts",
+      "back": "RESPUESTA: IPs y nombres de los nodos de la red local\n\nArchivo que asocia direcciones IP con nombres de hosts para resolucion estatica sin DNS.",
+      "tags": ["autoevaluacion", "hosts", "archivos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-053",
+      "front": "Ejercicio 11: Relaciona - /etc/services",
+      "back": "RESPUESTA: Servicios de red con el puerto asociado\n\nRelacion de servicios de red activos con el puerto y protocolo (TCP/UDP) que utilizan.",
+      "tags": ["autoevaluacion", "services", "archivos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-054",
+      "front": "Ejercicio 11: Relaciona - /etc/nsswitch.conf",
+      "back": "RESPUESTA: Orden de acceso a los servicios del sistema\n\nEspecifica en que orden se consultan los servicios (files, dns, etc.) para resolver nombres y otros servicios.",
+      "tags": ["autoevaluacion", "nsswitch.conf", "archivos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-055",
+      "front": "Ejercicio 11: Relaciona - /etc/host.conf",
+      "back": "RESPUESTA: Orden de busqueda de resolucion de nombres de hosts\n\nDefine el orden en que el sistema busca la resolucion de nombres (ej: order hosts bind).",
+      "tags": ["autoevaluacion", "host.conf", "archivos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-056",
+      "front": "Ejercicio 11: Relaciona - /etc/sysconfig/networking/devices/ifcfg-eth*",
+      "back": "RESPUESTA: Configuracion de red en Red Hat/Fedora\n\nArchivo de configuracion permanente de interfaces de red en sistemas Red Hat/Fedora.",
+      "tags": ["autoevaluacion", "ifcfg", "red-hat", "archivos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-057",
+      "front": "Ejercicio 11: Relaciona - /etc/network/interfaces",
+      "back": "RESPUESTA: Configuracion de red en Ubuntu/Debian\n\nArchivo de configuracion de interfaces de red en sistemas Debian/Ubuntu.",
+      "tags": ["autoevaluacion", "interfaces", "debian", "archivos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-058",
+      "front": "Ejercicio 12: Completa - ... permite comprobar el estado de la red",
+      "back": "RESPUESTA: ifconfig\n\nifconfig permite comprobar y configurar el protocolo TCP/IP, mostrando el estado de las interfaces de red.",
+      "tags": ["autoevaluacion", "ifconfig", "comandos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-059",
+      "front": "Ejercicio 12: Completa - Para comprobar el funcionamiento de la conexion fisica usamos ...",
+      "back": "RESPUESTA: ping\n\nEl comando ping verifica la conectividad enviando paquetes ICMP y midiendo tiempos de respuesta.",
+      "tags": ["autoevaluacion", "ping", "comandos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-060",
+      "front": "Ejercicio 12: Completa - ... permite saber todos los hosts por los que pasan los paquetes hasta el destino",
+      "back": "RESPUESTA: traceroute\n\ntraceroute muestra todos los saltos (routers) por los que pasan los paquetes hasta llegar al destino.",
+      "tags": ["autoevaluacion", "traceroute", "comandos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-061",
+      "front": "Ejercicio 12: Completa - La herramienta ... sirve para comprobar la seguridad y escanear puertos",
+      "back": "RESPUESTA: Escaneador de puertos de GNOME-Network (o nmap)\n\nEn GNOME-Network la pestaña 'Escaneador de puertos' permite ver que puertos tiene abiertos un servidor.",
+      "tags": ["autoevaluacion", "escaneo", "puertos", "seguridad"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-062",
+      "front": "Ejercicio 12: Completa - La orden ... permite mostrar y modificar las tablas de direccionamiento",
+      "back": "RESPUESTA: route\n\nLa orden route permite mostrar la tabla de enrutamiento y modificarla (ej: route add default gw 192.168.0.1).",
+      "tags": ["autoevaluacion", "route", "comandos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-063",
+      "front": "Ejercicio 13: Que permite hacer NetworkManager en Ubuntu?",
+      "back": "RESPUESTA CORRECTA: Permite configurar la interfaz de red manualmente y de forma automatica\n\nNetworkManager soporta tanto DHCP (automatico) como configuracion manual estatica de IPv4 e IPv6.",
+      "tags": ["autoevaluacion", "network-manager", "herramientas"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-064",
+      "front": "Ejercicio 14: Que permite hacer la aplicacion Herramientas de red en Ubuntu?",
+      "back": "RESPUESTA CORRECTA: Permite ver el estado de la conexion y realizar pings\n\nGNOME-Network incluye: informacion de dispositivos, ping grafico, netstat, traceroute, escaneo de puertos, finger y whois.",
+      "tags": ["autoevaluacion", "gnome-network", "herramientas"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-065",
+      "front": "Ejercicio 15: Relaciona - Fedora",
+      "back": "RESPUESTA: system-config-network\n\nFedora y Red Hat utilizan la herramienta system-config-network para configuracion de red en modo texto.",
+      "tags": ["autoevaluacion", "fedora", "herramientas"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-066",
+      "front": "Ejercicio 15: Relaciona - Ubuntu",
+      "back": "RESPUESTA: NetworkManager (y herramientas estandar)\n\nUbuntu utiliza NetworkManager como herramienta principal de configuracion de red en entorno grafico.",
+      "tags": ["autoevaluacion", "ubuntu", "herramientas"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-067",
+      "front": "Ejercicio 15: Relaciona - Mandriva",
+      "back": "RESPUESTA: Centro de control de Mandriva\n\nMandriva incluye su propio centro de control para administracion del sistema y la red.",
+      "tags": ["autoevaluacion", "mandriva", "herramientas"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-068",
+      "front": "Ejercicio 15: Relaciona - OpenSUSE",
+      "back": "RESPUESTA: YaST\n\nOpenSUSE utiliza YaST (Yet another Setup Tool) como herramienta centralizada de administracion del sistema.",
+      "tags": ["autoevaluacion", "opensuse", "yast", "herramientas"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-069",
+      "front": "APM vs ACPI: Estándares de gestión energética",
+      "back": "APM (Advanced Power Management):\n- Propuesto por Microsoft e Intel\n- Gestionado por la BIOS\n- Estándar más antiguo\n\nACPI (Advanced Configuration and Power Interface):\n- Propuesto por Toshiba, Intel y Microsoft\n- Gestionado por el sistema operativo\n- Más inteligente y moderno\n- Directorio: /proc/acpi/",
+      "tags": ["portatil", "energia", "apm", "acpi", "hardware"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-070",
+      "front": "Estados energéticos del sistema",
+      "back": "1. EJECUCION: sistema iniciado, consumo maximo, todos los dispositivos activos\n\n2. ESPERA (Standby): monitor apagado, velocidad de CPU reducida\n\n3. DORMIDO (Sleep/Suspend): RAM consume energia para refrescarse, procesador dormido, despierta con actividad\n\n4. PARADO (Hibernate): usuario lo ordena, todos los dispositivos detenidos, solo reloj interno funciona",
+      "tags": ["portatil", "energia", "estados", "ahorro"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-071",
+      "front": "Que es la hibernacion en Linux?",
+      "back": "Guarda todo el contenido de la memoria RAM en una particion de intercambio (swap) del disco.\n\nVENTAJAS:\n- Restauracion rapida del sistema\n- No es necesario reabrir aplicaciones\n\nREQUISITO:\n- Particion swap >= tamano de la RAM\n\nSOPORTE:\n- Todas las distribuciones modernas lo soportan\n- Accesible desde el entorno grafico",
+      "tags": ["portatil", "hibernar", "swap", "ram"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-072",
+      "front": "Tecnologias de escalado de frecuencia del procesador",
+      "back": "INTEL:\n- SpeedStep: reduce frecuencia para ahorrar energia\n\nAMD:\n- Cool'n'Quiet: equivalente a SpeedStep\n\nIMPLEMENTACION LINUX:\n- Controlador cpufreq en el nucleo\n- Directorio: /sys/devices/system/cpu/cpufreq/\n- Programa estandar: CPUspeed\n- Configuracion: /etc/cpuspeed.conf",
+      "tags": ["portatil", "cpu", "frecuencia", "speedstep", "cpufreq"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-073",
+      "front": "Configuracion de CPUspeed",
+      "back": "ARCHIVO: /etc/cpuspeed.conf\n\nEJEMPLO:\nDRIVER=\"speedstep-centrino\"\nOPTS=\"-y 2 -t /proc/acpi/thermal_zone/THM/temperature 70 -a /proc/acpi/ac_adapter/AC/state -p 10 25 -m 600000 -M 1600000\"\n\nPARAMETROS:\n- -t: temperatura maxima\n- -a: estado del adaptador AC\n- -m/-M: frecuencia minima/maxima\n\nREINICIAR SERVICIO:\n/etc/init.d/cpuspeed restart",
+      "tags": ["portatil", "cpufreq", "cpuspeed", "configuracion"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "u3-074",
+      "front": "Comando hdparm para ahorro de energia",
+      "back": "Utilidad para controlar discos duros y ahorrar energia.\n\nPARAR GIRO DE DISCO:\nhdparm -S 5 /dev/hda\n(Numero = multiplos de 5 segundos, aqui 25 segundos)\n\nGUARDAR CONFIGURACION:\nhdparm -K 1 /dev/hda\n\nGESTION AVANZADA DE ENERGIA:\nhdparm -B 254 /dev/sdX\n(-B 255 = disco siempre encendido, valores bajos = mas ahorro)",
+      "tags": ["portatil", "disco", "hdparm", "energia"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-075",
+      "front": "Modo portatil (laptop-mode) en Linux",
+      "back": "Implementado desde nucleo 2.4.23 y 2.6.6\n\nACTIVACION:\necho 5 > /proc/sys/vm/laptop_mode\n\nFUNCIONAMIENTO:\n- Gira platos del disco solo cuando es necesario\n- Reduce consumo del disco duro\n- Funciona mejor con laptop-mode-tools\n\nCONFIGURACION:\n- Archivo: /etc/laptop-mode/laptop-mode.conf\n- CONTROL_HD_POWERMGMT=1\n- BATT_HD_POWERMGMT=254",
+      "tags": ["portatil", "laptop-mode", "disco", "ahorro"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-076",
+      "front": "DPMS y gestion de energia del monitor",
+      "back": "DPMS (Display Power Management Signaling): gestion de energia del monitor.\n\nCOMANDOS xset:\nxset +dpms          (habilitar DPMS)\nxset dpms force standby\nxset dpms force suspend\nxset dpms force off\n\nNOTAS:\n- Suspend y off ahorran mas que standby\n- Aplicable a CRT y LCD\n- Configurable en GNOME: Sistema > Preferencias > Ahorro de pantalla",
+      "tags": ["portatil", "monitor", "dpms", "ahorro", "xset"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-077",
+      "front": "Comando acpi en Linux",
+      "back": "Muestra informacion de energia en sistemas compatibles con ACPI.\n\nUSO:\n$ acpi -V\n\nINFORMACION MOSTRADA:\n- Battery: estado y porcentaje de carga\n- Thermal: temperatura del procesador\n- AC Adapter: estado de conexion a corriente\n\nEJEMPLO:\nBattery 1: charged, 100%\nThermal 1: ok, 47.0 degrees C\nAC Adapter 1: on-line",
+      "tags": ["portatil", "acpi", "comandos", "bateria"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-078",
+      "front": "Archivos de red sin conexion (offline files)",
+      "back": "Permiten trabajar con archivos de red cuando no hay conexion.\n\nFUNCIONAMIENTO:\n1. Se descargan automaticamente desde carpetas compartidas\n2. Se almacenan localmente\n3. Se pueden usar sin conexion\n4. Al reconectar, se sincronizan los cambios\n\nWINDOWS:\n- Incluido en el sistema operativo\n\nLINUX:\n- Requiere utilidad adicional\n- Usa protocolo SSH (SCP/SFTP) para sincronizar\n- Seguro gracias a encriptacion",
+      "tags": ["portatil", "offline", "sincronizacion", "ssh"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-079",
+      "front": "Consejos para maximizar la duracion de la bateria",
+      "back": "PRINCIPIO GENERAL:\nDesconectar y dejar inactivos los dispositivos que no se utilizan.\n\nACCIONES:\n1. Escalado de frecuencia de CPU (cpufreq)\n2. Apagar monitor con DPMS\n3. Parar disco duro con hdparm\n4. Usar modo portatil (laptop-mode)\n5. Desactivar hddtemp (lee temperatura cada minuto)\n6. Configurar smartd (solo cada 30 min)\n7. Hibernar en lugar de suspender para largos periodos",
+      "tags": ["portatil", "bateria", "ahorro", "consejos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-080",
+      "front": "Que es Unison?",
+      "back": "Herramienta de sincronizacion de archivos entre dos ordenadores mediante SSH.\n\nCARACTERISTICAS:\n- Sincronizacion bidireccional\n- Transferencia segura (encriptada)\n- Detecta conflictos entre versiones\n- Multiplataforma (Linux, Windows, macOS)\n\nUSO TIPICO:\n- Sincronizar portatil con servidor\n- Trabajar offline y sincronizar despues",
+      "tags": ["portatil", "unison", "sincronizacion", "ssh"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-081",
+      "front": "Instalacion de Unison en Ubuntu",
+      "back": "COMANDO:\n$ sudo apt install unison\n\nREQUISITOS:\n- Dos maquinas con Ubuntu\n- Conexion de red entre ellas (red interna)\n- Servidor SSH funcionando en el servidor\n\nVERIFICAR INSTALACION:\n$ unison -version",
+      "tags": ["portatil", "unison", "instalacion", "ubuntu"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-082",
+      "front": "Practica: Configuracion de Unison con SSH",
+      "back": "PASOS:\n\n1. INSTALAR Unison en ambas maquinas\n   $ sudo apt install unison\n\n2. CREAR perfil de sincronizacion\n   - Directorio local: ~/Documentos\n   - Conexion SSH al servidor\n\n3. CONFIGURAR conexion:\n   - IP del servidor (ej: 192.168.0.101)\n   - Usuario y contraseña\n\n4. INICIAR sincronizacion\n\n5. CREAR archivo en cliente y reiniciar sincronizacion\n\n6. VERIFICAR en servidor que se transfirio",
+      "tags": ["portatil", "unison", "practica", "ssh", "laboratorio"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-083",
+      "front": "Comando basico de Unison",
+      "back": "SINCRONIZAR DOS DIRECTORIOS:\n$ unison /ruta/local ssh://usuario@servidor//ruta/remota\n\nEJEMPLO:\n$ unison ~/Documentos ssh://usuario@192.168.0.101//home/usuario/Documentos\n\nCON PERFIL GUARDADO:\n$ unison nombre-perfil\n\nOPCIONES UTILES:\n- -auto: aceptar cambios no conflictivos automaticamente\n- -batch: modo batch sin preguntar",
+      "tags": ["portatil", "unison", "comandos", "ssh"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-084",
+      "front": "Ventajas de usar Unison vs copia manual",
+      "back": "UNISON:\n- Sincronizacion bidireccional (ambos sentidos)\n- Detecta cambios en ambos lados\n- Resuelve conflictos\n- Transferencia segura via SSH\n- Solo transfiere diferencias (eficiente)\n\nCOPIA MANUAL (SCP/SFTP):\n- Solo unidireccional\n- No detecta conflictos\n- Sobrescribe sin avisar\n- Requiere decidir manualmente que version conservar",
+      "tags": ["portatil", "unison", "sincronizacion", "comparativa"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3-085",
+      "front": "Requisitos previos para la practica de Unison",
+      "back": "1. DOS MAQUINAS VIRTUALES:\n   - Ubuntu instalado en ambas\n\n2. RED CONFIGURADA:\n   - Conexion via red interna\n   - IPs en misma subred (ej: 192.168.0.101 y 192.168.0.102)\n\n3. CONECTIVIDAD:\n   - ping entre ambas maquinas funciona\n\n4. SERVIDOR SSH:\n   - Instalado y funcionando en el servidor\n   - $ sudo apt install openssh-server",
+      "tags": ["portatil", "unison", "practica", "requisitos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-086",
+      "front": "Ejercicio 1: Relaciona - Estado de ejecucion",
+      "back": "DEFINICION: El sistema llega a este estado cuando se inicia o se reinicia. El consumo energetico es maximo porque todos los dispositivos estan encendidos o activos.",
+      "tags": ["autoevaluacion", "portatil", "estados", "ejecucion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-087",
+      "front": "Ejercicio 1: Relaciona - Estado de espera",
+      "back": "DEFINICION: El sistema llega a este estado debido a la inactividad. Es tipico que el monitor se apague y que la velocidad del microprocesador se reduzca para preservar energia.",
+      "tags": ["autoevaluacion", "portatil", "estados", "espera"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-088",
+      "front": "Ejercicio 1: Relaciona - Estado dormido",
+      "back": "DEFINICION: El sistema alcanza este estado debido a una inactividad continuada. La energia se preserva deteniendo la mayoria de dispositivos, el procesador esta en modo dormido, y solo la RAM consume energia para refrescarse.",
+      "tags": ["autoevaluacion", "portatil", "estados", "dormido"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-089",
+      "front": "Ejercicio 1: Relaciona - Estado parado",
+      "back": "DEFINICION: Solo se llega a este estado cuando el usuario lo ordena, se detienen todos los dispositivos, y el consumo energetico es minimo. Solo funciona el reloj interno para preservar la hora del sistema.",
+      "tags": ["autoevaluacion", "portatil", "estados", "parado"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-090",
+      "front": "Ejercicio 2: Relaciona - Modo portatil",
+      "back": "DEFINICION: Modo implementado desde el nucleo 2.4.23/2.6.6 que permite hacer girar los platos del disco solo cuando se leen datos fuera de la cache, reduciendo el consumo del disco duro.",
+      "tags": ["autoevaluacion", "portatil", "laptop-mode"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-091",
+      "front": "Ejercicio 2: Relaciona - ACPI",
+      "back": "DEFINICION: Interfaz para la Configuracion Avanzada de la Gestion de la Energia. Estandar mas novedoso propuesto por Toshiba, Intel y Microsoft. Permite una gestion mas inteligente gestionada por el SO en vez de la BIOS.",
+      "tags": ["autoevaluacion", "portatil", "acpi"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-092",
+      "front": "Ejercicio 2: Relaciona - Hibernar en el disco",
+      "back": "DEFINICION: Consiste en guardar toda la informacion de la sesion abierta (todo el contenido de la memoria RAM) en una particion de intercambio del disco, permitiendo restaurar el sistema a su estado de trabajo normal rapidamente.",
+      "tags": ["autoevaluacion", "portatil", "hibernar"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-093",
+      "front": "Ejercicio 2: Relaciona - Escalado de frecuencia del procesador",
+      "back": "DEFINICION: Consiste en la disminucion de frecuencia de funcionamiento del microprocesador para ahorrar energia. En Intel se llama SpeedStep, en AMD Cool'n'Quiet.",
+      "tags": ["autoevaluacion", "portatil", "cpu", "frecuencia"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-094",
+      "front": "Ejercicio 3: Metodos de ahorro energetico - Reducir el brillo de la pantalla",
+      "back": "RESPUESTA: VERDADERO (V)\n\nReducir el brillo de la pantalla es un metodo de ahorro energetico que se realiza mediante hardware del ordenador portatil.",
+      "tags": ["autoevaluacion", "portatil", "ahorro", "hardware"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-095",
+      "front": "Ejercicio 3: Metodos de ahorro energetico - Hibernar en el disco",
+      "back": "RESPUESTA: FALSO (F)\n\nHibernar en el disco es una funcion gestionada por software (sistema operativo), no directamente por hardware.",
+      "tags": ["autoevaluacion", "portatil", "hibernar", "software"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-096",
+      "front": "Ejercicio 3: Metodos de ahorro energetico - Desconectar la iluminacion de la pantalla",
+      "back": "RESPUESTA: VERDADERO (V)\n\nDesconectar la iluminacion de la pantalla (backlight) es un metodo de ahorro energetico mediante hardware.",
+      "tags": ["autoevaluacion", "portatil", "pantalla", "hardware"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-097",
+      "front": "Ejercicio 3: Metodos de ahorro energetico - Ejecutar la orden acpi",
+      "back": "RESPUESTA: FALSO (F)\n\nEjecutar la orden acpi es una accion de software que consulta informacion, no un metodo de ahorro energetico por hardware.",
+      "tags": ["autoevaluacion", "portatil", "acpi", "software"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-098",
+      "front": "Ejercicio 3: Metodos de ahorro energetico - Desconectar bluetooth/wi-fi",
+      "back": "RESPUESTA: VERDADERO (V)\n\nDesconectar bluetooth y wi-fi son metodos de ahorro energetico que controlan el hardware del dispositivo.",
+      "tags": ["autoevaluacion", "portatil", "bluetooth", "wifi", "hardware"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-099",
+      "front": "Ejercicio 3: Metodos de ahorro energetico - Utilizacion del modo portatil",
+      "back": "RESPUESTA: FALSO (F)\n\nEl modo portatil (laptop-mode) es una configuracion de software del nucleo Linux, aunque afecta al hardware del disco.",
+      "tags": ["autoevaluacion", "portatil", "laptop-mode", "software"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-100",
+      "front": "Ejercicio 3: Metodos de ahorro energetico - Desactivar puertos PCMCIA",
+      "back": "RESPUESTA: VERDADERO (V)\n\nDesactivar puertos de E/S como PCMCIA es un metodo de ahorro energetico mediante hardware.",
+      "tags": ["autoevaluacion", "portatil", "pcmcia", "hardware"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-101",
+      "front": "Ejercicio 4: Que permite hacer la herramienta hdparm?",
+      "back": "RESPUESTA CORRECTA: Permite controlar el tiempo que debe pasar para parar el disco duro y otros parametros.\n\nEJEMPLOS:\n- hdparm -S 5 /dev/hda (tiempo hasta parada)\n- hdparm -B 254 /dev/sdX (gestion energetica)\n- hdparm -K 1 /dev/hda (guardar configuracion)",
+      "tags": ["autoevaluacion", "portatil", "hdparm", "disco"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3-102",
+      "front": "Ejercicio 5: Caracteristicas de los archivos de red sin conexion",
+      "back": "RESPUESTA CORRECTA: Se pueden utilizar en ordenadores portatiles o de sobremesa.\n\nCARACTERISTICAS:\n- Utiles cuando el ordenador a veces se conecta a red\n- Funcionan en portatiles y equipos de mesa\n- Sincronizan archivos automaticamente\n- En Linux requieren utilidad adicional (usan SSH)",
+      "tags": ["autoevaluacion", "portatil", "offline", "archivos"],
+      "difficulty": "easy"
+    }
+  ]
+}
