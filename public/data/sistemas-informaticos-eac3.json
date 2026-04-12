@@ -1,0 +1,871 @@
+{
+  "id": "sistemas-informaticos-eac3",
+  "name": "Sistemas Informaticos - EAC3",
+  "description": "Interconexion y gestion de sistemas en red - EAC3 (Unidad 3)",
+  "subject": "Informatica",
+  "created": "2026-04-12",
+  "cards": [
+    {
+      "id": "eac3-a1-01",
+      "front": "A1. Como configurar IP estatica temporal en Ubuntu con comando ip?",
+      "back": "COMANDO IP (iproute2):
+
+1. Asignar IP y mascara:
+   sudo ip addr add 192.168.1.100/24 dev eth0
+
+2. Activar interfaz:
+   sudo ip link set eth0 up
+
+3. Configurar puerta de enlace:
+   sudo ip route add default via 192.168.1.1
+
+4. Configurar DNS (editando /etc/resolv.conf):
+   echo 'nameserver 8.8.8.8' | sudo tee /etc/resolv.conf
+
+VERIFICACION:
+   ip addr show
+   ip route show
+   ping 8.8.8.8
+   ping google.com",
+      "tags": ["eac3", "ubuntu", "red", "ip", "configuracion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eac3-a1-02",
+      "front": "A1. Como repetir la configuracion de red con net-tools (ifconfig)?",
+      "back": "NET-TOOLS (comandos legacy):
+
+INSTALACION:
+   sudo apt install net-tools
+
+COMANDOS:
+1. Asignar IP:
+   sudo ifconfig eth0 192.168.1.100 netmask 255.255.255.0
+
+2. Activar interfaz:
+   sudo ifconfig eth0 up
+
+3. Configurar gateway:
+   sudo route add default gw 192.168.1.1
+
+4. Ver configuracion:
+   ifconfig
+   route -n
+
+DIFERENCIAS:
+- ifconfig esta obsoleto
+- ip es mas moderno y potente
+- ip permite mas opciones de routing",
+      "tags": ["eac3", "ubuntu", "red", "ifconfig", "net-tools"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eac3-a2-01",
+      "front": "A2. Como configurar IP estatica en Windows?",
+      "back": "CONFIGURACION WINDOWS:
+
+INTERFAZ GRAFICA:
+1. Panel de control -> Redes e Internet
+2. Centro de redes -> Cambiar configuracion del adaptador
+3. Propiedades -> Protocolo IPv4 -> Propiedades
+4. Usar la siguiente direccion IP:
+   - IP: 192.168.1.100
+   - Mascara: 255.255.255.0
+   - Puerta: 192.168.1.1
+   - DNS: 8.8.8.8, 8.8.4.4
+
+LINEA DE COMANDOS (netsh):
+   netsh interface ip set address 'Ethernet' static 192.168.1.100 255.255.255.0 192.168.1.1
+   netsh interface ip set dns 'Ethernet' static 8.8.8.8
+
+VERIFICAR:
+   ipconfig /all",
+      "tags": ["eac3", "windows", "red", "ip", "configuracion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eac3-a2-02",
+      "front": "A2. Como comprobar conectividad y ver configuracion en Windows?",
+      "back": "COMPROBACION CONECTIVIDAD:
+
+PING:
+   ping 192.168.1.1
+   ping 8.8.8.8
+   ping google.com
+
+VER CONFIGURACION:
+   ipconfig           (basica)
+   ipconfig /all      (completa)
+   ipconfig /release  (liberar DHCP)
+   ipconfig /renew    (renovar DHCP)
+
+OTROS COMANDOS UTILES:
+   tracert google.com     (ruta)
+   nslookup google.com    (DNS)
+   netstat -an            (conexiones)
+   getmac                 (direccion MAC)
+   nbtstat -n             (NetBIOS)
+
+PowerShell:
+   Get-NetIPConfiguration
+   Test-Connection google.com",
+      "tags": ["eac3", "windows", "red", "ping", "ipconfig", "diagnostico"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "eac3-a3-01",
+      "front": "A3. Como instalar y usar nmap para analisis de puertos?",
+      "back": "INSTALACION NMAP:
+   sudo apt install nmap
+
+EXPLORACION BASICA:
+   nmap localhost
+   nmap 192.168.1.100
+
+EXPLORACION RANGO PUERTOS (19-100):
+   nmap -p 19-100 localhost
+
+TIPOS DE ESTADOS:
+- OPEN: puerto abierto, servicio activo
+- CLOSED: puerto cerrado, accesible pero sin servicio
+- FILTERED: firewall bloqueando, no se puede determinar
+
+IDENTIFICAR SERVICIOS:
+   nmap -sV localhost        (version de servicios)
+   nmap -A localhost         (escaneo agresivo)
+   nmap -O localhost         (deteccion SO)
+
+ESCANEO TCP SYN vs CONNECT:
+   nmap -sS localhost        (SYN - requiere root)
+   nmap -sT localhost        (CONNECT - completa handshake)",
+      "tags": ["eac3", "nmap", "seguridad", "puertos", "escaneo"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eac3-a3-02",
+      "front": "A3. Diferencia entre escaneo TCP SYN y TCP Connect en nmap",
+      "back": "TCP SYN (-sS):
+- Envia paquete SYN, recibe SYN-ACK, envia RST
+- No completa el handshake (mas sigiloso)
+- Requiere privilegios root/admin
+- Mas rapido y menos detectable
+- No aparece en logs del servicio
+
+TCP CONNECT (-sT):
+- Completa el three-way handshake (SYN, SYN-ACK, ACK)
+- Usa llamadas del sistema operativo
+- Funciona sin privilegios especiales
+- Mas lento y deja traza en logs
+- Se usa cuando SYN no esta disponible
+
+RIESGOS SEGURIDAD:
+- Puertos abiertos innecesarios = vectores de ataque
+- Reducir superficie de ataque cerrando servicios no usados
+- Usar firewall para filtrar accesos",
+      "tags": ["eac3", "nmap", "tcp", "syn", "seguridad", "escaneo"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "eac3-a4-01",
+      "front": "A4. Como analizar puertos en escucha con netstat?",
+      "back": "NETSTAT - ANALISIS PUERTOS:
+
+PUERTOS TCP EN ESCUCHA:
+   netstat -tln
+   netstat -tlnp    (con procesos)
+
+PUERTOS UDP EN ESCUCHA:
+   netstat -uln
+   netstat -ulnp    (con procesos)
+
+OPCIONES:
+   -t: TCP
+   -u: UDP
+   -l: solo escucha (LISTEN)
+   -n: numericamente (sin resolver DNS)
+   -p: mostrar proceso/PID
+
+ESTADOS DE CONEXION:
+   LISTEN: esperando conexiones
+   ESTABLISHED: conexion activa
+   TIME_WAIT: esperando cerrar
+   CLOSE_WAIT: cerrando
+
+VER TODAS LAS CONEXIONES:
+   netstat -an
+   netstat -tulnp | grep :80",
+      "tags": ["eac3", "netstat", "puertos", "monitoreo", "linux"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eac3-a4-02",
+      "front": "A4. Como instalar y verificar servicio FTP (vsftpd)?",
+      "back": "SERVICIO FTP:
+
+INSTALACION:
+   sudo apt install vsftpd
+
+INICIAR/VERIFICAR:
+   sudo systemctl start vsftpd
+   sudo systemctl enable vsftpd
+   sudo systemctl status vsftpd
+
+VERIFICAR PUERTO 21:
+   netstat -tlnp | grep vsftpd
+   sudo ss -tlnp | grep 21
+
+CONECTARSE POR FTP:
+   ftp localhost
+   ftp 192.168.1.100
+
+CONEXIONES ESTABLECIDAS:
+   netstat -tn | grep ESTABLISHED
+   netstat -tn | grep :21
+
+LISTEN vs ESTABLISHED:
+   LISTEN: servidor esperando conexiones
+   ESTABLISHED: conexion activa cliente-servidor",
+      "tags": ["eac3", "ftp", "vsftpd", "netstat", "servicios"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eac3-a5-01",
+      "front": "A5. Como determinar direcciones MAC y trabajar con tabla ARP?",
+      "back": "DIRECCIONES MAC:
+
+MAQUINA FISICA (Windows):
+   getmac
+   ipconfig /all
+
+MAQUINA VIRTUAL (Ubuntu):
+   ip link show
+   ifconfig -a
+   cat /sys/class/net/eth0/address
+
+ROUTER/PUERTA DE ENLACE:
+   ip neigh show
+   arp -a
+
+TABLA ARP:
+   Ver tabla: arp -a
+   Ver especifica: arp -n 192.168.1.1
+   Eliminar entrada: sudo arp -d 192.168.1.1
+
+FORZAR COMUNICACION:
+   ping 192.168.1.1
+   arp -a    (aparece nueva entrada)
+
+ENTRADAS DINAMICAS: se aprenden automaticamente
+ENTRADAS ESTATICAS: configuradas manualmente",
+      "tags": ["eac3", "arp", "mac", "direcciones", "red"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eac3-a5-02",
+      "front": "A5. Diferencia entre ARP dinamico y estatico. Que es ARP spoofing?",
+      "back": "ARP DINAMICO:
+- Entradas aprendidas automaticamente
+- Tienen tiempo de vida (TTL)
+- Se actualizan con comunicacion
+- Menos seguro pero flexible
+
+ARP ESTATICO:
+- Configuradas manualmente
+- No caducan
+- No se pueden modificar por ARP spoofing
+- Mas seguro pero dificil de mantener
+
+ARP SPOOFING (Envenenamiento):
+- Ataque MITM (Man in the Middle)
+- Atacante envia respuestas ARP falsas
+- Asocia su MAC con IP de otro dispositivo
+- Intercepta trafico entre victimas
+
+PREVENCION:
+- Tablas ARP estaticas
+- Dynamic ARP Inspection (DAI)
+- Segmentacion de red (VLANs)",
+      "tags": ["eac3", "arp", "seguridad", "spoofing", "ataques"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "eac3-b1-01",
+      "front": "B1. Requisitos y pasos para instalar Windows Server 2019 como DC",
+      "back": "WINDOWS SERVER 2019 - CONTROLADOR DE DOMINIO:
+
+REQUISITOS MINIMOS:
+- Procesador: 1.4 GHz 64-bit
+- RAM: 512 MB (2GB recomendado)
+- Disco: 32 GB minimo
+- Tarjeta de red: Gigabit
+
+PASOS INSTALACION:
+1. Descargar ISO de evaluacion
+2. Crear VM con requisitos
+3. Instalar Windows Server 2019
+
+CONFIGURACION PREVIA:
+   - Cambiar nombre del servidor
+   - Configurar IP estatica
+
+PROMOCION A DC:
+   Server Manager -> Manage -> Add Roles
+   -> Active Directory Domain Services
+   -> Promote this server to a domain controller
+   -> Add a new forest: eac3.usuario.home",
+      "tags": ["eac3", "windows-server", "dc", "active-directory", "dominio"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eac3-b2-01",
+      "front": "B2. Como configurar servidor DNS en Windows Server?",
+      "back": "CONFIGURACION DNS:
+
+ZONA DIRECTA (creada automaticamente):
+- Contiene registros A, CNAME, MX
+- Asocia nombres a IPs
+- Ej: servidor.eac3.home -> 192.168.1.10
+
+ZONA INVERSA (crear manualmente):
+1. DNS Manager -> Zonas de busqueda inversa
+2. New Zone -> Primary -> IPv4 Reverse
+3. ID de red: 192.168.1
+
+REGISTROS:
+A (Host): nombre -> IP
+   -> Asistente grafico DNS
+
+PTR (Puntero inverso): IP -> nombre
+   -> PowerShell: Add-DnsServerResourceRecordPtr
+
+CNAME (Alias): nombre alternativo
+   -> www.eac3.home -> servidor.eac3.home
+
+VERIFICACION:
+   nslookup servidor.eac3.home
+   nslookup 192.168.1.10",
+      "tags": ["eac3", "dns", "windows-server", "zonas", "registros"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eac3-b3-01",
+      "front": "B3. Como crear usuarios, grupos y asignar permisos en Active Directory?",
+      "back": "ADMINISTRACION ACTIVE DIRECTORY:
+
+CREAR GRUPOS:
+   AD Users and Computers
+   -> Users -> New -> Group
+   - bibliotecario (Security/Domain Local)
+   - usuario (Security/Domain Local)
+
+CREAR USUARIOS:
+   -> New -> User
+   - Marti
+   - Jana
+
+ASIGNAR A GRUPOS:
+   Propiedades usuario -> Member Of
+   - Marti -> bibliotecario
+   - Jana -> usuario
+
+ARCHIVO Y PERMISOS:
+   1. Crear archivo.txt (date > archivo.txt)
+   2. Propiedades -> Seguridad -> Advanced
+   3. Disable inheritance
+   4. Add:
+      - Marti: Full Control
+      - Jana: Read & Execute
+
+PERMISOS EFECTIVOS:
+   NTFS: controla acceso local
+   Share: controla acceso remoto",
+      "tags": ["eac3", "active-directory", "usuarios", "grupos", "permisos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eac3-b4-01",
+      "front": "B4. Como unir Windows 11 a un dominio?",
+      "back": "UNIR CLIENTE AL DOMINIO:
+
+CONFIGURACION PREVIA:
+1. IP compatible con red del servidor
+   - IP: 192.168.1.x
+   - Mascara: 255.255.255.0
+   - Gateway: 192.168.1.1
+
+2. DNS apuntando al DC:
+   - DNS: 192.168.1.10 (IP del servidor)
+
+3. Nombre de equipo:
+   - System -> Rename PC
+
+UNIR AL DOMINIO:
+   System -> Advanced system settings
+   -> Computer Name -> Change
+   -> Domain: eac3.usuario.home
+   -> Credenciales admin del dominio
+   -> Reiniciar
+
+VERIFICACION:
+   - Computer aparece en AD
+   - Login con usuario del dominio
+   - cmd: whoami -> EAC3\\usuario",
+      "tags": ["eac3", "windows-11", "dominio", "active-directory", "cliente"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eac3-b5-01",
+      "front": "B5. Como compartir carpetas con permisos diferenciados en Windows Server?",
+      "back": "COMPARTIR RECURSOS SMB:
+
+CREAR CARPETA:
+   C:\\documentacion
+
+COMPARTIR (Sharing):
+   Propiedades -> Sharing -> Advanced Sharing
+   - Share name: documentacion
+   - Permissions:
+     * bibliotecario: Full Control
+     * usuario: Read
+
+PERMISOS NTFS (Security):
+   Propiedades -> Security -> Advanced
+   - Disable inheritance
+   - Remove Users group
+   - Add:
+     * bibliotecario: Modify (o Full)
+     * usuario: Read & Execute
+
+ACCESO DESDE CLIENTE:
+   \\\\servidor\\documentacion
+   o
+   \\\\192.168.1.10\\documentacion
+
+PERMISOS EFECTIVOS:
+   - Mas restrictivo entre Share y NTFS gana
+   - Para acceso remoto: ambos deben permitir",
+      "tags": ["eac3", "smb", "compartir", "permisos", "windows-server"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eac3-b6-01",
+      "front": "B6. Como configurar servidor Samba en Ubuntu?",
+      "back": "SERVIDOR SAMBA:
+
+INSTALACION:
+   sudo apt install samba
+
+CREAR CARPETAS:
+   sudo mkdir /srv/imagenes
+   sudo mkdir /srv/documentos
+
+GRUPO BIBLIOTECARIO:
+   sudo groupadd bibliotecario
+   sudo usermod -aG bibliotecario usuario
+
+CONFIGURACION /etc/samba/smb.conf:
+
+[imagenes]
+   path = /srv/imagenes
+   browseable = yes
+   read only = no
+   guest ok = yes
+
+[documentos]
+   path = /srv/documentos
+   browseable = yes
+   read only = yes
+   write list = @bibliotecario
+
+PERMISOS:
+   sudo chmod 777 /srv/imagenes
+   sudo chown root:bibliotecario /srv/documentos
+   sudo chmod 775 /srv/documentos
+
+REINICIAR:
+   sudo systemctl restart smbd
+
+ACCESO WINDOWS:
+   \\\\ip_ubuntu\\imagenes",
+      "tags": ["eac3", "samba", "ubuntu", "compartir", "smb"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eac3-b7-01",
+      "front": "B7. Como configurar servidor de impresion en Windows Server?",
+      "back": "SERVIDOR DE IMPRESION:
+
+INSTALAR ROL:
+   Server Manager -> Add Roles
+   -> Print and Document Services
+   -> Print Server
+
+INSTALAR IMPRESORA:
+   Opcion A: Impresora fisica
+   Opcion B: Impresora virtual (Bullzip PDF)
+
+CONFIGURAR:
+   1. Devices and Printers
+   2. Add printer
+   3. Seleccionar driver/puerto
+   4. Compartir impresora:
+      - Nombre compartido: ImpresoraEAC3
+      - Ubicacion en AD
+
+PERMISOS:
+   Propiedades -> Security
+   - Print: grupos autorizados
+   - Manage documents: admins
+
+PUBLICAR EN AD:
+   - List in directory
+   - Visible para usuarios del dominio
+
+USAR DESDE W11:
+   \\\\servidor\\ImpresoraEAC3
+   o buscar en AD",
+      "tags": ["eac3", "impresion", "print-server", "windows-server"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eac3-b8-01",
+      "front": "B8. Como configurar Ubuntu como Controlador de Dominio con Samba AD DC?",
+      "back": "SAMBA AD DC:
+
+INSTALACION:
+   sudo apt install samba smbclient winbind krb5-user
+
+CONFIGURAR IP ESTATICA:
+   /etc/netplan/00-installer-config.yaml
+
+DESACTIVAR SERVICIOS CONFLICTIVOS:
+   sudo systemctl disable --now smbd nmbd winbind
+
+APUNTAR DNS A SI MISMO:
+   /etc/resolv.conf -> nameserver 127.0.0.1
+
+PROVISIONAR DOMINIO:
+   sudo samba-tool domain provision
+   --use-rfc2307
+   --interactive
+   Realm: EAC3.HOME
+   Domain: EAC3
+   Server Role: dc
+   DNS backend: SAMBA_INTERNAL
+
+INICIAR SERVICIO:
+   sudo samba
+   sudo systemctl enable samba-ad-dc
+
+VERIFICAR:
+   sudo samba-tool domain level show
+   nslookup eac3.home",
+      "tags": ["eac3", "samba", "ad-dc", "ubuntu", "controlador"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "eac3-c1-01",
+      "front": "C1. Protocolos de correo electronico: IMAP, POP3 y SMTP",
+      "back": "PROTOCOLOS CORREO:
+
+IMAP (143/993):
+- Sincroniza mensajes con servidor
+- Multiple dispositivos
+- Carpetas en servidor
+- Puerto 143 (sin cifrar)
+- Puerto 993 (SSL/TLS)
+
+POP3 (110/995):
+- Descarga mensajes localmente
+- Un solo dispositivo tipicamente
+- Elimina del servidor (opcional)
+- Puerto 110 (sin cifrar)
+- Puerto 995 (SSL/TLS)
+
+SMTP (25/587/465):
+- Envio de correos
+- Puerto 25 (servidor a servidor)
+- Puerto 587 (cliente a servidor con STARTTLS)
+- Puerto 465 (SMTP sobre SSL - obsoleto)
+
+SSL/TLS vs STARTTLS:
+- SSL/TLS: conexion cifrada desde el inicio
+- STARTTLS: conexion sin cifrar, luego se negocia cifrado",
+      "tags": ["eac3", "correo", "imap", "pop3", "smtp", "protocolos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eac3-c2-01",
+      "front": "C2. Como configurar acceso remoto seguro con SSH en Ubuntu?",
+      "back": "SERVIDOR SSH:
+
+INSTALACION:
+   sudo apt install openssh-server
+
+VERIFICAR SERVICIO:
+   sudo systemctl status ssh
+   sudo ss -tlnp | grep :22
+   netstat -tlnp | grep sshd
+
+CONECTAR DESDE CLIENTE:
+   ssh usuario@192.168.1.100
+   ssh usuario@servidor
+
+TRANSFERENCIA SFTP:
+   sftp usuario@192.168.1.100
+   put archivo.txt      (subir)
+   get archivo.txt      (bajar)
+
+AUTENTICACION POR CLAVE:
+   ssh-keygen -t rsa -b 4096
+   ssh-copy-id usuario@servidor
+
+DESHABILITAR ROOT:
+   /etc/ssh/sshd_config:
+   PermitRootLogin no
+   sudo systemctl restart ssh",
+      "tags": ["eac3", "ssh", "sftp", "acceso-remoto", "seguridad"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eac3-c3-01",
+      "front": "C3. Como compilar un programa en C y crear pagina de manual?",
+      "back": "COMPILACION EN C:
+
+COMPILAR CON GCC:
+   gcc programa.c -o programa
+   gcc -Wall -o programa programa.c
+
+EJECUTAR:
+   ./programa parametro
+
+MAKEFILE BASICO:
+   programa: programa.c
+       gcc -o programa programa.c
+   
+   make
+
+PAGINA DE MANUAL (ROFF):
+
+Crear archivo.3:
+   .TH PROGRAMA 3 '2026-04-12' '1.0' 'Manual del programa'
+   .SH NAME
+   programa \- descripcion breve
+   .SH SYNOPSIS
+   .B programa
+   [\fIOPCIONES\fR]
+   .SH DESCRIPTION
+   Descripcion detallada...
+
+VISUALIZAR:
+   groff -man -Tascii archivo.3 | less
+
+INSTALAR:
+   sudo cp archivo.3 /usr/share/man/man3/
+   sudo mandb
+   man programa",
+      "tags": ["eac3", "c", "gcc", "manual", "roff", "compilacion"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "eac3-c4-01",
+      "front": "C4. Control de versiones con Git - comandos basicos",
+      "back": "GIT - CONTROL DE VERSIONES:
+
+INSTALACION:
+   sudo apt install git
+
+CONFIGURACION GLOBAL:
+   git config --global user.name 'Nombre'
+   git config --global user.email 'email@example.com'
+
+INICIAR REPOSITORIO:
+   git init nombre-repo
+   cd nombre-repo
+
+AÑADIR ARCHIVOS:
+   git add archivo.c
+   git add .           (todos)
+
+COMMIT:
+   git commit -m 'Mensaje descriptivo'
+
+HISTORIAL:
+   git log
+   git log --oneline
+
+CLONAR:
+   git clone usuario@servidor:/ruta/repo
+   git clone /ruta/local/repo
+
+RAMAS:
+   git branch          (listar)
+   git checkout -b dev (crear y cambiar)
+   git merge dev       (fusionar)",
+      "tags": ["eac3", "git", "control-versiones", "desarrollo"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eac3-comandos-red-linux",
+      "front": "Comandos esenciales de red en Linux",
+      "back": "DIAGNOSTICO RED:
+
+ip addr / ip a
+- Muestra direcciones IP de interfaces
+
+ip route / ip r
+- Muestra tabla de enrutamiento
+
+ping -c 4 8.8.8.8
+- Prueba conectividad
+
+ss -tlnp
+- Muestra sockets en escucha
+
+netstat -tlnp
+- Conexiones y puertos (legacy)
+
+nslookup google.com
+- Consulta DNS
+
+traceroute google.com
+- Ruta de los paquetes
+
+curl -I http://google.com
+- Prueba HTTP
+
+wget url
+- Descarga archivos
+
+hostname -I
+- Muestra IPs del sistema",
+      "tags": ["eac3", "linux", "red", "comandos", "diagnostico"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "eac3-comandos-red-windows",
+      "front": "Comandos esenciales de red en Windows",
+      "back": "DIAGNOSTICO RED:
+
+ipconfig
+- Configuracion IP basica
+
+ipconfig /all
+- Configuracion completa (MAC, DHCP, DNS)
+
+ping 8.8.8.8
+- Prueba conectividad
+
+tracert google.com
+- Ruta de los paquetes
+
+netstat -an
+- Conexiones y puertos
+
+nslookup google.com
+- Consulta DNS
+
+getmac
+- Direcciones MAC
+
+netsh interface show interface
+- Estado de interfaces
+
+Test-NetConnection -Port 80 google.com
+- Prueba conexion PowerShell
+
+Get-NetIPConfiguration
+- Configuracion IP PowerShell",
+      "tags": ["eac3", "windows", "red", "comandos", "diagnostico"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "eac3-samba-vs-windows",
+      "front": "Diferencias entre compartir recursos en Windows Server vs Samba",
+      "back": "WINDOWS SERVER:
+- Integracion nativa con Active Directory
+- Permisos NTFS muy granulares
+- Group Policy Objects (GPO)
+- DFS (Distributed File System)
+- Licencia de pago
+
+SAMBA:
+- Implementacion libre de SMB/CIFS
+- Compatible con dominios Windows
+- Funciona en Linux/Unix
+- Sin coste de licencia
+- Configuracion via smb.conf
+- Soporte AD a traves de Samba AD DC
+
+COMPATIBILIDAD:
+- Clientes Windows acceden a Samba sin problemas
+- Samba puede unirse a dominios Windows
+- Soporte SMB 2/3 en versiones modernas",
+      "tags": ["eac3", "samba", "windows", "smb", "comparativa"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eac3-puertos-comunes",
+      "front": "Puertos de red mas comunes y sus servicios",
+      "back": "PUERTOS ESTANDAR:
+
+20/21 - FTP (File Transfer)
+   20: datos, 21: control
+
+22 - SSH (Secure Shell)
+   Acceso remoto seguro
+
+25 - SMTP
+   Envio de correo
+
+53 - DNS
+   Resolucion de nombres
+
+80 - HTTP
+   Web sin cifrar
+
+443 - HTTPS
+   Web cifrado SSL/TLS
+
+445 - SMB/CIFS
+   Compartir archivos Windows
+
+3306 - MySQL
+   Base de datos
+
+3389 - RDP
+   Escritorio remoto Windows
+
+8080 - HTTP alternativo
+   Proxy, aplicaciones web",
+      "tags": ["eac3", "puertos", "red", "servicios", "protocolos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "eac3-respuestas-resumen",
+      "front": "RESUMEN: Configuracion IP estatica Ubuntu y Windows",
+      "back": "UBUNTU (comando ip):
+   sudo ip addr add 192.168.1.100/24 dev eth0
+   sudo ip link set eth0 up
+   sudo ip route add default via 192.168.1.1
+   echo 'nameserver 8.8.8.8' | sudo tee /etc/resolv.conf
+
+UBUNTU (netplan permanente):
+   network:
+     version: 2
+     ethernets:
+       eth0:
+         dhcp4: no
+         addresses: [192.168.1.100/24]
+         gateway4: 192.168.1.1
+         nameservers:
+           addresses: [8.8.8.8]
+
+WINDOWS (netsh):
+   netsh interface ip set address 'Ethernet' static 192.168.1.100 255.255.255.0 192.168.1.1
+   netsh interface ip set dns 'Ethernet' static 8.8.8.8",
+      "tags": ["eac3", "resumen", "ip", "ubuntu", "windows", "configuracion"],
+      "difficulty": "medium"
+    }
+  ]
+}
