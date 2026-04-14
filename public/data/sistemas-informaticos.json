@@ -328,7 +328,9 @@
     {
       "id": "2a5430f4-0c9f-4fb4-999a-93d6ea33847b",
       "front": "Comandos basicos de diagnostico de red",
-      "back": "ping: verifica conectividad\nipconfig/ifconfig: config IP\ntracert/traceroute: ruta paquetes\nnslookup: consulta DNS\nnetstat: conexiones activas\ntelnet/nc: prueba puertos\n\nEjemplo: ping 8.8.8.8 prueba Google DNS",
+      "back": "Principales comandos de diagnostico de red con ejemplos de respuesta positiva:\n\n```batch\n:: Verifica conectividad con otro host\nping 8.8.8.8\n\nRespuesta positiva:\nRespuesta desde 8.8.8.8: bytes=32 tiempo=15ms TTL=118\nEstadisticas: 4 enviados, 4 recibidos, 0% perdidos\n\n:: Muestra la configuracion IP local\nipconfig\n\nRespuesta positiva (resumen):\nAdaptador Ethernet:\n   Direccion IPv4: 192.168.1.105\n   Mascara: 255.255.255.0\n   Puerta de enlace: 192.168.1.1\n\n:: Muestra la ruta de los paquetes hasta el destino\ntracert 8.8.8.8\n\nRespuesta positiva (resumen):\nTraza a 8.8.8.8\n  1    <1 ms    <1 ms    <1 ms  192.168.1.1\n  2     5 ms     4 ms     5 ms  10.10.10.1\n  3    12 ms    11 ms    12 ms  8.8.8.8\nTraza completa.\n\n:: Consulta informacion DNS\nnslookup google.com\n\nRespuesta positiva:\nServidor:  dns.google\nAddress:  8.8.8.8\nNombre:    google.com\nAddresses:  142.250.80.46\n\n:: Muestra conexiones y puertos activos\nnetstat -an\n\nRespuesta positiva (ejemplo de conexion activa):\n  Proto  Direccion local         Direccion remota      Estado\n  TCP    192.168.1.105:54321     142.250.80.46:443     ESTABLECIDO\n\n:: Prueba si un puerto TCP esta abierto\ntelnet 192.168.1.1 80\n\nRespuesta positiva (puerto abierto):\nConectandose a 192.168.1.1...\nSe abrio la conexion al host.\n```\n\nNota: en Linux se usan `ping`, `ifconfig`/`ip a`, `traceroute`, `nslookup`, `netstat` y `nc` (netcat).",
+      
+      
       "tags": [
         "redes",
         "diagnostico",
