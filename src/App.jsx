@@ -34,112 +34,42 @@ function App() {
       localStorage.removeItem('anki-decks')
       
       try {
-        // Cargar mazos por defecto desde JSON
-        const [response1, response2, response3, response4, response5, response6, response7, response8, response9, response10, response11] = await Promise.all([
-          fetch('/data/sistemas-informaticos.json'),
-          fetch('/data/entornos-desarrollo.json'),
-          fetch('/data/shoptimus-fundamentos.json'),
-          fetch('/data/dom-consulta-busqueda.json'),
-          fetch('/data/dwec-unidad3-dom-parte2.json'),
-          fetch('/data/dom-eventos.json'),
-          fetch('/data/dom-estilos-css.json'),
-          fetch('/data/dom-actualizacion-elementos.json'),
-          fetch('/data/dwec-u3l2-actualitzacio-dom.json'),
-          fetch('/data/dom-ejemplos-practicos.json'),
-          fetch('/data/dom-d3js.json')
-        ])
-        
-        const data1 = await response1.json()
-        const data2 = await response2.json()
-        const data3 = await response3.json()
-        const data4 = await response4.json()
-        const data5 = await response5.json()
-        const data6 = await response6.json()
-        const data7 = await response7.json()
-        const data8 = await response8.json()
-        const data9 = await response9.json()
-        const data10 = await response10.json()
-        const data11 = await response11.json()
-        
-        // Crear mazos frescos
-        const deck1 = new Deck(data1.name, data1.id)
-        deck1.description = data1.description
-        deck1.subject = data1.subject
-        data1.cards.forEach(card => {
-          deck1.addCard(card.front, card.back, card.tags || [])
+        const deckFiles = [
+          '/data/sistemas-informaticos.json',
+          '/data/entornos-desarrollo.json',
+          '/data/shoptimus-fundamentos.json',
+          '/data/dom-consulta-busqueda.json',
+          '/data/dwec-unidad3-dom-parte2.json',
+          '/data/dom-eventos.json',
+          '/data/dom-estilos-css.json',
+          '/data/dom-actualizacion-elementos.json',
+          '/data/dwec-u3l2-actualitzacio-dom.json',
+          '/data/dom-ejemplos-practicos.json',
+          '/data/dom-d3js.json'
+        ]
+
+        const results = await Promise.allSettled(
+          deckFiles.map(url => fetch(url).then(r => r.json()))
+        )
+
+        const newDecks = []
+        results.forEach((result, index) => {
+          if (result.status === 'fulfilled') {
+            const data = result.value
+            const deck = new Deck(data.name, data.id)
+            deck.description = data.description || ''
+            deck.subject = data.subject || ''
+            if (Array.isArray(data.cards)) {
+              data.cards.forEach(card => {
+                deck.addCard(card.front, card.back, card.tags || [])
+              })
+            }
+            newDecks.push(deck)
+          } else {
+            console.error(`Error loading ${deckFiles[index]}:`, result.reason)
+          }
         })
-        
-        const deck2 = new Deck(data2.name, data2.id)
-        deck2.description = data2.description
-        deck2.subject = data2.subject
-        data2.cards.forEach(card => {
-          deck2.addCard(card.front, card.back, card.tags || [])
-        })
-        
-        const deck3 = new Deck(data3.name, data3.id)
-        deck3.description = data3.description
-        deck3.subject = data3.subject
-        data3.cards.forEach(card => {
-          deck3.addCard(card.front, card.back, card.tags || [])
-        })
-        
-        const deck4 = new Deck(data4.name, data4.id)
-        deck4.description = data4.description
-        deck4.subject = data4.subject
-        data4.cards.forEach(card => {
-          deck4.addCard(card.front, card.back, card.tags || [])
-        })
-        
-        const deck5 = new Deck(data5.name, data5.id)
-        deck5.description = data5.description
-        deck5.subject = data5.subject
-        data5.cards.forEach(card => {
-          deck5.addCard(card.front, card.back, card.tags || [])
-        })
-        
-        const deck6 = new Deck(data6.name, data6.id)
-        deck6.description = data6.description
-        deck6.subject = data6.subject
-        data6.cards.forEach(card => {
-          deck6.addCard(card.front, card.back, card.tags || [])
-        })
-        
-        const deck7 = new Deck(data7.name, data7.id)
-        deck7.description = data7.description
-        deck7.subject = data7.subject
-        data7.cards.forEach(card => {
-          deck7.addCard(card.front, card.back, card.tags || [])
-        })
-        
-        const deck8 = new Deck(data8.name, data8.id)
-        deck8.description = data8.description
-        deck8.subject = data8.subject
-        data8.cards.forEach(card => {
-          deck8.addCard(card.front, card.back, card.tags || [])
-        })
-        
-        const deck9 = new Deck(data9.name, data9.id)
-        deck9.description = data9.description
-        deck9.subject = data9.subject
-        data9.cards.forEach(card => {
-          deck9.addCard(card.front, card.back, card.tags || [])
-        })
-        
-        const deck10 = new Deck(data10.name, data10.id)
-        deck10.description = data10.description
-        deck10.subject = data10.subject
-        data10.cards.forEach(card => {
-          deck10.addCard(card.front, card.back, card.tags || [])
-        })
-        
-        const deck11 = new Deck(data11.name, data11.id)
-        deck11.description = data11.description
-        deck11.subject = data11.subject
-        data11.cards.forEach(card => {
-          deck11.addCard(card.front, card.back, card.tags || [])
-        })
-        
-        const newDecks = [deck1, deck2, deck3, deck4, deck5, deck6, deck7, deck8, deck9, deck10, deck11]
+
         setDecks(newDecks)
         DataStore.saveDecks(newDecks)
       } catch (error) {

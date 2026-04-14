@@ -24,7 +24,7 @@
     {
       "id": "dom-act-003",
       "front": "Como modificar el atributo href de un enlace?",
-      "back": "Dos formas de cambiar atributos:\n\n// 1. Con setAttribute (generico)\nconst enllac = document.getElementById('enllac-botiga');\nenllac.setAttribute('href', 'https://www.ioc.cat');\nenllac.setAttribute('title', 'Obre la nova botiga de l\'IOC');\n\n// 2. Como propiedad directa (mas corto)\nenllac.href = 'https://www.ioc.cat';\n\n// Verificar el cambio\nconsole.log(enllac.getAttribute('href')); // https://www.ioc.cat"
+      "back": "Dos formas de cambiar atributos:\n\n// 1. Con setAttribute (generico)\nconst enllac = document.getElementById('enllac-botiga');\nenllac.setAttribute('href', 'https://www.ioc.cat');\nenllac.setAttribute('title', 'Obre la nova botiga de l'IOC');\n\n// 2. Como propiedad directa (mas corto)\nenllac.href = 'https://www.ioc.cat';\n\n// Verificar el cambio\nconsole.log(enllac.getAttribute('href')); // https://www.ioc.cat"
       ,
       "tags": ["dom", "atributos", "href", "setattribute"],
       "difficulty": "easy"
