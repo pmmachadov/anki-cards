@@ -317,7 +317,7 @@
     {
       "id": "0e952d43-f5d9-4c4a-a8e9-18ba4009b030",
       "front": "Que es el Subnetting?",
-      "back": "Division de una red IP en subredes mas pequenas.\n\nEJEMPLO 192.168.0.0/24 en /26:\n- 4 subredes de 62 hosts\n- Administracion: 192.168.0.0/26\n- Profesores: 192.168.0.64/26\n- Alumnos: 192.168.0.128/26\n- Invitados: 192.168.0.192/26\n\nFormula: 2^(32-mascara) = hosts totales",
+      "back": "Division de una red IP grande en redes mas pequenas para organizar y gestionar mejor los dispositivos.\n\nEJEMPLO practico: partir 192.168.0.0/24 en /26\n\nPASO 1 - Entender los numeros\n- /24 significa que 24 de los 32 bits de la IP son para la RED.\n- /26 significa que ahora usamos 26 bits para la RED (2 bits mas).\n- Esos 2 bits extra nos permiten crear subredes: 2^2 = 4 subredes.\n\nPASO 2 - Calcular hosts por subred\n- Bits que quedan para hosts: 32 - 26 = 6 bits.\n- Hosts totales por subred: 2^6 = 64 direcciones.\n- De esas 64, 2 estan reservadas (red y broadcast), asi que:\n  HOSTES UTILIZABLES = 64 - 2 = 62 hosts por subred.\n\nPASO 3 - Las 4 subredes resultantes\nCada una salta de 64 en 64 en el ultimo octeto:\n\n1. Administracion:   192.168.0.0/26   (de .0 a .63)\n2. Profesores:       192.168.0.64/26  (de .64 a .127)\n3. Alumnos:          192.168.0.128/26 (de .128 a .191)\n4. Invitados:        192.168.0.192/26 (de .192 a .255)\n\nFORMULA CLAVE\n- Hosts totales = 2^(32 - mascara)\n- Hosts utilizables = 2^(32 - mascara) - 2\n- Numero de subredes = 2^(bits prestados a la red)",
       "tags": [
         "redes",
         "subnetting",
