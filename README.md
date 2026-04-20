@@ -216,6 +216,4 @@ Distributed under the **MIT** license. See `LICENSE` for more information.
 
 <br>
 
-<div align="center">
-  <sub>Built with ❤️ for vocational and university students</sub>
-</div>
+
