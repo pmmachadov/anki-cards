@@ -68,6 +68,40 @@
   transition: width 0.3s ease;
 }
 
+/* Step Number Display */
+.step-number-display {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding: 16px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(59, 130, 246, 0.05));
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  border-radius: 16px;
+}
+
+.step-number-label {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.step-number-value {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #3b82f6;
+  line-height: 1;
+}
+
+.step-number-total {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
 /* Card Navigator Slider */
 .card-slider-container {
   display: flex;

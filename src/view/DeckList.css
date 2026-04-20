@@ -897,8 +897,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 12px 24px 12px 40px;
-  position: relative;
+  padding: 12px 24px;
   align-self: center;
   background: transparent;
   border: 1px solid var(--border-color);
@@ -924,8 +923,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  left: 16px;
+  flex-shrink: 0;
 }
 
 .btn-clear-data .btn-icon svg {
@@ -939,6 +937,117 @@
   color: var(--text-muted);
   opacity: 0.6;
   text-align: center;
+}
+
+/* Theme Blue for Extras */
+.deck-card.theme-blue.has-due {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px #2563eb;
+}
+
+.deck-card.theme-blue .due-badge-inline {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+}
+
+.deck-card.theme-blue .progress-value {
+  color: #93c5fd;
+}
+
+.deck-card.theme-blue .progress-fill {
+  background: linear-gradient(90deg, #22c55e, #2563eb);
+}
+
+.deck-card.theme-blue .btn-study {
+  background: linear-gradient(135deg, #2563eb, #3b82f6) !important;
+}
+
+.deck-card.theme-blue .btn-stats {
+  color: #93c5fd !important;
+}
+
+.deck-card.theme-blue .icon-new {
+  background: rgba(37, 99, 235, 0.15);
+  color: #60a5fa;
+}
+
+/* Extras Section */
+.extras-section {
+  margin-top: 32px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 24px;
+}
+
+.extras-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 16px 20px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.extras-toggle:hover {
+  border-color: var(--bg-elevated);
+  background: var(--bg-tertiary);
+}
+
+.extras-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fbbf24;
+  flex-shrink: 0;
+}
+
+.extras-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.extras-label {
+  flex: 1;
+  text-align: left;
+}
+
+.extras-count {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  background: var(--bg-tertiary);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.extras-chevron {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+}
+
+.extras-chevron svg {
+  width: 20px;
+  height: 20px;
+}
+
+.extras-chevron.open {
+  transform: rotate(0deg);
+}
+
+.extras-grid {
+  margin-top: 20px;
 }
 
 /* Modal Clear Data - Estilos específicos */

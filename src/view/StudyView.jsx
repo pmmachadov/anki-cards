@@ -309,6 +309,14 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
         <span className="card-slider-label">{cards.length}</span>
       </div>
 
+      {deck.id === 'interconexion-redes-eac3' && (
+        <div className="step-number-display">
+          <span className="step-number-label">Paso</span>
+          <span className="step-number-value">{currentCardIndex + 1}</span>
+          <span className="step-number-total">de {cards.length}</span>
+        </div>
+      )}
+
       <div className="flashcard-container">
         <div 
           key={currentCardIndex}

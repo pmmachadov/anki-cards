@@ -104,6 +104,23 @@ const Icons = {
       <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
       <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
     </svg>
+  ),
+  chevronDown: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  ),
+  chevronUp: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  ),
+  extras: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+      <line x1="8" y1="21" x2="16" y2="21"/>
+      <line x1="12" y1="17" x2="12" y2="21"/>
+    </svg>
   )
 }
 
@@ -117,6 +134,8 @@ const SubjectIcons = {
   'Desenvolupament Web en Entorn Client': '🌐',
   'default': '📚'
 }
+
+const MAIN_DECKS = ['Sistemas Informaticos', 'Entornos de Desarrollo']
 
 export function DeckList({ 
   decks, 
@@ -140,6 +159,9 @@ export function DeckList({
   // Modal de confirmación para borrar TODOS los datos
   const [showClearModal, setShowClearModal] = useState(false)
   const [clearStep, setClearStep] = useState(1)
+
+  // Desplegable de extras
+  const [showExtras, setShowExtras] = useState(false)
 
   const handleCreate = (e) => {
     e.preventDefault()
@@ -201,6 +223,106 @@ export function DeckList({
     return SubjectIcons[subject] || SubjectIcons.default
   }
 
+  const mainDecks = decks.filter(d => MAIN_DECKS.includes(d.name))
+  const extraDecks = decks.filter(d => !MAIN_DECKS.includes(d.name))
+
+  const renderDeckCard = (deck, isExtra = false) => {
+    const stats = deck.getStats()
+    const subjectIcon = getSubjectIcon(deck.subject)
+    const hasDueCards = stats.due > 0
+    
+    return (
+      <div key={deck.id} className={`deck-card ${hasDueCards ? 'has-due' : ''} ${isExtra ? 'theme-blue' : ''}`}>
+        {/* Card Content */}
+        <div className="deck-card-content">
+          {hasDueCards && (
+            <div className="due-badge-inline">
+              <span>{stats.due} pendientes</span>
+            </div>
+          )}
+          <div className="deck-card-header">
+            <h3 className="deck-name">{deck.name}</h3>
+          </div>
+          
+          {deck.description && (
+            <p className="deck-description">{deck.description}</p>
+          )}
+          
+          {/* Progress Bar */}
+          <div className="deck-progress">
+            <div className="progress-info">
+              <span className="progress-label">Progreso</span>
+              <span className="progress-value">{stats.mastery}%</span>
+            </div>
+            <div className="progress-bar">
+              <div 
+                className="progress-fill" 
+                style={{ width: `${stats.mastery}%` }}
+              />
+            </div>
+          </div>
+
+          {/* Stats Row */}
+          <div className="deck-stats-row">
+            <div className="deck-stat" title="Nuevas">
+              <div className="stat-icon-small icon-new">{Icons.newCard}</div>
+              <div className="stat-info">
+                <span className="stat-number">{stats.new}</span>
+                <span className="stat-text">nuevas</span>
+              </div>
+            </div>
+            <div className="deck-stat" title="Aprendiendo">
+              <div className="stat-icon-small icon-learning">{Icons.learning}</div>
+              <div className="stat-info">
+                <span className="stat-number">{stats.learning}</span>
+                <span className="stat-text">aprendiendo</span>
+              </div>
+            </div>
+            <div className="deck-stat" title="Para repasar">
+              <div className="stat-icon-small icon-review">{Icons.review}</div>
+              <div className="stat-info">
+                <span className="stat-number">{stats.due}</span>
+                <span className="stat-text">repasar</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Actions */}
+          <div className="deck-actions">
+            <button 
+              className="btn btn-primary btn-study"
+              onClick={() => onStudyDeck(deck)}
+            >
+              <span className="btn-icon">{Icons.study}</span>
+              <span>Estudiar</span>
+            </button>
+            <button 
+              className="btn btn-icon-only btn-stats"
+              onClick={() => onStatsDeck(deck)}
+              title="Ver estadísticas"
+            >
+              {Icons.stats}
+            </button>
+            <button 
+              className="btn btn-icon-only btn-edit"
+              onClick={() => onEditDeck(deck)}
+              title="Editar mazo"
+            >
+              {Icons.edit}
+            </button>
+            <button 
+              className="btn btn-icon-only btn-reset"
+              onClick={() => openResetModal(deck)}
+              title="Reiniciar progreso"
+            >
+              {Icons.reset}
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="deck-list animate-fade-in">
       {/* Stats Header */}
@@ -243,105 +365,34 @@ export function DeckList({
         </button>
       </div>
 
-      {/* Decks Grid */}
+      {/* Main Decks */}
       <div className="decks-grid">
-        {decks.map(deck => {
-          const stats = deck.getStats()
-          const subjectIcon = getSubjectIcon(deck.subject)
-          const hasDueCards = stats.due > 0
-          
-          return (
-            <div key={deck.id} className={`deck-card ${hasDueCards ? 'has-due' : ''}`}>
-              {/* Card Content */}
-              <div className="deck-card-content">
-                {hasDueCards && (
-                  <div className="due-badge-inline">
-                    <span>{stats.due} pendientes</span>
-                  </div>
-                )}
-                <div className="deck-card-header">
-                  <h3 className="deck-name">{deck.name}</h3>
-                </div>
-                
-                {deck.description && (
-                  <p className="deck-description">{deck.description}</p>
-                )}
-                
-                {/* Progress Bar */}
-                <div className="deck-progress">
-                  <div className="progress-info">
-                    <span className="progress-label">Progreso</span>
-                    <span className="progress-value">{stats.mastery}%</span>
-                  </div>
-                  <div className="progress-bar">
-                    <div 
-                      className="progress-fill" 
-                      style={{ width: `${stats.mastery}%` }}
-                    />
-                  </div>
-                </div>
-
-                {/* Stats Row */}
-                <div className="deck-stats-row">
-                  <div className="deck-stat" title="Nuevas">
-                    <div className="stat-icon-small icon-new">{Icons.newCard}</div>
-                    <div className="stat-info">
-                      <span className="stat-number">{stats.new}</span>
-                      <span className="stat-text">nuevas</span>
-                    </div>
-                  </div>
-                  <div className="deck-stat" title="Aprendiendo">
-                    <div className="stat-icon-small icon-learning">{Icons.learning}</div>
-                    <div className="stat-info">
-                      <span className="stat-number">{stats.learning}</span>
-                      <span className="stat-text">aprendiendo</span>
-                    </div>
-                  </div>
-                  <div className="deck-stat" title="Para repasar">
-                    <div className="stat-icon-small icon-review">{Icons.review}</div>
-                    <div className="stat-info">
-                      <span className="stat-number">{stats.due}</span>
-                      <span className="stat-text">repasar</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Actions */}
-                <div className="deck-actions">
-                  <button 
-                    className="btn btn-primary btn-study"
-                    onClick={() => onStudyDeck(deck)}
-                  >
-                    <span className="btn-icon">{Icons.study}</span>
-                    <span>Estudiar</span>
-                  </button>
-                  <button 
-                    className="btn btn-icon-only btn-stats"
-                    onClick={() => onStatsDeck(deck)}
-                    title="Ver estadísticas"
-                  >
-                    {Icons.stats}
-                  </button>
-                  <button 
-                    className="btn btn-icon-only btn-edit"
-                    onClick={() => onEditDeck(deck)}
-                    title="Editar mazo"
-                  >
-                    {Icons.edit}
-                  </button>
-                  <button 
-                    className="btn btn-icon-only btn-reset"
-                    onClick={() => openResetModal(deck)}
-                    title="Reiniciar progreso"
-                  >
-                    {Icons.reset}
-                  </button>
-                </div>
-              </div>
-            </div>
-          )
-        })}
+        {mainDecks.map(d => renderDeckCard(d))}
       </div>
+
+      {/* Extras Collapsible */}
+      {extraDecks.length > 0 && (
+        <div className="extras-section">
+          <button 
+            className="extras-toggle"
+            onClick={() => setShowExtras(!showExtras)}
+            aria-expanded={showExtras}
+          >
+            <span className="extras-icon">{Icons.extras}</span>
+            <span className="extras-label">Extras</span>
+            <span className="extras-count">{extraDecks.length} mazo{extraDecks.length !== 1 ? 's' : ''}</span>
+            <span className={`extras-chevron ${showExtras ? 'open' : ''}`}>
+              {showExtras ? Icons.chevronUp : Icons.chevronDown}
+            </span>
+          </button>
+          
+          {showExtras && (
+            <div className="decks-grid extras-grid animate-fade-in">
+              {extraDecks.map(d => renderDeckCard(d, true))}
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Empty State */}
       {decks.length === 0 && (

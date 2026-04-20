@@ -37,7 +37,7 @@ function App() {
         const deckFiles = [
           '/data/sistemas-informaticos.json',
           '/data/entornos-desarrollo.json',
-          '/data/shoptimus-fundamentos.json',
+          '/data/interconexion-redes-eac3.json',
           '/data/dom-consulta-busqueda.json',
           '/data/dwec-unidad3-dom-parte2.json',
           '/data/dom-eventos.json',
