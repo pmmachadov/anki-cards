@@ -1,7 +1,7 @@
 # <div align="center">🧠 AnkiCards</div>
 
 <div align="center">
-  <strong>Aplicación de flashcards con repetición espaciada para estudiantes de FP y universidad</strong>
+  <strong>Spaced-repetition flashcard app for vocational and university students</strong>
 </div>
 
 <div align="center">
@@ -18,30 +18,30 @@
   <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/>
 </div>
 
-## ✨ Características
+## ✨ Features
 
-| Feature | Descripción |
+| Feature | Description |
 |---------|-------------|
-| 🎴 **Flashcards interactivas** | Volteo 3D, navegación fluida y diseño oscuro optimizado para largas sesiones de estudio |
-| 🧮 **Algoritmo SM-2 adaptado** | Repetición espaciada inteligente que optimiza cuándo repasar cada tarjeta |
-| ⌨️ **Atajos de teclado** | Estudia sin tocar el ratón: espacio para voltear, 1-4 para puntuar |
-| 📊 **Estadísticas visuales** | Gráficos de progreso, distribución de dificultad y evolución del dominio |
-| 📝 **Editor de tarjetas** | Crea, edita y elimina tarjetas dentro de cada mazo |
-| 🗂️ **Mazos principales + Extras** | Dos materias principales siempre visibles; el resto en un desplegable organizado |
-| 💾 **Persistencia local** | Todos los datos se guardan en localStorage; funciona sin servidor |
-| 📱 **Responsive** | Adaptado para móvil, tablet y escritorio |
+| 🎴 **Interactive flashcards** | 3D flip, smooth navigation, and a dark theme optimized for long study sessions |
+| 🧮 **Adapted SM-2 algorithm** | Smart spaced repetition that optimizes when to review each card |
+| ⌨️ **Keyboard shortcuts** | Study without touching your mouse: Space to flip, 1-4 to rate |
+| 📊 **Visual statistics** | Progress charts, difficulty distribution, and mastery evolution |
+| 📝 **Card editor** | Create, edit, and delete cards inside any deck |
+| 🗂️ **Main decks + Extras** | Two core subjects always visible; the rest tucked inside a collapsible panel |
+| 💾 **Local persistence** | All data is saved to localStorage; works without a server |
+| 📱 **Responsive** | Optimized for mobile, tablet, and desktop |
 
 <br>
 
-## 🚀 Demo en vivo
+## 🚀 Live demo
 
-> Despliega tu propia instancia en **Vercel** con un solo clic:
+> Deploy your own instance on **Vercel** with one click:
 >
-> [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tu-usuario/anki-cards)
+> [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/anki-cards)
 
 <br>
 
-## 📸 Vista previa
+## 📸 Preview
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -49,107 +49,106 @@
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
 │   ┌─────────┐  ┌──────────┐  ┌──────────┐                  │
-│   │ 3 Mazos │  │ 818 Cards│  │  0% Prog │                  │
+│   │ 3 Decks │  │ 818 Cards│  │  0% Prog │                  │
 │   └─────────┘  └──────────┘  └──────────┘                  │
 │                                                             │
-│   Mis Materias                              [+ Nuevo Mazo] │
+│   My Decks                                  [+ New Deck]   │
 │   ─────────────────────────────────────────────────────    │
 │                                                             │
 │   ┌─────────────────────┐  ┌─────────────────────┐        │
-│   │ 💻 Sistemas         │  │ 🔧 Entornos         │        │
-│   │ Informaticos        │  │ de Desarrollo       │        │
+│   │ 💻 Computer Systems │  │ 🔧 Dev Environments │        │
 │   │                     │  │                     │        │
-│   │ Progreso 0%         │  │ Progreso 0%         │        │
+│   │ Progress 0%         │  │ Progress 0%         │        │
 │   │ ████░░░░░░░░░░░     │  │ ████░░░░░░░░░░░     │        │
 │   │                     │  │                     │        │
-│   │ 510 nuevas          │  │ 308 nuevas          │        │
-│   │ 0 aprendiendo       │  │ 0 aprendiendo       │        │
-│   │ 510 repasar         │  │ 0 repasar           │        │
+│   │ 510 new             │  │ 308 new             │        │
+│   │ 0 learning          │  │ 0 learning          │        │
+│   │ 510 review          │  │ 0 review            │        │
 │   │                     │  │                     │        │
-│   │ [📖 Estudiar]       │  │ [📖 Estudiar]       │        │
+│   │ [📖 Study]          │  │ [📖 Study]          │        │
 │   └─────────────────────┘  └─────────────────────┘        │
 │                                                             │
-│   [📂 Extras ▼]  —  8 mazos adicionales                     │
+│   [📂 Extras ▼]  —  8 additional decks                      │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
 <br>
 
-## 🛠️ Stack tecnológico
+## 🛠️ Tech stack
 
 ```
-Frontend    React 19 + Hooks
-Build       Vite 8
-Gráficos    Recharts
-Estilos     CSS puro con variables (tema dark)
-Persistencia localStorage
-Linting     ESLint 9 + react-hooks + react-refresh
+Frontend     React 19 + Hooks
+Build        Vite 8
+Charts       Recharts
+Styling      Plain CSS with variables (dark theme)
+Storage      localStorage
+Linting      ESLint 9 + react-hooks + react-refresh
 ```
 
 <br>
 
-## 📦 Instalación local
+## 📦 Local setup
 
 ```bash
-# 1. Clonar el repositorio
-git clone https://github.com/tu-usuario/anki-cards.git
+# 1. Clone the repository
+git clone https://github.com/your-username/anki-cards.git
 cd anki-cards
 
-# 2. Instalar dependencias
+# 2. Install dependencies
 npm install
 
-# 3. Iniciar servidor de desarrollo
+# 3. Start the dev server
 npm run dev
 
-# 4. Abrir en el navegador
+# 4. Open in your browser
 # http://localhost:5173
 ```
 
-### Build de producción
+### Production build
 
 ```bash
 npm run build
 ```
 
-El resultado se genera en la carpeta `dist/`, lista para desplegar en Vercel, Netlify, GitHub Pages o cualquier CDN estático.
+Output is generated in the `dist/` folder, ready to deploy on Vercel, Netlify, GitHub Pages, or any static CDN.
 
 <br>
 
-## ⌨️ Atajos de teclado (modo estudio)
+## ⌨️ Keyboard shortcuts (study mode)
 
-| Tecla | Acción |
-|-------|--------|
-| `Espacio` | Voltear tarjeta |
-| `1` | "Otra vez" (Again) |
-| `2` | "Difícil" (Hard) |
-| `3` | "Bien" (Good) |
-| `4` | "Fácil" (Easy) |
+| Key | Action |
+|-----|--------|
+| `Space` | Flip card |
+| `1` | Again |
+| `2` | Hard |
+| `3` | Good |
+| `4` | Easy |
 
 <br>
 
-## 📁 Estructura del proyecto
+## 📁 Project structure
 
 ```
 anki-cards/
 ├── public/
-│   └── data/               # Mazos JSON precargados
+│   └── data/               # Preloaded JSON decks
 │       ├── sistemas-informaticos.json
 │       ├── entornos-desarrollo.json
 │       └── interconexion-redes-eac3.json
 ├── src/
-│   ├── model/              # Lógica de negocio
-│   │   ├── Deck.js         # Clases Card/Deck + algoritmo SM-2
-│   │   └── DataStore.js    # Persistencia localStorage
-│   ├── view/               # Componentes React
-│   │   ├── DeckList.jsx    # Dashboard con grid de mazos
-│   │   ├── StudyView.jsx   # Sesión de estudio
-│   │   ├── StatsView.jsx   # Estadísticas con gráficos
-│   │   └── CardEditor.jsx  # CRUD de tarjetas
-│   ├── App.jsx             # Componente raíz / router
-│   └── main.jsx            # Punto de entrada
+│   ├── model/              # Business logic
+│   │   ├── Deck.js         # Card/Deck classes + SM-2 algorithm
+│   │   └── DataStore.js    # localStorage persistence
+│   ├── view/               # React components
+│   │   ├── DeckList.jsx    # Dashboard with deck grid
+│   │   ├── StudyView.jsx   # Study session
+│   │   ├── StatsView.jsx   # Charts and statistics
+│   │   └── CardEditor.jsx  # Card CRUD
+│   ├── App.jsx             # Root component / router
+│   └── main.jsx            # Entry point
 ├── scripts/
-│   └── fix-css-vars.js     # Post-build: inlinea variables CSS
+│   └── fix-css-vars.js     # Post-build CSS inlining
 ├── index.html
 ├── vite.config.js
 └── package.json
@@ -157,36 +156,36 @@ anki-cards/
 
 <br>
 
-## 🧠 Algoritmo SM-2 adaptado
+## 🧠 Adapted SM-2 algorithm
 
-El sistema de repetición espaciada implementa una versión adaptada del algoritmo SM-2:
+The spaced-repetition system implements an adapted version of the SM-2 algorithm:
 
-| Dificultad | Efecto en el factor de facilidad | Intervalo base |
-|------------|----------------------------------|----------------|
-| 🔴 Again   | −0.20                            | 1 día          |
-| 🟠 Hard    | −0.15                            | 2 días         |
-| 🟢 Good    | Sin cambio                       | 3 días         |
-| 🔵 Easy    | +0.15                            | 4 días         |
+| Difficulty | Ease factor change | Base interval |
+|------------|--------------------|---------------|
+| 🔴 Again   | −0.20              | 1 day         |
+| 🟠 Hard    | −0.15              | 2 days        |
+| 🟢 Good    | No change          | 3 days        |
+| 🔵 Easy    | +0.15              | 4 days        |
 
-Las tarjetas nuevas progresan por los estados: `new → learning → review`.
+New cards progress through the states: `new → learning → review`.
 
 <br>
 
-## 📝 Añadir nuevas materias
+## 📝 Adding new subjects
 
-1. Crea un archivo JSON en `public/data/mi-materia.json` siguiendo el esquema:
+1. Create a JSON file at `public/data/my-subject.json` following this schema:
 
 ```json
 {
-  "id": "mi-materia",
-  "name": "Mi Materia",
-  "description": "Breve descripción",
-  "subject": "Categoría",
+  "id": "my-subject",
+  "name": "My Subject",
+  "description": "Short description",
+  "subject": "Category",
   "cards": [
     {
       "id": "uuid",
-      "front": "Pregunta",
-      "back": "Respuesta",
+      "front": "Question",
+      "back": "Answer",
       "tags": ["tag1"],
       "difficulty": "medium"
     }
@@ -194,29 +193,29 @@ Las tarjetas nuevas progresan por los estados: `new → learning → review`.
 }
 ```
 
-2. Regístralo en `src/App.jsx` dentro del array `deckFiles`.
+2. Register it in `src/App.jsx` inside the `deckFiles` array.
 
-3. Recarga la aplicación.
-
-<br>
-
-## 🤝 Contribuciones
-
-Las contribuciones son bienvenidas. Si encuentras un bug o quieres proponer una mejora:
-
-1. Abre un **issue** describiendo el problema o la idea
-2. Haz un **fork** del repositorio
-3. Crea una rama con tu feature: `git checkout -b feat/nueva-funcionalidad`
-4. Envía un **pull request**
+3. Reload the application.
 
 <br>
 
-## 📄 Licencia
+## 🤝 Contributing
 
-Distribuido bajo licencia **MIT**. Consulta `LICENSE` para más información.
+Contributions are welcome. If you find a bug or want to propose an improvement:
+
+1. Open an **issue** describing the problem or idea
+2. **Fork** the repository
+3. Create a branch for your feature: `git checkout -b feat/new-feature`
+4. Submit a **pull request**
+
+<br>
+
+## 📄 License
+
+Distributed under the **MIT** license. See `LICENSE` for more information.
 
 <br>
 
 <div align="center">
-  <sub>Hecho con ❤️ para estudiantes de FP y universidad</sub>
+  <sub>Built with ❤️ for vocational and university students</sub>
 </div>
