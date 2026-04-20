@@ -1,190 +1,222 @@
-# 🧠 AnkiCards
+# <div align="center">🧠 AnkiCards</div>
 
-Aplicación moderna de tarjetas de estudio con **repetición espaciada**, diseñada para optimizar el aprendizaje mediante el algoritmo SM-2.
+<div align="center">
+  <strong>Aplicación de flashcards con repetición espaciada para estudiantes de FP y universidad</strong>
+</div>
 
-![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)
-![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite)
-![License](https://img.shields.io/badge/License-MIT-green)
+<div align="center">
+  <br>
+  <img src="https://img.shields.io/badge/React-19.2-61DAFB?logo=react&logoColor=white&style=for-the-badge" alt="React">
+  <img src="https://img.shields.io/badge/Vite-8.0-646CFF?logo=vite&logoColor=white&style=for-the-badge" alt="Vite">
+  <img src="https://img.shields.io/badge/Recharts-3.8-22B5BF?logo=chart.js&logoColor=white&style=for-the-badge" alt="Recharts">
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
+</div>
 
-![screenshot](https://raw.githubusercontent.com/pmmachadov/anki-cards/main/screenshots/app-preview.png)
+<br>
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/>
+</div>
 
 ## ✨ Características
 
-- 🎨 **Dark theme minimalista** - Interfaz limpia y moderna
-- 🧠 **Repetición espaciada** - Algoritmo SM-2 adaptado
-- 📊 **Estadísticas detalladas** - Gráficos de progreso y retención
-- 🎯 **4 niveles de dificultad** - Otra vez, Difícil, Bien, Fácil
-- 📁 **Gestión de mazos** - Crear, editar, eliminar mazos
-- ✏️ **Editor de tarjetas** - Añadir y editar con etiquetas
-- 💾 **Persistencia local** - Datos guardados en localStorage
-- ⌨️ **Atajos de teclado** - Espacio para voltear, 1-4 para puntuar
+| Feature | Descripción |
+|---------|-------------|
+| 🎴 **Flashcards interactivas** | Volteo 3D, navegación fluida y diseño oscuro optimizado para largas sesiones de estudio |
+| 🧮 **Algoritmo SM-2 adaptado** | Repetición espaciada inteligente que optimiza cuándo repasar cada tarjeta |
+| ⌨️ **Atajos de teclado** | Estudia sin tocar el ratón: espacio para voltear, 1-4 para puntuar |
+| 📊 **Estadísticas visuales** | Gráficos de progreso, distribución de dificultad y evolución del dominio |
+| 📝 **Editor de tarjetas** | Crea, edita y elimina tarjetas dentro de cada mazo |
+| 🗂️ **Mazos principales + Extras** | Dos materias principales siempre visibles; el resto en un desplegable organizado |
+| 💾 **Persistencia local** | Todos los datos se guardan en localStorage; funciona sin servidor |
+| 📱 **Responsive** | Adaptado para móvil, tablet y escritorio |
+
+<br>
 
 ## 🚀 Demo en vivo
 
-[Ver demo](https://pmmachadov.github.io/anki-cards) *(próximamente)*
+> Despliega tu propia instancia en **Vercel** con un solo clic:
+>
+> [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tu-usuario/anki-cards)
 
-## 📦 Instalación
+<br>
 
-```bash
-# Clonar el repositorio
-git clone https://github.com/pmmachadov/anki-cards.git
+## 📸 Vista previa
 
-# Entrar al directorio
-cd anki-cards
-
-# Instalar dependencias
-npm install
-
-# Iniciar servidor de desarrollo
-npm run dev
+```
+┌─────────────────────────────────────────────────────────────┐
+│  🧠 AnkiCards                                    [⛶]       │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│   ┌─────────┐  ┌──────────┐  ┌──────────┐                  │
+│   │ 3 Mazos │  │ 818 Cards│  │  0% Prog │                  │
+│   └─────────┘  └──────────┘  └──────────┘                  │
+│                                                             │
+│   Mis Materias                              [+ Nuevo Mazo] │
+│   ─────────────────────────────────────────────────────    │
+│                                                             │
+│   ┌─────────────────────┐  ┌─────────────────────┐        │
+│   │ 💻 Sistemas         │  │ 🔧 Entornos         │        │
+│   │ Informaticos        │  │ de Desarrollo       │        │
+│   │                     │  │                     │        │
+│   │ Progreso 0%         │  │ Progreso 0%         │        │
+│   │ ████░░░░░░░░░░░     │  │ ████░░░░░░░░░░░     │        │
+│   │                     │  │                     │        │
+│   │ 510 nuevas          │  │ 308 nuevas          │        │
+│   │ 0 aprendiendo       │  │ 0 aprendiendo       │        │
+│   │ 510 repasar         │  │ 0 repasar           │        │
+│   │                     │  │                     │        │
+│   │ [📖 Estudiar]       │  │ [📖 Estudiar]       │        │
+│   └─────────────────────┘  └─────────────────────┘        │
+│                                                             │
+│   [📂 Extras ▼]  —  8 mazos adicionales                     │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
 ```
 
-Abre [http://localhost:5173](http://localhost:5173) en tu navegador.
+<br>
 
-## 🎯 Uso
+## 🛠️ Stack tecnológico
 
-### Estudiar
+```
+Frontend    React 19 + Hooks
+Build       Vite 8
+Gráficos    Recharts
+Estilos     CSS puro con variables (tema dark)
+Persistencia localStorage
+Linting     ESLint 9 + react-hooks + react-refresh
+```
 
-1. Selecciona un mazo y haz clic en **"📚 Estudiar"**
-2. Lee la pregunta y haz clic (o Espacio) para voltear
-3. Evalúa tu respuesta:
-   - **1 - Otra vez**: No la sabías → repetir en <1 min
-   - **2 - Difícil**: Costó recordar → 5 min
-   - **3 - Bien**: Correcto → 10 min
-   - **4 - Fácil**: Muy fácil → 20 min
+<br>
 
-### Ver estadísticas
+## 📦 Instalación local
 
-Haz clic en **"📊"** en cualquier mazo para ver:
-- Distribución de tarjetas (gráfico circular)
-- Actividad de estudio (gráfico de área)
-- Respuestas por dificultad (barras)
-- Tasa de retención y progreso
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/tu-usuario/anki-cards.git
+cd anki-cards
 
-### Gestión de mazos
+# 2. Instalar dependencias
+npm install
 
-| Botón | Función |
-|-------|---------|
-| 📚 Estudiar | Iniciar sesión de estudio |
-| 📊 | Ver estadísticas detalladas |
-| ✏️ Editar | Añadir/modificar tarjetas |
-| 🔄 | Reiniciar progreso (mantener tarjetas) |
-| 🗑️ | Eliminar mazo completamente |
+# 3. Iniciar servidor de desarrollo
+npm run dev
 
-## 📚 Materiales incluidos
+# 4. Abrir en el navegador
+# http://localhost:5173
+```
 
-### Sistemas Informáticos (323 tarjetas)
+### Build de producción
 
-Contenido traducido del catalán al español:
+```bash
+npm run build
+```
 
-| Unidad | Tema | Tarjetas |
-|--------|------|----------|
-| **Unidad 1** | Hardware, Redes, SO y Virtualización | 60 |
-| **Unidad 2** | Sistemas de ficheros, CLI, Directorios | 39 |
-| **Unidad 2** | Ejercicios prácticos (wildcards, compresión) | 26 |
-| **Unidad 2** | Autoevaluación comandos y FHS | 33 |
-| **Unidad 2** | Administración de discos (teoría: MBR, particiones, LVM) | 25 |
-| **Unidad 2** | Actividades prácticas discos (fdisk, LVM, fstab) | 19 |
-| **Unidad 2** | Autoevaluación discos (V/F, relaciones, completar) | 26 |
-| **Unidad 2** | Trabajo con archivos (permisos, enlaces, búsqueda) | 23 |
-| **Unidad 2** | Actividades archivos (permisos, enlaces, find, dpkg) | 16 |
-| **Unidad 2** | Autoevaluación archivos (V/F, umask, mklink, dpkg) | 30 |
-| **Unidad 3** | Dominios LDAP (conceptos, DIT, DN, instalación) | 25 |
-| **Unidad 3** | Actividades prácticas LDAP (slapd, phpLDAPadmin) | 6 |
-| **Unidad 3** | Autoevaluación LDAP (conceptos, operaciones, V/F) | 23 |
-| **Unidad 3** | Administración de cuentas y grupos LDAP | 21 |
-| **Unidad 3** | Actividades cuentas y grupos (práctica phpLDAPadmin) | 9 |
-| **Unidad 3** | Autoevaluación cuentas y grupos (Samba, plantillas) | 27 |
-| **Unidad 3** | Recursos del dominio (AD, Samba, NFS) | 19 |
-| **Unidad 3** | Actividades recursos (Samba, NFS prácticas) | 8 |
-| **Unidad 3** | Autoevaluación recursos (AD, Samba, configuración) | 20 |
+El resultado se genera en la carpeta `dist/`, lista para desplegar en Vercel, Netlify, GitHub Pages o cualquier CDN estático.
 
-**Temas principales cubiertos:**
-- 🔧 **Hardware**: CPU, RAM, GPU, placa base, almacenamiento
-- 🌐 **Redes**: Modelo OSI, TCP/IP, switches, routers, VLANs, subnetting
-- 🛡️ **Seguridad**: Riesgos físicos/lógicos, normativa, copias de seguridad
-- 💻 **Sistemas Operativos**: Windows, Linux, macOS, kernel, virtualización
-- 📦 **Virtualización**: Hipervisores tipos 1/2, VMs, contenedores, Docker
-- 📁 **Sistemas de archivos**: NTFS, ext4, FAT32, transacciones, journaling
-- 🗂️ **Directorios**: Estructura FHS, rutas absolutas/relativas
-- ⌨️ **Comandos**: Linux (ls, cd, tar, gzip) y Windows (dir, cd)
-- 💾 **Particiones**: MBR, GPT, primarias/extendidas/lógicas
-- 🔧 **LVM**: Volúmenes físicos, grupos, volúmenes lógicos
-- 🛠️ **Mantenimiento**: Montaje, fstab, fsck, desfragmentación
+<br>
 
-## ⌨️ Atajos de teclado
+## ⌨️ Atajos de teclado (modo estudio)
 
 | Tecla | Acción |
 |-------|--------|
 | `Espacio` | Voltear tarjeta |
-| `1` | Puntuar "Otra vez" |
-| `2` | Puntuar "Difícil" |
-| `3` | Puntuar "Bien" |
-| `4` | Puntuar "Fácil" |
+| `1` | "Otra vez" (Again) |
+| `2` | "Difícil" (Hard) |
+| `3` | "Bien" (Good) |
+| `4` | "Fácil" (Easy) |
 
-## 🏗️ Arquitectura
+<br>
+
+## 📁 Estructura del proyecto
 
 ```
-src/
-├── model/              # Lógica de negocio
-│   ├── Deck.js         # Clases Card y Deck + algoritmo SM-2
-│   └── DataStore.js    # Persistencia localStorage
-├── view/               # Componentes de UI
-│   ├── DeckList.jsx    # Lista de mazos
-│   ├── StudyView.jsx   # Vista de estudio con flip 3D
-│   ├── StatsView.jsx   # Estadísticas con gráficos
-│   └── CardEditor.jsx  # Editor de tarjetas
-├── data/               # Datos JSON de materiales
-└── App.jsx             # Controlador principal
+anki-cards/
+├── public/
+│   └── data/               # Mazos JSON precargados
+│       ├── sistemas-informaticos.json
+│       ├── entornos-desarrollo.json
+│       └── interconexion-redes-eac3.json
+├── src/
+│   ├── model/              # Lógica de negocio
+│   │   ├── Deck.js         # Clases Card/Deck + algoritmo SM-2
+│   │   └── DataStore.js    # Persistencia localStorage
+│   ├── view/               # Componentes React
+│   │   ├── DeckList.jsx    # Dashboard con grid de mazos
+│   │   ├── StudyView.jsx   # Sesión de estudio
+│   │   ├── StatsView.jsx   # Estadísticas con gráficos
+│   │   └── CardEditor.jsx  # CRUD de tarjetas
+│   ├── App.jsx             # Componente raíz / router
+│   └── main.jsx            # Punto de entrada
+├── scripts/
+│   └── fix-css-vars.js     # Post-build: inlinea variables CSS
+├── index.html
+├── vite.config.js
+└── package.json
 ```
 
-## 🛠️ Tecnologías
+<br>
 
-- [React 18](https://react.dev/) - UI library
-- [Vite](https://vitejs.dev/) - Build tool
-- [Recharts](https://recharts.org/) - Gráficos
-- [localStorage](https://developer.mozilla.org/es/docs/Web/API/Window/localStorage) - Persistencia
+## 🧠 Algoritmo SM-2 adaptado
 
-## 📝 Añadir nuevos materiales
+El sistema de repetición espaciada implementa una versión adaptada del algoritmo SM-2:
 
-Crea un archivo JSON en `public/data/nueva-materia.json`:
+| Dificultad | Efecto en el factor de facilidad | Intervalo base |
+|------------|----------------------------------|----------------|
+| 🔴 Again   | −0.20                            | 1 día          |
+| 🟠 Hard    | −0.15                            | 2 días         |
+| 🟢 Good    | Sin cambio                       | 3 días         |
+| 🔵 Easy    | +0.15                            | 4 días         |
+
+Las tarjetas nuevas progresan por los estados: `new → learning → review`.
+
+<br>
+
+## 📝 Añadir nuevas materias
+
+1. Crea un archivo JSON en `public/data/mi-materia.json` siguiendo el esquema:
 
 ```json
 {
-  "id": "nombre-materia",
-  "name": "Nombre Materia",
-  "description": "Descripción",
+  "id": "mi-materia",
+  "name": "Mi Materia",
+  "description": "Breve descripción",
   "subject": "Categoría",
   "cards": [
     {
-      "id": 1,
-      "front": "¿Pregunta?",
-      "back": "Respuesta detallada",
-      "tags": ["tag1", "tag2"],
-      "difficulty": "easy"
+      "id": "uuid",
+      "front": "Pregunta",
+      "back": "Respuesta",
+      "tags": ["tag1"],
+      "difficulty": "medium"
     }
   ]
 }
 ```
 
-## 🤝 Contribuir
+2. Regístralo en `src/App.jsx` dentro del array `deckFiles`.
 
-1. Fork el repositorio
-2. Crea una rama (`git checkout -b feature/nueva-funcionalidad`)
-3. Commit tus cambios (`git commit -am 'Añadir nueva funcionalidad'`)
-4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
-5. Abre un Pull Request
+3. Recarga la aplicación.
+
+<br>
+
+## 🤝 Contribuciones
+
+Las contribuciones son bienvenidas. Si encuentras un bug o quieres proponer una mejora:
+
+1. Abre un **issue** describiendo el problema o la idea
+2. Haz un **fork** del repositorio
+3. Crea una rama con tu feature: `git checkout -b feat/nueva-funcionalidad`
+4. Envía un **pull request**
+
+<br>
 
 ## 📄 Licencia
 
-Este proyecto está bajo la licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+Distribuido bajo licencia **MIT**. Consulta `LICENSE` para más información.
 
-## 🙏 Agradecimientos
+<br>
 
-- Algoritmo SM-2 de [SuperMemo](https://www.supermemo.com/en/blog/application-of-a-computer-to-improve-the-results-obtained-in-working-with-the-supermemo-method)
-- Diseño inspirado en [Anki](https://apps.ankiweb.net/)
-- Material de estudio de Anna Bach - Sistemas Informáticos
-
----
-
-<p align="center">Hecho con ❤️ para estudiantes de FP y universidad</p>
+<div align="center">
+  <sub>Hecho con ❤️ para estudiantes de FP y universidad</sub>
+</div>

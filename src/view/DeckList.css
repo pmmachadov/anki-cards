@@ -141,6 +141,18 @@
   padding: 12px 24px !important;
   font-size: 0.9375rem !important;
   font-weight: 600;
+  border-radius: 9999px !important;
+  background: var(--bg-tertiary) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-secondary) !important;
+  box-shadow: none !important;
+}
+
+.btn-create:hover {
+  background: var(--bg-elevated) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--text-muted) !important;
+  transform: none !important;
 }
 
 .btn-icon {
