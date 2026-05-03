@@ -1,0 +1,547 @@
+{
+  "id": "dwec-sintaxis",
+  "name": "Desenvolupament Web en Entorn Client",
+  "description": "Sintaxis de JavaScript, arquitectura web, variables, operadores, condicionales, bucles, arrays, objetos y POO",
+  "subject": "Desenvolupament Web en Entorn Client",
+  "cards": [
+    {
+      "id": "dwec-001",
+      "front": "¿Cuál es el rol de JavaScript en la arquitectura de aplicaciones web?",
+      "back": "JavaScript aporta lógica, dinamismo e interactividad a las páginas web.\n\nSe ejecuta en el lado del cliente (navegador), a diferencia de lenguajes como PHP que se ejecutan en el servidor.\n\nEs el único lenguaje que todos los navegadores entienden y ejecutan de forma nativa.",
+      "tags": ["arquitectura-web", "javascript"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-002",
+      "front": "¿En qué se basa la arquitectura de las aplicaciones web?",
+      "back": "Se basan en la arquitectura cliente-servidor.\n\n- Cliente web: normalmente el navegador (Firefox, Chrome, etc.), pero también apps móviles que consultan servicios web.\n- Servidor web: aloja el contenido web. Ejemplos: Apache Web Server, IIS, Tomcat.",
+      "tags": ["arquitectura-web", "cliente-servidor"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-003",
+      "front": "Describe el camino de una petición web desde el navegador hasta el servidor",
+      "back": "1. El usuario introduce una URL en el navegador.\n2. La información se divide en paquetes IP que viajan por Internet.\n3. Los servidores DNS localizan la IP del servidor donde está alojado el contenido.\n4. Los paquetes pasan por routers, firewalls y capas de seguridad.\n5. En el servidor se procesa el script (PHP, etc.) y se sirve el resultado.\n6. El navegador recibe HTML, CSS y JavaScript y maqueta la página.",
+      "tags": ["arquitectura-web", "peticion-http"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-004",
+      "front": "¿Cómo eran las páginas web en los inicios de Internet (años 90)?",
+      "back": "Estaban formadas únicamente por documentos HTML estáticos.\n\nSolo permitían mostrar texto plano e imágenes.\n\nNo había interactividad con el usuario ni posibilidad de respuesta dinámica por parte del navegador.\n\nCon la Web 2.0 esto cambió radicalmente gracias a JavaScript.",
+      "tags": ["historia-web", "web-2.0"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-005",
+      "front": "Menciona 6 razones por las que JavaScript es clave en el desarrollo web moderno",
+      "back": "1. Lenguaje nativo de los navegadores (único ejecutable sin transpilador).\n2. Efectos visuales y dinamismo (pop-ups, sliders, menús dinámicos, etc.).\n3. Interactividad con el usuario en tiempo real (clics, teclas, movimientos del ratón).\n4. Validación de formularios en el cliente (DNI, email, campos vacíos).\n5. Acceso a información del dispositivo/navegador (SO, idioma, resolución).\n6. Desarrollo de aplicaciones web avanzadas (Google Docs, Figma, Canva).",
+      "tags": ["javascript", "importancia"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-006",
+      "front": "¿Qué es un transpilador?",
+      "back": "Es una herramienta que convierte código fuente escrito en un lenguaje de programación a otro lenguaje de programación similar, manteniendo habitualmente el mismo nivel de abstracción.\n\nEjemplo: TypeScript, Dart o Elm se transpilan a JavaScript para que el navegador pueda ejecutarlos.",
+      "tags": ["transpilador", "concepto"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-007",
+      "front": "¿Qué validaciones de formularios se pueden hacer con JavaScript en el cliente?",
+      "back": "• Verificar el formato de un DNI, número de teléfono o correo electrónico.\n• Comprobar que un campo no esté vacío.\n• Validar fechas o códigos postales.\n\nEsto mejora la usabilidad, reduce el tiempo de respuesta y evita cargas innecesarias al servidor.",
+      "tags": ["validacion", "formularios"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-008",
+      "front": "¿A qué datos del navegador/dispositivo puede acceder JavaScript?",
+      "back": "• Sistema operativo.\n• Idioma del navegador.\n• Resolución de pantalla.\n• Estado de conexión a Internet.",
+      "tags": ["javascript", "navegador"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-009",
+      "front": "¿Qué son las SPA (Single Page Applications)? Nombra algunos frameworks",
+      "back": "Son aplicaciones web que permiten experiencias de usuario fluidas con actualizaciones dinámicas del contenido sin necesidad de recargar la página.\n\nFrameworks principales: React, Angular, Vue, Svelte.",
+      "tags": ["spa", "frameworks"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-010",
+      "front": "¿Qué es Node.js y para qué sirve?",
+      "back": "Es un entorno de ejecución que utiliza el motor V8 de Google para ejecutar código JavaScript en el servidor.\n\nCreado por Ryan Dahl en 2009.\n\nPermite crear: servidores web, aplicaciones de red (chats en tiempo real), scripts de línea de comandos, automatizaciones, APIs RESTful y servicios backend.",
+      "tags": ["nodejs", "servidor"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-011",
+      "front": "¿Cuáles son las características clave de Node.js?",
+      "back": "• Basado en eventos y programación asíncrona.\n• Ligero, rápido y escalable.\n• Dispone del gestor de paquetes npm, con miles de bibliotecas.",
+      "tags": ["nodejs", "caracteristicas"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-012",
+      "front": "¿Qué es la MERN stack?",
+      "back": "Es una arquitectura de desarrollo web que usa un único lenguaje (JavaScript) tanto en frontend como en backend:\n\nM - MongoDB (base de datos)\nE - Express (framework backend)\nR - React (frontend)\nN - Node.js (entorno de ejecución)",
+      "tags": ["mern-stack", "arquitectura"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-013",
+      "front": "¿Mediante qué etiqueta se integra JavaScript en una página HTML?",
+      "back": "Mediante la etiqueta <script>.\n\nSe puede incluir código directamente o enlazar un archivo externo:\n<script src=\"miScript.js\"></script>\n\nEl atributo type=\"text/javascript\" ya no es necesario en HTML5 porque JavaScript es el lenguaje de script por defecto.",
+      "tags": ["html", "script-tag"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-014",
+      "front": "¿Dónde es recomendable colocar la etiqueta <script> y por qué?",
+      "back": "Es recomendable colocarla al final del <body>.\n\nEsto asegura que el HTML esté cargado antes de que se ejecute el código JavaScript, evitando errores si el script accede a elementos que aún no existen en el DOM.",
+      "tags": ["html", "script-tag", "buenas-practicas"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-015",
+      "front": "¿Cómo se prueba un archivo HTML con JavaScript desde el navegador?",
+      "back": "1. Escribir el código en un editor de texto (VS Code, Notepad, etc.).\n2. Guardar el archivo con extensión .html.\n3. Abrir el archivo con el navegador (arrastrándolo, doble clic, clic derecho > abrir con, o escribiendo file://ruta_al_archivo/ejemplo.html).\n4. Ver la interacción en el navegador.",
+      "tags": ["pruebas", "html"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-016",
+      "front": "¿Quién creó JavaScript y cuándo se estandarizó como ECMAScript?",
+      "back": "JavaScript fue creado por Netscape.\n\nEn 1997 se propuso como estándar a la ECMA (European Computer Manufacturers Association), naciendo así ECMAScript.\n\nHoy ECMAScript es reconocido como estándar ISO/IEC.",
+      "tags": ["historia", "ecmascript"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-017",
+      "front": "¿Qué es el DOM y quién lo estableció?",
+      "back": "DOM (Document Object Model) es un estándar establecido por el W3C (World Wide Web Consortium) para garantizar un comportamiento coherente de los elementos HTML/XML en todos los navegadores.\n\nSurgió debido a los problemas de compatibilidad entre navegadores como Internet Explorer, Netscape Navigator y Opera.",
+      "tags": ["dom", "w3c"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-018",
+      "front": "¿Cuáles son los principales motores de JavaScript y qué navegadores los usan?",
+      "back": "• SpiderMonkey → Firefox (C/C++)\n• V8 → Chrome, Edge, Node.js (C++)\n• JavaScriptCore → Safari (C++)\n• Chakra (antiguo) → Internet Explorer (C++)",
+      "tags": ["motores-js", "navegadores"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-019",
+      "front": "¿Qué comandos se usan para verificar la instalación de Node.js y npm?",
+      "back": "node -v    → Muestra la versión de Node.js instalada\nnpm -v     → Muestra la versión de npm instalada",
+      "tags": ["nodejs", "instalacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-020",
+      "front": "Escribe un servidor HTTP básico con Node.js",
+      "back": "const http = require('http');\n\nconst server = http.createServer((req, res) => {\n  res.statusCode = 200;\n  res.setHeader('Content-Type', 'text/plain; charset=utf-8');\n  res.end('Hola mundo desde Node.js!');\n});\n\nserver.listen(3000, () => {\n  console.log('Servidor en funcionamiento en http://localhost:3000');\n});",
+      "tags": ["nodejs", "servidor-http"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "dwec-021",
+      "front": "¿Qué significa que JavaScript es un lenguaje débilmente tipado?",
+      "back": "Significa que no indicamos de qué tipo es cada variable cuando la declaramos.\n\nTodas las variables pueden contener cualquier tipo de dato y pueden ser reasignadas a otros tipos.\n\nTiene ventajas (flexibilidad) e inconvenientes (posibles errores inesperados).",
+      "tags": ["tipado-debil", "javascript"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-022",
+      "front": "¿Qué es una variable y cómo se declara en JavaScript?",
+      "back": "Una variable es un espacio de memoria donde almacenamos datos de manera temporal, accesibles en cualquier momento durante la ejecución del programa.\n\nSe declara con let:\nlet miValor;\nlet dato = 5;\nlet dato;\ndato = 5;",
+      "tags": ["variables", "let"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-023",
+      "front": "¿Qué diferencia hay entre let, const y var?",
+      "back": "• let: variable con ámbito de bloque, puede ser reasignada. Es la forma recomendada.\n• const: declara una constante. No puede ser reasignada (excepto objetos y arrays, cuyo contenido puede modificarse).\n• var: forma antigua de declarar variables. Tiene ámbito de función y su uso está desaconsejado actualmente.",
+      "tags": ["variables", "let-const-var"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-024",
+      "front": "¿Cuáles son los 7 tipos primitivos de JavaScript?",
+      "back": "1. number\n2. boolean\n3. string\n4. undefined\n5. null\n6. bigint\n7. symbol",
+      "tags": ["tipos-primitivos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-025",
+      "front": "¿Qué es el tipo number en JavaScript? Da ejemplos",
+      "back": "Se utiliza para valores numéricos, tanto enteros como decimales.\n\nlet numEntero = 5;\nlet numDecimal = 3.14;\n\nconsole.log(typeof numDecimal); // \"number\"",
+      "tags": ["tipos", "number"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-026",
+      "front": "¿Qué es el tipo boolean en JavaScript?",
+      "back": "Solo puede contener true o false, y se utiliza para representar estados.\n\nlet encendido = true;\nlet apagado = false;",
+      "tags": ["tipos", "boolean"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-027",
+      "front": "¿Qué es el tipo string en JavaScript?",
+      "back": "Representa cadenas de caracteres, entre comillas simples, dobles o backticks (template strings).\n\nlet mensaje = \"Hola mundo\";\nlet otroMensaje = 'Buen día';\nlet completo = `Hola, ${nombre}!`;  // template string",
+      "tags": ["tipos", "string"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-028",
+      "front": "¿Qué es undefined y null? ¿En qué se diferencian?",
+      "back": "undefined: valor que toma una variable cuando no se le ha asignado ningún valor.\n\nnull: valor asignado que representa ausencia intencionada de valor.\n\nlet noDefinida;           // undefined\nlet respuesta = null;     // null (asignación intencionada)",
+      "tags": ["tipos", "undefined-null"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-029",
+      "front": "¿Qué es bigint y para qué sirve?",
+      "back": "Es un tipo primitivo para trabajar con enteros muy grandes (mayores que 2^53 - 1).\n\nSe crean añadiendo la letra 'n' al final:\nlet granNumero = 123456789012345678901234567890n;\nconsole.log(typeof granNumero); // \"bigint\"\n\nSe incorporó en ECMAScript 2020 (ES11).",
+      "tags": ["tipos", "bigint"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "dwec-030",
+      "front": "¿Qué es el tipo symbol y para qué se usa?",
+      "back": "Es un tipo primitivo que crea identificadores únicos, usados a menudo para propiedades de objetos.\n\nconst id = Symbol(\"usuarioID\");\nconsole.log(id);   // Symbol(usuarioID)\nconsole.log(typeof id); // \"symbol\"",
+      "tags": ["tipos", "symbol"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "dwec-031",
+      "front": "¿Qué objetos comunes extienden de la clase Object en JavaScript?",
+      "back": "• Object\n• Array\n• Date\n\nTodos ellos heredan de la clase Object.\n\nEn JavaScript, todo es un objeto, incluidas las funciones.",
+      "tags": ["objetos", "object"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-032",
+      "front": "¿Cómo capturar datos del usuario desde el navegador con JavaScript?",
+      "back": "Mediante ventanas emergentes:\n\n• prompt('Pregunta'): muestra un cuadro de diálogo con una pregunta y campo de texto. Retorna siempre string.\n• confirm('¿Estás seguro?'): muestra botones OK/Cancel. Retorna boolean.\n• alert('Mensaje'): muestra información al usuario (no captura datos).",
+      "tags": ["capturar-datos", "navegador"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-033",
+      "front": "¿Cómo capturar datos del usuario desde la consola con Node.js?",
+      "back": "Mediante el módulo readline:\n\nconst readline = require('readline');\nconst rl = readline.createInterface({\n  input: process.stdin,\n  output: process.stdout\n});\n\nrl.question('¿Cómo te llamas? ', (nombre) => {\n  console.log(`Hola, ${nombre}!`);\n  rl.close();\n});",
+      "tags": ["capturar-datos", "nodejs", "readline"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-034",
+      "front": "¿Cuáles son los operadores aritméticos en JavaScript?",
+      "back": "• + Suma (también concatena strings)\n• - Resta\n• * Multiplicación\n• / División\n• () Paréntesis para agrupar\n• ++ Incremento\n• -- Decremento\n\n\"Hola \" + \"mundo\" + \"!\"  → \"Hola mundo!\"",
+      "tags": ["operadores", "aritmeticos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-035",
+      "front": "¿Qué hace el operador typeof?",
+      "back": "Es un operador unario que permite saber qué tipo de dato contiene una variable.\n\ntypeof 5          // \"number\"\ntypeof false      // \"boolean\"\ntypeof \"Joan\"    // \"string\"\ntypeof undefined  // \"undefined\"",
+      "tags": ["operadores", "typeof"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-036",
+      "front": "¿Qué diferencia hay entre == y === en JavaScript?",
+      "back": "==  → Igualdad débil: comprueba si son iguales permitiendo conversión de tipos.\n=== → Identidad estricta: comprueba valor Y tipo, sin conversión.\n\n25 == \"25\"   // true (igualdad débil)\n25 === \"25\"  // false (identidad estricta)\n\nSe recomienda usar === y !== para evitar errores inesperados.",
+      "tags": ["operadores", "igualdad-identidad"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-037",
+      "front": "¿Qué valores se consideran 'falsy' en JavaScript?",
+      "back": "Los únicos valores que se evalúan como false en una condición:\n\n• false\n• 0 y -0\n• \"\" (cadena vacía)\n• null\n• undefined\n• NaN (Not a Number)\n• 0n (BigInt cero)\n\nTodos los demás valores se consideran truthy (incluyendo \"0\", [] y {}).",
+      "tags": ["falsy", "truthy"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-038",
+      "front": "¿Cómo funciona el operador lógico AND (&&) en JavaScript?",
+      "back": "• Si el primer valor es falsy, retorna ese primer valor.\n• Si el primer valor es truthy, retorna el segundo valor.\n\n0 && true        // Retorna 0 (0 es falsy)\n1 && \"Hola\"     // Retorna \"Hola\" (1 es truthy)\n\nSe usa mucho para verificar condiciones sin modificar valores.",
+      "tags": ["operadores", "and"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-039",
+      "front": "¿Cómo funciona el operador lógico OR (||) en JavaScript?",
+      "back": "Retorna el primer valor truthy que encuentre, o el último si todos son falsy.\n\ntrue || false    // true\nfalse || false   // false\n\nUso común como valor por defecto:\nprocess.env.PORT || 5000  // Si PORT no está definido, usa 5000",
+      "tags": ["operadores", "or"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-040",
+      "front": "¿Cuáles son los valores especiales del tipo Number?",
+      "back": "• Infinity → 1 / 0\n• -Infinity → -1 / 0\n• NaN (Not a Number) → \"a\" / 2\n\nNúmero máximo: Number.MAX_VALUE (~1.79 × 10^308)\nNúmero mínimo: Number.MIN_VALUE (~5 × 10^-324)\n\nTambién: Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY",
+      "tags": ["number", "valores-especiales"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-041",
+      "front": "Menciona 4 métodos útiles del objeto Number",
+      "back": "• toFixed(n): redondea con n decimales → (2.5674).toFixed(2) = \"2.57\"\n• toExponential(n): notación científica → (2.5674).toExponential(2) = \"2.57e+0\"\n• toString(base): convierte a la base indicada → (15).toString(2) = \"1111\"\n• toString(16): a hexadecimal → (255).toString(16) = \"ff\"",
+      "tags": ["number", "metodos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-042",
+      "front": "¿Cómo se crea y se usa una fecha en JavaScript con el objeto Date?",
+      "back": "Crear fecha:\nlet ahora = new Date();                    // Fecha y hora actual\nlet fechaEspecifica = new Date(2025, 6, 17); // 17 julio 2025 (¡los meses empiezan desde 0!)\n\nObtener componentes:\nahora.getFullYear()   // año\nahora.getMonth()       // mes (0-11)\nahora.getDate()        // día del mes\nahora.getDay()         // día de la semana (0=domingo)\nahora.getHours()\nahora.getMinutes()",
+      "tags": ["date", "fechas"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-043",
+      "front": "¿Qué es el objeto Math? Menciona 5 funciones útiles",
+      "back": "Es un objeto estático que proporciona funciones y constantes matemáticas. No se crea con new.\n\nConstantes: Math.PI, Math.E\n\nFunciones:\n• Math.round(6.7) → 7 (redondeo)\n• Math.floor(6.7) → 6 (redondeo hacia abajo)\n• Math.ceil(6.1) → 7 (redondeo hacia arriba)\n• Math.abs(-5) → 5 (valor absoluto)\n• Math.pow(2, 3) → 8 (potencia)\n• Math.sqrt(16) → 4 (raíz cuadrada)\n• Math.random() → número aleatorio entre 0 y 1",
+      "tags": ["math", "funciones-matematicas"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-044",
+      "front": "Menciona 5 métodos útiles del objeto String",
+      "back": "• toUpperCase() → \"Hola\".toUpperCase() → \"HOLA\"\n• toLowerCase() → \"Hola\".toLowerCase() → \"hola\"\n• includes(str) → \"Hola mundo\".includes(\"mundo\") → true\n• indexOf(str) → \"Hola mundo\".indexOf(\"m\") → 5\n• substring(inicio, fin) → \"Hola mundo\".substring(0, 4) → \"Hola\"\n• trim() → \"  text  \".trim() → \"text\"\n• split(sep) → \"un dos tres\".split(\" \") → [\"un\", \"dos\", \"tres\"]",
+      "tags": ["string", "metodos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-045",
+      "front": "¿Qué reglas deben seguir los nombres de variables en JavaScript?",
+      "back": "• Deben comenzar siempre por una letra, $ o _.\n• Nunca por números ni otros caracteres especiales.\n• JavaScript distingue entre mayúsculas y minúsculas (miValor ≠ MiValor).\n• Deben ser lo más descriptivos posible para entender mejor qué contienen.",
+      "tags": ["variables", "nombres"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-046",
+      "front": "¿Qué es el operador ternario en JavaScript? Escribe un ejemplo",
+      "back": "Es una forma compacta de hacer una asignación en función de una condición.\n\nSintaxis: condición ? valor_si_cierto : valor_si_falso\n\nEjemplo:\nlet numero = 10;\nlet mayorQueCinco = numero > 5 ? \"sí\" : \"no\";\nconsole.log(mayorQueCinco); // \"sí\"",
+      "tags": ["condicionales", "operador-ternario"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-047",
+      "front": "Escribe la sintaxis de if, if/else y if/else if/else en JavaScript",
+      "back": "if:\nif (condición) { /* código */ }\n\nif / else:\nif (condición) { /* código */ }\nelse { /* código si falso */ }\n\nif / else if / else:\nif (nota < 5) { console.log(\"Suspenso\"); }\nelse if (nota < 7) { console.log(\"Bien\"); }\nelse if (nota < 9) { console.log(\"Notable\"); }\nelse { console.log(\"Excelente\"); }\n\nSe comprueban las condiciones en orden hasta que se cumpla una.",
+      "tags": ["condicionales", "if-else"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-048",
+      "front": "¿Cómo funciona la sentencia switch en JavaScript?",
+      "back": "Es una alternativa más legible a múltiples if/else if. Comprueba un valor y ejecuta el bloque correspondiente al caso.\n\nswitch (color) {\n  case \"rojo\":\n    console.log(\"rojo\");\n    break;\n  case \"amarillo\":\n    console.log(\"amarillo\");\n    break;\n  default:\n    console.log(\"otro color\");\n}\n\nEs necesario usar break para evitar que se ejecuten los casos siguientes.",
+      "tags": ["condicionales", "switch"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-049",
+      "front": "¿Cuáles son las 3 partes de todo bucle en programación?",
+      "back": "1. Inicialización: define la variable de control.\n2. Condición de permanencia: se evalúa antes o después de cada iteración.\n3. Actualización: modifica la variable de control para avanzar en el proceso.",
+      "tags": ["bucles", "estructura"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-050",
+      "front": "Escribe ejemplo de bucle while en JavaScript",
+      "back": "let i = 1;\n\nwhile (i <= 5) {\n  console.log(i);\n  i++;\n}\n// Resultado: 1 2 3 4 5\n\nEjecuta el código mientras la condición sea cierta. Si la condición es falsa desde el principio, no se ejecuta ninguna vez.",
+      "tags": ["bucles", "while"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-051",
+      "front": "¿Qué diferencia hay entre while y do...while?",
+      "back": "do...while garantiza que el bloque se ejecuta como mínimo una vez, ya que la condición se comprueba después de la primera ejecución.\n\nlet i = 1;\ndo {\n  console.log(i);\n  i++;\n} while (i <= 5);\n// Resultado: 1 2 3 4 5\n\nEn while, la condición se evalúa antes; si es falsa de entrada, no se ejecuta ninguna vez.",
+      "tags": ["bucles", "do-while"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-052",
+      "front": "Escribe la sintaxis del bucle for en JavaScript",
+      "back": "for (let i = 0; i < 5; i++) {\n  console.log(i);\n}\n// Resultado: 0 1 2 3 4\n\nReúne las tres partes (inicialización, condición, actualización) en una sola línea.\n\nBuena práctica para arrays:\nfor (let i = 0, len = array.length; i < len; i++) {\n  // Evita recalcular .length en cada iteración\n}",
+      "tags": ["bucles", "for"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-053",
+      "front": "¿Qué hace el método forEach en arrays?",
+      "back": "Recorre todos los elementos de un array y ejecuta una función para cada uno de ellos. No retorna ningún array nuevo.\n\nlet valores = [10, 20, 30];\n\nvalores.forEach(function(valor, index) {\n  console.log(\"Posición \" + index + \": \" + valor);\n});\n\n// Con función flecha:\nvalores.forEach((valor, i) => console.log(i + \": \" + valor));",
+      "tags": ["arrays", "foreach"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-054",
+      "front": "¿Qué hace el bucle for...in y para qué se usa?",
+      "back": "Recorre las propiedades (claves) de un objeto.\n\nlet coche = { marca: \"Toyota\", modelo: \"Yaris\", año: 2020 };\n\nfor (let clave in coche) {\n  console.log(clave + \": \" + coche[clave]);\n}\n// marca: Toyota, modelo: Yaris, año: 2020",
+      "tags": ["bucles", "for-in"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-055",
+      "front": "¿Qué hace el bucle for...of y en qué se diferencia de for...in?",
+      "back": "for...of recorre valores directamente (mejor para arrays, strings y colecciones iterables).\n\nfor (let valor of [10, 20, 30]) {\n  console.log(valor);  // 10 20 30\n}\n\nDiferencia con for...in:\n• for...in → recorre claves/propiedades (índices en arrays)\n• for...of → recorre valores directamente",
+      "tags": ["bucles", "for-of"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-056",
+      "front": "¿Cómo se crea un array en JavaScript? Da ejemplos de diferentes tipos",
+      "back": "Con corchetes []:\n\nlet vacia = [];\nlet numeros = [1, 2, 3, 4];\nlet nombres = [\"Ana\", \"Pau\", \"Joan\"];\nlet mixto = [1, \"hola\", true, [10, 20]];\n\nTambién con constructor (no recomendado):\nlet colores = new Array(\"rojo\", \"azul\", \"verde\");\n\nLos arrays pueden contener cualquier tipo de dato, incluso mezclados.",
+      "tags": ["arrays", "creacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-057",
+      "front": "¿Cómo se accede a los elementos de un array y cuál es su longitud?",
+      "back": "Los elementos se cuentan desde el índice 0:\n\nlet numeros = [10, 20, 30];\nconsole.log(numeros[0]);  // 10\nconsole.log(numeros[2]);  // 30\n\nLa propiedad .length indica cuántos elementos contiene:\nnumeros.length;  // 3",
+      "tags": ["arrays", "acceso"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-058",
+      "front": "Nombra 8 métodos útiles de arrays y qué hace cada uno",
+      "back": "• push() → añade al final\n• pop() → elimina y retorna el último\n• unshift() → añade al principio\n• shift() → elimina y retorna el primero\n• join(sep) → une elementos en string con separador\n• concat() → une dos arrays en uno\n• slice(inicio, fin) → retorna una parte (no modifica el original)\n• splice() → añade/elimina elementos (sí modifica el original)\n• indexOf(elem) → posición del elemento (o -1)\n• includes(elem) → true si el elemento está en el array",
+      "tags": ["arrays", "metodos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-059",
+      "front": "¿Qué hacen los métodos map() y filter() en arrays?",
+      "back": "map(): transforma cada elemento y retorna un array nuevo con los resultados.\nfilter(): selecciona solo los elementos que cumplen una condición.\n\nAmbos NO modifican el array original.\n\nlet nums = [1, 2, 3, 4];\n\nlet dobles = nums.map(n => n * 2);        // [2, 4, 6, 8]\nlet pares = nums.filter(n => n % 2 === 0); // [2, 4]",
+      "tags": ["arrays", "map-filter"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-060",
+      "front": "¿Cómo se crea un objeto literal en JavaScript?",
+      "back": "Un objeto literal es una forma directa de crear un objeto con claves (propiedades) y valores.\n\nlet persona = {\n  nombre: \"Ana\",\n  edad: 28,\n  vive: true\n};\n\nCada propiedad tiene una clave (ej. \"nombre\") y un valor asociado (ej. \"Ana\").",
+      "tags": ["objetos", "objeto-literal"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-061",
+      "front": "¿De qué dos formas se puede acceder a las propiedades de un objeto?",
+      "back": "• Notación de punto (dot notation):\n  console.log(persona.nombre);  // \"Ana\"\n\n• Notación de corchetes (bracket notation):\n  console.log(persona[\"edad\"]); // 28\n\nLa notación de corchetes es útil cuando la clave es una variable o contiene espacios.",
+      "tags": ["objetos", "acceso-propiedades"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-062",
+      "front": "¿Se pueden modificar o añadir propiedades a un objeto después de crearlo?",
+      "back": "Sí, los objetos en JavaScript son dinámicos:\n\npersona.edad = 29;                   // Modificar\npersona.profesion = \"diseñadora\";    // Añadir nueva propiedad\n\nEsta flexibilidad permite usar objetos como contenedores de información estructurada que evolucionan.",
+      "tags": ["objetos", "dinamicos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-063",
+      "front": "¿Qué es un método en un objeto literal? Escribe un ejemplo",
+      "back": "Es una función que forma parte de un objeto. Permite definir comportamientos relacionados con el objeto.\n\nlet persona = {\n  nombre: \"Ana\",\n  edad: 28,\n  saludar() {\n    console.log(`Hola! Soy ${this.nombre}.`);\n  }\n};\n\npersona.saludar();  // \"Hola! Soy Ana.\"\n\nthis hace referencia al objeto mismo.",
+      "tags": ["objetos", "metodos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-064",
+      "front": "¿Cómo se elimina una propiedad de un objeto en JavaScript?",
+      "back": "Con la palabra clave delete:\n\ndelete persona.vive;\n\nTambién se pueden eliminar métodos, ya que internamente son propiedades como cualquier otra:\n\ndelete persona.saludar;\nconsole.log(persona.saludar); // undefined",
+      "tags": ["objetos", "delete"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-065",
+      "front": "¿Qué es un array de objetos? Escribe un ejemplo",
+      "back": "Es una estructura de datos compleja donde un array contiene objetos con la misma estructura. Ideal para representar colecciones de elementos.\n\nlet libros = [\n  { titulo: \"1984\", autor: \"George Orwell\", año: 1949 },\n  { titulo: \"Crimen y castigo\", autor: \"Dostoievski\", año: 1866 },\n  { titulo: \"La sombra del viento\", autor: \"Carlos Ruiz Zafón\", año: 2001 }\n];\n\nMuy útil para datos de APIs y bases de datos.",
+      "tags": ["estructuras-complejas", "array-objetos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-066",
+      "front": "¿Qué es un objeto con propiedades que son arrays? Escribe un ejemplo",
+      "back": "Es un objeto que contiene arrays como valores de algunas propiedades. Permite representar características con múltiples valores asociados.\n\nlet usuario = {\n  nombre: \"Marta\",\n  edad: 22,\n  aficiones: [\"lectura\", \"escalada\", \"viajar\"]\n};\n\nAcceso: usuario.aficiones[1]  → \"escalada\"\nModificar: usuario.aficiones.push(\"cine\");",
+      "tags": ["estructuras-complejas", "objeto-arrays"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-067",
+      "front": "¿Qué es una clase en JavaScript? ¿Cómo se define?",
+      "back": "Una clase es un esquema o plantilla que define cómo deben ser los objetos que se creen a partir de ella. Agrupa propiedades y métodos.\n\nclass Persona {\n  constructor(nombre, edad) {\n    this.nombre = nombre;\n    this.edad = edad;\n  }\n\n  saludar() {\n    console.log(`Hola, soy ${this.nombre} y tengo ${this.edad} años.`);\n  }\n}\n\nLas clases se introdujeron en ES6 (2015).",
+      "tags": ["poo", "clases"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-068",
+      "front": "¿Cómo se crea una instancia de una clase en JavaScript?",
+      "back": "Usando la palabra clave new:\n\nconst p1 = new Persona(\"Ana\", 30);\nconst p2 = new Persona(\"Joan\", 22);\n\np1.saludar();  // Hola, soy Ana y tengo 30 años.\np2.saludar();  // Hola, soy Joan y tengo 22 años.\n\nCada instancia tiene sus propios valores pero comparte el comportamiento definido en la clase.",
+      "tags": ["poo", "instancias", "new"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-069",
+      "front": "¿Qué es 'this' dentro de una clase en JavaScript?",
+      "back": "this hace referencia a la instancia concreta del objeto.\n\nDentro del constructor: this.nombre se refiere a la propiedad nombre de ese objeto específico.\n\nEs esencial para distinguir entre los valores que recibe el constructor (parámetros) y los que se guardan dentro del objeto (propiedades).",
+      "tags": ["poo", "this"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dwec-070",
+      "front": "¿Cómo se definen propiedades privadas en una clase JavaScript?",
+      "back": "Usando el símbolo # antes del nombre de la propiedad (desde ES2022).\n\nclass Cuenta {\n  #saldo;  // propiedad privada\n\n  constructor(titular) {\n    this.titular = titular;\n    this.#saldo = 0;\n  }\n\n  ingresar(cantidad) {\n    this.#saldo += cantidad;\n  }\n\n  verSaldo() {\n    return this.#saldo;\n  }\n}\n\nLas propiedades privadas solo pueden accederse desde dentro de la clase.",
+      "tags": ["poo", "encapsulacion", "privadas"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-071",
+      "front": "¿Qué son los accessors get y set en JavaScript?",
+      "back": "Permiten definir cómo se lee (get) o escribe (set) una propiedad de forma controlada, con una sintaxis externa natural.\n\nclass Cuenta {\n  #saldo;\n\n  get saldo() {\n    return this.#saldo.toFixed(2) + \" €\";\n  }\n\n  set saldo(cantidad) {\n    if (cantidad >= 0) {\n      this.#saldo = cantidad;\n    } else {\n      console.log(\"No se permite saldo negativo.\");\n    }\n  }\n}\n\n// Uso:\ncuenta.saldo = 200;      // set\nconsole.log(cuenta.saldo); // get → \"200.00 €\"",
+      "tags": ["poo", "get-set", "encapsulacion"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "dwec-072",
+      "front": "¿Qué es la abstracción en POO y cómo se implementa en JavaScript?",
+      "back": "Es ocultar los detalles internos de una implementación y mostrar solo la interfaz necesaria.\n\nEn JavaScript no hay clases abstractas formales como en Java, pero se logra mediante:\n• Propiedades privadas con #\n• Métodos públicos como única interfaz\n\nEjemplo: un Sensor con #valorIntern privado y un método público obtenerLectura() que es lo único que el usuario necesita usar.",
+      "tags": ["poo", "abstraccion"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "dwec-073",
+      "front": "¿Cómo funciona la herencia entre clases en JavaScript?",
+      "back": "Usando las palabras clave extends y super:\n\nclass Animal {\n  constructor(nombre) {\n    this.nombre = nombre;\n  }\n  hablar() {\n    console.log(`${this.nombre} hace un sonido.`);\n  }\n}\n\nclass Perro extends Animal {\n  hablar() {\n    console.log(`${this.nombre} ladra.`);\n  }\n}\n\nconst rex = new Perro(\"Rex\");\nrex.hablar();  // \"Rex ladra.\"",
+      "tags": ["poo", "herencia", "extends"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-074",
+      "front": "¿Qué es el polimorfismo en JavaScript?",
+      "back": "Permite definir métodos con el mismo nombre pero comportamientos diferentes, según el tipo de objeto que los implementa.\n\nEn JavaScript se consigue mediante la sobreescritura de métodos en clases hijas.\n\nclass Empleado {\n  saludar() { console.log(\"Hola, soy un empleado.\"); }\n}\n\nclass Jefe extends Empleado {\n  saludar() { console.log(\"Hola, soy el jefe!\"); }\n}\n\nAmbos tienen saludar() pero con comportamientos diferentes.",
+      "tags": ["poo", "polimorfismo"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dwec-075",
+      "front": "¿Qué son los prototipos en JavaScript?",
+      "back": "Son el verdadero sistema de herencia de JavaScript. Cada objeto tiene un enlace interno a su prototipo. Si no encuentra una propiedad o método en sí mismo, la busca en el prototipo del que deriva (cadena de prototipos).\n\nLas clases (ES6) son solo una sintaxis más clara para trabajar con prototipos.\n\n// Forma antigua (sin clases):\nfunction Persona(nombre) {\n  this.nombre = nombre;\n}\nPersona.prototype.saludar = function() {\n  console.log(`Hola, soy ${this.nombre}`);\n};",
+      "tags": ["poo", "prototipos"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "dwec-076",
+      "front": "Ejemplo práctico: ¿cómo modelarías Estudiantes y Asignaturas con POO en JavaScript?",
+      "back": "class Asignatura {\n  constructor(nombre) {\n    this.nombre = nombre;\n    this.notas = [];\n  }\n  añadirNota(nota) {\n    if (nota >= 0 && nota <= 10) this.notas.push(nota);\n  }\n  get media() {\n    const total = this.notas.reduce((acc, n) => acc + n, 0);\n    return this.notas.length ? (total / this.notas.length).toFixed(2) : \"Sin notas\";\n  }\n}\n\nclass Estudiante {\n  #dni;\n  constructor(nombre, dni) {\n    this.nombre = nombre;\n    this.#dni = dni;\n    this.asignaturas = [];\n  }\n  get identificador() {\n    return `Estudiante: ${this.nombre} (DNI: ${this.#dni})`;\n  }\n  añadirAsignatura(asignatura) {\n    this.asignaturas.push(asignatura);\n  }\n  mostrarCalificaciones() {\n    console.log(this.identificador);\n    this.asignaturas.forEach(a => console.log(`- ${a.nombre}: media = ${a.media}`));\n  }\n}",
+      "tags": ["poo", "ejemplo-practico", "estudiantes"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "dwec-077",
+      "front": "Ejemplo práctico: ¿cómo crearías una jerarquía de animales con POO en JavaScript?",
+      "back": "class Animal {\n  constructor(nombre) {\n    this.nombre = nombre;\n  }\n  hacerSonido() {\n    console.log(`${this.nombre} hace un sonido indefinido.`);\n  }\n}\n\nclass Perro extends Animal {\n  hacerSonido() {\n    console.log(`${this.nombre} ladra: ¡guau!`);\n  }\n}\n\nclass Gato extends Animal {\n  hacerSonido() {\n    console.log(`${this.nombre} maúlla: ¡miau!`);\n  }\n}\n\nclass Pajaro extends Animal {\n  hacerSonido() {\n    console.log(`${this.nombre} canta: ¡pío pío!`);\n  }\n}\n\n// Uso polimórfico:\nconst animales = [new Perro(\"Rex\"), new Gato(\"Luna\"), new Pajaro(\"Kiwi\")];\nanimales.forEach(a => a.hacerSonido());",
+      "tags": ["poo", "ejemplo-practico", "animales", "polimorfismo"],
+      "difficulty": "hard"
+    }
+  ]
+}

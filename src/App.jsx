@@ -7,25 +7,11 @@ import { DataStore } from './model/DataStore'
 import { Deck } from './model/Deck'
 import './App.css'
 
-// Iconos SVG
-const FullscreenIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
-  </svg>
-)
-
-const ExitFullscreenIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/>
-  </svg>
-)
-
 function App() {
   const [decks, setDecks] = useState([])
   const [currentView, setCurrentView] = useState('decks') // decks, study, edit, stats
   const [selectedDeck, setSelectedDeck] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [isFullscreen, setIsFullscreen] = useState(false)
 
   // Cargar mazos al iniciar
   useEffect(() => {
@@ -36,16 +22,9 @@ function App() {
       try {
         const deckFiles = [
           '/data/sistemas-informaticos.json',
+          '/data/sistemas-informaticos-eac3.json',
           '/data/entornos-desarrollo.json',
-          '/data/interconexion-redes-eac3.json',
-          '/data/dom-consulta-busqueda.json',
-          '/data/dwec-unidad3-dom-parte2.json',
-          '/data/dom-eventos.json',
-          '/data/dom-estilos-css.json',
-          '/data/dom-actualizacion-elementos.json',
-          '/data/dwec-u3l2-actualitzacio-dom.json',
-          '/data/dom-ejemplos-practicos.json',
-          '/data/dom-d3js.json'
+          '/data/dwec-completo.json'
         ]
 
         const results = await Promise.allSettled(
@@ -145,31 +124,6 @@ function App() {
     window.location.reload()
   }
 
-  const toggleFullscreen = () => {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen().then(() => {
-        setIsFullscreen(true)
-      }).catch(err => {
-        console.log('Error al entrar en pantalla completa:', err)
-      })
-    } else {
-      document.exitFullscreen().then(() => {
-        setIsFullscreen(false)
-      }).catch(err => {
-        console.log('Error al salir de pantalla completa:', err)
-      })
-    }
-  }
-
-  // Escuchar cambios de fullscreen (por si el usuario usa ESC)
-  useEffect(() => {
-    const handleFullscreenChange = () => {
-      setIsFullscreen(!!document.fullscreenElement)
-    }
-    document.addEventListener('fullscreenchange', handleFullscreenChange)
-    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange)
-  }, [])
-
   if (loading) {
     return (
       <div className="app-loading">
@@ -180,14 +134,7 @@ function App() {
   }
 
   return (
-    <div className={`app ${isFullscreen ? 'fullscreen-mode' : ''}`}>
-      <button 
-        className="fullscreen-btn" 
-        onClick={toggleFullscreen}
-        title={isFullscreen ? 'Salir de pantalla completa' : 'Pantalla completa'}
-      >
-        {isFullscreen ? <ExitFullscreenIcon /> : <FullscreenIcon />}
-      </button>
+    <div className="app">
       <main className="app-main">
         {currentView === 'decks' && (
           <DeckList 

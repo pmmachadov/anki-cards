@@ -1,0 +1,120 @@
+{
+  "id": "dwec-async",
+  "name": "DWEC: Comunicación Asíncrona y AJAX",
+  "description": "AJAX, XMLHttpRequest, Fetch API, Promesas, async/await, APIs REST y proyectos CRUD",
+  "subject": "Desenvolupament Web en Entorn Client",
+  "cards": [
+    {
+      "id": "async-001",
+      "front": "¿Qué es AJAX y qué permite hacer?",
+      "back": "AJAX = Asynchronous JavaScript And XML.\n\nConjunto de técnicas que permiten:\n• Enviar peticiones HTTP al servidor\n• Recibir respuestas (texto, JSON, XML...)\n• Actualizar solo partes del DOM sin recargar toda la página\n\nVentajas:\n• Mayor velocidad (no se recarga todo)\n• Mejor experiencia de usuario (sin pantallas en blanco)\n• Aplicaciones web más dinámicas e interactivas",
+      "tags": ["ajax", "asincrono", "concepto"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "async-002",
+      "front": "¿Qué diferencia hay entre una operación síncrona y asíncrona?",
+      "back": "SÍNCRONA: el programa se detiene y espera la respuesta antes de continuar.\n\nASÍNCRONA: el programa envía la petición y sigue haciendo otras cosas. Cuando llega la respuesta, se ejecuta una función (callback) para procesarla.\n\nCon AJAX, el navegador envía la petición en segundo plano y cuando el servidor responde, llama a la función que definimos para gestionar la respuesta. Esto mantiene la página fluida.",
+      "tags": ["ajax", "sincrono", "asincrono"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "async-003",
+      "front": "¿Cuáles son los 5 pasos típicos para hacer una petición AJAX con XMLHttpRequest?",
+      "back": "1. Crear el objeto: `const xhr = new XMLHttpRequest()`\n2. Configurar con open(): `xhr.open('GET', 'url', true)`\n3. (Opcional) Añadir cabeceras con setRequestHeader()\n4. Definir qué hacer al recibir respuesta (onreadystatechange)\n5. Enviar la petición: `xhr.send()`\n\nEjemplo:\nconst xhr = new XMLHttpRequest();\nxhr.open('GET', 'datos.txt', true);\nxhr.onreadystatechange = function() {\n  if (xhr.readyState === 4 && xhr.status === 200) {\n    console.log(xhr.responseText);\n  }\n};\nxhr.send();",
+      "tags": ["ajax", "xmlhttprequest", "xhr"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "async-004",
+      "front": "¿Qué indica la propiedad readyState de XMLHttpRequest? Valores del 0 al 4",
+      "back": "readyState indica en qué punto está la petición:\n\n• 0 - UNSENT: creado pero aún no se llamó a open()\n• 1 - OPENED: se llamó a open(), pero no a send()\n• 2 - HEADERS_RECEIVED: cabeceras de la respuesta recibidas\n• 3 - LOADING: la respuesta se está recibiendo\n• 4 - DONE: la petición ha terminado, respuesta completa\n\nPatrón típico:\nif (xhr.readyState === 4 && xhr.status === 200) {\n  // respuesta lista y exitosa\n}",
+      "tags": ["ajax", "xmlhttprequest", "readystate"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "async-005",
+      "front": "¿Qué códigos de estado HTTP son más habituales en AJAX?",
+      "back": "• 200 - OK: petición procesada correctamente\n• 201 - Created: recurso creado (respuesta a POST)\n• 400 - Bad Request: la petición tiene algún error\n• 404 - Not Found: el recurso no se ha encontrado\n• 500 - Internal Server Error: error en el servidor\n\nSiempre comprobar status:\nif (xhr.status === 200) { /* éxito */ }\nelse { /* error */ }",
+      "tags": ["ajax", "http", "status", "codigos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "async-006",
+      "front": "¿Cómo se lee y procesa una respuesta JSON con XMLHttpRequest?",
+      "back": "1. Leer responseText (cadena de texto)\n2. Convertir con JSON.parse() a objeto/array JavaScript\n3. Recorrer los datos y actualizar el DOM\n\nEjemplo:\nxhr.onreadystatechange = function() {\n  if (xhr.readyState === 4 && xhr.status === 200) {\n    const productos = JSON.parse(xhr.responseText);\n    productos.forEach(p => {\n      const li = document.createElement('li');\n      li.textContent = `${p.nom} - ${p.preu} €`;\n      lista.appendChild(li);\n    });\n  }\n};",
+      "tags": ["ajax", "json", "xmlhttprequest", "parse"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "async-007",
+      "front": "¿Cómo se envían datos con POST usando XMLHttpRequest?",
+      "back": "1. Usar open() con método 'POST'\n2. Establecer cabecera Content-Type\n3. Enviar datos en send()\n\nEjemplo:\nconst xhr = new XMLHttpRequest();\nxhr.open('POST', 'procesar.php', true);\nxhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');\n\nconst datos = 'nombre=Anna&edad=20';\nxhr.onreadystatechange = function() { /* ... */ };\nxhr.send(datos);\n\nPara JSON:\nxhr.setRequestHeader('Content-Type', 'application/json');\nxhr.send(JSON.stringify({ nombre: 'Anna', edad: 20 }));",
+      "tags": ["ajax", "xmlhttprequest", "post", "envio"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "async-008",
+      "front": "¿Cómo se gestionan errores y timeouts en XMLHttpRequest?",
+      "back": "ERROR DE RED:\nxhr.onerror = function() {\n  console.log('Error de red');\n};\n\nTIMEOUT (tiempo máximo de espera):\nxhr.timeout = 5000; // 5 segundos\nxhr.ontimeout = function() {\n  console.log('La petición tardó demasiado');\n};\n\nSiempre comprobar status:\nif (xhr.readyState === 4) {\n  if (xhr.status === 200) { /* éxito */ }\n  else { /* error HTTP */ }\n}",
+      "tags": ["ajax", "xhr", "errores", "timeout"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "async-009",
+      "front": "¿Qué es una Promise (Promesa) en JavaScript? Estados posibles",
+      "back": "Una Promise es un objeto que representa un valor que tendremos en el futuro (o un error).\n\nESTADOS:\n• pending (pendiente)\n• fulfilled (completada con éxito)\n• rejected (rechazada con error)\n\nEn lugar de callbacks anidados:\noperacionAsincrona()\n  .then(resultado => { /* éxito */ })\n  .catch(error => { /* error */ });\n\nVentaja: evita el 'callback hell' cuando encadenamos operaciones.",
+      "tags": ["promises", "asincrono", "concepto"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "async-010",
+      "front": "¿Cómo funciona la Fetch API? Escribe un ejemplo GET básico",
+      "back": "fetch() hace peticiones HTTP y devuelve una Promise que se resuelve con un objeto Response.\n\nGET básico:\nfetch('datos.txt')\n  .then(response => {\n    if (!response.ok) throw new Error('Error HTTP: ' + response.status);\n    return response.text();\n  })\n  .then(texto => console.log(texto))\n  .catch(error => console.log('Error:', error));\n\nVentajas sobre XHR:\n• Sintaxis más simple y declarativa\n• Uso nativo de Promesas\n• No necesita readyState\n• response.ok verifica si status es 200-299",
+      "tags": ["fetch", "api", "promises"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "async-011",
+      "front": "¿Cómo se lee JSON con fetch()? ¿Y cómo se envía un POST con JSON?",
+      "back": "LEER JSON:\nfetch('productos.json')\n  .then(response => {\n    if (!response.ok) throw new Error('Error');\n    return response.json(); // Convierte directamente a objeto JS\n  })\n  .then(productos => productos.forEach(p => console.log(p.nom)))\n  .catch(error => console.log(error));\n\nENVIAR POST CON JSON:\nfetch('/api/agregar', {\n  method: 'POST',\n  headers: { 'Content-Type': 'application/json' },\n  body: JSON.stringify({ nombre: 'Producto C', precio: 12.5 })\n})\n  .then(response => response.json())\n  .then(resultado => console.log('Guardado:', resultado))\n  .catch(error => console.log('Error:', error));",
+      "tags": ["fetch", "json", "post"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "async-012",
+      "front": "¿Qué es async/await y cómo se usa con fetch?",
+      "back": "async/await (ES2017) permite escribir código asíncrono como si fuera síncrono.\n\nREGLAS:\n• async antes de function → siempre devuelve una Promise\n• await delante de una Promise → pausa hasta que se resuelva\n• No bloquea el resto de la página\n\nEJEMPLO:\nasync function cargarProductos() {\n  try {\n    const response = await fetch('productos.json');\n    if (!response.ok) throw new Error('Error HTTP: ' + response.status);\n    const productos = await response.json();\n    productos.forEach(p => console.log(p.nom, '-', p.preu));\n  } catch (error) {\n    console.log('Error:', error);\n  }\n}",
+      "tags": ["async", "await", "fetch", "promises"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "async-013",
+      "front": "¿Cómo se encadenan múltiples peticiones con fetch? Ejemplo: obtener post y su autor",
+      "back": "Con fetch encadenando .then():\nfunction getUserAndPosts(postId) {\n  fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)\n    .then(r => r.json())\n    .then(post => {\n      return fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}`);\n    })\n    .then(r => r.json())\n    .then(user => console.log('Usuario:', user))\n    .catch(e => console.error(e));\n}\n\nCon async/await (más limpio):\nasync function getUserAndPosts(postId) {\n  try {\n    const postRes = await fetch(`...posts/${postId}`);\n    const post = await postRes.json();\n    const userRes = await fetch(`...users/${post.userId}`);\n    const user = await userRes.json();\n    console.log('Usuario:', user);\n  } catch(e) { console.error(e); }\n}",
+      "tags": ["fetch", "encadenar", "async", "practico"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "async-014",
+      "front": "¿Cómo se hacen múltiples peticiones en paralelo con Promise.all?",
+      "back": "Promise.all() ejecuta varias promesas en paralelo y espera a que TODAS terminen.\n\nEJEMPLO (Ghibli API - película + personajes):\nconst response = await fetch(apiUrl);\nconst data = await response.json();\n\n// Array de promesas para cada personaje\nconst personajesPromises = data.people.map(url =>\n  fetch(url).then(res => res.json())\n);\n\n// Esperar a que TODAS terminen\nconst personajesData = await Promise.all(personajesPromises);\nconst nombres = personajesData.map(p => p.name);\n\nVentaja: no necesitas contar manualmente cuándo han terminado todas.",
+      "tags": ["promise.all", "paralelo", "fetch", "practico"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "async-015",
+      "front": "¿Qué es una REST API? ¿Qué es un endpoint?",
+      "back": "API (Application Programming Interface): conjunto de reglas que permite que un software ofrezca servicios a otro.\n\nREST API: cuando la API sigue los principios REST (Representational State Transfer) y se comunica por HTTP.\n\nENDPOINT: URL específica que expone un recurso. Ejemplos:\n• GET /tasks → obtener todas las tareas\n• POST /tasks → crear nueva tarea\n• PUT /tasks/:id → actualizar tarea\n• DELETE /tasks/:id → eliminar tarea\n\nLas respuestas suelen ser en formato JSON.",
+      "tags": ["rest", "api", "endpoint", "concepto"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "async-016",
+      "front": "Estructura de un proyecto CRUD con Express + SQLite + frontend AJAX",
+      "back": "BACKEND (server.js):\nconst express = require('express');\nconst sqlite3 = require('sqlite3');\nconst cors = require('cors');\n\napp.use(express.json());\napp.use(cors());\n\nconst db = new sqlite3.Database('./tasks.db');\ndb.run('CREATE TABLE IF NOT EXISTS tasks (\n  id INTEGER PRIMARY KEY AUTOINCREMENT,\n  text TEXT NOT NULL,\n  completed BOOLEAN DEFAULT false\n)');\n\n// Rutas CRUD:\napp.get('/tasks', (req, res) => { db.all('SELECT * FROM tasks', ...) });\napp.post('/tasks', (req, res) => { db.run('INSERT INTO tasks...', ...) });\napp.put('/tasks/:id', (req, res) => { db.run('UPDATE tasks...', ...) });\napp.delete('/tasks/:id', (req, res) => { db.run('DELETE FROM tasks...', ...) });\n\nFRONTEND: index.html + app.js con XHR/fetch para cada operación CRUD.",
+      "tags": ["crud", "express", "sqlite", "ajax", "proyecto"],
+      "difficulty": "hard"
+    }
+  ]
+}

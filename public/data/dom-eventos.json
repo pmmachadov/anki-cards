@@ -316,6 +316,27 @@
       ,
       "tags": ["dom", "eventos", "patron", "flujo", "dom-manipulacion"],
       "difficulty": "easy"
+    },
+    {
+      "id": "dom-ev-040",
+      "front": "¿Qué es la fase de captura (capturing) en la propagación de eventos?",
+      "back": "Es la primera fase de propagación: el evento desciende desde document hasta el elemento objetivo.\n\nSe activa con `true` como 3er parámetro:\nelemento.addEventListener('click', handler, true);\n\nO con opciones:\nelemento.addEventListener('click', handler, { capture: true });\n\nFASES COMPLETAS:\n1. Captura: document → html → body → div → button\n2. Target: el elemento donde ocurrió el evento\n3. Bubbling: button → div → body → html → document\n\nÚtil para interceptar eventos antes de que lleguen a su destino (validación, bloqueo).",
+      "tags": ["dom", "eventos", "capturing", "propagacion", "fases"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-ev-041",
+      "front": "¿Qué hace event.preventDefault()? Da ejemplos con formularios y enlaces",
+      "back": "Cancela el comportamiento por defecto del navegador para un evento.\n\nFORMULARIO (evitar envío):\nformulario.addEventListener('submit', function(e) {\n  e.preventDefault();\n  // Validar datos con JavaScript antes de enviar\n  const nombre = document.getElementById('nom').value.trim();\n  if (nombre === '') {\n    console.log('El nombre es obligatorio');\n  } else {\n    console.log('Formulario validado: ' + nombre);\n  }\n});\n\nENLACE (evitar navegación):\nenlace.addEventListener('click', function(e) {\n  e.preventDefault();\n  alert('Navegación bloqueada con preventDefault()');\n});",
+      "tags": ["dom", "eventos", "preventdefault", "formularios", "enlaces"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dom-ev-042",
+      "front": "¿Qué es la delegación de eventos? Escribe un ejemplo con una lista dinámica",
+      "back": "Técnica que consiste en asignar el listener al elemento PADRE y detectar qué HIJO recibió el evento mediante `e.target`.\n\nVentaja: los nuevos hijos añadidos dinámicamente heredan el comportamiento automáticamente.\n\nEJEMPLO - Lista con tareas dinámicas:\nconst llista = document.getElementById('llista');\nconst botoAfegir = document.getElementById('afegir');\nlet comptador = 3;\n\n// Un solo listener en el <ul> padre\nllista.addEventListener('click', function(e) {\n  if (e.target.tagName === 'LI') {\n    alert('Has clicado: ' + e.target.textContent);\n  }\n});\n\n// Añadir nuevas tareas (también funcionan)\nbotoAfegir.addEventListener('click', function() {\n  comptador++;\n  const novaTasca = document.createElement('li');\n  novaTasca.textContent = 'Tasca ' + comptador;\n  llista.appendChild(novaTasca);\n});",
+      "tags": ["dom", "eventos", "delegacion", "bubbling", "target"],
+      "difficulty": "medium"
     }
   ]
 }

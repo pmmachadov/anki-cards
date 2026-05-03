@@ -76,7 +76,7 @@
   gap: 12px;
   margin-bottom: 24px;
   padding: 16px;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(59, 130, 246, 0.05));
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(66, 133, 244, 0.05));
   border: 1px solid rgba(37, 99, 235, 0.2);
   border-radius: 16px;
 }
@@ -92,7 +92,7 @@
 .step-number-value {
   font-size: 3rem;
   font-weight: 800;
-  color: #3b82f6;
+  color: #4285F4;
   line-height: 1;
 }
 
@@ -377,10 +377,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  padding: 18px 12px;
+  gap: 8px;
+  padding: 24px 16px;
   border: none;
-  border-radius: 14px;
+  border-radius: 16px;
   cursor: pointer;
   transition: all 0.2s ease;
   color: white;
@@ -393,26 +393,51 @@
 }
 
 .rating-btn.again { 
-  background: #7c1d1d;
+  background: rgba(234, 67, 53, 0.7);
+  color: #fff;
 }
 .rating-btn.hard { 
-  background: #9a3412;
+  background: rgba(251, 188, 4, 0.7);
+  color: #1a1a1a;
 }
 .rating-btn.good { 
-  background: #166534;
+  background: rgba(66, 133, 244, 0.7);
+  color: #fff;
 }
 .rating-btn.easy { 
-  background: #1e3a5f;
+  background: rgba(52, 168, 83, 0.7);
+  color: #fff;
 }
 
 .rating-label {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  letter-spacing: -0.3px;
+  font-size: 1.75rem;
+  font-weight: 700;
 }
 
 .rating-key {
-  font-size: 0.6875rem;
+  font-size: 1rem;
+}
+
+.rating-time {
+  font-size: 1.125rem;
+}
+
+.rating-btn:hover {
+  filter: brightness(1.25);
+}
+
+.rating-btn.again:hover { box-shadow: 0 6px 20px rgba(234, 67, 53, 0.5); }
+.rating-btn.hard:hover { box-shadow: 0 6px 20px rgba(251, 188, 4, 0.5); }
+.rating-btn.good:hover { box-shadow: 0 6px 20px rgba(66, 133, 244, 0.5); }
+.rating-btn.easy:hover { box-shadow: 0 6px 20px rgba(52, 168, 83, 0.5); }
+
+.rating-label {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.rating-key {
+  font-size: 1rem;
   font-weight: 700;
   padding: 3px 10px;
   background: rgba(0, 0, 0, 0.2);
@@ -420,7 +445,7 @@
 }
 
 .rating-time {
-  font-size: 0.75rem;
+  font-size: 1.125rem;
   font-weight: 500;
   opacity: 0.85;
 }
@@ -633,12 +658,12 @@
   }
   
   .rating-label {
-    font-size: 0.8125rem;
+    font-size: 1.5rem;
   }
   
   .rating-key,
   .rating-time {
-    font-size: 0.6875rem;
+    font-size: 1rem;
   }
   
   .session-stats {
@@ -682,16 +707,16 @@
   }
   
   .rating-label {
-    font-size: 0.6875rem;
+    font-size: 1.25rem;
   }
   
   .rating-key {
-    font-size: 0.6rem;
+    font-size: 0.875rem;
     padding: 2px 6px;
   }
   
   .rating-time {
-    font-size: 0.6rem;
+    font-size: 0.875rem;
   }
   
   .card-slider-container {
@@ -734,7 +759,7 @@
   }
   
   .rating-label {
-    font-size: 0.625rem;
+    font-size: 1rem;
   }
   
   .complete-view {

@@ -131,11 +131,22 @@ const SubjectIcons = {
   'Bases de Datos': '🗄️',
   'Programacion': '⚡',
   'Lenguajes de Marcas': '🏷️',
-  'Desenvolupament Web en Entorn Client': '🌐',
+  'Desarrollo Web en Entorno Cliente': '🌐',
   'default': '📚'
 }
 
-const MAIN_DECKS = ['Sistemas Informaticos', 'Entornos de Desarrollo']
+// Colores Google por materia
+const SubjectColors = {
+  'Sistemas Informaticos': { accent: '#4285F4', bg: 'rgba(66, 133, 244, 0.08)', badge: '#4285F4' },
+  'Entornos de Desarrollo': { accent: '#FBBC04', bg: 'rgba(251, 188, 4, 0.08)', badge: '#F9A825' },
+  'Desarrollo Web en Entorno Cliente': { accent: '#34A853', bg: 'rgba(52, 168, 83, 0.08)', badge: '#34A853' },
+  'Bases de Datos': { accent: '#EA4335', bg: 'rgba(234, 67, 53, 0.08)', badge: '#EA4335' },
+  'Programacion': { accent: '#1A73E8', bg: 'rgba(26, 115, 232, 0.08)', badge: '#1A73E8' },
+  'Lenguajes de Marcas': { accent: '#FF6D01', bg: 'rgba(255, 109, 1, 0.08)', badge: '#FF6D01' },
+  'default': { accent: '#9AA0A6', bg: 'rgba(154, 160, 166, 0.08)', badge: '#9AA0A6' }
+}
+
+const MAIN_SUBJECTS = ['Sistemas Informaticos', 'Entornos de Desarrollo', 'Desarrollo Web en Entorno Cliente']
 
 export function DeckList({ 
   decks, 
@@ -150,6 +161,7 @@ export function DeckList({
   const [showCreateModal, setShowCreateModal] = useState(false)
   const [newDeckName, setNewDeckName] = useState('')
   const [newDeckDesc, setNewDeckDesc] = useState('')
+  const [filterSubject, setFilterSubject] = useState('all') // Filtro por materia
   
   // Modal de confirmación para reiniciar progreso
   const [showResetModal, setShowResetModal] = useState(false)
@@ -223,18 +235,42 @@ export function DeckList({
     return SubjectIcons[subject] || SubjectIcons.default
   }
 
-  const mainDecks = decks.filter(d => MAIN_DECKS.includes(d.name))
-  const extraDecks = decks.filter(d => !MAIN_DECKS.includes(d.name))
+  const getSubjectColor = (subject) => {
+    return SubjectColors[subject] || SubjectColors.default
+  }
+
+  // Obtener materias únicas para el filtro
+  const uniqueSubjects = [...new Set(decks.map(d => d.subject).filter(Boolean))]
+
+  const filteredDecks = filterSubject === 'all' 
+    ? decks 
+    : decks.filter(d => d.subject === filterSubject)
+
+  const mainDecks = filteredDecks.filter(d => MAIN_SUBJECTS.includes(d.subject))
+  const extraDecks = filteredDecks.filter(d => !MAIN_SUBJECTS.includes(d.subject))
 
   const renderDeckCard = (deck, isExtra = false) => {
     const stats = deck.getStats()
     const subjectIcon = getSubjectIcon(deck.subject)
+    const subjectColor = getSubjectColor(deck.subject)
     const hasDueCards = stats.due > 0
     
     return (
-      <div key={deck.id} className={`deck-card ${hasDueCards ? 'has-due' : ''} ${isExtra ? 'theme-blue' : ''}`}>
+      <div 
+        key={deck.id} 
+        className={`deck-card ${hasDueCards ? 'has-due' : ''} ${isExtra ? 'theme-blue' : ''}`}
+        style={{ borderLeft: `3px solid ${subjectColor.accent}` }}
+      >
         {/* Card Content */}
         <div className="deck-card-content">
+          {deck.subject && (
+            <span 
+              className="deck-subject" 
+              style={{ background: subjectColor.badge }}
+            >
+              {subjectIcon} {deck.subject}
+            </span>
+          )}
           {hasDueCards && (
             <div className="due-badge-inline">
               <span>{stats.due} pendientes</span>
@@ -364,6 +400,36 @@ export function DeckList({
           <span>Nuevo Mazo</span>
         </button>
       </div>
+
+      {/* Filtro por materia */}
+      {uniqueSubjects.length > 1 && (
+        <div className="subject-filter">
+          <button
+            className={`filter-pill ${filterSubject === 'all' ? 'active' : ''}`}
+            onClick={() => setFilterSubject('all')}
+          >
+            📚 Todos
+          </button>
+          {uniqueSubjects.map(subject => {
+            const color = getSubjectColor(subject)
+            const icon = getSubjectIcon(subject)
+            return (
+              <button
+                key={subject}
+                className={`filter-pill ${filterSubject === subject ? 'active' : ''}`}
+                onClick={() => setFilterSubject(subject)}
+                style={filterSubject === subject ? { 
+                  borderColor: color.accent, 
+                  background: color.bg,
+                  color: color.accent 
+                } : {}}
+              >
+                {icon} {subject}
+              </button>
+            )
+          })}
+        </div>
+      )}
 
       {/* Main Decks */}
       <div className="decks-grid">

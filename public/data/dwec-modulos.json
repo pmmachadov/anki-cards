@@ -1,0 +1,78 @@
+{
+  "id": "dwec-modulos",
+  "name": "DWEC: Módulos y Empaquetadores",
+  "description": "Módulos ES6 (export/import), empaquetadores (Vite, Webpack, Parcel, Rollup) y estructura de proyectos modernos",
+  "subject": "Desenvolupament Web en Entorn Client",
+  "cards": [
+    {
+      "id": "mod-001",
+      "front": "¿Por qué surgieron los módulos en JavaScript? ¿Qué es un módulo?",
+      "back": "En los inicios de JS todo el código iba en un solo archivo .js. Al crecer los proyectos:\n- Era difícil organizar el código\n- Las funciones y variables chocaban entre archivos\n- Mantener aplicaciones grandes era complicado\n\nUn MÓDULO es un archivo JavaScript independiente que exporta partes de su contenido (funciones, constantes, clases, objetos) para que puedan ser importadas desde otros archivos.\n\nEs como una 'caja' de código que podemos abrir y usar desde otros archivos.",
+      "tags": ["modulos", "es6", "concepto"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "mod-002",
+      "front": "¿Cómo se exporta contenido desde un módulo en JavaScript?",
+      "back": "Con la palabra clave `export` (ES6/ECMAScript 2015).\n\nEXPORTACIÓN INDIVIDUAL:\nexport const PI = 3.1416;\nexport function suma(a, b) { return a + b; }\n\nEXPORTACIÓN AGRUPADA AL FINAL:\nconst PI = 3.1416;\nfunction suma(a, b) { return a + b; }\nexport { PI, suma };\n\nEXPORTACIÓN POR DEFECTO (una por archivo):\nexport default function saluda(nom) { return `Hola, ${nom}!`; }",
+      "tags": ["modulos", "export", "es6"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "mod-003",
+      "front": "¿Cómo se importa contenido desde otros módulos?",
+      "back": "Con la palabra clave `import`:\n\nIMPORTACIÓN NOMBRADA:\nimport { PI, suma } from './matematiques.js';\n\nIMPORTACIÓN POR DEFECTO (sin llaves):\nimport saluda from './salutacio.js';\n\nEn HTML, el `<script>` debe llevar type='module':\n<script type='module' src='app.js'></script>",
+      "tags": ["modulos", "import", "es6"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "mod-004",
+      "front": "¿Qué diferencia hay entre `export default` y `export` nominal?",
+      "back": "EXPORT DEFAULT:\n- Solo puede haber UNO por archivo\n- Al importar NO se usan llaves: `import fn from './archivo.js'`\n- Ideal cuando el módulo solo tiene una función principal\n\nEXPORT NOMINAL:\n- Puede haber MÚLTIPLES por archivo\n- Al importar SÍ se usan llaves: `import { fn1, fn2 } from './archivo.js'`\n- Ideal cuando el módulo exporta muchas funciones\n\nAMBOS pueden coexistir en un mismo archivo.",
+      "tags": ["modulos", "export", "default", "comparativa"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "mod-005",
+      "front": "¿Qué ventajas aporta la programación con módulos?",
+      "back": "• Organización: código separado por funcionalidades\n• Reutilización: mismo módulo importado en varios lugares\n• Mantenibilidad: más fácil actualizar o corregir errores\n• Evitación de conflictos: cada módulo tiene su propio scope\n• Ejecución controlada: cada módulo se ejecuta solo una vez\n\nBuenas prácticas:\n- Cada módulo debe tener una responsabilidad clara\n- Nombres de funciones coherentes y descriptivos\n- Evitar variables globales",
+      "tags": ["modulos", "ventajas", "buenas-practicas"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "mod-006",
+      "front": "¿Qué es un empaquetador (bundler) de JavaScript y para qué sirve?",
+      "back": "Un empaquetador coge todos los archivos .js, .css y otros recursos, los analiza, combina y minifica, generando uno o pocos archivos optimizados para el navegador.\n\n¿POR QUÉ USARLOS?\n- Cuando el proyecto crece (cientos de módulos), el navegador haría muchas peticiones separadas\n- El empaquetador las combina en un solo archivo optimizado para producción\n\nTAREAS ADICIONALES:\n- Minificación: elimina espacios y comentarios\n- Transpilación: convierte código moderno a versiones compatibles\n- Hot Reload: actualiza la página al guardar cambios\n- Optimización para producción",
+      "tags": ["empaquetadores", "bundlers", "concepto"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "mod-007",
+      "front": "Nombra los 4 empaquetadores más usados y sus características principales",
+      "back": "• WEBPACK: El más completo y flexible. Empaqueta JS, CSS, imágenes, fuentes e incluso HTML. Ideal para grandes proyectos.\n\n• PARCEL: No requiere configuración inicial (zero config). Ideal para empezar proyectos modernos sin complicaciones.\n\n• VITE: Creado por los autores de Vue. Muy rápido gracias a módulos nativos ES. Servidor de desarrollo ultrarrápido.\n\n• ROLLUP: Especializado en módulos ES6. Genera archivos muy limpios y ligeros, perfecto para librerías.",
+      "tags": ["empaquetadores", "webpack", "vite", "parcel", "rollup"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "mod-008",
+      "front": "¿Cómo se crea un proyecto con Vite? Comandos paso a paso",
+      "back": "1. Crear proyecto:\n   npm create vite@latest nombre-proyecto\n\n2. Elegir tipo de proyecto (ej. 'Vanilla' para JS puro)\n\n3. Entrar a la carpeta:\n   cd nombre-proyecto\n\n4. Instalar dependencias:\n   npm install\n\n5. Arrancar servidor de desarrollo:\n   npm run dev\n\n6. Para producción:\n   npm run build  (genera carpeta /dist)",
+      "tags": ["vite", "comandos", "crear-proyecto"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "mod-009",
+      "front": "¿Cuál es la estructura típica de carpetas de un proyecto Vite?",
+      "back": "/proyecto-vite\n├── /node_modules       # Dependencias instaladas\n├── /public             # Archivos públicos (favicon, HTML base)\n│   └── index.html      # HTML principal\n├── /src                # Código fuente\n│   ├── main.js         # Punto de entrada JavaScript\n│   └── style.css       # Estilos CSS\n├── package.json        # Dependencias y configuración npm\n├── vite.config.js      # Configuración de Vite\n└── /dist               # Versión final optimizada (generada por build)",
+      "tags": ["vite", "estructura", "carpetas"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "mod-010",
+      "front": "¿Qué contiene el archivo package.json y para qué sirve?",
+      "back": "Es un archivo esencial en proyectos Node.js que contiene:\n\n• name y version: identificación del proyecto\n• dependencies: librerías necesarias para funcionar en producción\n• devDependencies: herramientas solo para desarrollo (Vite, Nodemon)\n• scripts: comandos como `npm run dev`, `npm run build`, `npm start`\n\nCuando ejecutas `npm install`, npm lee package.json y descarga todas las dependencias listadas en las versiones especificadas.",
+      "tags": ["package.json", "npm", "dependencias"],
+      "difficulty": "easy"
+    }
+  ]
+}

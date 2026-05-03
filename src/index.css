@@ -9,11 +9,11 @@
   --text-secondary: #8b949e;
   --text-muted: #6e7681;
   
-  --accent-primary: #6d28d9;
-  --accent-secondary: #7c3aed;
-  --accent-success: #238636;
-  --accent-warning: #d29922;
-  --accent-danger: #da3633;
+  --accent-primary: #4285F4;
+  --accent-secondary: #1A73E8;
+  --accent-success: #34A853;
+  --accent-warning: #FBBC04;
+  --accent-danger: #EA4335;
   
   --border-color: #30363d;
   --border-light: #21262d;
@@ -63,7 +63,7 @@ body {
 
 /* Enlaces */
 a {
-  color: #58a6ff;
+  color: #8AB8FF;
   text-decoration: none;
 }
 
@@ -134,7 +134,7 @@ img {
 
 /* Focus visible para accesibilidad */
 :focus-visible {
-  outline: 2px solid #58a6ff;
+  outline: 2px solid #8AB8FF;
   outline-offset: 2px;
 }
 

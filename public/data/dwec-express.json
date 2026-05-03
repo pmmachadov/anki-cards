@@ -1,0 +1,64 @@
+{
+  "id": "dwec-express",
+  "name": "DWEC: Framework Express y Envío de Datos",
+  "description": "ExpressJS, rutas GET/POST, middleware, SQLite, formularios al servidor",
+  "subject": "Desenvolupament Web en Entorn Client",
+  "cards": [
+    {
+      "id": "expr-001",
+      "front": "¿Qué es ExpressJS y para qué sirve?",
+      "back": "Es un framework minimalista para Node.js que facilita crear servidores web y APIs.\n\nProporciona herramientas para:\n• Definir rutas (URLs) y responder a peticiones HTTP (GET, POST, PUT, DELETE)\n• Aplicar middleware (funciones que procesan peticiones)\n• Servir archivos estáticos (HTML, CSS, JS, imágenes)\n• Gestionar errores de manera coherente\n\nEs una capa fina sobre el servidor HTTP de Node con sintaxis limpia.",
+      "tags": ["express", "framework", "concepto"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "expr-002",
+      "front": "¿Por qué se introduce Express en un curso de desarrollo web en el lado del cliente?",
+      "back": "Aunque el módulo se centra en el cliente, es esencial entender la comunicación con el servidor:\n\n• Comprender el ciclo completo: desde formularios hasta almacenamiento\n• Trabajar con peticiones HTTP (GET/POST)\n• Experimentar con backend ligero también en JavaScript\n• Desarrollar visión global frontend + backend\n• Prepararse para entornos profesionales\n\nExpress es ideal por ser simple, rápido y compatible con conocimientos de JavaScript.",
+      "tags": ["express", "justificacion", "fullstack"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "expr-003",
+      "front": "¿Cuáles son los conceptos clave de ExpressJS?",
+      "back": "• RUTA: asociación entre método HTTP (GET/POST) y camino (/api/hola, /users/:id)\n\n• MIDDLEWARE: función (req, res, next) que puede:\n  - Leer/modificar req o res\n  - Cortar el flujo respondiendo (res.send())\n  - Continuar con next()\n\n• req / res: objetos de solicitud y respuesta\n\n• PARSERS: express.json() para JSON y express.urlencoded() para formularios HTML\n\n• ARCHIVOS ESTÁTICOS: carpeta public/ servida con express.static('public')",
+      "tags": ["express", "rutas", "middleware", "conceptos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "expr-004",
+      "front": "Escribe un servidor básico Express con rutas GET y POST",
+      "back": "const express = require('express');\nconst app = express();\nconst PORT = 3000;\n\n// Middleware parsers\napp.use(express.json());\napp.use(express.urlencoded({ extended: true }));\n\n// Archivos estáticos\napp.use(express.static('public'));\n\n// GET: leer query string ?nom=Maria\napp.get('/api/hola', (req, res) => {\n  const nom = req.query.nom || 'mundo';\n  res.json({ mensaje: `Hola, ${nom}!` });\n});\n\n// POST: recibir datos en el body\napp.post('/api/eco', (req, res) => {\n  res.status(201).json({ recibido: true, datos: req.body });\n});\n\n// 404\napp.use('/api', (req, res) => {\n  res.status(404).json({ error: 'Ruta no encontrada' });\n});\n\napp.listen(PORT, () => {\n  console.log(`Servidor en http://localhost:${PORT}`);\n});",
+      "tags": ["express", "servidor", "get-post", "ejemplo"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "expr-005",
+      "front": "¿Cómo se instala Express y se crea un proyecto paso a paso?",
+      "back": "1. Crear carpeta e inicializar:\n   mkdir proyecto-express\n   cd proyecto-express\n   npm init -y\n\n2. Instalar Express:\n   npm install express\n\n3. (Opcional) Instalar Nodemon para desarrollo:\n   npm install -D nodemon\n\n4. En package.json añadir scripts:\n   'scripts': {\n     'dev': 'nodemon app.js',\n     'start': 'node app.js'\n   }\n\n5. Ejecutar:\n   npm run dev",
+      "tags": ["express", "instalacion", "npm"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "expr-006",
+      "front": "¿Cómo se reciben datos de un formulario HTML en Express y se guardan en SQLite?",
+      "back": "FORMULARIO HTML:\n<form action='/formulario' method='POST'>\n  <input type='text' name='nom' required>\n  <input type='email' name='correu' required>\n  <button type='submit'>Enviar</button>\n</form>\n\nSERVIDOR EXPRESS CON SQLITE:\nconst sqlite3 = require('sqlite3');\nconst db = new sqlite3.Database('./datos.db');\n\n// Crear tabla\ndb.run(`CREATE TABLE IF NOT EXISTS contactos (\n  id INTEGER PRIMARY KEY AUTOINCREMENT,\n  nom TEXT NOT NULL,\n  correu TEXT NOT NULL\n)`);\n\n// Ruta POST\napp.post('/formulario', (req, res) => {\n  const { nom, correu } = req.body;\n  if (!nom || !correu) return res.status(400).send('Faltan campos');\n  db.run('INSERT INTO contactos (nom, correu) VALUES (?, ?)', [nom, correu]);\n  res.send(`<h2>Datos recibidos</h2><p>Nombre: ${nom}</p><p>Correo: ${correu}</p>`);\n});",
+      "tags": ["express", "sqlite", "formularios", "post"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "expr-007",
+      "front": "Describe los 5 pasos de la comunicación formulario → servidor → base de datos",
+      "back": "1. El navegador envía POST con los datos del formulario\n   <form action='/formulario' method='POST'>\n\n2. Express intercepta la petición y lee el body\n   app.use(express.urlencoded({ extended: true }))\n\n3. El servidor procesa los datos y los guarda\n   db.run('INSERT INTO contactos...')\n\n4. Express devuelve una respuesta HTML al cliente\n   res.send(...)\n\n5. El usuario ve confirmación y puede consultar datos guardados\n   GET /contactos",
+      "tags": ["express", "formularios", "flujo", "sqlite"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "expr-008",
+      "front": "¿Qué son los scripts en package.json? Ejemplos 'dev' y 'start'",
+      "back": "Son comandos de npm para diferentes tareas del proyecto:\n\n'dev': 'nodemon app.js'\n- Ejecuta la app en modo desarrollo\n- Nodemon reinicia automáticamente al detectar cambios en el código\n\n'start': 'node app.js'\n- Ejecuta la app en producción\n- Sin reinicio automático\n\nUso:\nnpm run dev    # Desarrollo\nnpm start      # Producción",
+      "tags": ["express", "scripts", "npm", "nodemon"],
+      "difficulty": "easy"
+    }
+  ]
+}
