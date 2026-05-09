@@ -1,0 +1,148 @@
+{
+  "id": "prueba-ed-eac2",
+  "name": "Prueba - EAC2 Entornos de Desarrollo",
+  "description": "Diagramas UML, modelado orientado a objetos, relaciones entre clases, casos de uso, secuencia, comunicación, actividades y estados",
+  "subject": "Entornos de Desarrollo",
+  "cards": [
+    {
+      "id": "p2-eac2-001",
+      "front": "¿Qué es un diagrama de clases en UML y qué elementos principales representa?",
+      "back": "Es un diagrama estático que muestra la estructura de un sistema modelando sus clases, atributos, métodos y las relaciones entre ellas.\n\nElementos principales:\n- **Clase**: rectángulo dividido en nombre, atributos y métodos\n- **Atributos**: visibilidad (- privado, + público, # protegido), nombre y tipo\n- **Métodos**: visibilidad, nombre, parámetros y tipo de retorno\n- **Relaciones**: asociación, herencia, composición, agregación",
+      "tags": ["uml", "diagrama-clases", "modelado"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac2-002",
+      "front": "¿Qué diferencia hay entre composición y agregación en UML?",
+      "back": "- **Composición** (rombo relleno): relación fuerte de pertenencia. La parte no existe sin el todo. Si se destruye el contenedor, se destruyen las partes.\n  Ejemplo: Expedicion y Muestra (una muestra pertenece a una única expedición)\n\n- **Agregación** (rombo vacío): relación débil. La parte puede existir independientemente del todo.\n  Ejemplo: Laboratorio y Muestra (una muestra puede moverse entre laboratorios)",
+      "tags": ["uml", "composicion", "agregacion", "relaciones"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-eac2-003",
+      "front": "¿Qué significa la herencia en un diagrama de clases UML?",
+      "back": "Es una relación de generalización/especialización representada por una flecha triangular vacía que apunta a la clase padre.\n\nLa clase hija (subclase) hereda atributos y métodos de la clase padre (superclase) y puede añadir los suyos propios.\n\nEjemplo del ejercicio:\n`DirectorEstacion extends Cientifico`\n- Hereda: dni, nombre, especialidad, aniosExperiencia\n- Añade: presupuestoAsignado",
+      "tags": ["uml", "herencia", "generalizacion", "poo"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac2-004",
+      "front": "¿Qué es una enumeración (enum) en Java y para qué sirve?",
+      "back": "Es un tipo de dato especial que define un conjunto fijo de constantes con nombre.\n\nEjemplo del ejercicio:\n```java\npublic enum Especialidad {\n    BIOLOGIA,\n    GEOLOGIA,\n    OCEANOGRAFIA;\n}\n```\n\nVentajas:\n- Mayor legibilidad del código\n- Type-safe (el compilador verifica los valores)\n- No se pueden crear nuevas instancias en tiempo de ejecución",
+      "tags": ["java", "enum", "enumeracion", "poo"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac2-005",
+      "front": "¿Qué representan las multiplicidades en las relaciones UML?",
+      "back": "Indican cuántas instancias de una clase pueden relacionarse con instancias de otra clase.\n\nValores comunes:\n- `1` → exactamente uno\n- `0..1` → cero o uno\n- `*` → muchos (cero o más)\n- `1..*` → uno o más\n- `0..*` → cero o más (equivalente a *)\n\nEjemplo: `Cientifico (1) ------ (*) Asignacion`\nUn científico puede tener muchas asignaciones, pero cada asignación pertenece a un solo científico.",
+      "tags": ["uml", "multiplicidad", "relaciones", "cardinalidad"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-eac2-006",
+      "front": "¿Qué es un diagrama de casos de uso y qué elementos contiene?",
+      "back": "Muestra la funcionalidad del sistema desde la perspectiva del usuario.\n\nElementos:\n- **Actor**: figura humana que representa un rol externo (Científico/a, Administrador, Responsable de Almacén)\n- **Caso de uso**: óvalo con una acción del sistema (Registrar nueva muestra, Gestionar stock)\n- **Sistema**: rectángulo que delimita el alcance\n- **Relaciones**:\n  - `<<include>>`: un caso de uso obligatoriamente incluye otro\n  - `<<extend>>`: un caso de uso opcionalmente extiende otro",
+      "tags": ["uml", "casos-de-uso", "actores", "requisitos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac2-007",
+      "front": "¿Qué diferencia hay entre `<<include>>` y `<<extend>>` en un diagrama de casos de uso?",
+      "back": "- **`<<include>>`**: relación obligatoria. El caso de uso base SIEMPRE incluye el comportamiento del incluido.\n  Ejemplo: 'Solicitar material especializado' siempre incluye 'Validar solicitud de material'\n\n- **`<<extend>>`**: relación opcional. El caso de uso extendido añade comportamiento bajo ciertas condiciones.\n  Ejemplo: 'Registrar nueva muestra' extiende opcionalmente a 'Adjuntar fotografía' o 'Adjuntar coordenadas GPS'",
+      "tags": ["uml", "include", "extend", "casos-de-uso"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-eac2-008",
+      "front": "¿Qué es un diagrama de secuencia en UML?",
+      "back": "Muestra la interacción entre objetos ordenada temporalmente de arriba hacia abajo.\n\nElementos:\n- **Líneas de vida**: líneas verticales punteadas que representan la existencia de un objeto\n- **Mensajes**: flechas horizontales entre líneas de vida que indican llamadas a métodos\n- **Activaciones**: rectángulos sobre la línea de vida que muestran cuándo un objeto está activo\n- **Mensajes de retorno**: flechas punteadas que devuelven resultados\n- **Mensajes asíncronos**: flechas abiertas (sin rellenar)",
+      "tags": ["uml", "diagrama-secuencia", "interaccion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-eac2-009",
+      "front": "¿Qué es un diagrama de comunicación (colaboración) en UML?",
+      "back": "Muestra la interacción entre objetos enfocándose en las relaciones estructurales y el orden de los mensajes.\n\nCaracterísticas:\n- Los objetos se representan como rectángulos conectados por líneas\n- Los mensajes se numeran secuencialmente (1, 2, 3...) para indicar orden\n- Se enfatizan los enlaces entre objetos más que la secuencia temporal\n- Se usa cuando la organización espacial de los objetos es importante\n\nEjemplo: Misión de recogida de datos con Dron Submarino (ROV) entre Centro de Control, Sistema de Navegación, Sistema de Cámaras, Vaixell de Suport y Brazo Robótico.",
+      "tags": ["uml", "diagrama-comunicacion", "colaboracion", "interaccion"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-eac2-010",
+      "front": "¿Qué es un diagrama de actividades en UML?",
+      "back": "Modela el flujo de trabajo o procesos de negocio mostrando las actividades y decisiones.\n\nElementos:\n- **Nodo inicial**: círculo negro (inicio)\n- **Nodo final**: círculo negro con borde blanco (fin)\n- **Actividades**: rectángulos con bordes redondeados\n- **Bifurcaciones/unificaciones**: barras negras (fork/join) para paralelismo\n- **Decisiones**: rombos con condiciones [guardas]\n- **Flujos**: flechas que conectan los elementos\n\nEjemplo: Protocolo de Gestión de Fuga de Combustible con bifurcación paralela para 'Sellar válvulas' y 'Desplegar barreras'.",
+      "tags": ["uml", "diagrama-actividades", "flujo", "procesos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac2-011",
+      "front": "¿Qué es un diagrama de estados en UML?",
+      "back": "Muestra los diferentes estados por los que pasa un objeto durante su ciclo de vida y las transiciones entre ellos.\n\nElementos:\n- **Estados**: rectángulos con bordes redondeados con nombre del estado\n- **Estado inicial**: círculo negro\n- **Estado final**: círculo negro con borde blanco\n- **Transiciones**: flechas etiquetadas con el evento que dispara el cambio\n- **Auto-transiciones**: flechas que salen y vuelven al mismo estado\n\nEjemplo: Ciclo de vida del Submarino de Investigación\n- REVISION EN PORT → DESCENDIENDO → EXPLORACION SUBMARINA → ASCENSO DE EMERGENCIA / RECOGIDA DE MUESTRA → ANCORADO",
+      "tags": ["uml", "diagrama-estados", "maquina-estados", "ciclo-vida"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-eac2-012",
+      "front": "¿Qué es el principio de encapsulamiento en POO?",
+      "back": "Consiste en ocultar los detalles internos de una clase y exponer solo lo necesario mediante métodos públicos (getters y setters).\n\nBeneficios:\n- Control sobre cómo se acceden y modifican los datos\n- Validaciones en los setters\n- Facilita el mantenimiento y la evolución del código\n\nEjemplo:\n```java\nprivate String dni; // atributo privado\n\npublic String getDni() { return dni; } // getter público\npublic void setDni(String dni) { this.dni = dni; } // setter público\n```",
+      "tags": ["poo", "encapsulamiento", "getters", "setters"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac2-013",
+      "front": "¿Qué diferencia hay entre una asociación simple y una asociación con navegabilidad en UML?",
+      "back": "- **Asociación simple**: línea sólida sin flechas. Ambas clases se conocen mutuamente.\n\n- **Navegabilidad unidireccional**: flecha en un extremo indica que solo una clase conoce a la otra.\n\nEjemplo del ejercicio:\n`Expedicion → BuqueInvestigacion`\nUna expedición conoce su buque, pero el buque no necesariamente conoce cada expedición individual (aunque en este caso sí hay una lista de expediciones).",
+      "tags": ["uml", "asociacion", "navegabilidad"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "p2-eac2-014",
+      "front": "¿Qué es una clase de asociación (clase intermedia) en UML?",
+      "back": "Es una clase que se adjunta a una relación de asociación para añadir atributos propios de la relación, no de ninguna de las clases participantes.\n\nEjemplo del ejercicio:\nLa clase `Asignacion` está entre `Cientifico` y `Expedicion`.\n- Atributos propios: `rol`, `numeroHorasTotales`\n- Estos atributos no pertenecen ni al científico ni a la expedición, sino a la asignación en sí.",
+      "tags": ["uml", "clase-asociacion", "relaciones", "modelado"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "p2-eac2-015",
+      "front": "¿Qué es la visibilidad en UML y qué símbolos se utilizan?",
+      "back": "Indica quién puede acceder a los atributos y métodos de una clase.\n\nSímbolos:\n- `-` (privado): solo accesible dentro de la propia clase\n- `+` (público): accesible desde cualquier clase\n- `#` (protegido): accesible dentro de la clase y sus subclases\n- `~` (paquete): accesible dentro del mismo paquete\n\nEjemplo:\n`- nombre: String` → privado\n`+ getNombre(): String` → público",
+      "tags": ["uml", "visibilidad", "acceso", "modificadores"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac2-016",
+      "front": "¿Qué es un constructor en Java y cuáles son sus características?",
+      "back": "Es un método especial que se ejecuta automáticamente al crear un objeto con `new`.\n\nCaracterísticas:\n- Tiene el mismo nombre que la clase\n- No tiene tipo de retorno (ni siquiera `void`)\n- Puede haber múltiples constructores (sobrecarga) con diferentes parámetros\n- Si no se define, Java crea uno vacío por defecto\n\nEjemplo:\n```java\npublic Cientifico(String dni, String nombre, Especialidad especialidad, int aniosExperiencia) {\n    this.dni = dni;\n    this.nombre = nombre;\n    this.especialidad = especialidad;\n    this.aniosExperiencia = aniosExperiencia;\n    this.asignaciones = new ArrayList<Asignacion>();\n    this.muestras = new ArrayList<Muestra>();\n}\n```",
+      "tags": ["java", "constructor", "poo", "instanciacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac2-017",
+      "front": "¿Qué es `ArrayList` en Java y por qué se usa en las relaciones entre clases?",
+      "back": "Es una implementación de la interfaz `List` que almacena elementos en un array dinámico que crece automáticamente.\n\nSe usa en relaciones de multiplicidad `*` (uno a muchos) para almacenar colecciones de objetos relacionados.\n\nEjemplo:\n```java\nprivate List<Expedicion> expediciones;\n\npublic BuqueInvestigacion() {\n    this.expediciones = new ArrayList<Expedicion>();\n}\n```\n\nVentajas sobre arrays tradicionales: tamaño dinámico, métodos útiles (`add`, `remove`, `get`, `size`).",
+      "tags": ["java", "arraylist", "colecciones", "relaciones"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac2-018",
+      "front": "¿Qué es `LocalDate` en Java?",
+      "back": "Es una clase del paquete `java.time` que representa una fecha (año, mes, día) sin información de hora. Se introdujo en Java 8 como parte del nuevo API de fecha/hora.\n\nEjemplo de uso:\n```java\nimport java.time.LocalDate;\n\nprivate LocalDate fechaInicio;\n```\n\nVentajas sobre `Date` antiguo:\n- Inmutable y thread-safe\n- API más clara y legible\n- No tiene problemas de zonas horarias cuando solo se necesita fecha",
+      "tags": ["java", "localdate", "fecha", "java8"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac2-019",
+      "front": "¿Qué es la palabra clave `super` en Java?",
+      "back": "Se usa para referirse a la superclase (clase padre) desde una subclase.\n\nUsos principales:\n1. Llamar al constructor del padre: `super(dni, nombre, especialidad, aniosExperiencia);`\n2. Acceder a métodos del padre: `super.metodoPadre()`\n\nEjemplo:\n```java\npublic DirectorEstacion(String dni, String nombre, Especialidad especialidad,\n        int aniosExperiencia, double presupuestoAsignado) {\n    super(dni, nombre, especialidad, aniosExperiencia); // constructor de Cientifico\n    this.presupuestoAsignado = presupuestoAsignado;\n}\n```\n\n`super()` debe ser la primera instrucción del constructor.",
+      "tags": ["java", "super", "herencia", "constructor"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-eac2-020",
+      "front": "¿Qué diferencia hay entre `this` y `super` en Java?",
+      "back": "- **`this`**: referencia al objeto actual (la instancia de la clase donde se usa).\n  - `this.atributo` → diferencia atributo de parámetro con mismo nombre\n  - `this()` → llama a otro constructor de la MISMA clase\n\n- **`super`**: referencia a la superclase (clase padre).\n  - `super.atributo` → accede a atributo del padre\n  - `super()` → llama al constructor del PADRE\n\nEjemplo:\n```java\npublic void setNombre(String nombre) {\n    this.nombre = nombre; // this.nombre = atributo, nombre = parámetro\n}\n```",
+      "tags": ["java", "this", "super", "poo"],
+      "difficulty": "easy"
+    }
+  ]
+}

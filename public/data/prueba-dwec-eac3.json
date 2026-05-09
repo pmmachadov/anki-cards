@@ -1,0 +1,134 @@
+{
+  "id": "prueba-dwec-eac3",
+  "name": "Prueba - EAC3 Desarrollo Web en Entorno Cliente",
+  "description": "Manipulación del DOM, eventos de ratón y teclado, clases CSS dinámicas, creación de elementos",
+  "subject": "Desarrollo Web en Entorno Cliente",
+  "cards": [
+    {
+      "id": "p1-eac3-001",
+      "front": "¿Qué diferencia hay entre `querySelectorAll()` y `getElementById()`?",
+      "back": "- `getElementById('id')`: devuelve un único elemento por su ID. Es el método más rápido.\n- `querySelectorAll('.clase')`: devuelve una NodeList con todos los elementos que coinciden con el selector CSS.\n\nEjemplo:\n```javascript\nconst ventanas = document.querySelectorAll('.cabin-window');\nconst zona = document.getElementById('engine-zone');\n```",
+      "tags": ["dom", "selectores", "querySelectorAll", "getElementById"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p1-eac3-002",
+      "front": "¿Qué es una NodeList y cómo se recorre?",
+      "back": "Es una colección de nodos del DOM devuelta por `querySelectorAll()`. Se puede recorrer con `.forEach()`.\n\n```javascript\nconst ventanas = document.querySelectorAll('.cabin-window');\nventanas.forEach((ventana) => {\n    ventana.classList.add('window-hover');\n});\n```\n\nA diferencia de un array, no tiene todos los métodos como `.map()` o `.filter()`.",
+      "tags": ["dom", "NodeList", "iteracion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p1-eac3-003",
+      "front": "¿Cómo añadir y quitar clases CSS a un elemento del DOM?",
+      "back": "Se usa la propiedad `classList`:\n\n- `element.classList.add('clase')` → añade una clase\n- `element.classList.remove('clase')` → quita una clase\n- `element.classList.toggle('clase')` → añade si no está, quita si está\n- `element.classList.contains('clase')` → comprueba si tiene la clase\n\nEjemplo:\n```javascript\nventana.classList.add('window-hover');\nventana.classList.remove('light-off');\n```",
+      "tags": ["dom", "classList", "css", "clases"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p1-eac3-004",
+      "front": "¿Qué eventos de ratón existen en JavaScript y cuándo se disparan?",
+      "back": "Eventos principales del ratón:\n\n- `click`: al hacer clic\n- `mouseenter`: cuando el puntero entra en el elemento\n- `mouseleave`: cuando el puntero sale del elemento\n- `mouseover` / `mouseout`: similar pero bubbling\n- `mousemove`: al mover el ratón sobre el elemento\n\nEjemplo:\n```javascript\nventana.addEventListener('mouseenter', iluminarVentana);\nventana.addEventListener('mouseleave', apagarVentana);\n```",
+      "tags": ["eventos", "raton", "mouseenter", "mouseleave"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p1-eac3-005",
+      "front": "¿Cómo capturar eventos de teclado en JavaScript?",
+      "back": "Se usa el evento `keydown` (o `keyup`, `keypress`) sobre `document`:\n\n```javascript\ndocument.addEventListener('keydown', (event) => {\n    const tecla = event.key.toUpperCase();\n    switch (tecla) {\n        case 'S': alternarMotores(); break;\n        case 'L': alternarLucesCabina(); break;\n        case 'N': alternarHiperespacio(); break;\n    }\n});\n```\n\n`event.key` devuelve la tecla pulsada como string.",
+      "tags": ["eventos", "teclado", "keydown", "key"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p1-eac3-006",
+      "front": "¿Cómo crear un nuevo elemento HTML desde JavaScript y añadirlo al DOM?",
+      "back": "Se usa `document.createElement()` y luego `appendChild()`:\n\n```javascript\nfunction crearFilaLlamas() {\n    const fila = document.createElement('div');\n    fila.classList.add('row');\n\n    const pixel = document.createElement('div');\n    pixel.classList.add('pixel', 'orange');\n    fila.appendChild(pixel);\n\n    return fila;\n}\n\n// Añadir al DOM:\nzonaMotores.appendChild(fila);\n```",
+      "tags": ["dom", "createElement", "appendChild", "elementos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p1-eac3-007",
+      "front": "¿Cómo vaciar el contenido de un elemento HTML?",
+      "back": "Asignando una cadena vacía a `innerHTML`:\n\n```javascript\nzonaMotores.innerHTML = '';\n```\n\nEsto elimina todos los hijos del elemento. Es una forma rápida de limpiar, aunque no es la más eficiente para grandes cambios.",
+      "tags": ["dom", "innerHTML", "limpiar"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p1-eac3-008",
+      "front": "¿Qué es el objeto `event` en un manejador de eventos?",
+      "back": "Es un objeto que se pasa automáticamente al manejador y contiene información sobre el evento.\n\n```javascript\nfunction iluminarVentana(event) {\n    event.target.classList.add('window-hover');\n}\n```\n\n- `event.target`: el elemento que disparó el evento\n- `event.key`: la tecla pulsada (eventos de teclado)\n- `event.preventDefault()`: evita el comportamiento por defecto",
+      "tags": ["eventos", "event-object", "target"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p1-eac3-009",
+      "front": "¿Qué es `transition` en CSS y cómo se usa con JavaScript?",
+      "back": "`transition` define una animación suave entre dos estados de una propiedad CSS.\n\n```css\n.pixel {\n    transition: all 0.2s;\n}\n```\n\nCuando JavaScript cambia una propiedad (como `background-color` al añadir/quitar clases), el navegador anima el cambio durante 0.2 segundos.",
+      "tags": ["css", "transition", "animaciones"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p1-eac3-010",
+      "front": "¿Cómo cambiar el estilo inline de un elemento con JavaScript?",
+      "back": "A través de la propiedad `style` del elemento:\n\n```javascript\nrespostaDiv.style.display = 'block';\nrespostaDiv.style.display = 'none';\n```\n\nTambién se pueden modificar clases CSS (recomendado) con `classList` para mantener la separación de responsabilidades.",
+      "tags": ["dom", "style", "css"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p1-eac3-011",
+      "front": "¿Qué es `document.getElementById('universe')` y qué devuelve?",
+      "back": "Selecciona un único elemento del DOM por su atributo `id`. Devuelve el elemento o `null` si no existe.\n\n```javascript\nconst body = document.getElementById('universe');\nbody.classList.add('bg-stars');\n```\n\nLos IDs deben ser únicos en el documento HTML.",
+      "tags": ["dom", "getElementById", "selectores"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p1-eac3-012",
+      "front": "¿Qué hace `console.log()` y por qué es útil durante el desarrollo?",
+      "back": "Muestra información en la consola del navegador (F12 → Consola). Es útil para depurar y verificar el estado del programa.\n\n```javascript\nconsole.log('Motores encendidos');\nconsole.log('Controles:');\nconsole.log('  [S] - Ignición de motores');\n```",
+      "tags": ["depuracion", "console", "log"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p1-eac3-013",
+      "front": "¿Cómo funciona `addEventListener()` y qué ventajas tiene sobre los atributos HTML como `onclick`?",
+      "back": "`addEventListener()` registra un manejador de eventos de forma programática.\n\nVentajas sobre `onclick`:\n1. Puedes añadir múltiples manejadores al mismo evento\n2. Separa JavaScript del HTML (mejor mantenibilidad)\n3. Permite eliminar el manejador con `removeEventListener()`\n\n```javascript\nelement.addEventListener('click', miFuncion);\nelement.removeEventListener('click', miFuncion);\n```",
+      "tags": ["eventos", "addEventListener", "dom"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p1-eac3-014",
+      "front": "¿Qué es el `cursor: pointer` en CSS y cuándo se usa?",
+      "back": "Cambia el cursor del ratón a una mano cuando pasa sobre el elemento, indicando que es clickable.\n\n```css\n.blue {\n    background-color: #2980b9;\n    cursor: pointer;\n}\n```\n\nEs una buena práctica de usabilidad para elementos interactivos.",
+      "tags": ["css", "cursor", "usabilidad"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p1-eac3-015",
+      "front": "¿Cómo funcionan las clases CSS con `!important`?",
+      "back": "`!important` anula cualquier otra declaración de la misma propiedad, independientemente de la especificidad.\n\n```css\n.window-hover {\n    background-color: #f1c40f !important;\n    box-shadow: inset 0 0 10px white;\n}\n```\n\nSe usa con moderación porque dificulta la sobreescritura posterior.",
+      "tags": ["css", "important", "especificidad"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p1-eac3-016",
+      "front": "¿Qué es `box-shadow` en CSS y qué valores acepta?",
+      "back": "Añade una sombra alrededor de un elemento.\n\nSintaxis:\n```css\nbox-shadow: inset desplazamientoX desplazamientoY desenfoque color;\n```\n\nEjemplo:\n```css\nbox-shadow: inset 0 0 10px white;\n```\n\n- `inset`: sombra interior\n- `0 0`: sin desplazamiento\n- `10px`: radio de desenfoque\n- `white`: color de la sombra",
+      "tags": ["css", "box-shadow", "efectos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p1-eac3-017",
+      "front": "¿Qué evento se usa para ejecutar código cuando el DOM está completamente cargado?",
+      "back": "El evento `DOMContentLoaded` se dispara cuando el HTML ha sido completamente parseado.\n\n```javascript\ndocument.addEventListener('DOMContentLoaded', () => {\n    // El DOM está listo para manipular\n    const form = document.getElementById('contacteForm');\n});\n```\n\nA diferencia de `window.onload`, no espera a que carguen imágenes u otros recursos.",
+      "tags": ["dom", "DOMContentLoaded", "eventos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p1-eac3-018",
+      "front": "¿Cómo se usa `switch` en JavaScript?",
+      "back": "Es una estructura de control que evalúa una expresión y ejecuta el caso que coincida.\n\n```javascript\nswitch (tecla) {\n    case 'S':\n        alternarMotores();\n        break;\n    case 'L':\n        alternarLucesCabina();\n        break;\n    default:\n        // otras teclas\n        break;\n}\n```\n\n`break` es obligatorio para evitar que se ejecuten los casos siguientes (fall-through).",
+      "tags": ["control-flujo", "switch", "condicionales"],
+      "difficulty": "easy"
+    }
+  ]
+}

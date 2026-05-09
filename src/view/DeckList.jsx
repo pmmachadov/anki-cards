@@ -172,8 +172,10 @@ export function DeckList({
   const [showClearModal, setShowClearModal] = useState(false)
   const [clearStep, setClearStep] = useState(1)
 
-  // Desplegable de extras
+  // Desplegables
   const [showExtras, setShowExtras] = useState(false)
+  const [showPruebas, setShowPruebas] = useState(false)
+  const [showMaterias, setShowMaterias] = useState(false)
 
   const handleCreate = (e) => {
     e.preventDefault()
@@ -246,19 +248,37 @@ export function DeckList({
     ? decks 
     : decks.filter(d => d.subject === filterSubject)
 
-  const mainDecks = filteredDecks.filter(d => MAIN_SUBJECTS.includes(d.subject))
-  const extraDecks = filteredDecks.filter(d => !MAIN_SUBJECTS.includes(d.subject))
+  // Mazos de prueba (agrupados en folder por materia)
+  const pruebaDecks = filteredDecks.filter(d => d.id?.startsWith('prueba-') || d.name?.startsWith('Prueba -'))
+  
+  const pruebaGroups = pruebaDecks.reduce((acc, deck) => {
+    const subject = deck.subject || 'Sin materia'
+    if (!acc[subject]) acc[subject] = []
+    acc[subject].push(deck)
+    return acc
+  }, {})
+  
+  const mainDecks = filteredDecks.filter(d => MAIN_SUBJECTS.includes(d.subject) && !pruebaDecks.includes(d))
+  const extraDecks = filteredDecks.filter(d => !MAIN_SUBJECTS.includes(d.subject) && !pruebaDecks.includes(d))
 
-  const renderDeckCard = (deck, isExtra = false) => {
+  const mainGroups = mainDecks.reduce((acc, deck) => {
+    const subject = deck.subject || 'Sin materia'
+    if (!acc[subject]) acc[subject] = []
+    acc[subject].push(deck)
+    return acc
+  }, {})
+
+  const renderDeckCard = (deck, isExtra = false, theme = null) => {
     const stats = deck.getStats()
     const subjectIcon = getSubjectIcon(deck.subject)
     const subjectColor = getSubjectColor(deck.subject)
     const hasDueCards = stats.due > 0
+    const themeClass = theme || (isExtra ? 'theme-blue' : '')
     
     return (
       <div 
         key={deck.id} 
-        className={`deck-card ${hasDueCards ? 'has-due' : ''} ${isExtra ? 'theme-blue' : ''}`}
+        className={`deck-card ${hasDueCards ? 'has-due' : ''} ${themeClass}`}
         style={{ borderLeft: `3px solid ${subjectColor.accent}` }}
       >
         {/* Card Content */}
@@ -431,10 +451,93 @@ export function DeckList({
         </div>
       )}
 
-      {/* Main Decks */}
-      <div className="decks-grid">
-        {mainDecks.map(d => renderDeckCard(d))}
-      </div>
+      {/* Materias Collapsible Folder */}
+      {mainDecks.length > 0 && (
+        <div className="materias-section">
+          <button 
+            className="materias-toggle"
+            onClick={() => setShowMaterias(!showMaterias)}
+            aria-expanded={showMaterias}
+          >
+            <span className="materias-icon">📁</span>
+            <span className="materias-label">Materias</span>
+            <span className="materias-count">{mainDecks.length} mazo{mainDecks.length !== 1 ? 's' : ''}</span>
+            <span className={`materias-chevron ${showMaterias ? 'open' : ''}`}>
+              {showMaterias ? Icons.chevronUp : Icons.chevronDown}
+            </span>
+          </button>
+          
+          {showMaterias && (
+            <div className="materias-content animate-fade-in">
+              {Object.entries(mainGroups).map(([subject, subjectDecks]) => {
+                const subjectColor = getSubjectColor(subject)
+                const subjectIcon = getSubjectIcon(subject)
+                return (
+                  <div key={subject} className="materias-subgroup">
+                    <div 
+                      className="materias-subject-header"
+                      style={{ borderLeftColor: subjectColor.accent }}
+                    >
+                      <span className="materias-subject-icon">{subjectIcon}</span>
+                      <span className="materias-subject-name">{subject}</span>
+                      <span className="materias-subject-count">
+                        {subjectDecks.length} mazo{subjectDecks.length !== 1 ? 's' : ''}
+                      </span>
+                    </div>
+                    <div className="decks-grid materias-subgrid">
+                      {subjectDecks.map(d => renderDeckCard(d))}
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Pruebas Collapsible Folder */}
+      {pruebaDecks.length > 0 && (
+        <div className="pruebas-section">
+          <button 
+            className="pruebas-toggle"
+            onClick={() => setShowPruebas(!showPruebas)}
+            aria-expanded={showPruebas}
+          >
+            <span className="pruebas-icon">📁</span>
+            <span className="pruebas-label">Pruebas</span>
+            <span className="pruebas-count">{pruebaDecks.length} mazo{pruebaDecks.length !== 1 ? 's' : ''}</span>
+            <span className={`pruebas-chevron ${showPruebas ? 'open' : ''}`}>
+              {showPruebas ? Icons.chevronUp : Icons.chevronDown}
+            </span>
+          </button>
+          
+          {showPruebas && (
+            <div className="pruebas-content animate-fade-in">
+              {Object.entries(pruebaGroups).map(([subject, subjectDecks]) => {
+                const subjectColor = getSubjectColor(subject)
+                const subjectIcon = getSubjectIcon(subject)
+                return (
+                  <div key={subject} className="pruebas-subgroup">
+                    <div 
+                      className="pruebas-subject-header"
+                      style={{ borderLeftColor: subjectColor.accent }}
+                    >
+                      <span className="pruebas-subject-icon">{subjectIcon}</span>
+                      <span className="pruebas-subject-name">{subject}</span>
+                      <span className="pruebas-subject-count">
+                        {subjectDecks.length} mazo{subjectDecks.length !== 1 ? 's' : ''}
+                      </span>
+                    </div>
+                    <div className="decks-grid pruebas-subgrid">
+                      {subjectDecks.map(d => renderDeckCard(d, false, 'theme-prueba'))}
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Extras Collapsible */}
       {extraDecks.length > 0 && (

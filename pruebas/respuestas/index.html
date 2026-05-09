@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión del Taller</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🚗 Gestión del Taller</h1>
+        <div id="connection-status" class="status online">Conectado</div>
+    </header>
+
+    <main>
+        <section id="form-section">
+            <h2>Añadir nuevo vehículo</h2>
+            <form id="vehicle-form">
+                <label for="plate">Matrícula:</label>
+                <input type="text" id="plate" name="plate" placeholder="Ej: 1234 ABC" required>
+                <label for="km">Kilometraje inicial:</label>
+                <input type="number" id="km" name="km" placeholder="0" min="0" value="0">
+                <button type="submit">Añadir vehículo</button>
+            </form>
+        </section>
+
+        <section id="controls-section">
+            <h2>Listado de vehículos</h2>
+            <div class="controls">
+                <label for="sort-select">Ordenar por:</label>
+                <select id="sort-select">
+                    <option value="id">Orden cronológico (ID)</option>
+                    <option value="plate">Matrícula (alfabético)</option>
+                </select>
+                <button id="refresh-btn">🔄 Actualizar lista</button>
+            </div>
+            <div id="vehicle-list"></div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

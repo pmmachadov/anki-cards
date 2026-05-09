@@ -1,0 +1,162 @@
+{
+  "id": "prueba-ed-proyecto",
+  "name": "Prueba - Proyecto Entornos de Desarrollo",
+  "description": "Spring Boot, MVC con Thymeleaf, controladores, aplicaciones Swing con Java y gestión de eventos",
+  "subject": "Entornos de Desarrollo",
+  "cards": [
+    {
+      "id": "p2-proy-001",
+      "front": "¿Qué es Spring Boot y qué ventajas ofrece?",
+      "back": "Es un framework de Java que simplifica el desarrollo de aplicaciones Spring proporcionando configuración automática (auto-configuración) y un servidor web embebido.\n\nVentajas:\n- Configuración mínima (convención sobre configuración)\n- Servidor Tomcat embebido (no necesitas desplegar WAR)\n- Dependencias gestionadas con ' starters'\n- Ejecutable con `java -jar`\n\nAnotación principal:\n```java\n@SpringBootApplication\n```",
+      "tags": ["spring-boot", "framework", "java"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-proy-002",
+      "front": "¿Qué hace la anotación `@SpringBootApplication`?",
+      "back": "Es una combinación de tres anotaciones:\n\n1. `@Configuration`: marca la clase como fuente de definiciones de beans\n2. `@EnableAutoConfiguration`: activa la configuración automática de Spring Boot\n3. `@ComponentScan`: escanea automáticamente los componentes en el paquete actual y subpaquetes\n\nEjemplo:\n```java\n@SpringBootApplication\n@ComponentScan(basePackages = \"com.ioc.ejercicio12\")\npublic class Ejercicio12Application {\n    public static void main(String[] args) {\n        SpringApplication.run(Ejercicio12Application.class, args);\n    }\n}\n```",
+      "tags": ["spring-boot", "anotaciones", "component-scan"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-proy-003",
+      "front": "¿Qué es un Controller en Spring MVC y cómo se define?",
+      "back": "Es una clase que recibe peticiones HTTP, procesa la lógica de negocio y devuelve una respuesta (vista o datos).\n\nSe define con `@Controller` o `@RestController`.\n\nEjemplo:\n```java\n@Controller\npublic class HomeController {\n\n    @GetMapping(\"/\")\n    public String home() {\n        return \"redirect:/index.html\";\n    }\n}\n```\n\n- `@Controller` → devuelve el nombre de una vista (template)\n- `@RestController` → devuelve datos directamente (JSON/XML)",
+      "tags": ["spring", "mvc", "controller", "web"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-proy-004",
+      "front": "¿Qué diferencia hay entre `@GetMapping` y `@PostMapping` en Spring?",
+      "back": "- **`@GetMapping`**: mapea peticiones HTTP GET. Se usa para obtener/recuperar datos. Los parámetros van en la URL.\n\n- **`@PostMapping`**: mapea peticiones HTTP POST. Se usa para enviar/crear datos. Los datos van en el cuerpo de la petición.\n\nEjemplo:\n```java\n@GetMapping(\"/ejercicio13\")\npublic String mostrarResultado(Model model) { ... }\n\n@PostMapping(\"/calcular\")\npublic String calcular(@RequestParam double numero, Model model) { ... }\n```",
+      "tags": ["spring", "getmapping", "postmapping", "http"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-proy-005",
+      "front": "¿Qué es `Model` en Spring MVC y para qué sirve?",
+      "back": "Es un objeto que actúa como contenedor de datos para pasar información desde el Controller a la vista (template).\n\nEjemplo:\n```java\n@PostMapping(\"/calcular\")\npublic String calcular(@RequestParam double numero, Model model) {\n    double resultado = numero * 5;\n    model.addAttribute(\"numero\", numero);\n    model.addAttribute(\"resultado\", resultado);\n    return \"resultado\"; // nombre del template\n}\n```\n\nEn la vista Thymeleaf se accede con:\n```html\n<p>Número: <span th:text=\"${numero}\"></span></p>\n<p>Resultado: <span th:text=\"${resultado}\"></span></p>\n```",
+      "tags": ["spring", "model", "mvc", "vista"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-proy-006",
+      "front": "¿Qué es Thymeleaf y cómo se usa en Spring Boot?",
+      "back": "Es un motor de plantillas (template engine) para Java que genera HTML dinámico en el servidor. Es la opción por defecto en Spring Boot.\n\nLas plantillas se guardan en `src/main/resources/templates/`.\n\nEjemplo (`resultado.html`):\n```html\n<!DOCTYPE html>\n<html xmlns:th=\"http://www.thymeleaf.org\">\n<body>\n    <h1>Resultado</h1>\n    <p>Número introducido: <span th:text=\"${numero}\"></span></p>\n    <p>Resultado: <span th:text=\"${resultado}\"></span></p>\n    <p>DNI: <span th:text=\"${dni}\"></span></p>\n</body>\n</html>\n```\n\nEl Controller devuelve el nombre del archivo sin extensión: `return \"resultado\";`",
+      "tags": ["thymeleaf", "templates", "spring-boot", "vista"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-proy-007",
+      "front": "¿Qué es `@RequestParam` en Spring MVC?",
+      "back": "Extrae valores de los parámetros de la petición HTTP (URL en GET, formulario en POST) y los asigna a variables del método.\n\nEjemplo:\n```java\n@PostMapping(\"/calcular\")\npublic String calcular(@RequestParam double numero, Model model) {\n    // 'numero' viene del formulario: <input name=\"numero\">\n}\n```\n\nParámetros opcionales:\n- `@RequestParam(required = false)` → no obligatorio\n- `@RequestParam(defaultValue = \"0\")` → valor por defecto",
+      "tags": ["spring", "requestparam", "parametros", "formularios"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-proy-008",
+      "front": "¿Qué es `application.properties` en Spring Boot?",
+      "back": "Es el archivo de configuración principal de una aplicación Spring Boot. Se encuentra en `src/main/resources/`.\n\nEjemplo de configuraciones:\n```properties\n# Puerto del servidor\nserver.port=8080\n\n# Contexto de la aplicación\nserver.servlet.context-path=/app\n\n# Configuración de Thymeleaf\nspring.thymeleaf.cache=false\n\n# Base de datos\nspring.datasource.url=jdbc:mysql://localhost:3306/bd\n```\n\nSpring Boot lee estas propiedades automáticamente al arrancar.",
+      "tags": ["spring-boot", "configuracion", "properties"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-proy-009",
+      "front": "¿Qué es Maven y para qué sirve el archivo `pom.xml`?",
+      "back": "Maven es una herramienta de gestión y construcción de proyectos Java.\n\nEl archivo `pom.xml` (Project Object Model) define:\n- **Coordenadas del proyecto**: groupId, artifactId, version\n- **Dependencias**: librerías externas que necesita el proyecto\n- **Plugins**: herramientas para compilar, empaquetar, testear\n- **Perfiles**: configuraciones para diferentes entornos\n\nEjemplo de dependencia Spring Boot:\n```xml\n<dependency>\n    <groupId>org.springframework.boot</groupId>\n    <artifactId>spring-boot-starter-web</artifactId>\n</dependency>\n```",
+      "tags": ["maven", "pom.xml", "dependencias", "build"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-proy-010",
+      "front": "¿Qué es `ServletInitializer` en un proyecto Spring Boot WAR?",
+      "back": "Es una clase que permite desplegar una aplicación Spring Boot como archivo WAR en un servidor de aplicaciones externo (como Tomcat).\n\n```java\npublic class ServletInitializer extends SpringBootServletInitializer {\n    @Override\n    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {\n        return application.sources(Ejercicio12Application.class);\n    }\n}\n```\n\nSi se ejecuta como JAR independiente (con Tomcat embebido), esta clase no es necesaria.",
+      "tags": ["spring-boot", "war", "servlet", "despliegue"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "p2-proy-011",
+      "front": "¿Qué es Swing en Java?",
+      "back": "Es una biblioteca gráfica (GUI) de Java para crear interfaces de usuario de escritorio con ventanas, botones, campos de texto, etc.\n\nCaracterísticas:\n- Basada en componentes (widgets)\n- Look and feel personalizable\n- Multiplataforma (funciona en Windows, Mac, Linux)\n- Reemplaza a AWT (Abstract Window Toolkit)\n\nClases principales:\n- `JFrame`: ventana principal\n- `JPanel`: contenedor de componentes\n- `JButton`, `JLabel`, `JTextField`, `JComboBox`, `JTextArea`",
+      "tags": ["java", "swing", "gui", "interfaz-grafica"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-proy-012",
+      "front": "¿Qué es un `JFrame` en Swing?",
+      "back": "Es la ventana principal de una aplicación Swing.\n\nConfiguración básica:\n```java\npublic class PresupuestoMarketing extends JFrame {\n    public PresupuestoMarketing() {\n        setTitle(\"Presupuesto Marketing Digital\");\n        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\n        setBounds(100, 100, 700, 650); // x, y, ancho, alto\n        setVisible(true);\n    }\n}\n```\n\nOpciones de cierre:\n- `EXIT_ON_CLOSE`: cierra la aplicación al cerrar la ventana\n- `DISPOSE_ON_CLOSE`: libera solo esta ventana\n- `HIDE_ON_CLOSE`: solo oculta la ventana",
+      "tags": ["java", "swing", "jframe", "ventana"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-proy-013",
+      "front": "¿Qué es un `ActionListener` en Swing?",
+      "back": "Es una interfaz que define el método `actionPerformed(ActionEvent e)`, que se ejecuta cuando el usuario interactúa con un componente (como pulsar un botón).\n\nEjemplo:\n```java\nbtnValidar.addActionListener(new ActionListener() {\n    public void actionPerformed(ActionEvent e) {\n        validarDatos();\n    }\n});\n```\n\nCon **expresiones lambda** (Java 8+):\n```java\nbtnCalcular.addActionListener(e -> calcularPresupuesto());\n```",
+      "tags": ["java", "swing", "actionlistener", "eventos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-proy-014",
+      "front": "¿Qué es un `JComboBox` en Swing?",
+      "back": "Es un componente desplegable que permite seleccionar una opción de una lista.\n\nEjemplo:\n```java\nJComboBox<String> comboPack = new JComboBox<String>();\ncomboPack.addItem(\"Seleccione...\");\ncomboPack.addItem(\"Básico\");\ncomboPack.addItem(\"Estándar\");\ncomboPack.addItem(\"Premium\");\n\n// Obtener selección\nString seleccion = (String) comboPack.getSelectedItem();\n\n// Obtener índice seleccionado\nint indice = comboPack.getSelectedIndex(); // 0 = primera opción\n```",
+      "tags": ["java", "swing", "jcombobox", "componentes"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-proy-015",
+      "front": "¿Qué es un `JTextArea` en Swing?",
+      "back": "Es un componente de texto multilínea editable o de solo lectura.\n\nEjemplo:\n```java\nJTextArea txtErrores = new JTextArea();\ntxtErrores.setEditable(false); // solo lectura\ntxtErrores.setBackground(Color.LIGHT_GRAY);\ntxtErrores.setLineWrap(true);      // salto de línea automático\ntxtErrores.setWrapStyleWord(true); // salto entre palabras\n\n// Establecer texto\ntxtErrores.setText(\"Datos validados correctamente.\");\n\n// Limpiar\ntxtErrores.setText(\"\");\n```",
+      "tags": ["java", "swing", "jtextarea", "componentes"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-proy-016",
+      "front": "¿Qué es un `TitledBorder` en Swing?",
+      "back": "Es un borde con un título que se aplica a un `JPanel` para agrupar visualmente componentes relacionados.\n\nEjemplo:\n```java\nJPanel panelDatos = new JPanel();\npanelDatos.setBorder(new TitledBorder(\n    null, \n    \"Datos cliente\", \n    TitledBorder.LEADING, \n    TitledBorder.TOP, \n    null, \n    null\n));\n```\n\nParámetros:\n- Título del borde\n- Alineación del título (LEADING, CENTER, TRAILING)\n- Posición del título (TOP, BOTTOM)\n- Fuente y color del título",
+      "tags": ["java", "swing", "titledborder", "layout"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-proy-017",
+      "front": "¿Cómo funciona el layout `null` en Swing?",
+      "back": "Desactiva cualquier gestor de diseño (layout manager), permitiendo posicionar los componentes de forma absoluta usando coordenadas (x, y) y dimensiones (ancho, alto).\n\nEjemplo:\n```java\ncontentPane.setLayout(null);\n\nJLabel lbl = new JLabel(\"Antigüedad:\");\nlbl.setBounds(20, 30, 180, 20); // x, y, ancho, alto\n\nJTextField txt = new JTextField();\ntxt.setBounds(210, 30, 100, 25);\n```\n\n**Desventaja**: el diseño no se adapta a diferentes tamaños de ventana ni resoluciones. Se prefiere usar layout managers (`FlowLayout`, `BorderLayout`, `GridLayout`) en aplicaciones profesionales.",
+      "tags": ["java", "swing", "layout", "null-layout"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-proy-018",
+      "front": "¿Qué es `String.format()` en Java y cómo se usa?",
+      "back": "Permite formatear cadenas con valores dinámicos usando especificadores de formato.\n\nEjemplo:\n```java\ndouble total = 145.67;\ntxtTotal.setText(String.format(\"%.2f €\", total)); // \"145.67 €\"\n```\n\nEspecificadores comunes:\n- `%.2f` → número decimal con 2 decimales\n- `%d` → número entero\n- `%s` → cadena\n- `%n` → salto de línea\n- `%tF` → fecha en formato ISO (yyyy-MM-dd)",
+      "tags": ["java", "string-format", "formateo"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-proy-019",
+      "front": "¿Qué es `@ComponentScan` en Spring Boot?",
+      "back": "Indica a Spring dónde debe buscar componentes (Controllers, Services, Repositories) para registrarlas como beans en el contexto de la aplicación.\n\nEjemplo:\n```java\n@SpringBootApplication\n@ComponentScan(basePackages = \"com.ioc.ejercicio12\")\npublic class Ejercicio12Application { ... }\n```\n\nPor defecto, escanea el paquete donde está la clase anotada con `@SpringBootApplication` y todos sus subpaquetes.\n\nSi los controllers están en paquetes diferentes, es necesario especificar `basePackages`.",
+      "tags": ["spring", "componentscan", "beans", "ioc"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-proy-020",
+      "front": "¿Qué es `Integer.parseInt()` y `Double.parseDouble()` en Java?",
+      "back": "Son métodos estáticos que convierten una cadena (`String`) en un tipo numérico.\n\n```java\nString antiguedadStr = txtAntiguedad.getText().trim();\nint antiguedad = Integer.parseInt(antiguedadStr);\n\nString descuentoStr = txtDescuento.getText().trim();\ndouble descuento = Double.parseDouble(descuentoStr);\n```\n\n**Importante**: si la cadena no es un número válido, lanzan `NumberFormatException`. Por eso se suele envolver en un bloque `try-catch`.",
+      "tags": ["java", "parseInt", "parseDouble", "conversion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-proy-021",
+      "front": "¿Cómo habilitar/deshabilitar un componente Swing?",
+      "back": "Se usa el método `setEnabled(boolean)`:\n\n```java\n// Deshabilitar campo de texto\ntxtDescuento.setEnabled(false);\n\n// Habilitar botón\nbtnCalcular.setEnabled(true);\n\n// Deshabilitar combo\ncomboXXSS.setEnabled(false);\n```\n\nCuando un componente está deshabilitado:\n- El usuario no puede interactuar con él\n- Aparece visualmente atenuado (gris)\n- No genera eventos",
+      "tags": ["java", "swing", "enabled", "componentes"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-proy-022",
+      "front": "¿Qué es `requestFocus()` en Swing?",
+      "back": "Solicita que un componente reciba el foco del teclado, de modo que el usuario pueda escribir o interactuar directamente con él.\n\nEjemplo:\n```java\nif (antiguedadStr.isEmpty()) {\n    txtErrores.setText(\"Error: La antigüedad es obligatoria.\");\n    txtAntiguedad.requestFocus(); // cursor va al campo\n    txtAntiguedad.selectAll();    // selecciona todo el texto\n    return;\n}\n```\n\nSe usa habitualmente tras mostrar un error para guiar al usuario al campo que debe corregir.",
+      "tags": ["java", "swing", "focus", "usabilidad"],
+      "difficulty": "easy"
+    }
+  ]
+}

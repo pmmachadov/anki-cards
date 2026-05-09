@@ -1134,3 +1134,278 @@
 .info-green .info-label {
   color: #81C995 !important;
 }
+
+/* Materias Section - Folder style */
+.materias-section {
+  margin-top: 32px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 24px;
+}
+
+.materias-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, rgba(66, 133, 244, 0.08), var(--bg-secondary));
+  border: 1px solid rgba(66, 133, 244, 0.3);
+  border-radius: 16px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.materias-toggle:hover {
+  border-color: rgba(66, 133, 244, 0.6);
+  background: linear-gradient(135deg, rgba(66, 133, 244, 0.15), var(--bg-tertiary));
+}
+
+.materias-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.materias-label {
+  flex: 1;
+  text-align: left;
+}
+
+.materias-count {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  background: var(--bg-tertiary);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.materias-chevron {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+}
+
+.materias-chevron svg {
+  width: 20px;
+  height: 20px;
+}
+
+.materias-chevron.open {
+  transform: rotate(180deg);
+}
+
+.materias-content {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.materias-subgroup {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.materias-subject-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  background: var(--bg-tertiary);
+  border-radius: 12px;
+  border-left: 4px solid;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+}
+
+.materias-subject-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.materias-subject-name {
+  flex: 1;
+}
+
+.materias-subject-count {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  background: var(--bg-secondary);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.materias-subgrid {
+  gap: 20px;
+}
+
+/* Pruebas Section - Folder style */
+.pruebas-section {
+  margin-top: 32px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 24px;
+}
+
+.pruebas-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, rgba(251, 188, 4, 0.08), var(--bg-secondary));
+  border: 1px solid rgba(251, 188, 4, 0.3);
+  border-radius: 16px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pruebas-toggle:hover {
+  border-color: rgba(251, 188, 4, 0.6);
+  background: linear-gradient(135deg, rgba(251, 188, 4, 0.15), var(--bg-tertiary));
+}
+
+.pruebas-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.pruebas-label {
+  flex: 1;
+  text-align: left;
+}
+
+.pruebas-count {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  background: var(--bg-tertiary);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.pruebas-chevron {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+}
+
+.pruebas-chevron svg {
+  width: 20px;
+  height: 20px;
+}
+
+.pruebas-chevron.open {
+  transform: rotate(180deg);
+}
+
+.pruebas-grid {
+  margin-top: 20px;
+}
+
+/* Theme for Prueba cards (orange/gold) */
+.deck-card.theme-prueba.has-due {
+  border-color: #FBBC04;
+  box-shadow: 0 0 0 1px #FBBC04;
+}
+
+.deck-card.theme-prueba .progress-value {
+  color: #FDD835;
+}
+
+.deck-card.theme-prueba .progress-fill {
+  background: linear-gradient(90deg, #FBBC04, #F9A825);
+}
+
+.deck-card.theme-prueba .btn-study {
+  background: linear-gradient(135deg, #FBBC04, #F9A825) !important;
+  color: #1a1a1a !important;
+}
+
+.deck-card.theme-prueba .btn-stats {
+  color: #FDD835 !important;
+}
+
+.deck-card.theme-prueba .icon-new {
+  background: rgba(251, 188, 4, 0.15);
+  color: #FDD835;
+}
+
+/* Pruebas subgroups by subject */
+.pruebas-content {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pruebas-subgroup {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.pruebas-subject-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  background: var(--bg-tertiary);
+  border-radius: 12px;
+  border-left: 4px solid;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+}
+
+.pruebas-subject-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.pruebas-subject-name {
+  flex: 1;
+}
+
+.pruebas-subject-count {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  background: var(--bg-secondary);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.pruebas-subgrid {
+  gap: 20px;
+}

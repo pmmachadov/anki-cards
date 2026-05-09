@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex4</title>
+</head>
+<body>
+    <button onclick="mostrarCatalogo()">Mostrar Catálogo</button>
+    <button onclick="mostrarPeliculasDesde(prompt('Introduce el año:'))">Mostrar películas desde el año introducido</button>
+    <button onclick="contarPeliculasVistas()">Contar Películas Vistas</button>
+
+    <script>
+        // 1. Array de objetos: catálogo de películas
+        const videoteca = [
+            { titulo: "El Padrino", director: "Francis Ford Coppola", anio: 1972, vista: true },
+            { titulo: "Inception", director: "Christopher Nolan", anio: 2010, vista: true },
+            { titulo: "Interstellar", director: "Christopher Nolan", anio: 2014, vista: false },
+            { titulo: "Parásitos", director: "Bong Joon-ho", anio: 2019, vista: true },
+            { titulo: "Dune", director: "Denis Villeneuve", anio: 2021, vista: false }
+        ];
+
+        // 2. Función que muestra el catálogo completo por consola
+        function mostrarCatalogo() {
+            console.log("--- Catálogo de películas ---");
+            videoteca.forEach(pelicula => {
+                console.log(`La película ${pelicula.titulo}, dirigida por ${pelicula.director}, se estrenó en ${pelicula.anio}.`);
+            });
+        }
+
+        // 3. Función que filtra películas a partir de un año dado
+        function mostrarPeliculasDesde(anio) {
+            const anioNum = parseInt(anio);
+            if (isNaN(anioNum)) {
+                alert("Año no válido.");
+                return;
+            }
+            const filtradas = videoteca.filter(pelicula => pelicula.anio >= anioNum);
+            console.log(`--- Películas desde el año ${anioNum} ---`);
+            if (filtradas.length === 0) {
+                console.log("No se han encontrado películas.");
+            } else {
+                filtradas.forEach(pelicula => {
+                    console.log(`La película ${pelicula.titulo}, dirigida por ${pelicula.director}, se estrenó en ${pelicula.anio}.`);
+                });
+            }
+        }
+
+        // 4. Función que cuenta las películas vistas y muestra un alert
+        function contarPeliculasVistas() {
+            const totalVistas = videoteca.filter(pelicula => pelicula.vista === true).length;
+            alert(`Has visto ${totalVistas} película/s de ${videoteca.length} en el catálogo.`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+{
+  "id": "prueba-si-eac1",
+  "name": "Prueba - EAC1 Sistemas Informáticos",
+  "description": "Hardware, componentes de placa base, memoria, almacenamiento, BIOS/UEFI, virtualización e instalación de sistemas operativos",
+  "subject": "Sistemas Informáticos",
+  "cards": [
+    {
+      "id": "si-eac1-01",
+      "front": "¿Qué diferencias hay entre BIOS/MBR y UEFI/GPT en un sistema moderno?",
+      "back": "BIOS/MBR es el sistema tradicional: limitado a discos de 2 TB, máximo 4 particiones primarias, sin arranque seguro. UEFI/GPT es moderno: soporta discos mayores de 2 TB, hasta 128 particiones, mejor integración con NVMe, arranque más rápido y gestión de arranque dual más limpia mediante partición EFI.",
+      "tags": ["BIOS", "UEFI", "MBR", "GPT", "arranque"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac1-02",
+      "front": "¿Cuáles son las limitaciones principales del sistema de particionamiento MBR?",
+      "back": "1) Máximo 4 particiones primarias. Para superar este límite se usa una partición extendida que contiene particiones lógicas. 2) No soporta discos mayores de 2 TB. 3) Esquema antiguo asociado a BIOS, menos robusto que GPT para sistemas modernos.",
+      "tags": ["MBR", "particiones", "GPT"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-eac1-03",
+      "front": "¿Por qué un SSD mejora el rendimiento respecto a un HDD mecánico?",
+      "back": "El HDD usa platos magnéticos giratorios y un cabezal mecánico, lo que genera alta latencia. El SSD usa memoria flash NAND sin partes móviles, por lo que el acceso es mucho más rápido, silencioso y estable. La mejora es especialmente notable en arranque del SO, apertura de programas y trabajo con muchos archivos pequeños.",
+      "tags": ["SSD", "HDD", "almacenamiento", "rendimiento"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-eac1-04",
+      "front": "¿Qué es el thermal throttling y cómo afecta al rendimiento?",
+      "back": "El thermal throttling es la reducción automática de frecuencia o rendimiento que aplican la CPU o GPU cuando alcanzan temperaturas altas. Protege el hardware de daños por sobrecalentamiento, pero disminuye visiblemente el rendimiento del sistema durante tareas intensivas.",
+      "tags": ["thermal throttling", "CPU", "GPU", "refrigeración", "rendimiento"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac1-05",
+      "front": "Un equipo con CPU de 125W y GPU de 350W tiene una fuente de 550W y reinicia durante juegos intensivos. ¿Cuál es el problema y cómo se soluciona?",
+      "back": "La fuente de 550W es insuficiente: solo CPU + GPU ya suman 475W sin contar placa, discos ni picos de consumo. Además, la refrigeración estándar y caja compacta con poco flujo de aire favorecen sobretemperaturas. Solución: usar una PSU de 750-850W con margen del 20-30%, mejorar ventilación y considerar refrigeración mejorada.",
+      "tags": ["PSU", "fuente de alimentación", "refrigeración", "gaming"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac1-06",
+      "front": "¿Cuáles son las ventajas e inconvenientes de SRAM y DRAM en un servidor?",
+      "back": "SRAM: más rápida, no necesita refresco, pero muy cara y de poca capacidad. Se usa como caché. DRAM: mayor capacidad y menor coste por GB, adecuada como memoria principal, pero necesita refresco periódico y tiene más latencia. En servidores se usa DRAM (preferiblemente ECC) como memoria principal.",
+      "tags": ["SRAM", "DRAM", "memoria", "servidor", "ECC"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac1-07",
+      "front": "¿Qué es un cuello de botella en la interconexión CPU-chipset (PCH) y cómo se puede optimizar?",
+      "back": "Ocurre cuando múltiples dispositivos de alto ancho de banda (SSD, USB4, tarjeta de red) comparten el enlace entre el chipset PCH y la CPU, saturándolo. Para optimizar: conectar GPU y SSD principal a carriles PCIe directos de CPU, revisar en el manual qué puertos comparten líneas, y repartir dispositivos críticos entre CPU y PCH.",
+      "tags": ["PCH", "chipset", "PCIe", "cuello de botella", "rendimiento"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "si-eac1-08",
+      "front": "Identifica los elementos externos de una placa base: Puerto PS/2, USB, RJ-45, eSATA, FireWire, S/PDIF",
+      "back": "Puerto PS/2: conexión para teclado o ratón (circular, 6 pines). USB: puertos universales para periféricos. RJ-45: puerto de red Ethernet. eSATA: conexión externa para discos SATA. FireWire (IEEE 1394): interfaz de alta velocidad para dispositivos multimedia. S/PDIF: salida de audio digital (óptica TOSLINK o coaxial).",
+      "tags": ["placa base", "puertos", "hardware", "periféricos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-eac1-09",
+      "front": "¿Qué normas ergonómicas básicas se deben cumplir en un puesto informático?",
+      "back": "Pantalla a 50-70 cm, borde superior a altura de los ojos. Espalda recta y apoyada. Codos a ~90°, muñecas en posición neutra. Silla con apoyo lumbar ajustable. Teclado y ratón cerca del cuerpo. Rodillas a ~90°, pies apoyados en el suelo o reposapiés. Evitar fatiga cervical, sobrecarga lumbar y riesgos circulatorios.",
+      "tags": ["ergonomía", "prevención de riesgos", "PRL", "puesto de trabajo"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-eac1-10",
+      "front": "¿Cuáles son las funciones principales del kernel de un sistema operativo?",
+      "back": "El kernel es el núcleo del SO. Sus funciones principales son: gestión de procesos (multitarea), gestión de memoria (incluyendo memoria virtual), gestión del sistema de archivos, control de dispositivos mediante drivers, administración de entrada/salida, y gestión de la seguridad y acceso a recursos.",
+      "tags": ["kernel", "sistema operativo", "procesos", "memoria"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac1-11",
+      "front": "¿En qué casos elegirías instalación limpia, actualización o arranque dual (dual boot)?",
+      "back": "Instalación limpia: cuando se quiere empezar de cero, eliminar errores previos o cambiar de disco. Actualización: cuando se quiere conservar programas, configuraciones y datos. Arranque dual: cuando se necesitan dos sistemas operativos en el mismo equipo, por ejemplo Windows para software específico y Linux para desarrollo.",
+      "tags": ["instalación", "dual boot", "actualización", "sistema operativo"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-eac1-12",
+      "front": "¿Cuál es la diferencia principal entre una máquina virtual (VM) y un contenedor?",
+      "back": "Una máquina virtual emula un ordenador completo con su propio sistema operativo invitado (guest OS). Consume más recursos pero ofrece mayor aislamiento. Un contenedor comparte el kernel del sistema anfitrión y no virtualiza todo el hardware ni arranca un SO completo. Es más ligero y rápido de desplegar, aunque el aislamiento es menor.",
+      "tags": ["máquina virtual", "contenedor", "virtualización", "Docker"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac1-13",
+      "front": "¿Qué son las VirtualBox Guest Additions y para qué sirven?",
+      "back": "Son controladores y utilidades adicionales que mejoran el rendimiento y funcionalidad de una máquina virtual en VirtualBox. Permiten: redimensionar la ventana de la VM, compartir portapapeles, carpetas compartidas entre host y guest, mejorar soporte gráfico y sincronización del cursor.",
+      "tags": ["VirtualBox", "Guest Additions", "máquina virtual", "virtualización"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-eac1-14",
+      "front": "¿Cuál es la diferencia entre 'apt update' y 'apt upgrade' en Ubuntu?",
+      "back": "'apt update' actualiza la lista de repositorios y la información sobre qué versiones de paquetes están disponibles. No instala ni actualiza paquetes. 'apt upgrade' descarga e instala las actualizaciones disponibles para los paquetes ya instalados. Se deben ejecutar en ese orden: primero update, luego upgrade.",
+      "tags": ["apt", "Ubuntu", "actualizaciones", "paquetes", "Linux"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-eac1-15",
+      "front": "¿Por qué es importante actualizar continuamente el sistema operativo?",
+      "back": "Las actualizaciones mejoran la seguridad (parchean vulnerabilidades), corrigen errores de funcionamiento, aumentan la estabilidad, mejoran la compatibilidad con nuevo hardware y aplicaciones, y en ocasiones añaden nuevas funciones. Mantener el sistema actualizado reduce el riesgo de ataques y mejora el rendimiento general.",
+      "tags": ["actualizaciones", "seguridad", "sistema operativo", "mantenimiento"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-eac1-16",
+      "front": "¿Qué topología de red representa un diagrama con un switch central al que se conectan equipos y un router que interconecta segmentos adicionales?",
+      "back": "Es una topología en estrella extendida o jerárquica. El switch actúa como punto central de la red local cableada. El router conecta diferentes segmentos (LAN, inalámbrico, Internet) y enruta el tráfico entre ellos. No es una estrella simple porque hay múltiples niveles de interconexión.",
+      "tags": ["topología", "red", "switch", "router", "estrella"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac1-17",
+      "front": "Protocolo de análisis ante lentitud de un equipo tras instalar nuevas aplicaciones",
+      "back": "1) Comparar estado actual con anterior: desde cuándo empezó, qué se instaló. 2) Revisar consumo de CPU, RAM, disco y red. 3) Comprobar programas de inicio y servicios en segundo plano. 4) Revisar espacio libre, errores del sistema y actualizaciones pendientes. 5) Arrancar en modo seguro para aislar el problema. Medidas preventivas: instalar solo lo necesario, controlar arranque automático, crear puntos de restauración.",
+      "tags": ["rendimiento", "mantenimiento", "diagnóstico", "Windows"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac1-18",
+      "front": "¿Qué es la memoria virtual y para qué sirve?",
+      "back": "La memoria virtual es una técnica que permite ampliar la capacidad de memoria RAM utilizando espacio del disco duro (swap en Linux, archivo de paginación en Windows). El sistema gestiona la transferencia de datos entre RAM y disco para permitir ejecutar más aplicaciones de las que la memoria física podría soportar directamente.",
+      "tags": ["memoria virtual", "RAM", "swap", "paginación"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-eac1-19",
+      "front": "¿Qué componentes debería evaluar un técnico para asegurar el mejor rendimiento en un servidor de alta disponibilidad?",
+      "back": "Memoria (tipo, ECC, canales), CPU (núcleos, frecuencia, caché), almacenamiento (SSD NVMe, RAID), red (tarjetas de red, ancho de banda), controlador de memoria, placa base (carriles PCIe, PCH), refrigeración, fuente de alimentación y equilibrio general del sistema para evitar cuellos de botella.",
+      "tags": ["servidor", "rendimiento", "hardware", "alta disponibilidad"],
+      "difficulty": "hard"
+    }
+  ]
+}

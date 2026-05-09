@@ -1,0 +1,148 @@
+{
+  "id": "prueba-si-eac2",
+  "name": "Prueba - EAC2 Sistemas Informáticos",
+  "description": "Sistemas de archivos, particionamiento MBR/GPT, LVM, gestión de usuarios y permisos, logs, FTP, Wireshark y políticas de seguridad",
+  "subject": "Sistemas Informáticos",
+  "cards": [
+    {
+      "id": "si-eac2-01",
+      "front": "¿Cuál es la diferencia entre particiones primarias, extendidas y lógicas en MBR?",
+      "back": "En MBR se permiten máximo 4 particiones primarias. Si se necesitan más, una de las 4 se convierte en partición extendida, que actúa como contenedor de particiones lógicas. Las lógicas permiten superar el límite de 4 particiones. Solo las primarias pueden ser activables para arranque (aunque las lógicas dentro de extendida también funcionan con gestores como GRUB).",
+      "tags": ["MBR", "particiones", "primaria", "extendida", "lógica", "fdisk"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-eac2-02",
+      "front": "¿Qué ventajas ofrece GPT respecto a MBR para el particionamiento de discos?",
+      "back": "GPT no tiene el límite de 4 particiones primarias (soporta hasta 128 por defecto). Soporta discos mayores de 2 TB. Incluye redundancia con tablas de particiones primaria y de respaldo. Usa CRC32 para verificar integridad. Es el estándar para sistemas UEFI modernos. Se gestiona con gdisk o parted.",
+      "tags": ["GPT", "MBR", "particiones", "gdisk", "UEFI"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-eac2-03",
+      "front": "¿Cómo se crea una tabla MBR con 5 particiones de 2 GB usando fdisk?",
+      "back": "Se crean 3 particiones primarias (nvme1n1p1-3). Para la quinta, se crea una partición extendida (nvme1n1p4) que ocupa el espacio restante, y dentro de ella se crean 2 particiones lógicas (nvme1n1p5-6). MBR solo permite 4 primarias, por eso se usa la extendida como contenedor. Se verifica con lsblk.",
+      "tags": ["fdisk", "MBR", "particiones", "Linux", "lsblk"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-04",
+      "front": "Describe las etapas para crear un volumen lógico con LVM en Linux",
+      "back": "1) Añadir discos físicos al sistema. 2) Convertirlos en volúmenes físicos con pvcreate. 3) Crear un grupo de volúmenes con vgcreate. 4) Crear un volumen lógico dentro del grupo con lvcreate. 5) Formatear el volumen lógico con un sistema de archivos (ext4, xfs). 6) Montarlo y añadirlo a /etc/fstab para montaje automático. Se verifica con pvs, vgs, lvs.",
+      "tags": ["LVM", "volumen lógico", "pvcreate", "vgcreate", "lvcreate", "Linux"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-05",
+      "front": "¿Qué comando formatea una partición con ext4 y la monta en /mnt/ioc/ext4 con permisos de lectura y escritura?",
+      "back": "Primero formatear: sudo mkfs.ext4 /dev/sdXN. Luego crear punto de montaje: sudo mkdir -p /mnt/ioc/ext4. Montar: sudo mount /dev/sdXN /mnt/ioc/ext4. Por defecto mount monta con lectura/escritura (rw). Para montaje automático en el arranque, añadir una línea en /etc/fstab con UUID, punto de montaje, ext4 y opciones defaults.",
+      "tags": ["ext4", "montaje", "fstab", "mkfs", "Linux"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-06",
+      "front": "¿Cómo se configura una partición como área de intercambio (swap) con prioridad?",
+      "back": "1) Crear la partición swap: sudo mkswap /dev/sdXN. 2) Activarla: sudo swapon /dev/sdXN. 3) Para hacerla permanente y con prioridad, añadir en /etc/fstab: UUID=xxx none swap sw,pri=10 0 0. Un número de prioridad mayor indica mayor preferencia. Se verifica con swapon --show o free -h.",
+      "tags": ["swap", "mkswap", "swapon", "fstab", "Linux"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-07",
+      "front": "¿Dónde se encuentran los ejecutables de programas instalados en Linux y por qué?",
+      "back": "Los ejecutables de programas instalados mediante el gestor de paquetes suelen estar en /usr/bin (usuarios) o /sbin y /usr/sbin (administración). Programas locales o manuales pueden estar en /usr/local/bin o /opt. Esto sigue el estándar FHS (Filesystem Hierarchy Standard), que organiza el sistema de archivos de forma jerárquica y predecible.",
+      "tags": ["FHS", "Linux", "bin", "ejecutables", "sistema de archivos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-08",
+      "front": "¿Cuáles son los pasos para gestionar usuarios y grupos en Ubuntu?",
+      "back": "Crear grupo: sudo groupadd nombre. Crear usuario: sudo adduser --ingroup principal --groups secundario usuario. Establecer política de contraseñas: editar /etc/login.defs o usar pam. Cambiar contraseña: sudo passwd usuario. Asignar permisos a archivos: sudo chown usuario:grupo archivo y sudo chmod 700 archivo (solo propietario).",
+      "tags": ["usuarios", "grupos", "adduser", "groupadd", "chmod", "chown", "Linux"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-09",
+      "front": "¿Qué diferencia hay entre los permisos NTFS y los permisos de compartición en Windows?",
+      "back": "Los permisos NTFS se aplican localmente en el sistema de archivos y controlan el acceso a archivos y carpetas independientemente de si se accede localmente o por red. Los permisos de compartición (SMB) se aplican solo cuando se accede a través de la red. El acceso efectivo es el más restrictivo de ambos conjuntos de permisos.",
+      "tags": ["NTFS", "permisos", "SMB", "compartición", "Windows"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-10",
+      "front": "¿Qué es rsyslog y qué función cumple en un sistema Linux?",
+      "back": "rsyslog es el servicio de registro del sistema (system logging service). Recoge mensajes del kernel, servicios y aplicaciones, y los escribe en archivos de log como /var/log/syslog. Se ejecuta como demonio, recibe logs a través del socket /dev/log o el protocolo syslog, y permite configurar reglas para clasificar y almacenar mensajes en distintos destinos.",
+      "tags": ["rsyslog", "logs", "syslog", "Linux", "monitoreo"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-11",
+      "front": "¿Qué es logrotate y cómo funciona?",
+      "back": "logrotate es la herramienta que gestiona automáticamente la rotación de archivos de log en Linux. Comprime archivos antiguos, elimina los más viejos según configuración, y crea nuevos archivos de log vacíos. Su configuración principal está en /etc/logrotate.conf y las configuraciones por servicio en /etc/logrotate.d/. La periodicidad no es la misma para todos: puede ser daily, weekly, monthly o por tamaño.",
+      "tags": ["logrotate", "logs", "Linux", "mantenimiento", "syslog"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-12",
+      "front": "¿Cómo se instala y gestiona un servidor FTP (vsftpd) en Ubuntu?",
+      "back": "Instalar: sudo apt install vsftpd. Iniciar/verificar: sudo systemctl start vsftpd y sudo systemctl status vsftpd. Reiniciar: sudo systemctl restart vsftpd. Archivo de configuración principal: /etc/vsftpd.conf. Verificar puerto: netstat -tlnp | grep 21 o ss -tlnp. Conectar: ftp usuario@servidor. PID del proceso: sudo pgrep vsftpd o ps aux | grep vsftpd.",
+      "tags": ["vsftpd", "FTP", "servidor", "Ubuntu", "systemctl"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-13",
+      "front": "¿Por qué FTP es inseguro y qué alternativas existen?",
+      "back": "FTP transmite datos, incluyendo credenciales, en texto plano sin cifrar. Cualquier persona que capture el tráfico de red (por ejemplo con Wireshark) puede leer usuarios y contraseñas. Alternativas seguras: SFTP (SSH File Transfer Protocol) que usa el canal cifrado de SSH, o FTPS (FTP over SSL/TLS) que añade una capa de cifrado al protocolo FTP.",
+      "tags": ["FTP", "seguridad", "SFTP", "FTPS", "Wireshark"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-14",
+      "front": "¿Cómo se configuran políticas de seguridad locales en Windows 11?",
+      "back": "Se accede a través de 'Directiva de seguridad local' (secpol.msc). Se pueden configurar: complejidad de contraseñas (longitud mínima, requisitos), horario de inicio de sesión (logon hours), bloqueo de cuenta tras intentos fallidos (account lockout threshold). También se configuran a través del Editor de directivas de grupo (gpedit.msc) o directivas de dominio en entornos corporativos.",
+      "tags": ["Windows", "seguridad", "políticas", "secpol", "gpedit", "contraseñas"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-15",
+      "front": "¿Qué evento del Visor de eventos de Windows registra un intento de inicio de sesión fallido?",
+      "back": "El Event ID 4625 (An account failed to log on) se registra en el Visor de eventos (Event Viewer) bajo Registros de Windows > Seguridad. Muestra el nombre de usuario, hora del intento, dirección IP de origen y el motivo del fallo. Es fundamental para auditorías de seguridad y detección de intentos de acceso no autorizados.",
+      "tags": ["Event Viewer", "Windows", "seguridad", "auditoría", "login"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-16",
+      "front": "¿Qué comando muestra todos los discos y particiones en Linux con su tamaño y estructura?",
+      "back": "lsblk muestra una vista en árbol de todos los dispositivos de bloque (discos, particiones, volúmenes LVM) con su tamaño, punto de montaje y relación jerárquica. Otros comandos útiles: fdisk -l (información detallada de particiones), df -h (espacio usado en sistemas de archivos montados), blkid (UUID y tipo de sistema de archivos).",
+      "tags": ["lsblk", "Linux", "discos", "particiones", "comandos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-eac2-17",
+      "front": "¿Cómo se configura una copia de seguridad programada en Linux?",
+      "back": "Se puede usar cron o cronjob para ejecutar scripts de copia de seguridad automáticamente. Ejemplo: editar crontab con 'crontab -e' y añadir '0 2 * * * /usr/bin/rsync -av /origen /destino' para ejecutar una copia diaria a las 2:00 AM. Otras herramientas: tar para comprimir, dd para imágenes de disco, o herramientas gráficas como Déjà Dup. Es importante verificar periódicamente que las copias funcionan correctamente.",
+      "tags": ["backup", "cron", "rsync", "Linux", "copia de seguridad"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-18",
+      "front": "¿Qué es Netplan y para qué se utiliza en Ubuntu?",
+      "back": "Netplan es la herramienta de configuración de red por defecto en Ubuntu desde la versión 18.04. Utiliza archivos YAML en /etc/netplan/ para definir interfaces, IPs estáticas o DHCP, máscaras, puertas de enlace y servidores DNS. Se aplica con 'sudo netplan apply'. Simplifica la gestión de red frente a configuraciones manuales de /etc/network/interfaces.",
+      "tags": ["Netplan", "Ubuntu", "red", "configuración", "YAML"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-19",
+      "front": "¿Cómo se configura una red estática en Windows 11 desde la línea de comandos?",
+      "back": "Usando el comando netsh: netsh interface ip set address 'NombreInterfaz' static IP Mascara Gateway. Para DNS: netsh interface ip set dns 'NombreInterfaz' static DNS_IP. También se puede usar PowerShell: New-NetIPAddress -InterfaceAlias 'Ethernet' -IPAddress x.x.x.x -PrefixLength 24 -DefaultGateway x.x.x.x; Set-DnsClientServerAddress -InterfaceAlias 'Ethernet' -ServerAddresses x.x.x.x. Verificar con ipconfig /all.",
+      "tags": ["Windows", "red", "IP estática", "netsh", "PowerShell"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-20",
+      "front": "¿Cuál es la diferencia entre LISTEN y ESTABLISHED en netstat?",
+      "back": "LISTEN indica que un puerto está abierto y esperando conexiones entrantes (el servicio está activo). ESTABLISHED indica que existe una conexión activa y confirmada entre dos equipos (handshake TCP completado). Ver puertos en escucha: netstat -tlnp (TCP) o netstat -ulnp (UDP). Ver conexiones establecidas: netstat -tn.",
+      "tags": ["netstat", "red", "TCP", "puertos", "Linux"],
+      "difficulty": "easy"
+    }
+  ]
+}

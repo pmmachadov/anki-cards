@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ex5.css">
+    <title>Activitat 5: Formulari amb Express</title>
+        
+</head>
+<body>
+
+    <h2>Formulari de Contacte (Connexió Backend)</h2>
+
+    <div class="form-container">
+        <form id="contacteForm">
+            <div class="form-group">
+                <label for="nom">Nom:</label>
+                <input type="text" id="nom" name="nom" required>
+            </div>
+            <div class="form-group">
+                <label for="missatge">Missatge:</label>
+                <textarea id="missatge" name="missatge" rows="4" required></textarea>
+            </div>
+            <button type="submit">Enviar al servidor</button>
+        </form>
+
+        <div id="resposta"></div>
+    </div>
+
+    <script type="module" src="ex5-client.js"></script>
+</body>
+       

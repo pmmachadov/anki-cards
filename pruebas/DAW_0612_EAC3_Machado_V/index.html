@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Pixel Rocket Mission</title>
+	<style>
+		body {
+			background-color: #0b0d17;
+			background-image: radial-gradient(circle, #1b2735 0%, #090a0f 100%);
+			height: 100vh;
+			margin: 0;
+			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-family: 'Courier New', monospace;
+			color: #00ff00;
+		}
+
+		.pixel {
+			width: 25px;
+			height: 25px;
+			display: inline-block;
+			float: left;
+			transition: all 0.2s;
+		}
+
+		.row {
+			display: flex;
+			justify-content: center;
+			height: 25px;
+		}
+
+		/* Colors */
+		.white {
+			background-color: #f0f0f0;
+		}
+
+		.grey {
+			background-color: #95a5a6;
+		}
+
+		.red {
+			background-color: #c0392b;
+		}
+
+		.blue {
+			background-color: #2980b9;
+			cursor: pointer;
+		}
+
+		.orange {
+			background-color: #e67e22;
+		}
+
+		.yellow {
+			background-color: #f1c40f;
+		}
+
+		/* Efectes */
+		.window-hover {
+			background-color: #f1c40f !important;
+			box-shadow: inset 0 0 10px white;
+		}
+
+		.light-off {
+			background-color: #000000 !important;
+		}
+
+		.bg-stars {
+			background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+		}
+
+		#hud {
+			position: absolute;
+			top: 20px;
+			left: 20px;
+			background: rgba(0, 0, 0, 0.7);
+			padding: 15px;
+			border: 1px solid #00ff00;
+		}
+	</style>
+</head>
+
+<body id="universe">
+	<div id="hud">
+		SISTEMA DE CONTROL XL:<br>
+		[S] - Ignició Motor<br>
+		[L] - Llums de Cabina<br>
+		[N] - Mode Hiperespai
+	</div>
+
+	<div class="rocket">
+		<div class="row">
+			<div class="pixel red rocket-nose"></div>
+		</div>
+		<div class="row">
+			<div class="pixel red rocket-nose"></div>
+			<div class="pixel red rocket-nose"></div>
+		</div>
+		<div class="row">
+			<div class="pixel white"></div>
+			<div class="pixel white"></div>
+			<div class="pixel white"></div>
+		</div>
+
+		<div class="row">
+			<div class="pixel white"></div>
+			<div class="pixel blue cabin-window"></div>
+			<div class="pixel white"></div>
+		</div>
+		<div class="row">
+			<div class="pixel white"></div>
+			<div class="pixel white"></div>
+			<div class="pixel white"></div>
+		</div>
+		<div class="row">
+			<div class="pixel white"></div>
+			<div class="pixel blue cabin-window"></div>
+			<div class="pixel white"></div>
+		</div>
+		<div class="row">
+			<div class="pixel white"></div>
+			<div class="pixel white"></div>
+			<div class="pixel white"></div>
+		</div>
+		<div class="row">
+			<div class="pixel white"></div>
+			<div class="pixel blue cabin-window"></div>
+			<div class="pixel white"></div>
+		</div>
+
+		<div class="row">
+			<div class="pixel red"></div>
+			<div class="pixel grey"></div>
+			<div class="pixel grey"></div>
+			<div class="pixel grey"></div>
+			<div class="pixel red"></div>
+		</div>
+		<div id="engine-zone"></div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+	<script src="rocket.js"></script>
+</body>
+
+</html>

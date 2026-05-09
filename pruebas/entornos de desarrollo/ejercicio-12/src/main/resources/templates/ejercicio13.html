@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 13 - Codeium</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h1 { color: #333; }
+        .resultado { background: #f0f0f0; padding: 20px; margin: 20px 0; border-radius: 5px; }
+        .dato { font-size: 18px; margin: 10px 0; }
+        .valor { font-weight: bold; color: #0066cc; }
+        pre { background: #333; color: #fff; padding: 15px; border-radius: 5px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 13 - Codeium</h1>
+    <p>DNI: <span th:text="${dni}"></span></p>
+    
+    <div class="resultado">
+        <h2>Resultados de StringUtils</h2>
+        <div class="dato">
+            Cadena original: <span class="valor" th:text="${cadenaOriginal}"></span>
+        </div>
+        <div class="dato">
+            Número de vocales: <span class="valor" th:text="${numVocales}"></span>
+        </div>
+        <div class="dato">
+            Con guiones bajos: <span class="valor" th:text="${conGuiones}"></span>
+        </div>
+    </div>
+    
+    <h3>Código de la clase StringUtils:</h3>
+    <pre>
+/* Método que cuenta las vocales de una cadena */
+public static int contarVocales(String cadena) {
+    int contador = 0;
+    String vocales = "aeiouAEIOU";
+    
+    for (int i = 0; i < cadena.length(); i++) {
+        if (vocales.indexOf(cadena.charAt(i)) != -1) {
+            contador++;
+        }
+    }
+    
+    return contador;
+}
+
+/* Método que sustituye espacios por guiones bajos */
+public static String espaciosAGuiones(String cadena) {
+    return cadena.replace(" ", "_");
+}
+    </pre>
+    
+    <a href="/">Volver al ejercicio 12</a>
+</body>
+</html>

@@ -1,0 +1,169 @@
+{
+  "id": "prueba-dwec-proyecto",
+  "name": "Prueba - Proyecto Taller DWEC",
+  "description": "Fetch API, Express, CRUD, async/await, validaciones, persistencia JSON y gestión de eventos en un proyecto completo",
+  "subject": "Desarrollo Web en Entorno Cliente",
+  "cards": [
+    {
+      "id": "p1-proy-001",
+      "front": "¿Qué es la API Fetch en JavaScript y para qué sirve?",
+      "back": "Es una interfaz moderna para realizar peticiones HTTP asíncronas a servidores. Devuelve una Promise.\n\n```javascript\nconst response = await fetch('http://localhost:3000/garage');\nconst data = await response.json();\n```\n\nReemplaza al antiguo `XMLHttpRequest` y es más legible.",
+      "tags": ["fetch", "http", "api", "asincrono"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p1-proy-002",
+      "front": "¿Qué es `async/await` en JavaScript?",
+      "back": "Es azúcar sintáctico sobre las Promises que permite escribir código asíncrono de forma secuencial y legible.\n\n```javascript\nasync function loadVehicles() {\n    try {\n        const response = await fetch(API_URL);\n        const vehicles = await response.json();\n        renderList();\n    } catch (error) {\n        console.error('Error:', error);\n    }\n}\n```\n\n`await` solo puede usarse dentro de funciones declaradas con `async`.",
+      "tags": ["async", "await", "promesas", "asincrono"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p1-proy-003",
+      "front": "¿Cómo hacer una petición POST con Fetch enviando JSON?",
+      "back": "Se especifica el método POST, el header Content-Type y el body convertido a JSON:\n\n```javascript\nconst response = await fetch(API_URL, {\n    method: 'POST',\n    headers: { 'Content-Type': 'application/json' },\n    body: JSON.stringify({ plate, km })\n});\n```\n\n`JSON.stringify()` convierte un objeto JavaScript en una cadena JSON.",
+      "tags": ["fetch", "POST", "JSON", "http"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p1-proy-004",
+      "front": "¿Qué es CORS y por qué es necesario en una API?",
+      "back": "CORS (Cross-Origin Resource Sharing) es un mecanismo que permite que un servidor indique qué dominios pueden acceder a sus recursos.\n\nEn Express:\n```javascript\nconst cors = require('cors');\napp.use(cors());\n```\n\nSin CORS, el navegador bloquea peticiones desde un dominio diferente al del servidor por seguridad.",
+      "tags": ["cors", "express", "seguridad", "http"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "p1-proy-005",
+      "front": "¿Qué son los códigos de estado HTTP y qué significan 200, 201, 400, 404 y 409?",
+      "back": "- `200 OK`: petición exitosa\n- `201 Created`: recurso creado correctamente\n- `400 Bad Request`: datos de entrada inválidos\n- `404 Not Found`: recurso no encontrado\n- `409 Conflict`: conflicto (ej: matrícula duplicada)\n- `500 Internal Server Error`: error del servidor\n\nEn Express:\n```javascript\nres.status(409).json({ error: 'La matrícula ya existe.' });\n```",
+      "tags": ["http", "status-codes", "express", "api"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p1-proy-006",
+      "front": "¿Cómo leer parámetros de URL en Express (ruta dinámica)?",
+      "back": "Se define con `:` en la ruta y se accede con `req.params`:\n\n```javascript\napp.put('/garage/:id', (req, res) => {\n    const { id } = req.params;\n    // id = '3' si la URL es /garage/3\n});\n```",
+      "tags": ["express", "params", "rutas", "backend"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p1-proy-007",
+      "front": "¿Cómo leer el cuerpo de una petición POST en Express?",
+      "back": "Se usa `express.json()` como middleware para parsear JSON, y luego `req.body`:\n\n```javascript\napp.use(express.json());\n\napp.post('/garage', (req, res) => {\n    const { plate, km } = req.body;\n    // plate y km vienen del JSON enviado por el cliente\n});\n```",
+      "tags": ["express", "body", "middleware", "backend"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p1-proy-008",
+      "front": "¿Qué es un middleware en Express?",
+      "back": "Es una función que se ejecuta entre la recepción de la petición y el envío de la respuesta. Puede modificar la petición, la respuesta o terminar el ciclo.\n\nEjemplos comunes:\n```javascript\napp.use(express.json());    // parsea JSON\napp.use(cors());            // habilita CORS\n```",
+      "tags": ["express", "middleware", "backend"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p1-proy-009",
+      "front": "¿Cómo implementar un CRUD completo en una API REST con Express?",
+      "back": "CRUD = Create, Read, Update, Delete\n\n```javascript\napp.get('/garage', (req, res) => { ... });      // Read all\napp.get('/garage/:id', (req, res) => { ... });   // Read one\napp.post('/garage', (req, res) => { ... });      // Create\napp.put('/garage/:id', (req, res) => { ... });   // Update\napp.delete('/garage/:id', (req, res) => { ... });// Delete\n```",
+      "tags": ["express", "crud", "rest", "api"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p1-proy-010",
+      "front": "¿Cómo persistir datos en un archivo JSON con Node.js?",
+      "back": "Se usa el módulo `fs` para leer y escribir archivos:\n\n```javascript\nconst fs = require('fs');\n\nfunction loadDatabase() {\n    const data = fs.readFileSync(DB_PATH, 'utf-8');\n    return JSON.parse(data);\n}\n\nfunction saveDatabase(db) {\n    fs.writeFileSync(DB_PATH, JSON.stringify(db, null, 2), 'utf-8');\n}\n```\n\n`JSON.stringify(db, null, 2)` formatea con indentación de 2 espacios.",
+      "tags": ["node", "fs", "json", "persistencia"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p1-proy-011",
+      "front": "¿Qué es `navigator.onLine` en JavaScript?",
+      "back": "Es una propiedad del objeto `navigator` que indica si el navegador tiene conexión a Internet.\n\n```javascript\nfunction monitorConnection() {\n    updateConnectionStatus(navigator.onLine);\n\n    window.addEventListener('online', () => updateConnectionStatus(true));\n    window.addEventListener('offline', () => updateConnectionStatus(false));\n}\n```",
+      "tags": ["navigator", "online", "offline", "red"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p1-proy-012",
+      "front": "¿Cómo ordenar un array de objetos alfabéticamente en JavaScript?",
+      "back": "Se usa `.sort()` con una función de comparación:\n\n```javascript\nconst sorted = [...vehicles].sort((a, b) => {\n    return a.plate.localeCompare(b.plate, 'es');\n});\n```\n\n`localeCompare('es')` respeta el orden alfabético español (incluyendo ñ, tildes).\n`[...vehicles]` crea una copia para no mutar el array original.",
+      "tags": ["arrays", "sort", "localeCompare", "objetos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p1-proy-013",
+      "front": "¿Cómo formatear un número como cadena localizada en español?",
+      "back": "Se usa `.toLocaleString()` con el locale 'es-ES':\n\n```javascript\nvehicle.km.toLocaleString('es-ES')\n// 25000 → '25.000'\n```\n\nAñade separadores de miles y usa coma decimal según la configuración regional.",
+      "tags": ["formateo", "locale", "numeros"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p1-proy-014",
+      "front": "¿Qué es `confirm()` en JavaScript?",
+      "back": "Muestra un diálogo modal con OK y Cancelar. Devuelve `true` si el usuario pulsa OK, `false` si pulsa Cancelar.\n\n```javascript\nconst confirmDelete = confirm('¿Estás seguro de que quieres eliminar este vehículo?');\nif (!confirmDelete) return;\n```",
+      "tags": ["confirm", "dialogos", "interaccion-usuario"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p1-proy-015",
+      "front": "¿Cómo validar un formato de matrícula española con expresiones regulares?",
+      "back": "```javascript\nfunction isValidPlate(plate) {\n    const modern = /^\\d{4}\\s?[A-Z]{3}$/;\n    const old = /^[A-Z]{1,2}-?\\d{4,6}(-?[A-Z]{1,2})?$/;\n    return modern.test(plate) || old.test(plate);\n}\n```\n\n- Moderna: `1234 ABC` (4 dígitos, espacio opcional, 3 letras)\n- Antigua: `A-1234-BC` o `A-123456` (letras, guiones opcionales, 4-6 dígitos)",
+      "tags": ["regex", "validacion", "matricula"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "p1-proy-016",
+      "front": "¿Qué hace `response.ok` en Fetch?",
+      "back": "Es una propiedad booleana que indica si la respuesta HTTP fue exitosa (códigos 200-299).\n\n```javascript\nconst response = await fetch(API_URL);\nif (!response.ok) {\n    throw new Error('Error al cargar los vehículos');\n}\n```",
+      "tags": ["fetch", "response", "http"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p1-proy-017",
+      "front": "¿Qué es un bloque `try-catch` y para qué sirve con async/await?",
+      "back": "Captura errores que ocurren dentro del bloque `try`. Si ocurre un error, el flujo salta al `catch`.\n\n```javascript\ntry {\n    const res = await fetch('http://localhost:3000/enviar', { ... });\n    const data = await res.json();\n} catch (err) {\n    mostrarRespuesta('No se pudo conectar con el servidor.', false);\n}\n```\n\nEs obligatorio con `await` para manejar errores de red o del servidor.",
+      "tags": ["try-catch", "errores", "async", "await"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p1-proy-018",
+      "front": "¿Qué es `innerHTML` y qué precauciones debe tenerse al usarlo?",
+      "back": "Permite leer o modificar el contenido HTML de un elemento como cadena.\n\n```javascript\nlistContainer.innerHTML = '<p class=\"empty-message\">No hay vehículos.</p>';\n```\n\n**Precauciones:**\n- Puede introducir vulnerabilidades XSS si se insertan datos de usuario sin sanitizar\n- Reconstruye todo el DOM del elemento, perdiendo referencias y eventos\n- Para contenido dinámico seguro, preferir `createElement` o `textContent`",
+      "tags": ["dom", "innerHTML", "seguridad", "xss"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p1-proy-019",
+      "front": "¿Cómo crear un elemento con atributos `data-*` en JavaScript?",
+      "back": "Se usa `dataset` o `setAttribute`:\n\n```javascript\ncard.dataset.id = vehicle.id;\n// en HTML: <div data-id=\"3\">\n\n// O equivalente:\ncard.setAttribute('data-id', vehicle.id);\n```\n\nLos atributos `data-*` permiten almacenar información personalizada en elementos HTML.",
+      "tags": ["dom", "dataset", "data-attributes", "html"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p1-proy-020",
+      "front": "¿Qué es `JSON.parse()` y `JSON.stringify()`?",
+      "back": "- `JSON.parse(cadena)`: convierte una cadena JSON en un objeto JavaScript.\n- `JSON.stringify(objeto)`: convierte un objeto JavaScript en una cadena JSON.\n\n```javascript\n// Leer archivo JSON\nconst db = JSON.parse(fs.readFileSync('garage.json'));\n\n// Enviar al servidor\nbody: JSON.stringify({ plate, km })\n```",
+      "tags": ["json", "parse", "stringify", "datos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p1-proy-021",
+      "front": "¿Cómo funciona `Array.prototype.find()` en JavaScript?",
+      "back": "Devuelve el primer elemento del array que cumpla la condición, o `undefined` si ninguno la cumple.\n\n```javascript\nconst exists = db.vehicles.find((v) => v.plate === upperPlate);\n\nconst vehicle = db.vehicles.find((v) => v.id === parseInt(id, 10));\n```\n\nA diferencia de `.filter()`, `find()` solo devuelve un elemento, no un array.",
+      "tags": ["arrays", "find", "iteracion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p1-proy-022",
+      "front": "¿Qué es `Array.prototype.findIndex()` y en qué se diferencia de `find()`?",
+      "back": "Devuelve el índice (posición) del primer elemento que cumpla la condición, o `-1` si no lo encuentra.\n\n```javascript\nconst idx = db.vehicles.findIndex((v) => v.id === parseInt(id, 10));\nif (idx !== -1) {\n    db.vehicles.splice(idx, 1); // eliminar por índice\n}\n```\n\nÚtil cuando necesitas modificar o eliminar el elemento del array.",
+      "tags": ["arrays", "findIndex", "splice"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p1-proy-023",
+      "front": "¿Cómo inicializar una aplicación cuando el DOM está listo?",
+      "back": "Patrón común con `DOMContentLoaded`:\n\n```javascript\ndocument.addEventListener('DOMContentLoaded', () => {\n    loadVehicles();\n    setupEventListeners();\n    monitorConnection();\n});\n```\n\nEsta función de inicialización centraliza todo el arranque de la aplicación.",
+      "tags": ["dom", "inicializacion", "DOMContentLoaded", "patrones"],
+      "difficulty": "easy"
+    }
+  ]
+}

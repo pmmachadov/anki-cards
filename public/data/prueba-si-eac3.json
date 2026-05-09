@@ -1,0 +1,148 @@
+{
+  "id": "prueba-si-eac3",
+  "name": "Prueba - EAC3 Sistemas Informáticos",
+  "description": "Redes, TCP/IP, Active Directory, DNS, Samba, SSH, correo electrónico, Git y servicios de red",
+  "subject": "Sistemas Informáticos",
+  "cards": [
+    {
+      "id": "si-eac3-01",
+      "front": "¿Cómo se configura una IP estática en Ubuntu usando el comando ip (iproute2)?",
+      "back": "Asignar IP: sudo ip addr add 192.168.1.50/24 dev eth0. Añadir gateway: sudo ip route add default via 192.168.1.1. Configurar DNS: editar /etc/resolv.conf y añadir 'nameserver 8.8.8.8'. Verificar con ping e ip addr show. Nota: estos cambios son temporales; se pierden al reiniciar. Para permanente se usa Netplan.",
+      "tags": ["iproute2", "IP estática", "Ubuntu", "red", "ip"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac3-02",
+      "front": "¿Qué diferencia hay entre las herramientas ip (iproute2) y ifconfig (net-tools)?",
+      "back": "ifconfig es el comando tradicional del paquete net-tools, considerado obsoleto en muchas distribuciones modernas. ip (iproute2) es la herramienta moderna recomendada, con más funcionalidades, mejor soporte para redes avanzadas (VLANs, puentes, túneles) y formato de salida más estructurado. net-tools sigue disponible en los repositorios para compatibilidad con sistemas antiguos.",
+      "tags": ["iproute2", "net-tools", "ifconfig", "ip", "Linux"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-eac3-03",
+      "front": "¿Qué es Nmap y para qué se utiliza?",
+      "back": "Nmap (Network Mapper) es una herramienta de código abierto para exploración de redes y auditoría de seguridad. Permite descubrir hosts activos, identificar puertos abiertos, detectar servicios y versiones, y obtener información del sistema operativo. Se instala con 'sudo apt install nmap' y se ejecuta con 'nmap [opciones] objetivo'.",
+      "tags": ["Nmap", "seguridad", "puertos", "red", "escaneo"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-eac3-04",
+      "front": "¿Cuál es la diferencia entre un escaneo TCP SYN (-sS) y TCP Connect (-sT) en Nmap?",
+      "back": "TCP SYN (-sS) envía un paquete SYN y analiza la respuesta sin completar el handshake TCP completo. Es más rápido, sigiloso y requiere permisos de root. TCP Connect (-sT) establece una conexión TCP completa (SYN, SYN-ACK, ACK), dejando más rastro en los logs del sistema objetivo, pero funciona sin permisos de administrador.",
+      "tags": ["Nmap", "TCP SYN", "TCP Connect", "seguridad", "escaneo"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac3-05",
+      "front": "¿Por qué es peligroso exponer puertos innecesarios en un servidor?",
+      "back": "Cada puerto abierto es una posible vía de entrada para atacantes. Servicios como Telnet (23) o FTP (21) sin cifrar transmiten credenciales en texto plano. Mantener solo los puertos estrictamente necesarios (por ejemplo SSH en 22) reduce la superficie de ataque. Es recomendable usar firewall (ufw, iptables) para filtrar tráfico no deseado.",
+      "tags": ["seguridad", "puertos", "firewall", "hardening", "servidor"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac3-06",
+      "front": "¿Qué es la tabla ARP y qué diferencia hay entre ARP dinámico y estático?",
+      "back": "La tabla ARP (Address Resolution Protocol) almacena la correspondencia entre direcciones IP y direcciones MAC en una red local. ARP dinámico se aprende automáticamente mediante solicitudes broadcast y tiene un tiempo de vida limitado. ARP estático se configura manualmente y persiste de forma permanente. El ARP spoofing es un ataque que envenena la tabla ARP para redirigir tráfico.",
+      "tags": ["ARP", "MAC", "IP", "red", "seguridad", "ARP spoofing"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac3-07",
+      "front": "¿Cómo se promueve un Windows Server 2019 a controlador de dominio?",
+      "back": "1) Configurar nombre del servidor y IP estática. 2) Instalar rol AD DS (Active Directory Domain Services) desde Administrador del servidor. 3) Ejecutar el asistente de promoción y seleccionar 'Añadir un nuevo bosque'. 4) Indicar el nombre de dominio raíz (ej: eac3.usuario.home). 5) Establecer nivel funcional y contraseña del modo de restauración. 6) Finalizar y reiniciar. Tras el reinicio el servidor es DC.",
+      "tags": ["Windows Server", "Active Directory", "DC", "dominio", "DNS"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "si-eac3-08",
+      "front": "¿Qué son las zonas directa e inversa en DNS y qué registros se crean?",
+      "back": "Zona directa: resuelve nombres de dominio a direcciones IP. Contiene registros A (host a IPv4) y CNAME (alias). Zona inversa: resuelve IP a nombre de dominio. Contiene registros PTR. Ejemplo: en zona directa, 'servidor.eac3.home A 192.168.1.10'. En zona inversa, '10.1.168.192.in-addr.arpa PTR servidor.eac3.home'.",
+      "tags": ["DNS", "zona directa", "zona inversa", "A", "PTR", "CNAME"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac3-09",
+      "front": "¿Qué es un registro CNAME en DNS y para qué sirve?",
+      "back": "Un registro CNAME (Canonical Name) crea un alias o nombre alternativo para un host existente. Por ejemplo, 'www CNAME servidor' hace que 'www.dominio.com' apunte al mismo host que 'servidor.dominio.com'. Es útil para servicios web múltiples o para simplificar cambios futuros (solo hay que modificar el registro A principal).",
+      "tags": ["DNS", "CNAME", "alias", "registro", "red"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-eac3-10",
+      "front": "¿Cómo se unen una máquina Windows 11 a un dominio de Active Directory?",
+      "back": "1) Configurar IP compatible con la red del servidor y DNS apuntando al DC. 2) En Propiedades del sistema > Nombre del equipo > Cambiar, seleccionar 'Dominio' e introducir el nombre (ej: eac3.usuario.home). 3) Introducir credenciales de administrador del dominio. 4) Reiniciar. 5) Verificar en Active Directory que la máquina aparece en la unidad organizativa Computers.",
+      "tags": ["Active Directory", "dominio", "Windows 11", "DNS", "unir"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac3-11",
+      "front": "¿Qué es Samba y qué funciones puede desempeñar en Linux?",
+      "back": "Samba es una suite de software libre que implementa el protocolo SMB/CIFS, permitiendo compartir archivos e impresoras entre Linux y Windows. Puede funcionar como: servidor de archivos, servidor de impresión, controlador de dominio (Samba AD DC con compatibilidad Active Directory), y cliente SMB. Se configura principalmente en /etc/samba/smb.conf.",
+      "tags": ["Samba", "SMB", "Linux", "compartir archivos", "Active Directory"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac3-12",
+      "front": "¿Cómo se configura un recurso compartido con permisos diferenciados en Samba?",
+      "back": "En /etc/samba/smb.conf se define la sección del recurso con path, valid users, read list, write list. Ejemplo: [documents] path=/srv/documents valid users=@bibliotecari,@usuari read list=@usuari write list=@bibliotecari. Crear grupos en el sistema con groupadd, usuarios con smbpasswd -a usuario, y reiniciar smbd. Los permisos Samba deben combinarse con permisos del sistema (chmod/chown).",
+      "tags": ["Samba", "SMB", "permisos", "Linux", "compartir"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "si-eac3-13",
+      "front": "¿Qué puertos y protocolos utiliza IMAP, POP3 y SMTP?",
+      "back": "IMAP (Internet Message Access Protocol): puerto 143 (sin cifrar) o 993 (IMAPS con SSL/TLS). Permite sincronizar correos entre dispositivos. POP3 (Post Office Protocol): puerto 110 o 995 (POP3S). Descarga correos al cliente y suele eliminarlos del servidor. SMTP (Simple Mail Transfer Protocol): puerto 25 (sin autenticar), 587 (con autenticación STARTTLS) o 465 (SMTPS con SSL/TLS).",
+      "tags": ["correo", "IMAP", "POP3", "SMTP", "puertos", "protocolos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac3-14",
+      "front": "¿Cuál es la diferencia entre SSL/TLS y STARTTLS en el envío de correo?",
+      "back": "SSL/TLS establece una conexión cifrada desde el inicio (puertos dedicados como 465 o 993). STARTTLS comienza la conexión en texto plano y luego negocia el cifrado mediante el comando STARTTLS (puertos estándar como 587 o 143). STARTTLS es más flexible porque puede funcionar con servidores que no soportan cifrado, aunque la conexión inicial es vulnerable a ataques downgrade.",
+      "tags": ["SSL", "TLS", "STARTTLS", "correo", "seguridad", "SMTP"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "si-eac3-15",
+      "front": "¿Cómo se configura el acceso remoto seguro mediante SSH en Ubuntu?",
+      "back": "El servidor OpenSSH suele estar preinstalado. Verificar estado: sudo systemctl status ssh. Si no está instalado: sudo apt install openssh-server. Conectar remotamente: ssh usuario@IP. Para autenticación por clave pública: generar par con ssh-keygen, copiar al servidor con ssh-copy-id, y desactivar acceso root editando /etc/ssh/sshd_config (PermitRootLogin no). Reiniciar: sudo systemctl restart ssh.",
+      "tags": ["SSH", "OpenSSH", "acceso remoto", "clave pública", "Linux"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac3-16",
+      "front": "¿Qué es SFTP y cómo se diferencia de FTP y FTPS?",
+      "back": "SFTP (SSH File Transfer Protocol) usa el canal cifrado de SSH (puerto 22) para transferir archivos de forma segura. FTP usa puerto 21 sin cifrar. FTPS es FTP con una capa adicional de SSL/TLS (puertos 989/990 o 21 con AUTH TLS). SFTP es más seguro porque todo el tráfico viaja cifrado por SSH, mientras que FTPS solo cifra el canal de datos y control.",
+      "tags": ["SFTP", "FTP", "FTPS", "SSH", "transferencia de archivos", "seguridad"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac3-17",
+      "front": "¿Cómo se compila un programa en C y se crea una página de manual (man page)?",
+      "back": "Compilar: gcc programa.c -o programa. Ejecutar: ./ programa argumento. Crear man page: escribir en formato roff (.3 para sección 3) con secciones NAME, SYNOPSIS, DESCRIPTION, OPTIONS, FILES, AUTHOR. Visualizar: groff -man -Tascii archivo.roff. Instalar: copiar a /usr/share/man/man3/ y comprimir con gzip. Actualizar base de datos: mandb. Consultar: man 3 nombre.",
+      "tags": ["C", "gcc", "man page", "roff", "compilación", "Linux"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "si-eac3-18",
+      "front": "Describe los comandos básicos de Git para gestionar un repositorio local",
+      "back": "git init: inicializa repositorio. git config --global user.name/email: configura identidad. git add archivo: añade al staging. git commit -m 'mensaje': guarda cambios. git status: muestra estado. git log: historial de commits. git clone URL: clona repositorio remoto. git remote add origin URL: vincula remoto. git push/pull: sincroniza cambios.",
+      "tags": ["Git", "control de versiones", "repositorio", "commit", "clone"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-eac3-19",
+      "front": "¿Cómo se configura Samba como controlador de dominio (Active Directory) en Ubuntu?",
+      "back": "1) Instalar samba y dependencias (samba smbclient winbind krb5-user). 2) Configurar IP estática. 3) Provisionar dominio con samba-tool domain provision --use-rfc2307 --interactive. 4) Configurar DNS apuntando al propio servidor. 5) Iniciar servicios samba-ad-dc. 6) Verificar con samba-tool domain level show. 7) Unir clientes Windows al dominio y autenticar usuarios.",
+      "tags": ["Samba", "AD DC", "dominio", "Ubuntu", "samba-tool"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "si-eac3-20",
+      "front": "¿Qué pasos se siguen para compartir una impresora en red usando Windows Server?",
+      "back": "1) Instalar rol de Servidor de impresión desde Administrador del servidor. 2) Añadir impresora (real o virtual como Bullzip PDF Printer). 3) Compartirla mediante Propiedades > Compartir > Compartir esta impresora. 4) Configurar permisos de impresión (todos pueden imprimir, solo administradores gestionan). 5) Desde el cliente Windows 11, conectar a la impresora compartida mediante la ruta UNC del servidor.",
+      "tags": ["impresora", "Windows Server", "compartir", "red", "servidor de impresión"],
+      "difficulty": "medium"
+    }
+  ]
+}

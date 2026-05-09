@@ -1,0 +1,12 @@
+{
+  "name": "ex5-backend",
+  "version": "1.0.0",
+  "description": "Servidor Express para ejercicio 5",
+  "main": "ex5.js",
+  "scripts": {
+    "start": "node ex5.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

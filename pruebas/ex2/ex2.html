@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex2</title>
+</head>
+<body>
+    <script>
+        // Contraseña predefinida
+        const contrasenaCorrecta = "1234";
+        const maxIntentos = 3;
+        let intentos = 0;
+        let accesoConcedido = false;
+
+        // Bucle do while: se ejecuta al menos una vez
+        do {
+            // Pedir la contraseña al usuario
+            let entrada = prompt("Introduce la contraseña:");
+
+            // Validar que no haya pulsado Cancelar (null) ni dejado vacío
+            if (entrada === null || entrada.trim() === "") {
+                alert("Entrada no válida. Por favor introduce una contraseña.");
+                continue;
+            }
+
+            intentos++;
+
+            // Comprobar si la contraseña es correcta
+            if (entrada === contrasenaCorrecta) {
+                accesoConcedido = true;
+            } else {
+                // Avisar de los intentos restantes si quedan
+                if (intentos < maxIntentos) {
+                    alert(`Contraseña incorrecta. Te quedan ${maxIntentos - intentos} intento/s.`);
+                }
+            }
+
+        } while (!accesoConcedido && intentos < maxIntentos);
+
+        // Mostrar el resultado final
+        if (accesoConcedido) {
+            alert(`Bienvenido/a. Acceso concedido en ${intentos} intento/s.`);
+        } else {
+            alert("Cuenta bloqueada.");
+        }
+    </script>
+</body>
+</html>

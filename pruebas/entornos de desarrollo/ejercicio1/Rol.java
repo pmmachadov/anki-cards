@@ -1,0 +1,5 @@
+public enum Rol {
+    INVESTIGADOR_PRINCIPAL,
+    TECNICO_DE_CAMPO,
+    ANALISTA;
+}

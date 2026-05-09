@@ -24,7 +24,16 @@ function App() {
           '/data/sistemas-informaticos.json',
           '/data/sistemas-informaticos-eac3.json',
           '/data/entornos-desarrollo.json',
-          '/data/dwec-completo.json'
+          '/data/dwec-completo.json',
+          '/data/prueba-dwec-eac1.json',
+          '/data/prueba-dwec-eac3.json',
+          '/data/prueba-dwec-proyecto.json',
+          '/data/prueba-ed-eac2.json',
+          '/data/prueba-ed-eac3.json',
+          '/data/prueba-ed-proyecto.json',
+          '/data/prueba-si-eac1.json',
+          '/data/prueba-si-eac2.json',
+          '/data/prueba-si-eac3.json'
         ]
 
         const results = await Promise.allSettled(

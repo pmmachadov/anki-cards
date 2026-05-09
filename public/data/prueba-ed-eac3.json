@@ -1,0 +1,162 @@
+{
+  "id": "prueba-ed-eac3",
+  "name": "Prueba - EAC3 Entornos de Desarrollo",
+  "description": "Pruebas de software, control de versiones con Git, refactorizacion, Javadoc, JUnit5 y complejidad ciclomatica",
+  "subject": "Entornos de Desarrollo",
+  "cards": [
+    {
+      "id": "p2-eac3-001",
+      "front": "Que es una prueba de caja blanca y en que se centra?",
+      "back": "Tecnica de prueba que se centra en la **estructura interna del codigo** y sus caminos de ejecucion.\n\nCaracteristicas:\n- Requiere conocer el codigo fuente\n- Evalua cobertura de sentencias, decisiones y caminos\n- Se basa en la complejidad ciclomatica\n- Tambien llamada prueba estructural\n\nEjemplo: revisar que cada `if`, `else` y bucle se ejecute al menos una vez.",
+      "tags": ["pruebas", "caja-blanca", "testing", "estructural"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac3-002",
+      "front": "Que es una prueba de caja negra?",
+      "back": "Tecnica de prueba que se centra en las **entradas y salidas** del sistema sin conocer la implementacion interna.\n\nTecnicas principales:\n- **Clases de equivalencia**: agrupar datos de entrada que el programa debe tratar igual\n- **Analisis de valores limite**: probar los limites de los rangos de entrada\n- **Tablas de decision**: combinar condiciones y acciones\n\nNo requiere acceso al codigo fuente.",
+      "tags": ["pruebas", "caja-negra", "testing", "funcional"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac3-003",
+      "front": "Que son las pruebas de regresion?",
+      "back": "Son pruebas que se ejecutan despues de introducir cambios o mejoras en el codigo para **detectar nuevos errores** que puedan haberse introducido.\n\nObjetivo: asegurar que funcionalidades previamente correctas siguen funcionando tras modificaciones.\n\nSe suelen automatizar para poder repetirlas facilmente cada vez que se cambia el codigo.",
+      "tags": ["pruebas", "regresion", "testing", "mantenimiento"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac3-004",
+      "front": "Que es la complejidad ciclomatica de McCabe y como se calcula?",
+      "back": "Metrica que mide la complejidad logica de un programa contando el numero de caminos independientes.\n\n**Formula de McCabe:**\n`CC = numero de ramas (aristas) - numero de nodos + 2`\n\nO equivalentemente:\n`CC = numero de condiciones + 1`\n\nInterpretacion:\n- 1-10: codigo simple y de bajo riesgo\n- 11-20: codigo moderadamente complejo\n- 21-50: codigo complejo, requiere refactorizacion\n- >50: codigo muy complejo, alto riesgo de errores",
+      "tags": ["pruebas", "complejidad-ciclomatica", "mcCabe", "metricas"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-eac3-005",
+      "front": "Que son las clases de equivalencia en pruebas de software?",
+      "back": "Tecnica de caja negra que consiste en **agrupar datos de entrada** que el programa deberia tratar de la misma forma.\n\nPasos:\n1. Identificar condiciones, restricciones y rangos de entrada\n2. Definir clases de equivalencia validas e invalidas\n3. Seleccionar al menos un representante de cada clase\n4. Incluir valores limite\n\nEjemplo: para un campo 'edad' (0-150):\n- Valida: [0, 150]\n- Invalida: < 0, > 150, no numerico",
+      "tags": ["pruebas", "clases-equivalencia", "caja-negra", "diseno-pruebas"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-eac3-006",
+      "front": "Que son las pruebas de aceptacion tipo 'Beta'?",
+      "back": "Son pruebas realizadas **en torno al cliente/usuario final**, en un entorno real o similar al de produccion.\n\nCaracteristicas:\n- El cliente valida que el software cumple sus necesidades\n- Se realizan fuera del entorno del desarrollador\n- Son la ultima fase antes de la entrega definitiva\n\nA diferencia de las pruebas Alfa (realizadas internamente por el equipo de desarrollo).",
+      "tags": ["pruebas", "aceptacion", "beta", "validacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac3-007",
+      "front": "Que es la refactorizacion (refactoring) en desarrollo de software?",
+      "back": "Es el proceso de **cambiar la estructura interna del codigo sin alterar su comportamiento externo**, con el objetivo de mejorar la legibilidad, mantenibilidad y reducir la complejidad.\n\nNo anade nuevas funcionalidades ni corrige errores; solo mejora la calidad del codigo.\n\nPatrones comunes:\n- Extraer metodo\n- Extraer constante\n- Renombrar variable/metodo\n- Mover metodo/clase",
+      "tags": ["refactorizacion", "calidad-codigo", "mantenibilidad"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac3-008",
+      "front": "Que patron de refactorizacion se utiliza para convertir un fragmento de codigo en un metodo independiente?",
+      "back": "**Extraer el metodo** (Extract Method).\n\nConsiste en identificar un bloque de codigo que realiza una tarea concreta y moverlo a un nuevo metodo con un nombre descriptivo.\n\nBeneficios:\n- Reduce duplicacion de codigo\n- Mejora la legibilidad\n- Facilita las pruebas unitarias\n\nEjemplo:\n```java\n// Antes: calculo inline\nif (horesSol > 7) { produccioBase = produccioBase + 50; }\n\n// Despues: metodo extraido\nproduccioBase = aplicarBonus(produccioBase, horesSol, bonus);\n```",
+      "tags": ["refactorizacion", "extraer-metodo", "patrones"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac3-009",
+      "front": "Que son los 'numeros magicos' en programacion y como se eliminan?",
+      "back": "Son valores numericos literales que aparecen directamente en el codigo sin contexto ni explicacion.\n\nProblema: dificultan el mantenimiento (que significa el 250? el 0.05?)\n\nSolucion: extraerlos como **constantes con nombres descriptivos**.\n\nEjemplo:\n```java\n// Antes (numeros magicos)\nproduccioBase = horesSol * 250;\nrendimientoFinal = produccioBase - (produccioBase * 0.05);\n\n// Despues (constantes)\nprivate static final double POTENCIA_MONO = 250.0;\nprivate static final double PERDIDA_MONO = 0.05;\n\nproduccioBase = horesSol * POTENCIA_MONO;\nrendimientoFinal = produccioBase - (produccioBase * PERDIDA_MONO);\n```",
+      "tags": ["refactorizacion", "numeros-magicos", "constantes", "calidad-codigo"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac3-010",
+      "front": "Que es un conflicto en un sistema de control de versiones como Git?",
+      "back": "Es una situacion que se produce al intentar fusionar (merge) cambios en un archivo que ha sido modificado previamente por otro usuario en las mismas lineas.\n\nGit no puede decidir automaticamente que version conservar, por lo que marca el archivo con conflictos que deben resolverse manualmente.\n\nMarcas tipicas en el archivo:\n```\n<<<<<<< HEAD\n// codigo de tu rama\n=======\n// codigo de la otra rama\n>>>>>>> rama_nombre\n```",
+      "tags": ["git", "conflicto", "merge", "control-versiones"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac3-011",
+      "front": "Que es el 'HEAD' en Git?",
+      "back": "Es un puntero que indica la **version mas reciente (commit) de la rama actual** en la que te encuentras trabajando.\n\n- `HEAD` -> ultimo commit de la rama activa\n- `HEAD~1` -> penultimo commit\n- `HEAD~2` -> antepenultimo commit\n\nEs la referencia que Git usa por defecto para operaciones como `git show`, `git diff` o `git reset`.",
+      "tags": ["git", "head", "control-versiones", "ramas"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac3-012",
+      "front": "Para que sirve el archivo `.gitignore`?",
+      "back": "Indica a Git que archivos o directorios **no deben incluirse en el control de versiones**.\n\nEjemplos de archivos a ignorar:\n- Archivos compilados (`.class`, `target/`, `bin/`)\n- Dependencias descargadas (`node_modules/`)\n- Archivos de configuracion local\n- Archivos temporales o de sistema\n\nEjemplo de contenido:\n```\n*.class\ntarget/\nnode_modules/\n*.log\n```",
+      "tags": ["git", "gitignore", "control-versiones"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac3-013",
+      "front": "Cuales son los comandos basicos de Git para crear un repositorio y hacer el primer commit?",
+      "back": "```bash\n# Inicializar repositorio\ngit init\n\n# Anadir archivo al area de preparacion (staging)\ngit add nombre_archivo.java\n# o git add . (todos los archivos)\n\n# Ver estado de los cambios\ngit status\n\n# Confirmar cambios con mensaje descriptivo\ngit commit -m \"primera version de Apellido\"\n\n# Ver historial de commits\ngit log\n```",
+      "tags": ["git", "comandos", "init", "add", "commit", "control-versiones"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac3-014",
+      "front": "Como crear y cambiar entre ramas en Git?",
+      "back": "```bash\n# Crear una nueva rama\ngit branch nombre_rama\n\n# Cambiar a una rama existente\ngit checkout nombre_rama\n# o con la sintaxis moderna:\ngit switch nombre_rama\n\n# Crear y cambiar en un solo paso\ngit checkout -b nombre_rama\n# o:\ngit switch -c nombre_rama\n\n# Ver todas las ramas\ngit branch\n\n# Fusionar una rama a la actual\ngit merge nombre_rama\n```",
+      "tags": ["git", "branch", "checkout", "merge", "ramas"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac3-015",
+      "front": "Que es Javadoc y para que sirve?",
+      "back": "Es una herramienta de Java que genera documentacion HTML a partir de comentarios especiales en el codigo fuente.\n\nSintaxis:\n```java\n/**\n * Descripcion del metodo/clase.\n * @param nombre Descripcion del parametro\n * @return Descripcion del valor devuelto\n * @author Nombre del autor\n * @version Numero de version\n */\n```\n\nPara generar la documentacion:\n```bash\njavadoc -d docs GestorEnergia.java\n```\n\nBeneficios: documentacion siempre actualizada, navegable, estandar en proyectos Java.",
+      "tags": ["javadoc", "documentacion", "java", "comentarios"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac3-016",
+      "front": "Que es JUnit5 y cuales son sus anotaciones principales?",
+      "back": "Es un framework de pruebas unitarias para Java.\n\nAnotaciones principales de JUnit 5 (Jupiter):\n- `@Test`: marca un metodo como caso de prueba\n- `@BeforeEach`: se ejecuta antes de cada test\n- `@AfterEach`: se ejecuta despues de cada test\n- `@BeforeAll`: se ejecuta una vez antes de todos los tests (metodo estatico)\n- `@AfterAll`: se ejecuta una vez despues de todos los tests (metodo estatico)\n- `@Disabled`: desactiva un test temporalmente\n\nMetodos de asercion (`org.junit.jupiter.api.Assertions`):\n- `assertEquals(esperado, actual)`\n- `assertTrue(condicion)`\n- `assertThrows(TipoExcepcion.class, () -> codigo)`",
+      "tags": ["junit", "testing", "pruebas-unitarias", "java"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-eac3-017",
+      "front": "Como se disenan casos de prueba con clases de equivalencia y valores limite?",
+      "back": "Pasos:\n1. **Identificar condiciones de entrada** (rangos, tipos, restricciones)\n2. **Definir clases de equivalencia** validas e invalidas\n3. **Seleccionar valores limite** de cada clase\n4. **Disenar casos de prueba** que cubran cada clase y los limites\n\nEjemplo para `alertaBateria(int porcentaje)` (rango 0-100):\n\n| Clase | Valor de prueba | Resultado esperado |\n|-------|-----------------|-------------------|\n| Invalida (menor) | -5 | Excepcion |\n| Limite inferior | 0 | Aterrizaje emergencia |\n| Intermedio bajo | 8 | Aterrizaje emergencia |\n| Intermedio | 20 | Retorno obligatorio |\n| Intermedio | 40 | Modo ahorro energia |\n| Intermedio | 70 | Operacion normal |\n| Intermedio alto | 95 | Bateria optima |\n| Limite superior | 100 | Bateria optima |\n| Invalida (mayor) | 105 | Excepcion |",
+      "tags": ["pruebas", "clases-equivalencia", "valores-limite", "diseno-pruebas"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "p2-eac3-018",
+      "front": "Que es un diagrama de flujo y para que sirve en el diseno de pruebas?",
+      "back": "Es una representacion grafica de un algoritmo que muestra los pasos, decisiones y flujos de ejecucion.\n\nSimbolos principales:\n- **Ovalo**: inicio/fin\n- **Rectangulo**: proceso/accion\n- **Rombo**: decision (si/no)\n- **Flechas**: flujo de ejecucion\n\nEn pruebas sirve para:\n1. Visualizar todos los caminos posibles\n2. Calcular la complejidad ciclomatica\n3. Identificar caminos independientes a probar\n4. Asegurar cobertura de decisiones",
+      "tags": ["pruebas", "diagrama-flujo", "algoritmos", "cobertura"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-eac3-019",
+      "front": "Como calcular la complejidad ciclomatica a partir de un diagrama de flujo?",
+      "back": "Metodo visual:\n1. Contar el **numero de regiones** cerradas del diagrama (incluyendo la region exterior)\n2. Ese numero es la complejidad ciclomatica\n\nO con la formula:\n`CC = numero de nodos de decision + 1`\n\nEjemplo: metodo `alertaBateria` tiene 4 condiciones (if/else if):\n- `porcentaje < 0 || porcentaje > 100`\n- `porcentaje <= 10`\n- `porcentaje <= 25`\n- `porcentaje <= 50`\n- `porcentaje <= 85`\n\nCC = 5 condiciones + 1 = **6 caminos independientes**",
+      "tags": ["pruebas", "complejidad-ciclomatica", "diagrama-flujo", "caminos"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "p2-eac3-020",
+      "front": "Que es una excepcion personalizada en Java y como se define?",
+      "back": "Es una clase que extiende `Exception` (o `RuntimeException`) para representar errores especificos del dominio de la aplicacion.\n\nEjemplo:\n```java\n@SuppressWarnings(\"serial\")\npublic class BateriaIncorrectaException extends Exception {\n    public BateriaIncorrectaException(String mensaje) {\n        super(mensaje);\n    }\n}\n```\n\nUso:\n```java\npublic String alertaBateria(int porcentaje) throws BateriaIncorrectaException {\n    if (porcentaje < 0 || porcentaje > 100) {\n        throw new BateriaIncorrectaException(\"Valor no valido: \" + porcentaje);\n    }\n    // ...\n}\n```\n\n`@SuppressWarnings(\"serial\")` evita la advertencia del compilador sobre el `serialVersionUID`.",
+      "tags": ["java", "excepciones", "custom-exception", "error-handling"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-eac3-021",
+      "front": "Como probar que un metodo lanza una excepcion con JUnit5?",
+      "back": "Se usa `assertThrows` para verificar que se lanza la excepcion esperada.\n\nEjemplo:\n```java\nimport static org.junit.jupiter.api.Assertions.*;\nimport org.junit.jupiter.api.Test;\n\n@Test\nvoid testBateriaNegativa() {\n    BateriaIncorrectaException excepcion = assertThrows(\n        BateriaIncorrectaException.class,\n        () -> ControlVol.alertaBateria(-5)\n    );\n    assertEquals(\"Valor de bateria -5 no valido.\", excepcion.getMessage());\n}\n```\n\n`assertThrows` devuelve la excepcion capturada para poder verificar su mensaje.",
+      "tags": ["junit", "testing", "excepciones", "assertThrows"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-eac3-022",
+      "front": "Que es la cobertura del flujo de control en pruebas de software?",
+      "back": "Es una metrica que mide que porcentaje del codigo ha sido ejecutado durante las pruebas.\n\nTipos de cobertura:\n- **Cobertura de sentencias**: cada linea de codigo se ejecuta al menos una vez\n- **Cobertura de decisiones (branches)**: cada resultado de una decision (true/false) se evalua\n- **Cobertura de caminos**: todos los caminos independientes se recorren\n\nObjetivo: asegurar que los casos de prueba recorren todos los caminos identificados por la complejidad ciclomatica.",
+      "tags": ["pruebas", "cobertura", "flujo-control", "metricas"],
+      "difficulty": "medium"
+    }
+  ]
+}
