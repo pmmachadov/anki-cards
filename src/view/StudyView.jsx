@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { DIFFICULTY } from '../model/Deck'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { shadesOfPurple } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import './StudyView.css'
 
 export function StudyView({ deck, onBack, onUpdateDeck }) {
@@ -34,91 +34,149 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
   const currentCard = cards[currentCardIndex]
   const progress = cards.length > 0 ? ((currentCardIndex) / cards.length) * 100 : 0
 
+  // Normaliza texto escapado (\n literal → salto real, nn/n → saltos, etc.)
+  const normalizeText = (text) => {
+    if (!text) return ''
+    let result = text
+      // Escapes estándar primero
+      .replace(/\\n/g, '\n')
+      .replace(/\\t/g, '\t')
+
+    // Procesar bloques de código markdown con reglas más amplias
+    result = result.replace(/(```\w*\n)([\s\S]*?)(\n```)/g, (match, opener, code, closer) => {
+      const normalizedCode = code
+        .replace(/nn(?=\s{2,}|[A-Z`])/g, '\n\n')
+        .replace(/n(?=if |else|for |while |do |return |const |let |var |function |class |console\.|alert\(|prompt\(|catch |try |switch )/g, '\n')
+        .replace(/([,;:."`\[{}()0-9])n(?=\s{2,})/g, '$1\n')
+        .replace(/n(?=[}\]\)])/g, '\n')
+      return opener + normalizedCode + closer
+    })
+
+    // Fuera de bloques: solo reemplazar separadores obvios
+    result = result
+      .replace(/nn(?=```|[A-Z])/g, '\n\n')
+      .replace(/n(?=```)/g, '\n')
+
+    return result
+  }
+
+  // Extrae un ejemplo de código del back para mostrar como pista en el front
+  const extractCodeHint = (backText) => {
+    if (!backText) return null
+    const normalized = normalizeText(backText)
+    // Buscar primer bloque de código
+    const blockMatch = normalized.match(/```(\w*)\n([\s\S]*?)```/)
+    if (blockMatch) {
+      const lang = blockMatch[1] || 'javascript'
+      const lines = blockMatch[2].split('\n').filter(l => l.trim().length > 0)
+      if (lines.length > 0) {
+        // Tomar hasta 3 líneas para el ejemplo
+        const hintLines = lines.slice(0, 3)
+        return { code: hintLines.join('\n'), lang }
+      }
+    }
+    // Si no hay bloque, buscar código inline
+    const inlineMatch = normalized.match(/`([^`]{5,50})`/)
+    if (inlineMatch) {
+      return { code: inlineMatch[1], lang: 'javascript' }
+    }
+    return null
+  }
+
+  // Renderiza código inline con estilo VSCode
+  const renderInlineCode = (code, key) => (
+    <code key={key} className="inline-code">
+      {code}
+    </code>
+  )
+
   // Función para procesar texto y resaltar código
   const renderCardContent = (text) => {
     if (!text) return null
-    
-    const lines = text.split('\n')
+
+    const normalized = normalizeText(text)
+    const lines = normalized.split('\n')
     const elements = []
     let currentText = []
     let codeBlock = null
     let codeLines = []
-    
-    lines.forEach((line, index) => {
-      const codeBlockStart = line.match(/^```(\w+)?$/)
-      const codeBlockEnd = line === '```'
-      
-      if (codeBlockStart && !codeBlock) {
-        // Inicia bloque de código
-        if (currentText.length > 0) {
-          elements.push(
-            <p key={`text-${index}`} className="card-text-paragraph">
-              {currentText.join('\n')}
-            </p>
-          )
-          currentText = []
+
+    // Procesa acumulador de texto normal
+    const flushText = (keySuffix) => {
+      if (currentText.length === 0) return
+      const paragraph = currentText.join('\n')
+      currentText = []
+
+      // Divide el párrafo en partes para detectar código inline `...`
+      const parts = paragraph.split(/`([^`]+)`/g)
+      const mixed = []
+      parts.forEach((part, idx) => {
+        if (idx % 2 === 1) {
+          mixed.push(renderInlineCode(part, `inline-${keySuffix}-${idx}`))
+        } else if (part) {
+          mixed.push(part)
         }
-        codeBlock = codeBlockStart[1] || 'text'
-      } else if (codeBlockEnd && codeBlock) {
-        // Termina bloque de código
-        elements.push(
-          <div key={`code-${index}`} className="code-block-wrapper">
-            <SyntaxHighlighter
-              language={codeBlock}
-              style={dracula}
-              customStyle={{
-                margin: '0',
-                borderRadius: '0',
-                fontSize: '1rem',
-                lineHeight: '1.6',
-                background: '#000000'
-              }}
-            >
-              {codeLines.join('\n')}
-            </SyntaxHighlighter>
-          </div>
-        )
-        codeBlock = null
-        codeLines = []
-      } else if (codeBlock) {
-        // Dentro del bloque de código
-        codeLines.push(line)
-      } else {
-        // Texto normal
-        currentText.push(line)
-      }
-    })
-    
-    // Agregar texto restante
-    if (currentText.length > 0) {
+      })
+
       elements.push(
-        <p key="text-final" className="card-text-paragraph">
-          {currentText.join('\n')}
+        <p key={`text-${keySuffix}`} className="card-text-paragraph">
+          {mixed}
         </p>
       )
     }
-    
-    // Agregar código restante (si no se cerró)
-    if (codeLines.length > 0) {
+
+    // Procesa acumulador de bloque de código
+    const flushCode = (keySuffix) => {
+      if (codeLines.length === 0) return
+      const code = codeLines.join('\n')
+      const lang = codeBlock || 'text'
+      codeLines = []
+      codeBlock = null
+
       elements.push(
-        <div key="code-final" className="code-block-wrapper">
+        <div key={`code-${keySuffix}`} className="code-block-wrapper">
+          <div className="code-block-header">
+            <span className="code-lang-label">{lang}</span>
+          </div>
           <SyntaxHighlighter
-            language={codeBlock || 'text'}
-            style={dracula}
+            language={lang}
+            style={shadesOfPurple}
             customStyle={{
               margin: '0',
-              borderRadius: '0',
-              fontSize: '1rem',
+              borderRadius: '0 0 8px 8px',
+              fontSize: '1.1rem',
               lineHeight: '1.6',
-              background: '#000000'
+              background: '#1e1e1e',
+              padding: '16px 20px'
             }}
+            wrapLongLines={false}
           >
-            {codeLines.join('\n')}
+            {code}
           </SyntaxHighlighter>
         </div>
       )
     }
-    
+
+    lines.forEach((line, index) => {
+      const trimmed = line.trim()
+      const codeBlockStart = line.match(/^```(\w+)?$/)
+      const codeBlockEnd = trimmed === '```'
+
+      if (codeBlockStart && !codeBlock) {
+        flushText(index)
+        codeBlock = codeBlockStart[1] || 'text'
+      } else if (codeBlockEnd && codeBlock) {
+        flushCode(index)
+      } else if (codeBlock) {
+        codeLines.push(line)
+      } else {
+        currentText.push(line)
+      }
+    })
+
+    flushText('final')
+    flushCode('final')
+
     return elements
   }
 
@@ -284,28 +342,31 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
         <div></div>
       </div>
 
-      <div className="progress-bar-container">
-        <div className="progress-bar-study">
-          <div className="progress-fill" style={{ width: `${progress}%` }} />
-        </div>
-      </div>
-
-      {/* Card Navigator Slider */}
+      {/* Card Navigator Slider Mágico */}
       <div className="card-slider-container">
         <span className="card-slider-label">{currentCardIndex + 1}</span>
-        <input
-          type="range"
-          min={1}
-          max={cards.length}
-          value={currentCardIndex + 1}
-          onChange={(e) => {
-            const newIndex = parseInt(e.target.value) - 1
-            setCurrentCardIndex(newIndex)
-            setIsFlipped(false)
-            setFlipRotation(0)
-          }}
-          className="card-slider"
-        />
+        <div className="card-slider-track-wrapper">
+          <div className="slider-track">
+            <div
+              className="slider-fill"
+              style={{ width: `${(currentCardIndex / (cards.length - 1)) * 100}%` }}
+            />
+            <div className="slider-glow" />
+          </div>
+          <input
+            type="range"
+            min={1}
+            max={cards.length}
+            value={currentCardIndex + 1}
+            onChange={(e) => {
+              const newIndex = parseInt(e.target.value) - 1
+              setCurrentCardIndex(newIndex)
+              setIsFlipped(false)
+              setFlipRotation(0)
+            }}
+            className="card-slider"
+          />
+        </div>
         <span className="card-slider-label">{cards.length}</span>
       </div>
 
@@ -327,7 +388,33 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
           <div className="flashcard-inner">
             <div className="flashcard-front">
               <div className="card-content">
-                <p className="card-text">{currentCard.front}</p>
+                {renderCardContent(currentCard.front)}
+                {(() => {
+                  const hint = extractCodeHint(currentCard.back)
+                  if (!hint) return null
+                  return (
+                    <div className="card-code-hint">
+                      <span className="hint-label">Ejemplo relacionado</span>
+                      <div className="hint-code-block">
+                        <SyntaxHighlighter
+                          language={hint.lang}
+                          style={shadesOfPurple}
+                          customStyle={{
+                            margin: '0',
+                            borderRadius: '6px',
+                            fontSize: '0.85rem',
+                            lineHeight: '1.5',
+                            background: '#0d0d0d',
+                            padding: '10px 14px'
+                          }}
+                          wrapLongLines={true}
+                        >
+                          {hint.code}
+                        </SyntaxHighlighter>
+                      </div>
+                    </div>
+                  )
+                })()}
               </div>
             </div>
             <div className="flashcard-back">
