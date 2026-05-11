@@ -1,0 +1,32 @@
+{
+  "id": "practicas-ed",
+  "name": "Prácticas ED",
+  "description": "24 ejercicios prácticos de Entornos de Desarrollo extraídos de EACs y proyectos.",
+  "subject": "Practicas",
+  "cards": [
+    {"front": "Dado un enunciado (ej. sistema de biblioteca), identificar clases, atributos, métodos y visibilidad (+, -, #) en un diagrama de clases.", "back": "Conceptos: clases, atributos, métodos, visibilidad UML.", "tags": ["ed","u1","uml","diagramas"]},
+    {"front": "Establecer relaciones de asociación, herencia, composición, agregación y dependencia entre las clases del sistema.", "back": "Conceptos: símbolos UML, multiplicidad (1, 0..1, *, 1..*).", "tags": ["ed","u1","uml","relaciones"]},
+    {"front": "Crear clase base y clase hija en Java con extends, usar super() en el constructor y añadir atributos específicos en la hija.", "back": "Conceptos: herencia, super(), extends.", "tags": ["ed","u1","java","herencia"]},
+    {"front": "Definir un enum para especialidades, estados o roles. Usarlo como tipo de atributo en una clase Java.", "back": "Conceptos: enum en Java.", "tags": ["ed","u1","java","enum"]},
+    {"front": "Crear clase con atributos private, getters/setters public y constructor parametrizado en Java.", "back": "Conceptos: encapsulamiento, POO básica en Java.", "tags": ["ed","u1","java","poo"]},
+    {"front": "Identificar actores y casos de uso en un diagrama. Indicar relaciones <<include>> y <<extend>>.", "back": "Conceptos: actores, óvalos, relaciones UML.", "tags": ["ed","u1","uml","casos-uso"]},
+    {"front": "Representar la interacción entre objetos con líneas de vida, mensajes numerados, activaciones y retornos.", "back": "Conceptos: diagrama de secuencia, secuencia temporal.", "tags": ["ed","u1","uml","secuencia"]},
+    {"front": "Crear diagrama de comunicación: versión alternativa del de secuencia enfocada en relaciones estructurales entre objetos.", "back": "Conceptos: énfasis en enlaces, diagrama de comunicación.", "tags": ["ed","u1","uml","comunicacion"]},
+    {"front": "Modelar el flujo de un proceso con nodos inicial/final, actividades, decisiones (rombos) y bifurcaciones paralelas (fork/join).", "back": "Conceptos: diagrama de actividades, guardas [condición].", "tags": ["ed","u1","uml","actividades"]},
+    {"front": "Modelar los estados de un objeto (ej. pedido: pendiente → enviado → entregado) con transiciones etiquetadas.", "back": "Conceptos: diagrama de estados, estados, transiciones, eventos.", "tags": ["ed","u1","uml","estados"]},
+    {"front": "Dado un código con condiciones, calcular la complejidad ciclomática usando CC = condiciones + 1 o CC = aristas - nodos + 2.", "back": "Conceptos: McCabe, caminos de ejecución, complejidad ciclomática.", "tags": ["ed","u2","testing","metricas"]},
+    {"front": "Definir clases válidas/inválidas para un campo de entrada y seleccionar representantes (mínimo, máximo, justo fuera).", "back": "Conceptos: testing de caja negra, clases de equivalencia, valores límite.", "tags": ["ed","u2","testing","caja-negra"]},
+    {"front": "Simular el flujo completo de Git: init → add → commit → branch → checkout → merge. Resolver un conflicto de merge.", "back": "Conceptos: Git básico e intermedio, resolución de conflictos.", "tags": ["ed","u2","git","control-versiones"]},
+    {"front": "Dado un código con números mágicos y métodos largos, extraer constantes y métodos sin cambiar el comportamiento externo.", "back": "Conceptos: refactorización, extraer método/constante, renombrar.", "tags": ["ed","u2","refactorizacion","clean-code"]},
+    {"front": "Escribir comentarios Javadoc para una clase y sus métodos (@param, @return, @author, @version). Generar documentación.", "back": "Conceptos: Javadoc, documentación técnica.", "tags": ["ed","u2","documentacion","javadoc"]},
+    {"front": "Escribir pruebas para una clase Java usando @Test, @BeforeEach, assertEquals, assertTrue, assertThrows.", "back": "Conceptos: JUnit 5, testing de caja blanca.", "tags": ["ed","u2","testing","junit"]},
+    {"front": "Diferenciar entre pruebas de caja blanca, caja negra, regresión y aceptación (beta). Justificar cuándo usar cada una.", "back": "Conceptos: tipología de pruebas, caja blanca, caja negra, regresión.", "tags": ["ed","u2","testing","tipos"]},
+    {"front": "Crear @Controller que reciba una petición GET, añada atributos al Model y devuelva una vista Thymeleaf.", "back": "Conceptos: Spring Boot, @Controller, @GetMapping, Thymeleaf.", "tags": ["ed","u3","spring","mvc"]},
+    {"front": "Crear @RestController con endpoints GET/POST/PUT/DELETE que devuelvan JSON.", "back": "Conceptos: Spring Boot, @RestController, @RequestParam.", "tags": ["ed","u3","spring","rest"]},
+    {"front": "Plantilla HTML con th:text=\"${atributo}\" para mostrar datos pasados desde el controlador.", "back": "Conceptos: Thymeleaf, motor de plantillas.", "tags": ["ed","u3","thymeleaf","templates"]},
+    {"front": "Configurar groupId, artifactId, version y dependencias en el pom.xml. Compilar y empaquetar.", "back": "Conceptos: Maven, pom.xml, gestión de dependencias.", "tags": ["ed","u3","maven","dependencias"]},
+    {"front": "Crear ventana JFrame con JPanel, JLabel, JTextField, JComboBox y JButton. Usar setLayout(null) y setBounds().", "back": "Conceptos: Swing, componentes gráficos, layout nulo.", "tags": ["ed","u3","java","swing"]},
+    {"front": "Añadir ActionListener a un botón usando clase anónima o lambda (e -> metodo()).", "back": "Conceptos: Swing, eventos, ActionListener, lambdas.", "tags": ["ed","u3","java","swing"]},
+    {"front": "Leer un valor de un JTextField, convertirlo a int o double, manejar excepciones de parsing.", "back": "Conceptos: parsing, Integer.parseInt, Double.parseDouble, excepciones.", "tags": ["ed","u3","java","swing"]}
+  ]
+}

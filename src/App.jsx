@@ -40,7 +40,10 @@ function App() {
           '/data/prueba-ed-proyecto.json',
           '/data/prueba-si-eac1.json',
           '/data/prueba-si-eac2.json',
-          '/data/prueba-si-eac3.json'
+          '/data/prueba-si-eac3.json',
+          '/data/practicas-dwec.json',
+          '/data/practicas-ed.json',
+          '/data/practicas-si.json'
         ]
 
         const results = await Promise.allSettled(

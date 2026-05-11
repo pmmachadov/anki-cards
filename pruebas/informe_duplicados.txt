@@ -1,0 +1,39 @@
+======================================================================
+INFORME DE VERIFICACION DE CONTENIDO REPETIDO ENTRE MATERIAS
+======================================================================
+
+--- ARCHIVOS PROCESADOS ---
+  [SI (Sistemes Informatics)] si_da2_0483_eac1_pablo_m.txt -> 156 bloques significativos
+  [SI (Sistemes Informatics)] si_da2_0483_eac2_machado_v.txt -> 55 bloques significativos
+  [SI (Sistemes Informatics)] si_da2_0483_eac3_machado_v.txt -> 76 bloques significativos
+  [DWEC (Desenvolupament Web Client)] guia-dwec.md -> 18 bloques significativos
+  [DWEC (Desenvolupament Web Client)] eac1_texto.txt -> 0 bloques significativos
+  [DWEC (Desenvolupament Web Client)] ex1.html -> 1 bloques significativos
+  [DWEC (Desenvolupament Web Client)] ex2.html -> 1 bloques significativos
+  [DWEC (Desenvolupament Web Client)] ex3.html -> 2 bloques significativos
+  [DWEC (Desenvolupament Web Client)] ex4.html -> 13 bloques significativos
+  [DWEC (Desenvolupament Web Client)] ex5.html -> 1 bloques significativos
+  [DWEC (Desenvolupament Web Client)] server.js -> 0 bloques significativos
+  [ED (Entorns de Desenvolupament)] guia-ed.md -> 24 bloques significativos
+  [ED (Entorns de Desenvolupament)] HELP.md -> 13 bloques significativos
+  [LISTA_EJERCICIOS] lista-ejercicios-practicos.md -> 116 bloques significativos
+
+======================================================================
+RESULTADO: CONTENIDO REPETIDO ENTRE MATERIAS DIFERENTES
+======================================================================
+
+✅ NO SE ENCONTRARON PREGUNTAS, EJERCICIOS O CONTENIDO REPETIDO
+   ENTRE LAS DIFERENTES MATERIAS (SI, DWEC, ED).
+
+======================================================================
+RESULTADO: CONTENIDO REPETIDO DENTRO DE LA MISMA MATERIA
+======================================================================
+
+✅ NO SE ENCONTRARON PREGUNTAS, EJERCICIOS O CONTENIDO REPETIDO
+   DENTRO DE LA MISMA MATERIA.
+
+======================================================================
+RESUMEN:
+  Coincidencias ENTRE materias: 0
+  Coincidencias DENTRO de materias: 0
+======================================================================

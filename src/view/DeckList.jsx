@@ -132,6 +132,7 @@ const SubjectIcons = {
   'Programacion': '⚡',
   'Lenguajes de Marcas': '🏷️',
   'Desarrollo Web en Entorno Cliente': '🌐',
+  'Practicas': '📝',
   'default': '📚'
 }
 
@@ -143,6 +144,7 @@ const SubjectColors = {
   'Bases de Datos': { accent: '#EA4335', bg: 'rgba(234, 67, 53, 0.08)', badge: '#EA4335' },
   'Programacion': { accent: '#1A73E8', bg: 'rgba(26, 115, 232, 0.08)', badge: '#1A73E8' },
   'Lenguajes de Marcas': { accent: '#FF6D01', bg: 'rgba(255, 109, 1, 0.08)', badge: '#FF6D01' },
+  'Practicas': { accent: '#34A853', bg: 'rgba(52, 168, 83, 0.08)', badge: '#34A853' },
   'default': { accent: '#9AA0A6', bg: 'rgba(154, 160, 166, 0.08)', badge: '#9AA0A6' }
 }
 
@@ -176,6 +178,7 @@ export function DeckList({
   const [showExtras, setShowExtras] = useState(false)
   const [showPruebas, setShowPruebas] = useState(false)
   const [showMaterias, setShowMaterias] = useState(false)
+  const [showPracticas, setShowPracticas] = useState(false)
 
   const handleCreate = (e) => {
     e.preventDefault()
@@ -258,8 +261,9 @@ export function DeckList({
     return acc
   }, {})
   
+  const practicaDecks = filteredDecks.filter(d => d.subject === 'Practicas')
   const mainDecks = filteredDecks.filter(d => MAIN_SUBJECTS.includes(d.subject) && !pruebaDecks.includes(d))
-  const extraDecks = filteredDecks.filter(d => !MAIN_SUBJECTS.includes(d.subject) && !pruebaDecks.includes(d))
+  const extraDecks = filteredDecks.filter(d => !MAIN_SUBJECTS.includes(d.subject) && !pruebaDecks.includes(d) && !practicaDecks.includes(d))
 
   const mainGroups = mainDecks.reduce((acc, deck) => {
     const subject = deck.subject || 'Sin materia'
@@ -490,6 +494,30 @@ export function DeckList({
                   </div>
                 )
               })}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Practicas Collapsible Folder */}
+      {practicaDecks.length > 0 && (
+        <div className="practicas-section">
+          <button 
+            className="practicas-toggle"
+            onClick={() => setShowPracticas(!showPracticas)}
+            aria-expanded={showPracticas}
+          >
+            <span className="practicas-icon">📝</span>
+            <span className="practicas-label">Prácticas</span>
+            <span className="practicas-count">{practicaDecks.length} mazo{practicaDecks.length !== 1 ? 's' : ''}</span>
+            <span className={`practicas-chevron ${showPracticas ? 'open' : ''}`}>
+              {showPracticas ? Icons.chevronUp : Icons.chevronDown}
+            </span>
+          </button>
+          
+          {showPracticas && (
+            <div className="decks-grid practicas-grid animate-fade-in">
+              {practicaDecks.map(d => renderDeckCard(d, false, 'theme-practica'))}
             </div>
           )}
         </div>

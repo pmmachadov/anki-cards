@@ -1,0 +1,33 @@
+{
+  "id": "practicas-dwec",
+  "name": "Prácticas DWEC",
+  "description": "25 ejercicios prácticos de Desarrollo Web en Entorno Cliente extraídos de EACs y proyectos.",
+  "subject": "Practicas",
+  "cards": [
+    {"front": "Crear un campo de texto que muestre un contador de caracteres en tiempo real y un botón para limpiar el campo.", "back": "Conceptos: input, textContent, eventos, DOM básico.", "tags": ["dwec","u1","dom","eventos"]},
+    {"front": "Pedir contraseña mediante prompt, validar contra una predefinida con máximo 3 intentos usando do-while. Mostrar mensajes de éxito o bloqueo.", "back": "Conceptos: do-while, prompt, alert, continue, lógica condicional.", "tags": ["dwec","u1","bucles","condicionales"]},
+    {"front": "Calculadora con dos inputs numéricos y un select para elegir operación (suma, resta, multiplicación, división). Manejar división por cero.", "back": "Conceptos: parseFloat, switch / if-else, eventos, DOM.", "tags": ["dwec","u1","calculadora","dom"]},
+    {"front": "Catálogo de películas con arrays de objetos {titulo, director, anio, vista}. Funciones para mostrar catálogo, filtrar por año y contar vistas.", "back": "Conceptos: arrays de objetos, forEach, filter, arrow functions.", "tags": ["dwec","u1","arrays","objetos"]},
+    {"front": "Clase Producto con propiedad privada #stock, constructor, getter info y método actualizarStock(). Instanciar y probar.", "back": "Conceptos: clases ES2022, propiedades privadas, getters, métodos.", "tags": ["dwec","u1","clases","poo"]},
+    {"front": "Separar funciones de utilidad en archivo utils.js, exportarlas e importarlas en main.js con type=module.", "back": "Conceptos: export / import, módulos ES6.", "tags": ["dwec","u1","modulos","es6"]},
+    {"front": "Formulario que valide DNI, código postal, teléfono y email usando expresiones regulares. Mostrar mensajes de error específicos.", "back": "Conceptos: regex (\\d{8}[A-Z], etc.), validación de formularios.", "tags": ["dwec","u1","regex","validacion"]},
+    {"front": "Ordenar un array de objetos por múltiples criterios (por ejemplo, año descendente y título ascendente).", "back": "Conceptos: sort() con función de comparación, spread [...array].", "tags": ["dwec","u1","arrays","sort"]},
+    {"front": "Conversor de formatos de fecha: recibir fecha en string, convertir a objeto Date y mostrar en DD/MM/YYYY y texto largo.", "back": "Conceptos: Date, getFullYear, getMonth, getDate.", "tags": ["dwec","u1","fecha","date"]},
+    {"front": "Juego de adivinanza: generar número aleatorio, pedir al usuario que adivine, indicar si es mayor o menor, contar intentos.", "back": "Conceptos: Math.random, while, lógica de control.", "tags": ["dwec","u1","math","bucles"]},
+    {"front": "Botones que al hacer clic añadan, quiten o alternen clases CSS de un elemento para cambiar su apariencia.", "back": "Conceptos: classList.add/remove/toggle/contains.", "tags": ["dwec","u2","dom","css"]},
+    {"front": "Lista dinámica de tareas: input + botón para añadir elementos a un ul, con botón de eliminar cada ítem. Vaciar lista completa.", "back": "Conceptos: createElement, appendChild, innerHTML, eventos delegados.", "tags": ["dwec","u2","dom","lista"]},
+    {"front": "Teclado virtual: detectar teclas presionadas con keydown y mostrar en pantalla la tecla pulsada, diferenciando caracteres y modificadores.", "back": "Conceptos: keydown, event.key, event.preventDefault.", "tags": ["dwec","u2","eventos","teclado"]},
+    {"front": "Galería de imágenes interactiva: miniaturas que al pasar el ratón (mouseenter) cambian la imagen principal.", "back": "Conceptos: mouseenter / mouseleave, event.target.", "tags": ["dwec","u2","eventos","galeria"]},
+    {"front": "Formulario con validación en tiempo real: validar campos mientras el usuario escribe (email, longitud mínima, coincidencia de contraseñas).", "back": "Conceptos: input events, validación dinámica, feedback visual.", "tags": ["dwec","u2","formularios","validacion"]},
+    {"front": "Encapsular todo el código de manipulación DOM dentro de DOMContentLoaded.", "back": "Conceptos: document.addEventListener('DOMContentLoaded').", "tags": ["dwec","u2","dom","inicializacion"]},
+    {"front": "Botón que cambie entre modo oscuro y claro, guardando la preferencia en localStorage.", "back": "Conceptos: CSS dinámico, localStorage.", "tags": ["dwec","u2","css","localstorage"]},
+    {"front": "Crear elementos anidados y demostrar stopPropagation vs comportamiento por defecto de eventos.", "back": "Conceptos: stopPropagation, bubbling/capturing.", "tags": ["dwec","u2","eventos","propagacion"]},
+    {"front": "Consumo de API pública con fetch: obtener datos de JSONPlaceholder, mostrar lista y manejar estados de carga/error.", "back": "Conceptos: fetch, async/await, try-catch, JSON.", "tags": ["dwec","u3","fetch","api"]},
+    {"front": "Frontend CRUD con Fetch: hacer GET, POST, PUT, DELETE a un backend Express, mostrando resultados en una tabla.", "back": "Conceptos: métodos HTTP, headers, JSON.stringify.", "tags": ["dwec","u3","fetch","crud"]},
+    {"front": "Servidor Express básico: crear servidor con rutas GET/POST/PUT/DELETE, usar express.json(), cors(), devolver datos estáticos.", "back": "Conceptos: Express, routing, middleware.", "tags": ["dwec","u3","express","servidor"]},
+    {"front": "Persistencia con JSON en Node.js: leer y escribir datos en db.json usando fs, implementar un CRUD completo.", "back": "Conceptos: fs.readFileSync, fs.writeFileSync, JSON.parse/stringify.", "tags": ["dwec","u3","nodejs","fs"]},
+    {"front": "Formulario de contacto que envíe datos vía fetch POST a servidor Express, valide campos vacíos y muestre respuesta.", "back": "Conceptos: preventDefault, validación, POST con body.", "tags": ["dwec","u3","fetch","formularios"]},
+    {"front": "Mostrar indicador visual si el usuario está online/offline usando navigator.onLine y eventos online/offline.", "back": "Conceptos: API de red del navegador.", "tags": ["dwec","u3","api","red"]},
+    {"front": "Proyecto Taller/Garage: aplicación completa con Express + frontend para gestionar vehículos (matrícula, km). Validar duplicados, manejar errores 400/409/404.", "back": "Conceptos: CRUD completo, validaciones, códigos HTTP.", "tags": ["dwec","u3","proyecto","express"]}
+  ]
+}

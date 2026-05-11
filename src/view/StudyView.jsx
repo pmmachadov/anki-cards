@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { DIFFICULTY } from '../model/Deck'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { shadesOfPurple } from 'react-syntax-highlighter/dist/esm/styles/prism'
@@ -16,6 +16,78 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
     easy: 0
   })
   const [showComplete, setShowComplete] = useState(false)
+
+  // Drag-to-scroll para la fila de puntos
+  const dotsContainerRef = useRef(null)
+  const isDragging = useRef(false)
+  const startX = useRef(0)
+  const startCardIndex = useRef(0)
+  const dragMoved = useRef(false)
+
+  const handleMouseDown = (e) => {
+    if (!dotsContainerRef.current || cards.length === 0) return
+    isDragging.current = true
+    dragMoved.current = false
+    startX.current = e.clientX
+    startCardIndex.current = currentCardIndex
+  }
+
+  const handleMouseMove = (e) => {
+    if (!isDragging.current || !dotsContainerRef.current || cards.length === 0) return
+    const rect = dotsContainerRef.current.getBoundingClientRect()
+    const deltaX = e.clientX - startX.current
+    const pxPerCard = rect.width / cards.length
+    const deltaCards = Math.round(deltaX / pxPerCard)
+    const newIndex = Math.max(0, Math.min(cards.length - 1, startCardIndex.current + deltaCards))
+    if (Math.abs(newIndex - currentCardIndex) > 0 || Math.abs(deltaX) > 3) {
+      dragMoved.current = true
+    }
+    if (newIndex !== currentCardIndex) {
+      setCurrentCardIndex(newIndex)
+      setIsFlipped(false)
+      setFlipRotation(0)
+    }
+  }
+
+  const handleMouseUp = () => {
+    isDragging.current = false
+  }
+
+  const handleTouchStart = (e) => {
+    if (!dotsContainerRef.current || cards.length === 0) return
+    isDragging.current = true
+    dragMoved.current = false
+    startX.current = e.touches[0].clientX
+    startCardIndex.current = currentCardIndex
+  }
+
+  const handleTouchMove = (e) => {
+    if (!isDragging.current || !dotsContainerRef.current || cards.length === 0) return
+    const rect = dotsContainerRef.current.getBoundingClientRect()
+    const deltaX = e.touches[0].clientX - startX.current
+    const pxPerCard = rect.width / cards.length
+    const deltaCards = Math.round(deltaX / pxPerCard)
+    const newIndex = Math.max(0, Math.min(cards.length - 1, startCardIndex.current + deltaCards))
+    if (Math.abs(newIndex - currentCardIndex) > 0 || Math.abs(deltaX) > 3) {
+      dragMoved.current = true
+    }
+    if (newIndex !== currentCardIndex) {
+      setCurrentCardIndex(newIndex)
+      setIsFlipped(false)
+      setFlipRotation(0)
+    }
+  }
+
+  const handleTouchEnd = () => {
+    isDragging.current = false
+  }
+
+  const handleDotClick = (index) => {
+    if (dragMoved.current) return
+    setCurrentCardIndex(index)
+    setIsFlipped(false)
+    setFlipRotation(0)
+  }
 
   // Preparar tarjetas para estudio (solo las pendientes)
   useEffect(() => {
@@ -216,6 +288,14 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [currentCardIndex])
 
+  // Auto-scroll para mantener el punto actual visible en la fila
+  useEffect(() => {
+    const currentDot = document.querySelector('.card-dot.current')
+    if (currentDot && dotsContainerRef.current) {
+      currentDot.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
+    }
+  }, [currentCardIndex])
+
   // Keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -342,32 +422,30 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
         <div></div>
       </div>
 
-      {/* Card Navigator Slider Mágico */}
-      <div className="card-slider-container">
-        <span className="card-slider-label">{currentCardIndex + 1}</span>
-        <div className="card-slider-track-wrapper">
-          <div className="slider-track">
-            <div
-              className="slider-fill"
-              style={{ width: `${(currentCardIndex / (cards.length - 1)) * 100}%` }}
-            />
-            <div className="slider-glow" />
-          </div>
-          <input
-            type="range"
-            min={1}
-            max={cards.length}
-            value={currentCardIndex + 1}
-            onChange={(e) => {
-              const newIndex = parseInt(e.target.value) - 1
-              setCurrentCardIndex(newIndex)
-              setIsFlipped(false)
-              setFlipRotation(0)
+      {/* Card Progress Bar */}
+      <div className="card-progress-wrapper">
+        <span className="card-progress-number">{currentCardIndex + 1}</span>
+        <div
+          ref={dotsContainerRef}
+          className="card-progress-track"
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div
+            className="card-progress-fill"
+            style={{
+              width: `${cards.length > 1 ? (currentCardIndex / (cards.length - 1)) * 100 : 100}%`
             }}
-            className="card-slider"
-          />
+          >
+            <div className="card-progress-thumb" />
+          </div>
         </div>
-        <span className="card-slider-label">{cards.length}</span>
+        <span className="card-progress-number">{cards.length}</span>
       </div>
 
       {deck.id === 'interconexion-redes-eac3' && (
