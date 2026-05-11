@@ -8,162 +8,303 @@
       "id": "p1-eac1-001",
       "front": "¿Cuál es la diferencia entre `const` y `let` en JavaScript?",
       "back": "- `const`: declara una variable cuyo valor no puede ser reasignado. Debe inicializarse en la declaración.n- `let`: declara una variable que puede ser reasignada posteriormente. Tiene ámbito de bloque.nnEjemplo:n`const precio = 200;` // no se puede cambiarn`let descuento = 15;` // sí se puede cambiar",
-      "tags": ["variables", "const", "let"],
+      "tags": [
+        "variables",
+        "const",
+        "let"
+      ],
       "difficulty": "easy"
     },
     {
       "id": "p1-eac1-002",
       "front": "¿Qué son los template strings (plantillas de cadena) en JavaScript y cómo se usan?",
       "back": "Son cadenas de texto delimitadas por backticks (`) que permiten:n1. Interpolación de variables con `${variable}`n2. Cadenas multilíneannEjemplo:n`console.log(` + '`' + `Precio final: ${precioFinal} €` + '`' + `);`",
-      "tags": ["strings", "template-strings", "sintaxis"],
+      "tags": [
+        "strings",
+        "template-strings",
+        "sintaxis"
+      ],
       "difficulty": "easy"
     },
     {
       "id": "p1-eac1-003",
       "front": "¿Cómo funciona una estructura condicional `if-else if-else` en JavaScript?",
       "back": "Evalúa condiciones en orden y ejecuta el primer bloque cuya condición sea verdadera:nn```javascriptnif (tipoIVA.toLowerCase() === 'general') {n    porcentajeIVA = 21;n} else if (tipoIVA.toLowerCase() === 'reducido') {n    porcentajeIVA = 10;n} else {n    porcentajeIVA = 0;n}n```",
-      "tags": ["condicionales", "if-else", "control-flujo"],
+      "tags": [
+        "condicionales",
+        "if-else",
+        "control-flujo"
+      ],
       "difficulty": "easy"
     },
     {
       "id": "p1-eac1-004",
       "front": "¿Qué hace el método `.toLowerCase()` en una cadena?",
       "back": "Convierte todos los caracteres de una cadena a minúsculas, permitiendo comparaciones insensibles a mayúsculas/minúsculas.nnEjemplo:n`'GENERAL'.toLowerCase()` devuelve `'general'`",
-      "tags": ["strings", "metodos-string"],
+      "tags": [
+        "strings",
+        "metodos-string"
+      ],
       "difficulty": "easy"
     },
     {
       "id": "p1-eac1-005",
       "front": "¿Qué es un bucle `do-while` y en qué se diferencia de `while`?",
       "back": "El bucle `do-while` ejecuta su bloque de código al menos una vez antes de comprobar la condición.nn```javascriptndo {n    // código que se ejecuta al menos una vezn} while (!accesoConcedido && intentos < maxIntentos);n```nnA diferencia de `while`, que comprueba la condición antes de la primera iteración.",
-      "tags": ["bucles", "do-while", "control-flujo"],
+      "tags": [
+        "bucles",
+        "do-while",
+        "control-flujo"
+      ],
       "difficulty": "medium"
     },
     {
       "id": "p1-eac1-006",
       "front": "¿Qué valor devuelve `prompt()` cuando el usuario pulsa Cancelar?",
       "back": "Devuelve `null` cuando el usuario pulsa Cancelar.nnPor eso es importante validar:n```javascriptnif (entrada === null || entrada.trim() === '') {n    alert('Entrada no válida');n    continue;n}n```",
-      "tags": ["prompt", "null", "interaccion-usuario"],
+      "tags": [
+        "prompt",
+        "null",
+        "interaccion-usuario"
+      ],
       "difficulty": "easy"
     },
     {
       "id": "p1-eac1-007",
       "front": "¿Para qué sirve `continue` dentro de un bucle?",
       "back": "Interrumpe la iteración actual y salta directamente a la siguiente iteración del bucle.nnEn el ejemplo de la contraseña, si la entrada es inválida, `continue` evita que se cuente como intento y pide de nuevo.",
-      "tags": ["bucles", "continue", "control-flujo"],
+      "tags": [
+        "bucles",
+        "continue",
+        "control-flujo"
+      ],
       "difficulty": "easy"
     },
     {
       "id": "p1-eac1-008",
       "front": "¿Qué es una arrow function (función flecha) en JavaScript?",
       "back": "Es una forma concisa de escribir funciones introducida en ES6.nnSintaxis básica:n```javascriptnconst aMayusculas = (nombre) => nombre.toUpperCase();n```nnSi tiene un solo parámetro, se pueden omitir los paréntesis. Si el cuerpo es una sola expresión, se omite `return` y las llaves.",
-      "tags": ["funciones", "arrow-function", "es6"],
+      "tags": [
+        "funciones",
+        "arrow-function",
+        "es6"
+      ],
       "difficulty": "easy"
     },
     {
       "id": "p1-eac1-009",
       "front": "¿Cómo se crea un objeto `Date` en JavaScript para una fecha específica?",
       "back": "Se usa el constructor `Date()` con los parámetros año, mes (0-11), día:nn```javascriptnconst fecha = new Date(2000, 4, 15); // 15 de mayo de 2000n```nn**Importante**: los meses empiezan en 0 (enero = 0, mayo = 4).nnPara obtener el año: `fecha.getFullYear()`",
-      "tags": ["date", "objetos", "tiempo"],
+      "tags": [
+        "date",
+        "objetos",
+        "tiempo"
+      ],
       "difficulty": "medium"
     },
     {
       "id": "p1-eac1-010",
       "front": "¿Qué hace el método `.trim()` de una cadena?",
       "back": "Elimina los espacios en blanco del principio y del final de una cadena.nnEjemplo:n```javascriptnconst nombre = '  pablo garcia  ';nconst limpio = nombre.trim(); // 'pablo garcia'n```",
-      "tags": ["strings", "trim", "metodos-string"],
+      "tags": [
+        "strings",
+        "trim",
+        "metodos-string"
+      ],
       "difficulty": "easy"
     },
     {
       "id": "p1-eac1-011",
       "front": "¿Qué es un array de objetos en JavaScript?",
       "back": "Es un array donde cada elemento es un objeto. Permite almacenar colecciones estructuradas de datos.nn```javascriptnconst videoteca = [n    { titulo: 'El Padrino', director: 'Francis Ford Coppola', anio: 1972, vista: true },n    { titulo: 'Inception', director: 'Christopher Nolan', anio: 2010, vista: true }n];n```",
-      "tags": ["arrays", "objetos", "estructuras-datos"],
+      "tags": [
+        "arrays",
+        "objetos",
+        "estructuras-datos"
+      ],
       "difficulty": "easy"
     },
     {
       "id": "p1-eac1-012",
       "front": "¿Cómo recorrer un array con `.forEach()`?",
       "back": "`.forEach()` ejecuta una función para cada elemento del array.nn```javascriptnvideoteca.forEach(pelicula => {n    console.log(`La película ${pelicula.titulo}, dirigida por ${pelicula.director}`);n});n```nnNo devuelve un nuevo array; solo itera sobre los elementos.",
-      "tags": ["arrays", "forEach", "iteracion"],
+      "tags": [
+        "arrays",
+        "forEach",
+        "iteracion"
+      ],
       "difficulty": "easy"
     },
     {
       "id": "p1-eac1-013",
       "front": "¿Cómo filtrar elementos de un array en JavaScript?",
       "back": "Se usa `.filter()` que devuelve un nuevo array con los elementos que cumplan la condición.nn```javascriptnconst filtradas = videoteca.filter(pelicula => pelicula.anio >= 2010);n```nnEn el ejemplo, devuelve solo las películas estrenadas desde 2010 en adelante.",
-      "tags": ["arrays", "filter", "iteracion"],
+      "tags": [
+        "arrays",
+        "filter",
+        "iteracion"
+      ],
       "difficulty": "medium"
     },
     {
       "id": "p1-eac1-014",
       "front": "¿Qué hace `parseInt()` y por qué es importante usarlo con valores de entrada?",
       "back": "Convierte una cadena en un número entero. Es importante porque los valores de `prompt()` o inputs HTML son siempre cadenas.nn```javascriptnconst anioNum = parseInt(anio);nif (isNaN(anioNum)) {n    alert('Año no válido');n}n```nn`isNaN()` comprueba si el resultado no es un número.",
-      "tags": ["conversion", "parseInt", "numeros"],
+      "tags": [
+        "conversion",
+        "parseInt",
+        "numeros"
+      ],
       "difficulty": "easy"
     },
     {
       "id": "p1-eac1-015",
       "front": "¿Qué es una clase en JavaScript y cómo se define?",
       "back": "Una clase es una plantilla para crear objetos con propiedades y métodos. Se define con la palabra clave `class`.nn```javascriptnclass Producto {n    #stock; // propiedad privada (ES2022)nn    constructor(nombre, precio, stockInicial) {n        this.nombre = nombre;n        this.precio = precio;n        this.#stock = stockInicial;n    }n}n```",
-      "tags": ["clases", "poo", "constructor"],
+      "tags": [
+        "clases",
+        "poo",
+        "constructor"
+      ],
       "difficulty": "medium"
     },
     {
       "id": "p1-eac1-016",
       "front": "¿Qué son las propiedades privadas en JavaScript y cómo se declaran?",
       "back": "Son propiedades accesibles solo dentro de la clase. Se declaran con el prefijo `#` (sintaxis ES2022).nn```javascriptnclass Producto {n    #stock;nn    constructor(stockInicial) {n        this.#stock = stockInicial;n    }n}n```nnNo se pueden acceder desde fuera: `producto.#stock` daría error.",
-      "tags": ["clases", "propiedades-privadas", "poo", "es2022"],
+      "tags": [
+        "clases",
+        "propiedades-privadas",
+        "poo",
+        "es2022"
+      ],
       "difficulty": "medium"
     },
     {
       "id": "p1-eac1-017",
       "front": "¿Qué es un getter en una clase de JavaScript?",
       "back": "Es un método especial que se accede como una propiedad (sin paréntesis) y devuelve un valor calculado.nn```javascriptnclass Producto {n    get info() {n        return `${this.nombre} - ${this.precio.toFixed(2)} €`;n    }n}nn// Uso:nconsole.log(producto1.info); // sin paréntesisn```",
-      "tags": ["clases", "getter", "poo"],
+      "tags": [
+        "clases",
+        "getter",
+        "poo"
+      ],
       "difficulty": "medium"
     },
     {
       "id": "p1-eac1-018",
       "front": "¿Cómo se instancia un objeto a partir de una clase?",
       "back": "Se usa la palabra clave `new` seguida del constructor de la clase.nn```javascriptnconst producto1 = new Producto('Cafetera', 49.99, 10);nconst producto2 = new Producto('Tostadora', 29.95, 5);n```nnEl operador `new` crea un nuevo objeto y ejecuta el constructor.",
-      "tags": ["clases", "instanciacion", "poo"],
+      "tags": [
+        "clases",
+        "instanciacion",
+        "poo"
+      ],
       "difficulty": "easy"
     },
     {
       "id": "p1-eac1-019",
       "front": "¿Qué hace el método `.toFixed(2)` en un número?",
       "back": "Redondea el número a 2 decimales y devuelve una cadena.nnEjemplo:n```javascriptnconst precio = 49.99;nconsole.log(precio.toFixed(2)); // '49.99'n```nnEs útil para mostrar precios con formato monetario.",
-      "tags": ["numeros", "toFixed", "formateo"],
+      "tags": [
+        "numeros",
+        "toFixed",
+        "formateo"
+      ],
       "difficulty": "easy"
     },
     {
       "id": "p1-eac1-020",
       "front": "¿Cómo se importa y exporta funciones entre archivos JavaScript con módulos ES6?",
       "back": "Se usa `export` para exportar y `import` para importar.nn**Exportar (validador.js):**n```javascriptnexport function esNumero(valor) { ... }nexport function longitudExacta(valor, mida) { ... }n```nn**Importar (ex4.js):**n```javascriptnimport { esNumero, longitudExacta } from './validador.js';n```nnEl script HTML debe tener `type='module'`.",
-      "tags": ["modulos", "import", "export", "es6"],
+      "tags": [
+        "modulos",
+        "import",
+        "export",
+        "es6"
+      ],
       "difficulty": "medium"
     },
     {
       "id": "p1-eac1-021",
       "front": "¿Qué es una expresión regular (regex) y cómo se usa para validar que una cadena solo contenga dígitos?",
       "back": "Es un patrón que define un formato de texto. Se usa con `.test()` para validar.nn```javascriptnexport function esNumero(valor) {n    return /^d+$/.test(s);n}n```nn- `^` : inicio de cadenan- `d+` : uno o más dígitosn- `$` : final de cadena",
-      "tags": ["regex", "validacion", "expresiones-regulares"],
+      "tags": [
+        "regex",
+        "validacion",
+        "expresiones-regulares"
+      ],
       "difficulty": "hard"
     },
     {
       "id": "p1-eac1-022",
       "front": "¿Cómo obtener el año actual en JavaScript?",
       "back": "Se crea un objeto Date y se usa `.getFullYear()`:nn```javascriptnconst anioActual = new Date().getFullYear();n```nnEsto devuelve el año actual como número (ej: 2026).",
-      "tags": ["date", "getFullYear", "tiempo"],
+      "tags": [
+        "date",
+        "getFullYear",
+        "tiempo"
+      ],
       "difficulty": "easy"
     },
     {
       "id": "p1-eac1-023",
       "front": "¿Qué es `e.preventDefault()` en un evento de formulario?",
       "back": "Evita el comportamiento por defecto del evento. En un formulario, evita que la página se recargue al enviar.nn```javascriptnform.addEventListener('submit', function(e) {n    e.preventDefault();n    // lógica de validación...n});n```",
-      "tags": ["eventos", "preventDefault", "formularios"],
+      "tags": [
+        "eventos",
+        "preventDefault",
+        "formularios"
+      ],
       "difficulty": "easy"
+    },
+    {
+      "id": "p1-eac1-024",
+      "front": "¿Qué es el spread operator (...) en JavaScript y para qué sirve con arrays?",
+      "back": "Es una sintaxis de ES6 que expande los elementos de un iterable. Con arrays permite crear copias superficiales y combinar arrays.\n\n```javascript\nconst original = [1, 2, 3];\nconst copia = [...original];\n\nconst combinado = [...arr1, ...arr2];\nconst nuevo = [0, ...original, 4];\n```\n\nTambién se usa con objetos para clonar propiedades: const copiaObj = { ...objeto }.",
+      "tags": [
+        "arrays",
+        "spread-operator",
+        "es6",
+        "copia"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p1-eac1-025",
+      "front": "¿Cómo ordenar un array de objetos por una propiedad numérica en JavaScript?",
+      "back": "Se usa .sort() con una función de comparación que reste las propiedades.\n\n```javascript\nconst personas = [{nombre: 'Ana', edad: 30}, {nombre: 'Luis', edad: 25}];\npersonas.sort((a, b) => a.edad - b.edad); // ascendente\npersonas.sort((a, b) => b.edad - a.edad); // descendente\n```\n\nIMPORTANTE: sort() muta el array original. Para no mutar, crear copia primero: [...personas].sort(...).",
+      "tags": [
+        "arrays",
+        "sort",
+        "objetos",
+        "ordenar"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p1-eac1-026",
+      "front": "¿Qué hace el método `.find()` en un array de objetos?",
+      "back": "Devuelve el PRIMER elemento que cumple la condición, o undefined si no encuentra ninguno.\n\n```javascript\nconst pelicula = videoteca.find(p => p.titulo === 'Inception');\n```\n\nA diferencia de filter(), find() devuelve un solo objeto, no un array. Es útil para buscar un elemento único por ID o nombre.",
+      "tags": [
+        "arrays",
+        "find",
+        "busqueda",
+        "objetos"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p1-eac1-027",
+      "front": "¿Cómo validar que una contraseña tenga al menos 8 caracteres y que dos contraseñas coincidan?",
+      "back": "```javascript\nif (password.length < 8) {\n    alert('La contraseña debe tener al menos 8 caracteres');\n    return false;\n}\nif (password !== confirmPassword) {\n    alert('Las contraseñas no coinciden');\n    return false;\n}\n```\n\nTambién se pueden usar expresiones regulares para exigir mayúsculas, minúsculas y números: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$/.",
+      "tags": [
+        "validacion",
+        "contraseña",
+        "regex",
+        "formularios"
+      ],
+      "difficulty": "medium"
     }
   ]
 }

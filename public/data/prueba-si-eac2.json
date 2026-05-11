@@ -143,6 +143,104 @@
       "back": "LISTEN indica que un puerto está abierto y esperando conexiones entrantes (el servicio está activo). ESTABLISHED indica que existe una conexión activa y confirmada entre dos equipos (handshake TCP completado). Ver puertos en escucha: netstat -tlnp (TCP) o netstat -ulnp (UDP). Ver conexiones establecidas: netstat -tn.",
       "tags": ["netstat", "red", "TCP", "puertos", "Linux"],
       "difficulty": "easy"
+    },
+    {
+      "id": "si-eac2-21",
+      "front": "¿Cómo se crean cinco particiones de 2 GB en un disco de 10 GB usando el esquema GPT con gdisk?",
+      "back": "1) Ejecutar sudo gdisk /dev/sdX. 2) Crear nueva tabla GPT con 'o' si es necesario. 3) Crear cada partición con 'n', especificando tamaño +2G. 4) GPT permite hasta 128 particiones por defecto, así que las 5 son primarias sin necesidad de extendida/lógica. 5) Escribir cambios con 'w'. Verificar con lsblk o gdisk -l /dev/sdX.",
+      "tags": ["GPT", "gdisk", "particiones", "Linux", "lsblk"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-22",
+      "front": "¿Cómo se fusionan dos particiones consecutivas en una sola usando GParted?",
+      "back": "1) Abrir GParted y seleccionar el disco. 2) Desmontar las particiones si están en uso. 3) Eliminar la segunda partición para dejar espacio no asignado contiguo. 4) Seleccionar la primera partición y usar 'Resize/Move' para expandirla ocupando el espacio libre. 5) Aplicar operaciones. La partición resultante tendrá el tamaño combinado (por ejemplo, 4 GB si eran dos de 2 GB). Verificar con lsblk.",
+      "tags": ["GParted", "particiones", "fusionar", "Linux", "resize"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-23",
+      "front": "¿Cómo se formatea una partición con NTFS en Linux y se monta en modo solo lectura?",
+      "back": "Formatear: sudo mkfs.ntfs /dev/sdXN. Crear punto de montaje: sudo mkdir -p /mnt/ioc/ntfs. Montar solo lectura: sudo mount -o ro /dev/sdXN /mnt/ioc/ntfs. Verificar con mount | grep ntfs o df -Th. Para montaje automático en /etc/fstab: UUID=xxx /mnt/ioc/ntfs ntfs ro,defaults 0 0.",
+      "tags": ["NTFS", "montaje", "solo-lectura", "Linux", "fstab"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-24",
+      "front": "¿Cómo se configura una partición swap con prioridad sobre otras áreas de intercambio?",
+      "back": "1) Crear swap: sudo mkswap /dev/sdXN. 2) Activar: sudo swapon /dev/sdXN. 3) Para prioridad, añadir en /etc/fstab: UUID=xxx none swap sw,pri=10 0 0. Un valor mayor de pri significa mayor preferencia. La swap por defecto suele tener pri=-2. Verificar con swapon --show o cat /proc/swaps.",
+      "tags": ["swap", "mkswap", "swapon", "prioridad", "fstab", "Linux"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-25",
+      "front": "¿Cómo se configura el montaje automático de una partición ext4 durante el arranque?",
+      "back": "Editar /etc/fstab y añadir una línea con UUID, punto de montaje, sistema de archivos y opciones. Ejemplo: UUID=abcdef12-3456-7890-abcd-ef1234567890 /mnt/ioc/ext4 ext4 defaults 0 0. Obtener UUID con blkid /dev/sdXN o lsblk -f. Después de modificar, verificar con sudo mount -a para comprobar errores sin reiniciar.",
+      "tags": ["fstab", "montaje-automatico", "ext4", "UUID", "Linux"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-26",
+      "front": "Describe las etapas para crear un volumen lógico LVM que combine dos discos de 2 GB en uno de 4 GB",
+      "back": "1) Crear volúmenes físicos: sudo pvcreate /dev/sdX /dev/sdY. 2) Crear grupo de volúmenes: sudo vgcreate nombre_grupo /dev/sdX /dev/sdY. 3) Crear volumen lógico de 4 GB: sudo lvcreate -L 4G -n nombre_lv nombre_grupo. 4) Formatear: sudo mkfs.ext4 /dev/nombre_grupo/nombre_lv. 5) Montar y añadir a /etc/fstab. Verificar con pvs, vgs, lvs.",
+      "tags": ["LVM", "pvcreate", "vgcreate", "lvcreate", "volumen-logico", "Linux"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-27",
+      "front": "¿Cómo localizar el ejecutable de un programa instalado en Linux y por qué está donde está?",
+      "back": "Comandos: which gedit (muestra la ruta del ejecutable en PATH) y find / -name gedit (búsqueda completa). Los programas instalados por el gestor de paquetes suelen estar en /usr/bin. Esto sigue el estándar FHS (Filesystem Hierarchy Standard): /usr/bin para ejecutables de usuarios, /usr/sbin para administración, /usr/local/bin para software local manual.",
+      "tags": ["which", "find", "FHS", "ejecutables", "Linux", "PATH"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-28",
+      "front": "¿Cómo se inicializa y formatea un disco nuevo en Windows 11?",
+      "back": "1) Abrir Administración de discos (diskmgmt.msc). 2) El disco nuevo aparece como 'Sin inicializar'. 3) Clic derecho > Inicializar disco. 4) Elegir esquema de particiones (MBR o GPT). 5) Clic derecho en espacio no asignado > Nuevo volumen simple. 6) Asignar letra de unidad y formatear con NTFS. 7) Completar el asistente. Verificar en Equipo.",
+      "tags": ["Windows", "Administracion-discos", "NTFS", "inicializar", "GPT"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-eac2-29",
+      "front": "¿Qué herramienta se puede usar en Linux para hacer copias de seguridad programadas y cómo se configura?",
+      "back": "Cron es el planificador de tareas. Ejemplo: crontab -e y añadir '0 2 * * * /usr/bin/rsync -av /origen /destino' para copia diaria a las 2:00 AM. Alternativas: tar para archivos comprimidos, dd para imágenes de disco, Déjà Dup para interfaz gráfica. Es importante verificar periódicamente que las copias se ejecutan correctamente revisando logs o el destino.",
+      "tags": ["backup", "cron", "rsync", "copia-seguridad", "Linux"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-30",
+      "front": "¿Cómo crear un usuario en Ubuntu con grupo principal y secundario, y asignarle permisos específicos a un archivo?",
+      "back": "1) Crear grupos: sudo groupadd biblioteca && sudo groupadd treballador. 2) Crear usuario: sudo useradd -g biblioteca -G treballador -m apellido. 3) Establecer contraseña: sudo passwd apellido. 4) Configurar longitud mínima en /etc/login.defs (PASS_MIN_LEN 8) o PAM. 5) Crear archivo con fecha: date > documento.txt. 6) Cambiar propietario: sudo chown apellido:biblioteca documento.txt. 7) Permisos totales solo propietario: chmod 700 documento.txt.",
+      "tags": ["usuarios", "grupos", "useradd", "groupadd", "chmod", "chown", "Linux"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-31",
+      "front": "¿Cómo configurar la red en Ubuntu usando Netplan con IP estática?",
+      "back": "Editar archivo YAML en /etc/netplan/ (ej: 00-installer-config.yaml). network: version: 2 renderer: networkd ethernets: eth0: dhcp4: no addresses: [192.168.1.50/24] gateway4: 192.168.1.1 nameservers: addresses: [8.8.8.8, 8.8.4.4]. Aplicar con sudo netplan apply. Verificar con ip addr y ping.",
+      "tags": ["Netplan", "IP-estatica", "Ubuntu", "red", "YAML"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-32",
+      "front": "¿Por qué FTP es inseguro y qué se puede ver con Wireshark durante una conexión FTP?",
+      "back": "FTP transmite todos los datos, incluyendo usuario y contraseña, en texto plano sin cifrar. Al capturar tráfico con Wireshark en la interfaz de red activa durante una conexión FTP, se pueden ver las credenciales en los paquetes del protocolo FTP (comandos USER y PASS). Por eso se recomienda usar SFTP (SSH) o FTPS (SSL/TLS) en entornos reales.",
+      "tags": ["FTP", "Wireshark", "seguridad", "credenciales", "SFTP", "sniffing"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-33",
+      "front": "¿Qué líneas de /var/log/syslog indican el reinicio del servicio vsftpd y qué componente las genera?",
+      "back": "Ejemplo de líneas: '2026-04-04T19:42:11 systemd[1]: Starting vsftpd.service...' y '2026-04-04T19:42:11 systemd[1]: Started vsftpd.service...'. El componente responsable es rsyslog, el servicio de registro del sistema que recoge mensajes de kernel, servicios y aplicaciones, y los escribe en /var/log/syslog. La rotación de logs la gestiona logrotate, con configuración en /etc/logrotate.conf y /etc/logrotate.d/.",
+      "tags": ["syslog", "rsyslog", "vsftpd", "logrotate", "systemd", "Linux"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac2-34",
+      "front": "¿Cuál es la periodicidad de rotación de logs y es la misma para todos los servicios?",
+      "back": "NO es la misma para todos. La configuración por defecto en /etc/logrotate.conf suele ser weekly (semanal) con rotate 4 (mantener 4 semanas). Sin embargo, cada servicio puede tener su propia configuración en /etc/logrotate.d/. Ejemplos: /var/log/syslog rota semanalmente, otros servicios pueden usar daily o monthly, y algunos usan criterios por tamaño (size 100M).",
+      "tags": ["logrotate", "syslog", "logs", "rotacion", "Linux"],
+      "difficulty": "medium"
     }
   ]
 }

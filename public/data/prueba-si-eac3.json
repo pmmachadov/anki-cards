@@ -143,6 +143,111 @@
       "back": "1) Instalar rol de Servidor de impresión desde Administrador del servidor. 2) Añadir impresora (real o virtual como Bullzip PDF Printer). 3) Compartirla mediante Propiedades > Compartir > Compartir esta impresora. 4) Configurar permisos de impresión (todos pueden imprimir, solo administradores gestionan). 5) Desde el cliente Windows 11, conectar a la impresora compartida mediante la ruta UNC del servidor.",
       "tags": ["impresora", "Windows Server", "compartir", "red", "servidor de impresión"],
       "difficulty": "medium"
+    },
+    {
+      "id": "si-eac3-21",
+      "front": "¿Cómo configurar una IP estática en Windows 11 desde la interfaz gráfica y desde línea de comandos?",
+      "back": "GUI: Configuración > Red e Internet > Ethernet/Manual > activar IPv4 e introducir IP, máscara, puerta de enlace y DNS. CMD: netsh interface ip set address 'Ethernet' static 192.168.1.20 255.255.255.0 192.168.1.1. DNS: netsh interface ip set dns 'Ethernet' static 8.8.8.8. PowerShell: New-NetIPAddress -InterfaceAlias 'Ethernet' -IPAddress 192.168.1.20 -PrefixLength 24 -DefaultGateway 192.168.1.1. Verificar: ipconfig /all.",
+      "tags": ["Windows", "IP-estatica", "netsh", "PowerShell", "red"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac3-22",
+      "front": "¿Cómo analizar los puertos en escucha de un sistema Linux con netstat y ss?",
+      "back": "netstat -tlnp muestra puertos TCP en escucha con procesos asociados. netstat -ulnp muestra puertos UDP. ss -tlnp es la alternativa moderna más rápida. Para ver conexiones establecidas: netstat -tn o ss -tn state established. Después de iniciar vsftpd, se puede verificar que escucha en el puerto 21 con: ss -tlnp | grep :21.",
+      "tags": ["netstat", "ss", "puertos", "escucha", "Linux", "vsftpd"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac3-23",
+      "front": "¿Cuál es la diferencia entre ARP dinámico y estático, y qué es el ARP spoofing?",
+      "back": "ARP dinámico se aprende automáticamente mediante solicitudes broadcast y tiene tiempo de vida limitado (STALE/REACHABLE). ARP estático se configura manualmente (ip neigh add ...) y persiste. ARP spoofing es un ataque donde un equipo envía respuestas ARP falsas para asociar su MAC con la IP de otro dispositivo (como el gateway), redirigiendo el tráfico y permitiendo sniffing o Man-in-the-Middle.",
+      "tags": ["ARP", "MAC", "ARP-spoofing", "seguridad", "red", "dinamico", "estatico"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "si-eac3-24",
+      "front": "¿Cuáles son los pasos para instalar Windows Server 2019 y promocionarlo a controlador de dominio?",
+      "back": "1) Crear VM con al menos 2 GB RAM y 50 GB disco. 2) Instalar Windows Server 2019. 3) Configurar nombre del servidor y IP estática. 4) Instalar rol AD DS desde Administrador del servidor. 5) Promocionar a DC: 'Añadir un nuevo bosque', nombre de dominio (ej: eac3.usuario.home). 6) Establecer nivel funcional y contraseña DSRM. 7) Instalar DNS automáticamente. 8) Reiniciar. Verificar con dcdiag.",
+      "tags": ["Windows-Server", "Active-Directory", "DC", "dominio", "DNS", "promocion"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "si-eac3-25",
+      "front": "¿Qué son las zonas directa e inversa en DNS y cómo se crean registros A, PTR y CNAME?",
+      "back": "Zona directa: resuelve nombre a IP. Registro A: nombre → IPv4. Registro CNAME: alias → nombre canónico. Zona inversa: resuelve IP a nombre. Registro PTR: IP → nombre. Ejemplo: en zona directa crear 'servidor A 192.168.1.10'. En zona inversa, crear registro PTR para 10.1.168.192.in-addr.arpa apuntando a servidor.eac3.home. CNAME: 'www CNAME servidor'.",
+      "tags": ["DNS", "zona-directa", "zona-inversa", "A", "PTR", "CNAME", "Windows-Server"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "si-eac3-26",
+      "front": "¿Cómo se administran usuarios, grupos y permisos NTFS en Active Directory?",
+      "back": "1) En Usuarios y equipos de Active Directory, crear grupos de seguridad (bibliotecari, usuari). 2) Crear usuarios (Marti, Jana). 3) Agregar usuarios a grupos. 4) Crear archivo/carpeta en el servidor. 5) En Propiedades > Seguridad, quitar 'Usuarios' y 'Todos'. 6) Añadir 'bibliotecari' con Control total y 'usuari' con Solo lectura. Los permisos efectivos son la combinación más restrictiva entre NTFS y permisos de compartición.",
+      "tags": ["Active-Directory", "usuarios", "grupos", "NTFS", "permisos", "Windows-Server"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "si-eac3-27",
+      "front": "¿Cómo unir una máquina Windows 11 a un dominio de Active Directory?",
+      "back": "1) Configurar IP compatible y DNS apuntando al DC. 2) Propiedades del sistema > Cambiar configuración > Cambiar. 3) Seleccionar 'Dominio' e introducir el nombre (ej: eac3.usuario.home). 4) Introducir credenciales de administrador del dominio. 5) Reiniciar. 6) Verificar en Active Directory que la máquina aparece en la OU Computers. 7) Iniciar sesión con usuario del dominio: DOMINIO\\\\usuario.",
+      "tags": ["Windows-11", "dominio", "Active-Directory", "unir", "DNS"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac3-28",
+      "front": "¿Cómo compartir una carpeta en Windows Server mediante SMB con permisos diferenciados?",
+      "back": "1) Crear carpeta (documentacio). 2) Clic derecho > Propiedades > Compartir > Uso compartido avanzado. 3) Compartir como 'documentacio'. 4) En Permisos de compartición: bibliotecari = Cambiar y Leer; usuari = Solo lectura. 5) En Seguridad (NTFS): bibliotecari = Control total; usuari = Solo lectura. 6) Acceder desde cliente mediante \\\\servidor\\documentacio. El acceso efectivo es el más restrictivo de ambos.",
+      "tags": ["SMB", "compartir-carpeta", "permisos", "NTFS", "Windows-Server"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "si-eac3-29",
+      "front": "¿Cómo configurar Samba en Ubuntu para recursos públicos y restringidos?",
+      "back": "Instalar: sudo apt install samba. Configurar /etc/samba/smb.conf: [imatges] path=/srv/imatges public=yes writable=yes guest ok=yes. [documents] path=/srv/documents valid users=@bibliotecari read list=@usuari write list=@bibliotecari. Crear grupos: groupadd bibliotecari. Añadir usuario a Samba: smbpasswd -a usuario. Reiniciar: sudo systemctl restart smbd. Verificar estado: sudo systemctl status smbd.",
+      "tags": ["Samba", "SMB", "Ubuntu", "recursos-compartidos", "permisos"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "si-eac3-30",
+      "front": "¿Cómo compartir una impresora en red desde Windows Server?",
+      "back": "1) Instalar rol Servidor de impresión. 2) Añadir impresora real o virtual (Bullzip PDF Printer). 3) En Propiedades de la impresora > Compartir, activar 'Compartir esta impresora'. 4) Asignar nombre de recurso compartido. 5) Configurar permisos: todos pueden imprimir, administradores pueden gestionar. 6) Desde Windows 11 cliente, conectar mediante \\\\servidor\\impresora o desde Configuración > Impresoras > Agregar impresora de red.",
+      "tags": ["impresora", "compartir", "Windows-Server", "red", "SMB"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-eac3-31",
+      "front": "¿Cómo promocionar Ubuntu Server a controlador de dominio con Samba AD DC?",
+      "back": "1) sudo apt install samba smbclient winbind krb5-user. 2) Configurar IP estática. 3) sudo samba-tool domain provision --use-rfc2307 --interactive. 4) Configurar /etc/resolv.conf apuntando al propio servidor. 5) sudo systemctl enable --now samba-ad-dc. 6) Verificar: samba-tool domain level show. 7) Unir cliente Windows al dominio y autenticar con usuario del dominio.",
+      "tags": ["Samba", "AD-DC", "Ubuntu", "dominio", "samba-tool", "controlador-dominio"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "si-eac3-32",
+      "front": "¿Qué puertos y protocolos usa el correo electrónico y cuál es la diferencia entre SSL/TLS y STARTTLS?",
+      "back": "IMAP: 143 (sin cifrar) / 993 (IMAPS). POP3: 110 / 995 (POP3S). SMTP: 25 (sin autenticar), 587 (STARTTLS), 465 (SMTPS). SSL/TLS establece conexión cifrada desde el inicio (puertos dedicados). STARTTLS comienza en texto plano y luego negocia cifrado mediante comando STARTTLS (puertos estándar). STARTTLS es más flexible pero la conexión inicial es vulnerable a ataques downgrade.",
+      "tags": ["correo", "IMAP", "POP3", "SMTP", "SSL", "TLS", "STARTTLS", "puertos"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "si-eac3-33",
+      "front": "¿Cómo configurar acceso remoto seguro con SSH en Ubuntu, incluyendo autenticación por clave pública y desactivar root?",
+      "back": "1) Verificar/instalar: sudo apt install openssh-server. 2) Estado: sudo systemctl status ssh. 3) Generar clave en cliente: ssh-keygen. 4) Copiar al servidor: ssh-copy-id usuario@IP. 5) Desactivar root: editar /etc/ssh/sshd_config, poner PermitRootLogin no. 6) Reiniciar SSH: sudo systemctl restart ssh. 7) Conectar: ssh usuario@IP. 8) Transferir archivos: sftp usuario@IP. 9) PuTTY en Windows para clientes gráficos.",
+      "tags": ["SSH", "OpenSSH", "clave-publica", "SFTP", "root", "seguridad", "Ubuntu"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "si-eac3-34",
+      "front": "¿Cómo compilar un programa en C y crear una página de manual (man page) en Linux?",
+      "back": "Compilar: gcc programa.c -o programa. Ejecutar: ./programa argumento. Man page en formato roff (.3): incluir NAME, SYNOPSIS, DESCRIPTION, OPTIONS, FILES, AUTHOR. Visualizar: groff -man -Tascii archivo.roff. Instalar: sudo cp archivo.3.gz /usr/share/man/man3/. Actualizar base: sudo mandb. Consultar: man 3 nombre. Comprimir: gzip archivo.3.",
+      "tags": ["C", "gcc", "man-page", "roff", "groff", "compilacion", "Linux"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "si-eac3-35",
+      "front": "¿Cuáles son los comandos básicos de Git para crear un repositorio, hacer commits y clonar?",
+      "back": "git init: inicializa repositorio local. git config --global user.name/email: configura identidad. git add archivo: añade al staging. git commit -m 'mensaje': guarda cambios. git status: muestra estado. git log: historial. git clone URL: copia repositorio remoto. git remote add origin URL: vincula remoto. git push/pull: sincroniza cambios. Ejemplo flujo: init → add → commit → clone (desde otra máquina).",
+      "tags": ["Git", "repositorio", "commit", "clone", "control-versiones"],
+      "difficulty": "easy"
     }
   ]
 }

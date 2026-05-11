@@ -157,6 +157,34 @@
       "back": "Es una metrica que mide que porcentaje del codigo ha sido ejecutado durante las pruebas.\n\nTipos de cobertura:\n- **Cobertura de sentencias**: cada linea de codigo se ejecuta al menos una vez\n- **Cobertura de decisiones (branches)**: cada resultado de una decision (true/false) se evalua\n- **Cobertura de caminos**: todos los caminos independientes se recorren\n\nObjetivo: asegurar que los casos de prueba recorren todos los caminos identificados por la complejidad ciclomatica.",
       "tags": ["pruebas", "cobertura", "flujo-control", "metricas"],
       "difficulty": "medium"
+    },
+    {
+      "id": "p2-eac3-023",
+      "front": "Que es un caso de prueba y que elementos debe contener?",
+      "back": "Un caso de prueba es un conjunto de condiciones y entradas diseñadas para verificar que una funcionalidad del software se comporta correctamente.\n\nElementos principales:\n- Identificador unico\n- Descripcion de lo que se prueba\n- Precondiciones (estado inicial necesario)\n- Pasos a ejecutar\n- Datos de entrada\n- Resultado esperado\n- Resultado obtenido\n- Estado (aprobado/fallido)",
+      "tags": ["pruebas", "caso-de-prueba", "testing", "calidad"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac3-024",
+      "front": "Que diferencia hay entre pruebas unitarias, de integracion y de sistema?",
+      "back": "- **Pruebas unitarias**: verifican funciones o metodos individuales de forma aislada (JUnit).\n- **Pruebas de integracion**: verifican que multiples modulos o componentes funcionan correctamente juntos.\n- **Pruebas de sistema**: evaluan el sistema completo en un entorno similar al de produccion para verificar que cumple los requisitos.\n\nSon niveles jerarquicos: primero unitarias, luego integracion, finalmente sistema.",
+      "tags": ["pruebas", "unitarias", "integracion", "sistema", "testing"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-eac3-025",
+      "front": "Que es un diagrama de flujo y como se usa para calcular la complejidad ciclomatica?",
+      "back": "Es una representacion grafica de un algoritmo con simbolos estandarizados: ovalo (inicio/fin), rectangulo (proceso), rombo (decision), flechas (flujo).\n\nPara calcular CC visualmente:\n1. Contar el numero de regiones cerradas del diagrama (incluyendo la region exterior)\n2. Ese numero es la complejidad ciclomatica\n\nO con formula: CC = numero de nodos de decision + 1.\n\nEjemplo: si hay 4 rombos de decision, CC = 5 caminos independientes.",
+      "tags": ["pruebas", "diagrama-flujo", "complejidad-ciclomatica", "mcCabe"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-eac3-026",
+      "front": "Que es el versionado semantico (Semantic Versioning) y como se representa?",
+      "back": "Es un estandar para numerar versiones de software con el formato MAJOR.MINOR.PATCH.\n\n- **MAJOR**: cambios incompatibles con versiones anteriores.\n- **MINOR**: nuevas funcionalidades compatibles hacia atras.\n- **PATCH**: correccion de errores sin cambios en API.\n\nEjemplo: version 2.1.3 → major=2, minor=1, patch=3.\nSe usa en pom.xml de Maven y en package.json de Node.js.",
+      "tags": ["versionado", "semver", "maven", "git", "calidad"],
+      "difficulty": "easy"
     }
   ]
 }

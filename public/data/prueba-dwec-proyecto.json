@@ -67,7 +67,7 @@
     {
       "id": "p1-proy-006",
       "front": "¿Cómo leer parámetros de URL en Express (ruta dinámica)?",
-      "back": "Los parámetros de ruta permiten capturar valores dinámicos de la URL.\n\n**1. Definir el parámetro con `:` en la ruta:**\n```javascript\napp.get('/garage/:id', (req, res) => { ... });\n```\nAquí `:id` es un marcador que puede recibir cualquier valor.\n\n**2. Leer el valor con `req.params`:**\n```javascript\napp.put('/garage/:id', (req, res) => {\n    const { id } = req.params;\n    // Si la URL es /garage/3, id vale '3'\n    // Si la URL es /garage/abc, id vale 'abc'\n});\n```\n\n**Ejemplo práctico:**\n- URL: `/garage/42`\n- Ruta: `/garage/:id`\n- Resultado: `req.params.id` = `'42'`",
+      "back": "Los parámetros de ruta permiten capturar valores dinámicos de la URL.\n\n**1. Definir el parámetro con `:` en la ruta:**\n```javascript\napp.get('/garage/:id', (req, res) => { ... });\n```\nAquí `:id` es un marcador que puede recibir cualquier valor.\n\n**2. Leer el valor con `req.params`:**\n```javascript\napp.put('/garage/:id', (req, res) => {\n    const { id } = req.params;\n    // req.params es un objeto con todos los parámetros de la URL\n    // Si la URL es /garage/3, req.params = { id: '3' }\n    // Si la URL es /garage/abc, req.params = { id: 'abc' }\n});\n```\n\n**3. Múltiples parámetros:**\n```javascript\napp.get('/users/:userId/posts/:postId', (req, res) => {\n    // URL: /users/5/posts/12\n    // req.params = { userId: '5', postId: '12' }\n});\n```\n\n**Ejemplo práctico:**\n- URL: `/garage/42`\n- Ruta: `/garage/:id`\n- Resultado: `req.params.id` = `'42'`",
       "tags": [
         "express",
         "params",
@@ -172,7 +172,7 @@
     {
       "id": "p1-proy-015",
       "front": "¿Cómo validar un formato de matrícula española con expresiones regulares?",
-      "back": "```javascript\nfunction isValidPlate(plate) {\n    const modern = /^\\d{4}\\s?[A-Z]{3}$/;\n    const old = /^[A-Z]{1,2}-?\\d{4,6}(-?[A-Z]{1,2})?$/;\n    return modern.test(plate) || old.test(plate);\n}\n```\n\n- Moderna: `1234 ABC` (4 dígitos, espacio opcional, 3 letras)\n- Antigua: `A-1234-BC` o `A-123456` (letras, guiones opcionales, 4-6 dígitos)",
+      "back": "```javascript\nfunction isValidPlate(plate) {\n    const modern = /^\\d{4}\\s?[A-Z]{3}$/;\n    const old = /^[A-Z]{1,2}-?\\\\d{4,6}(-?[A-Z]{1,2})?$/;\n    return modern.test(plate) || old.test(plate);\n}\n```\n\n- Moderna: `1234 ABC` (4 dígitos, espacio opcional, 3 letras)\n- Antigua: `A-1234-BC` o `A-123456` (letras, guiones opcionales, 4-6 dígitos)",
       "tags": [
         "regex",
         "validacion",
@@ -270,6 +270,57 @@
         "inicializacion",
         "DOMContentLoaded",
         "patrones"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p1-proy-024",
+      "front": "¿Cómo validar que una matrícula española tiene formato correcto con expresión regular?",
+      "back": "Matrícula moderna (desde 2000): 4 dígitos + espacio opcional + 3 letras mayúsculas (sin vocales I, O, Ñ, Q).\n\n```javascript\nconst regex = /^\\d{4}\\s?[B-DF-HJ-NP-TV-Z]{3}$/;\n```\n\nMatrícula antigua: 1-2 letras + 4-6 dígitos + 0-2 letras, con guiones opcionales.\n\nEjemplo validación:\n```javascript\nfunction isValidPlate(plate) {\n    const modern = /^\\d{4}\\s?[A-Z]{3}$/;\n    const old = /^[A-Z]{1,2}-?\\d{4,6}(-?[A-Z]{1,2})?$/;\n    return modern.test(plate) || old.test(plate);\n}\n```",
+      "tags": [
+        "regex",
+        "validacion",
+        "matricula",
+        "expresiones-regulares"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": "p1-proy-025",
+      "front": "¿Qué es un error 409 (Conflict) en una API REST y cuándo se usa?",
+      "back": "El código 409 indica que la petición no se puede completar debido a un conflicto con el estado actual del recurso.\n\nEjemplo típico: intentar crear un vehículo con una matrícula que ya existe en la base de datos.\n\n```javascript\nconst exists = db.vehicles.find(v => v.plate === newPlate);\nif (exists) {\n    return res.status(409).json({ error: 'La matrícula ya existe' });\n}\n```",
+      "tags": [
+        "http",
+        "409",
+        "conflict",
+        "express",
+        "api",
+        "rest"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p1-proy-026",
+      "front": "¿Cómo manejar errores de red cuando el servidor no responde en una petición fetch?",
+      "back": "Los errores de red (servidor caído, sin conexión) se capturan en el bloque catch de async/await.\n\n```javascript\ntry {\n    const res = await fetch(API_URL);\n    if (!res.ok) throw new Error(`HTTP ${res.status}`);\n    const data = await res.json();\n} catch (err) {\n    console.error('Error de red:', err);\n    mostrarMensaje('No se pudo conectar con el servidor', 'error');\n}\n```\n\nTambién se puede usar navigator.onLine para detectar si el navegador tiene conexión a Internet antes de hacer la petición.",
+      "tags": [
+        "fetch",
+        "errores",
+        "red",
+        "try-catch",
+        "async"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p1-proy-027",
+      "front": "¿Qué es `localStorage` y cómo se diferencia de `sessionStorage`?",
+      "back": "localStorage almacena datos en el navegador de forma persistente (sin fecha de expiración). sessionStorage almacena datos solo durante la sesión de la pestaña; se borran al cerrarla.\n\n```javascript\n// Guardar\nlocalStorage.setItem('usuario', 'pablo');\n// Leer\nconst usuario = localStorage.getItem('usuario');\n// Eliminar\nlocalStorage.removeItem('usuario');\n```\n\nAmbos solo almacenan cadenas. Para objetos, usar JSON.stringify() al guardar y JSON.parse() al leer.",
+      "tags": [
+        "localStorage",
+        "sessionStorage",
+        "persistencia",
+        "navegador"
       ],
       "difficulty": "easy"
     }

@@ -143,6 +143,41 @@
       "back": "- **`this`**: referencia al objeto actual (la instancia de la clase donde se usa).\n  - `this.atributo` → diferencia atributo de parámetro con mismo nombre\n  - `this()` → llama a otro constructor de la MISMA clase\n\n- **`super`**: referencia a la superclase (clase padre).\n  - `super.atributo` → accede a atributo del padre\n  - `super()` → llama al constructor del PADRE\n\nEjemplo:\n```java\npublic void setNombre(String nombre) {\n    this.nombre = nombre; // this.nombre = atributo, nombre = parámetro\n}\n```",
       "tags": ["java", "this", "super", "poo"],
       "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac2-021",
+      "front": "¿Qué es una interfaz en Java y en qué se diferencia de una clase abstracta?",
+      "back": "Una interfaz define un conjunto de métodos que una clase debe implementar, pero sin proporcionar implementación (hasta Java 7; desde Java 8 permite métodos default). Una clase abstracta puede tener métodos concretos y atributos, y una clase solo puede heredar de una clase abstracta, pero puede implementar múltiples interfaces. Las interfaces definen comportamientos; las clases abstractas definen jerarquías.",
+      "tags": ["java", "interfaz", "clase-abstracta", "poo"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-eac2-022",
+      "front": "¿Qué es el polimorfismo en programación orientada a objetos?",
+      "back": "Es la capacidad de un objeto de tomar múltiples formas. En Java se manifiesta cuando una referencia de una clase padre puede apuntar a un objeto de una clase hija, y al llamar a un método sobreescrito se ejecuta la versión de la clase hija. También permite usar el mismo nombre de método con diferentes parámetros (sobrecarga). Facilita la extensibilidad y el mantenimiento del código.",
+      "tags": ["java", "polimorfismo", "poo", "herencia"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "p2-eac2-023",
+      "front": "¿Qué es la sobrecarga de métodos (overloading) en Java?",
+      "back": "Es definir múltiples métodos con el mismo nombre pero diferentes listas de parámetros (tipo, número o orden). El compilador decide cuál ejecutar según los argumentos proporcionados. Es diferente de la sobreescritura (overriding), que ocurre cuando una clase hija redefine un método de la clase padre con la misma firma.",
+      "tags": ["java", "sobrecarga", "overloading", "poo"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac2-024",
+      "front": "¿Qué es la sobreescritura de métodos (overriding) en Java?",
+      "back": "Es cuando una clase hija redefine un método heredado de la clase padre con la MISMA firma (nombre, parámetros y tipo de retorno). Se usa la anotación @Override para indicar intención y detectar errores en tiempo de compilación. Permite personalizar el comportamiento heredado. No se puede sobreescribir métodos final ni static.",
+      "tags": ["java", "sobreescritura", "overriding", "poo", "herencia"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-eac2-025",
+      "front": "¿Qué son los métodos `equals()` y `hashCode()` en Java y por qué se suelen sobreescribir juntos?",
+      "back": "equals() compara si dos objetos son iguales en contenido. hashCode() devuelve un número entero que representa el objeto. Si dos objetos son iguales según equals(), deben tener el mismo hashCode(). Se sobreescriben juntos porque colecciones como HashMap y HashSet usan hashCode() para organizar elementos y equals() para resolver colisiones.",
+      "tags": ["java", "equals", "hashCode", "colecciones", "poo"],
+      "difficulty": "hard"
     }
   ]
 }

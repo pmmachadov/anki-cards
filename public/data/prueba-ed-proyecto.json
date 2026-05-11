@@ -157,6 +157,34 @@
       "back": "Solicita que un componente reciba el foco del teclado, de modo que el usuario pueda escribir o interactuar directamente con él.\n\nEjemplo:\n```java\nif (antiguedadStr.isEmpty()) {\n    txtErrores.setText(\"Error: La antigüedad es obligatoria.\");\n    txtAntiguedad.requestFocus(); // cursor va al campo\n    txtAntiguedad.selectAll();    // selecciona todo el texto\n    return;\n}\n```\n\nSe usa habitualmente tras mostrar un error para guiar al usuario al campo que debe corregir.",
       "tags": ["java", "swing", "focus", "usabilidad"],
       "difficulty": "easy"
+    },
+    {
+      "id": "p2-proy-023",
+      "front": "¿Qué es una excepción en Java y cómo se maneja?",
+      "back": "Una excepción es un evento que interrumpe el flujo normal del programa cuando ocurre un error. Se maneja con bloques try-catch-finally.\n\n```java\ntry {\n    int numero = Integer.parseInt(entrada);\n} catch (NumberFormatException e) {\n    System.out.println(\"Error: no es un número válido\");\n} finally {\n    // siempre se ejecuta\n}\n```\n\nTambién se puede propagar con throws en la firma del método.",
+      "tags": ["java", "excepciones", "try-catch", "error-handling"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-proy-024",
+      "front": "¿Qué es un `JTextField` en Swing y cómo se usa?",
+      "back": "Es un componente de entrada de texto de una sola línea.\n\n```java\nJTextField txtNombre = new JTextField();\ntxtNombre.setBounds(20, 30, 200, 25);\ntxtNombre.setText(\"Valor inicial\");\nString valor = txtNombre.getText().trim();\n```\n\nMétodos útiles:\n- getText() / setText(): obtener/establecer texto\n- setEditable(false): solo lectura\n- setEnabled(false): deshabilitar\n- selectAll(): seleccionar todo el texto",
+      "tags": ["java", "swing", "jtextfield", "componentes"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-proy-025",
+      "front": "¿Qué es `System.exit(0)` en Java?",
+      "back": "Finaliza la ejecución de la máquina virtual Java. El parámetro 0 indica finalización normal; cualquier otro valor indica error.\n\nSe usa típicamente en aplicaciones de escritorio cuando se cierra la ventana principal. En Swing se prefiere usar setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE) para que el cierre de la ventana llame automáticamente a System.exit.",
+      "tags": ["java", "system-exit", "swing", "jframe"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2-proy-026",
+      "front": "¿Qué es un `JLabel` en Swing?",
+      "back": "Es un componente que muestra texto o imágenes de solo lectura.\n\n```java\nJLabel lblTitulo = new JLabel(\"Presupuesto Marketing\");\nlblTitulo.setBounds(20, 10, 300, 25);\nlblTitulo.setFont(new Font(\"Arial\", Font.BOLD, 16));\n```\n\nNo es editable por el usuario. Se usa para etiquetar campos de entrada, mostrar mensajes informativos o títulos.",
+      "tags": ["java", "swing", "jlabel", "componentes"],
+      "difficulty": "easy"
     }
   ]
 }
