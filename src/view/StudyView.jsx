@@ -118,9 +118,7 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
   // Normaliza texto: los datos usan 'n' literal como marcador de newline
   const normalizeText = (text) => {
     if (!text) return "";
-    let result = text
-      .replace(/\\n/g, "\n")
-      .replace(/\\t/g, "\t");
+    let result = text.replace(/\\n/g, "\n").replace(/\\t/g, "\t");
 
     // Convierte n literal → newline dentro de bloques ```langn...n```
     result = result.replace(
@@ -615,7 +613,10 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
                       src={currentCard.imageUrl}
                       alt="Diagrama de ejemplo"
                       className="card-image"
-                      onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.style.display = 'none'; }}
+                      onError={(e) => {
+                        e.target.style.display = "none";
+                        e.target.parentElement.style.display = "none";
+                      }}
                     />
                   </div>
                 )}
