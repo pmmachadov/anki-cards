@@ -154,6 +154,12 @@
   max-width: 1170px;
   margin-left: auto;
   margin-right: auto;
+  /* Center the flashcard horizontally and vertically within the study view */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Ensure some vertical space so centering looks good */
+  min-height: 48vh;
 }
 
 .flashcard {
@@ -239,8 +245,9 @@
 
 /* Contenido con código */
 .card-content-code {
-  align-items: stretch;
-  text-align: left;
+  /* Center the overall content while keeping code blocks left-aligned for readability */
+  align-items: center;
+  text-align: center;
   gap: 16px;
 }
 
@@ -358,6 +365,8 @@
   line-height: 1.6 !important;
   padding: 16px 20px !important;
   overflow-x: auto !important;
+  /* Ensure pre doesn't stretch the whole card when centered */
+  max-width: 100%;
 }
 
 .code-block-wrapper code {
