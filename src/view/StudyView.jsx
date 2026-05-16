@@ -146,8 +146,8 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
         // n antes de comentario
         c = c.replace(/n\s*(?=\/\/|\/\*)/g, "\n");
         // n antes de cierre ``` y antes de ); }]; etc
-        c = c.replace(/n(?=```)/g, '\n')
-        c = c.replace(/n(?=[})\]]\s*[;,\]\)])/g, '\n')
+        c = c.replace(/n(?=```)/g, "\n");
+        c = c.replace(/n(?=[})\]]\s*[;,\]\)])/g, "\n");
         // n restante(s) entre newline y letra mayúscula
         c = c.replace(/\nn(?=[A-Z])/g, "\n\n");
         // limpiar 3+ saltos
