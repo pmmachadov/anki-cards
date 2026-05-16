@@ -1,13 +1,13 @@
 {
   "id": "examen-si-eac3",
   "name": "SI - EAC3 (Sistemes Informàtics)",
-  "description": "Preguntes exactes de l'EAC3 de Sistemes Informàtics - U3: Interconnexió i gestió de sistemes en xarxa",
-  "subject": "Sistemas Informaticos",
+  "description": "Preguntes exactes de l'EAC3 de Sistemes Informàtics - U3: Interconexión y gestión de sistemes en red",
+  "subject": "Sistemes Informàtics",
   "cards": [
     {
-      "id": "examen-si-eac3-a1",
-      "front": "Configuració de la xarxa amb Ubuntu usant la comanda ip (temporal):\na) Assigna una IP estàtica.\nb) Configura la màscara de xarxa.\nc) Defineix la porta d'enllaç.\nd) Configura el servidor DNS.\ne) Comprova la connectivitat amb ping a través de ip i nom.\nf) Repetiu amb les eines de net-tools (ifconfig, route, etc.).",
-      "back": "Amb ip (iproute2):\na) sudo ip addr add 192.168.1.100/24 dev eth0\nb) Ya incluida en la máscara /24\nc) sudo ip route add default via 192.168.1.1\nd) Editar /etc/resolv.conf: nameserver 8.8.8.8\ne) ping 8.8.8.8 / ping google.com\n\nAmb net-tools:\na) sudo ifconfig eth0 192.168.1.100 netmask 255.255.255.0\nb) sudo route add default gw 192.168.1.1\nc) Editar /etc/resolv.conf\nd) ping",
+      "id": "si-eac3-a1",
+      "front": "Configuración de la red con Ubuntu usando la comanda ip (temporal):\na) Asigna una IP estática.\nb) Configura la máscara de red.\nc) Defineix la porta d'enllaç.\nd) Configura el servidor DNS.\ne) Comprova la conectividad amb ping a través de ip y nom.\nf) Repetid amb les eines de net-tools (ifconfig, route, etc.).",
+      "back": "COMANDOS IP (temporal, se pierde al reiniciar):\na) sudo ip addr add 192.168.1.100/24 dev eth0\nb) La máscara va en la notación /24\nc) sudo ip route add default via 192.168.1.1\nd) Editar /etc/resolv.conf: nameserver 8.8.8.8\ne) ping 8.8.8.8 / ping google.com\n\nCON NET-TOOLS:\n1. sudo apt install net-tools\n2. sudo ifconfig eth0 192.168.1.100 netmask 255.255.255.0\n3. sudo route add default gw 192.168.1.1\n4. ping 8.8.8.8",
       "tags": [
         "si",
         "eac3",
@@ -17,9 +17,9 @@
       ]
     },
     {
-      "id": "examen-si-eac3-a2",
-      "front": "Configuració de la xarxa amb Windows de forma estàtica:\na) Assigna IP estàtica, màscara i porta d'enllaç.\nb) Configura servidor DNS.\nc) Comprova la connectivitat.\nd) Mostreu una comanda per consultar la configuració des de línia de comandes.",
-      "back": "a) Configuració: Panell de control → Centre de xarxes → Canviar configuració → IPv4 → Propietats → Usar la siguiente dirección IP\n\nb) DNS: 8.8.8.8 / 1.1.1.1\n\nc) ping 8.8.8.8 / ping google.com\n\nd) ipconfig (mostra IP, màscara, porta d'enllaç)\n   ipconfig /all (informació completa incloent DNS)",
+      "id": "si-eac3-a2",
+      "front": "Configuración de la red amb Windows de forma estática:\na) Asigna IP estática, máscara y porta d'enllaç.\nb) Configura servidor DNS.\nc) Comprova la conectividad.\nd) Mostrad una comanda per consultar la configuración des de línia de comandes.",
+      "back": "PASOS WINDOWS:\na) Panel control → Centro redes → Cambiar adaptador → IPv4 → Propiedades\n   IP: 192.168.1.100 / Másc: 255.255.255.0 / Puerta: 192.168.1.1\n\nb) DNS: 8.8.8.8\n\nc) ping 8.8.8.8\n\nd) ipconfig /all",
       "tags": [
         "si",
         "eac3",
@@ -29,9 +29,9 @@
       ]
     },
     {
-      "id": "examen-si-eac3-a3",
-      "front": "Anàlisis de ports amb nmap:\na) Instal·leu nmap.\nb) Executeu exploració bàsica sobre localhost i IP assignada.\nc) Identifiqueu ports oberts, filtrats i tancats.\nd) Exploreu el rang 19-100 i compareu amb l'exploració completa.\ne) Identifiqueu el servei de cada port detectat.\nf) Quina diferència hi ha entre TCP SYN i TCP Connect?\ng) Justifiqueu els riscos de seguretat d'exposar ports innecessaris.",
-      "back": "a) sudo apt install nmap\n\nb) nmap localhost\n   nmap 192.168.1.100\n\nc) Puertos abiertos: responden (estado open)\n   Puertos filtrados: firewall bloquea (filtered)\n   Puertos cerrados: no hay servicio (closed)\n\nd) nmap -p 19-100 localhost (más rápido, solo rango específico)\n\nEjemplo: solo puerto 22 (SSH) abierto, resto cerrados. Diferencia: 17s completo vs 0.06s rango.\n\ne) Puerto 22: SSH\n\nf) TCP SYN (-sS): no completa el handshake, más rápido y sigiloso.\n   TCP Connect (-sT): establece conexión completa, más rastro, funciona sin root.\n\ng) Exponer puertos innecesarios amplía la superficie de ataque. Servicios como Telnet (23) o FTP (21) sin cifrar son vulnerabilidades críticas. Solo mantener lo estrictamente necesario.",
+      "id": "si-eac3-a3",
+      "front": "Análisis de ports amb nmap:\na) Instalad nmap.\nb) Ejecutad exploració básica sobre localhost y IP asignada.\nc) Identificad ports oberts, filtrats y tancats.\nd) Exploreu el rang 19-100 y compareu amb l'exploració completa.\ne) Identificad el servicio de cada port detectat.\nf) Quina diferencia hay entre TCP SYN y TCP Connect?\ng) Justificad els riscos de seguridad d'exposar ports innecessaris.",
+      "back": "COMANDOS:\na) sudo apt install nmap\n\nb) nmap localhost\n   nmap 192.168.1.100\n\nc) open=responde, filtered=firewall, closed=sin servicio\n\nd) nmap -p 19-100 localhost\n\ne) Puerto 22 → SSH\n\nf) TCP SYN (-sS): sin handshake, rápido, requiere sudo\n   TCP Connect (-sT): conexión completa, más rastro, sin root\n\ng) Puertos innecesarios = más superficie de ataque. Solo mantener lo necesario.",
       "tags": [
         "si",
         "eac3",
@@ -41,9 +41,9 @@
       ]
     },
     {
-      "id": "examen-si-eac3-a4",
-      "front": "Anàlisi de ports en escolta amb netstat i servei FTP:\na) Mostreu ports TCP en escolta amb netstat.\nb) Mostreu ports UDP en escolta.\nc) Identifiqueu processos associats a cada port.\nd) Instal·leu i inicieu vsftpd.\ne) Verifiqueu que FTP escolta al port 21.\nf) Connecteu-vos per FTP a localhost.\ng) Executeu netstat i identifiqueu connexions establertes.\nh) Diferencieu entre LISTEN i ESTABLISHED.",
-      "back": "a) sudo netstat -tln (TCP en escucha)\nb) sudo netstat -uln (UDP en escucha)\nc) sudo netstat -tlnp (con PID y nombre del proceso)\n\nd) sudo apt install vsftpd\n   sudo systemctl start vsftpd\n\ne) sudo netstat -tlnp | grep :21 (puerto 21 en LISTEN)\n\nf) ftp localhost (conectarse a sí mismo)\n\ng) netstat -tn | grep :21 (ver conexión ESTABLISHED)\n\nh) LISTEN: servicio esperando conexiones entrantes.\n   ESTABLISHED: conexión activa establecida entre cliente y servidor.",
+      "id": "si-eac3-a4",
+      "front": "Análisis de ports en escolta amb netstat y servicio FTP:\na) Mostrad ports TCP en escolta amb netstat.\nb) Mostrad ports UDP en escolta.\nc) Identificad processos associats a cada port.\nd) Instalad y iniciad vsftpd.\ne) Verificad que FTP escolta al port 21.\nf) Conectaos per FTP a localhost.\ng) Ejecutad netstat y identificad conexiones establertes.\nh) Diferenciad entre LISTEN y ESTABLISHED.",
+      "back": "COMANDOS:\na) sudo netstat -tln (TCP escucha)\nb) sudo netstat -uln (UDP escucha)\nc) sudo netstat -tlnp (con PID/proceso)\n\nd) sudo apt install vsftpd\n   sudo systemctl start vsftpd\n\ne) sudo netstat -tlnp | grep :21 → LISTEN\n\nf) ftp localhost\n\ng) sudo netstat -tn | grep :21 → ESTABLISHED\n\nh) LISTEN = esperando conexiones\n   ESTABLISHED = conexión activa",
       "tags": [
         "si",
         "eac3",
@@ -53,9 +53,9 @@
       ]
     },
     {
-      "id": "examen-si-eac3-a5",
-      "front": "Adreces MAC i taula ARP:\na) Determineu l'adreça MAC de la màquina física.\nb) Determineu l'adreça MAC de la VM Ubuntu.\nc) Identifiqueu l'adreça MAC del router.\nd) Consulteu la correspondència IP-MAC amb arp.\ne) Per què només apareixen determinades entrades?\nf) Forceu comunicació amb el router i actualitzeu ARP.\ng) Diferència entre ARP dinàmic i ARP estàtic. Riscos d'ARP spoofing.",
-      "back": "a) Windows: ipconfig /all | findstr \"Dirección física\"\n   Linux: ip link show\n\nb) Ubuntu VM: ip link show o ifconfig\n\nc) arp -a (Windows) / ip neigh (Linux) - buscar IP del router\n\nd) arp -a / ip neigh\n\ne) Solo aparecen dispositivos con los que se ha comunicado recientemente. La tabla ARP tiene tiempo de expiración.\n\nf) ping <IP_router> y luego arp -a / ip neigh (cambia de STALE a REACHABLE)\n\ng) ARP dinámico: aprendizaje automático.\n   ARP estático: entrada manual fija.\n   ARP spoofing: ataque donde se falsifica la MAC asociada a una IP para interceptar tráfico.",
+      "id": "si-eac3-a5",
+      "front": "Adreces MAC y taula ARP:\na) Determinad l'adreça MAC de la máquina física.\nb) Determinad l'adreça MAC de la VM Ubuntu.\nc) Identificad l'adreça MAC del router.\nd) Consultad la correspondencia IP-MAC amb arp.\ne) Per qué solo apareixen determinades entrades?\nf) Forzad comunicació amb el router y actualizad ARP.\ng) Diferència entre ARP dinámico y ARP estátic. Riscos d'ARP spoofing.",
+      "back": "COMANDOS:\na) Linux: ip link show\n   Windows: ipconfig /all | findstr \"Física\"\n\nb) Ubuntu VM: ip link show\n\nc) ip neigh (Linux) / arp -a (Windows)\n\nd) arp -a / ip neigh\n\ne) Solo dispositivos comunicados recientemente (la tabla ARP expira)\n\nf) ping 192.168.1.1 → ip neigh (STALE → REACHABLE)\n\ng) ARP dinámico: automático\n   ARP estático: entrada manual fija\n   ARP spoofing: falsificar MAC para interceptar tráfico",
       "tags": [
         "si",
         "eac3",
@@ -65,9 +65,9 @@
       ]
     },
     {
-      "id": "examen-si-eac3-b1",
-      "front": "Instal·lació i configuració de Windows Server 2019 com a controlador de domini:\na) Descarregueu la ISO i reviseu requisits.\nb) Creeu VM i instal·leu Windows Server 2019.\nc) Configureu nom del servidor i IP fixa.\nd) Promocioneu a Controlador de Domini creant un bosc amb domini eac3.<teu_ioc_user>.home.",
-      "back": "a) Requisits: 2 GB RAM, 32 GB disc, CPU 1.4 GHz, connexió a Internet.\n\nb) VM amb 2 GB RAM mínim, disc dinàmic 40 GB.\n\nc) Nom del servidor: SRV-DC\n   IP fixa: 192.168.1.10/24\n\nd) Server Manager → Agregar roles → Active Directory Domain Services\n   Promocionar a controlador de dominio:\n   - Agregar un nuevo bosque\n   - Nombre: eac3.pmachado.home\n   - Establecer contraseña DSRM\n\nVerificación: dcdiag, netdom query fsmo.",
+      "id": "si-eac3-b1",
+      "front": "Instalación y configuración de Windows Server 2019 como controlador de dominio:\na) Descargad la ISO y revisad requisits.\nb) Cread VM y instalad Windows Server 2019.\nc) Configurad nom del servidor y IP fixa.\nd) Promocioneu a Controlador de Domini creant un bosc amb dominio eac3.<teu_ioc_user>.home.",
+      "back": "PASOS:\na) Descargar ISO Win Server 2019\n   Requisitos: 2 GB RAM, 32 GB disco, CPU 1.4 GHz\n\nb) VM: 2 GB RAM, disco 40 GB dinámico\n\nc) Nombre: SRV-DC\n   IP fija: 192.168.1.10/24\n\nd) Server Manager → Add roles → AD DS → Promocionar\n   Nuevo bosque → Dominio: eac3.pmachado.home\n   Contraseña DSRM\n\nVerificar: dcdiag",
       "tags": [
         "si",
         "eac3",
@@ -76,9 +76,9 @@
       ]
     },
     {
-      "id": "examen-si-eac3-b2",
-      "front": "Configuració del servei DNS al controlador de domini:\na) Verifiqueu que s'ha creat la zona directa del domini.\nb) Creeu la zona inversa.\nc) Creeu un registre A amb l'assistent gràfic.\nd) Creeu un registre PTR amb PowerShell.\ne) Creeu un registre CNAME anomenat www com a àlies.",
-      "back": "a) DNS Manager → Zonas directas → eac3.pmachado.home (creada automàticamente)\n\nb) Zona inversa: DNS Manager → Zonas inversas → Nueva zona\n   ID de red: 192.168.1\n\nc) Registro A: botón derecho → Nuevo host (A)\n   Nombre: SRV-DC, IP: 192.168.1.10\n\nd) PowerShell:\n   Add-DnsServerResourceRecordPtr -Name 10 -ZoneName 1.168.192.in-addr.arpa -PtrDomainName SRV-DC.eac3.pmachado.home\n\ne) Registro CNAME:\n   Nombre: www, Destino: SRV-DC.eac3.pmachado.home",
+      "id": "si-eac3-b2",
+      "front": "Configuración del servicio DNS al controlador de dominio:\na) Verificad que s'ha creat la zona directa del dominio.\nb) Cread la zona inversa.\nc) Cread un registre A amb l'assistent gráfico.\nd) Cread un registre PTR amb PowerShell.\ne) Cread un registre CNAME anomenat www como alias.",
+      "back": "PASOS:\na) DNS Mgr → Zonas directas → dominio creado automáticamente\n\nb) Zona inversa: Nueva → ID red 192.168.1\n\nc) Registro A: SRV-DC → 192.168.1.10\n\nd) PTR (PowerShell):\nAdd-DnsServerResourceRecordPtr -Name 10 -ZoneName 1.168.192.in-addr.arpa -PtrDomainName SRV-DC.eac3.pmachado.home\n\ne) CNAME: www → SRV-DC.eac3.pmachado.home",
       "tags": [
         "si",
         "eac3",
@@ -87,9 +87,9 @@
       ]
     },
     {
-      "id": "examen-si-eac3-b3",
-      "front": "Administració bàsica d'Active Directory:\na) Creeu dos grups de seguretat: bibliotecari i usuari.\nb) Creeu dos usuaris: Martí i Jana.\nc) Afegiu Martí a bibliotecari i Jana a usuari.\nd) Creeu un fitxer de text amb la data actual.\ne) Configureu permisos: Martí control total, Jana només lectura.",
-      "back": "a) Active Directory Users and Computers (ADUC)\n   → New → Group: bibliotecari (Global Security)\n   → New → Group: usuari (Global Security)\n\nb) New → User: Martí, Jana\n\nc) Propietats de l'usuari → Member Of → Afegir grup\n\nd) Crear fitxer de text amb data: \"date > fitxer.txt\" o manualment\n\ne) Botó dret al fitxer → Propiedades → Seguridad:\n   - Martí: Control total\n   - Jana: Leer y ejecutar / Leer\n\nQuitar herencia si es necesario.",
+      "id": "si-eac3-b3",
+      "front": "Administración básica de Active Directory:\na) Cread dos grups de seguridad: bibliotecario y usuari.\nb) Cread dos usuaris: Martí y Jana.\nc) Añadid Martí a bibliotecario y Jana a usuari.\nd) Cread un archivo de text amb la data actual.\ne) Configurad permisos: Martí control total, Jana solo lectura.",
+      "back": "PASOS:\na) ADUC → New → Group: bibliotecari, usuari\n\nb) New → User: Martí, Jana\n\nc) Propiedades → Member Of → añadir al grupo\n\nd) echo %date% > fecha.txt\n\ne) Propiedades → Seguridad:\n   - Martí: Control total\n   - Jana: Leer y ejecutar",
       "tags": [
         "si",
         "eac3",
@@ -99,21 +99,21 @@
       ]
     },
     {
-      "id": "examen-si-eac3-b4",
-      "front": "Integració d'una màquina Windows 11 al domini:\na) Configureu la xarxa amb IP compatible.\nb) Assigneu com a nom de màquina el vostre nom.\nc) Configureu DNS apuntant al Windows Server.\nd) Uniu la màquina al domini eac3.<teu_ioc_user>.home.\ne) Verifiqueu des d'Active Directory que apareix.",
-      "back": "a) IP: 192.168.1.20/24, Puerta: 192.168.1.1\n\nb) Sistema → Cambiar nombre de este PC → Nombre: Pablo\n\nc) DNS: 192.168.1.10 (IP del servidor)\n\nd) Sistema → Cambiar nombre → Miembro de dominio:\n   eac3.pmachado.home\n   Credenciales: administrador del dominio\n\ne) ADUC → Computers → Debe aparecer la máquina Pablo",
+      "id": "si-eac3-b4",
+      "front": "Integración de una máquina Windows 11 al dominio:\na) Configurad la red amb IP compatible.\nb) Asignad como nom de máquina el vuestro nom.\nc) Configurad DNS apuntant al Windows Server.\nd) Uniu la máquina al dominio eac3.<teu_ioc_user>.home.\ne) Verificad des de Active Directory que apareix.",
+      "back": "PASOS:\na) IP: 192.168.1.20/24, Puerta: 192.168.1.1\n\nb) Sistema → Cambiar nombre → Pablo\n\nc) DNS: 192.168.1.10\n\nd) Sistema → Unir a dominio: eac3.pmachado.home\n   Credenciales: administrador del dominio\n\ne) ADUC → Computers → aparece 'Pablo'",
       "tags": [
         "si",
         "eac3",
-        "dominio",
+        "dominioo",
         "windows-11",
         "dns"
       ]
     },
     {
-      "id": "examen-si-eac3-b5",
-      "front": "Compartició de recursos al servidor (SMB):\na) Creeu una carpeta anomenada documentacio.\nb) Compartiu-la per SMB.\nc) Bibliotecari: lectura i escriptura.\nd) Usuari: només lectura.\ne) Ajusteu permisos NTFS i de compartició.",
-      "back": "a) Crear C:\\documentacio\n\nb) Botó dret → Compartir → Usuarios específicos\n   o: New-SmbShare -Name documentacio -Path C:\\documentacio\n\nc) Permisos de compartir:\n   - bibliotecari: Lectura/Escritura\n   \nd) - usuari: Lectura\n\ne) Permisos NTFS (Seguridad):\n   - bibliotecari: Modificar / Control total\n   - usuari: Leer y ejecutar\n\nRegla general: el permiso más restrictivo entre NTFS y Compartición es el efectivo.",
+      "id": "si-eac3-b5",
+      "front": "Compartición de recursos al servidor (SMB):\na) Cread una carpeta anomenada documentacio.\nb) Compartid-la per SMB.\nc) Bibliotecari: lectura y escriptura.\nd) Usuari: solo lectura.\ne) Ajusteu permisos NTFS y de compartición.",
+      "back": "PASOS:\na) Crear C:\\documentacio\n\nb) Botón derecho → Compartir\n   O: New-SmbShare -Name documentacio -Path C:\\documentacio\n\nc) Permisos de compartir:\n   - bibliotecari: Lectura/Escritura\n   - usuari: Lectura\n\nd) Permisos NTFS:\n   - bibliotecari: Control total\n   - usuari: Leer y ejecutar\n\n⚠️ Permiso efectivo = el más restrictivo entre NTFS y Compartición.",
       "tags": [
         "si",
         "eac3",
@@ -123,9 +123,9 @@
       ]
     },
     {
-      "id": "examen-si-eac3-b6",
-      "front": "Compartició de recursos amb Samba a Ubuntu:\na) Instal·leu samba.\nb) Creeu carpeta imatges (pública).\nc) Creeu carpeta documents (lectura tots, només bibliotecari pot escriure).\nd) Creeu grup bibliotecari.\ne) Comproveu accés des de Windows.",
-      "back": "a) sudo apt install samba\n\nb) /etc/samba/smb.conf:\n[imatges]\n  path = /srv/samba/imatges\n  public = yes\n  writable = yes\n  guest ok = yes\n\nc) [documents]\n  path = /srv/samba/documents\n  public = no\n  writable = no\n  valid users = @bibliotecari\n\nd) sudo groupadd bibliotecari\n   sudo usermod -aG bibliotecari usrname\n\ne) Verificar: sudo systemctl status smbd\n   Desde Windows: \\IP_UBUNTU\\imatges",
+      "id": "si-eac3-b6",
+      "front": "Compartición de recursos amb Samba a Ubuntu:\na) Instalad samba.\nb) Cread carpeta imágenes (pública).\nc) Cread carpeta documents (lectura tots, solo bibliotecario pot escriure).\nd) Cread grup bibliotecario.\ne) Comprobad accés des de Windows.",
+      "back": "COMANDOS:\n1. sudo apt install samba\n\n2. /etc/samba/smb.conf:\n[imatges]\n  path = /srv/samba/imatges\n  public = yes\n  writable = yes\n  guest ok = yes\n\n[documents]\n  path = /srv/samba/documents\n  valid users = @bibliotecari\n  writable = yes\n\n3. sudo systemctl restart smbd\n4. sudo smbpasswd -a usuario\n5. Desde Windows: \\IP-UBUNTU\\imatges\n\nVerificar: sudo systemctl status smbd",
       "tags": [
         "si",
         "eac3",
@@ -135,9 +135,9 @@
       ]
     },
     {
-      "id": "examen-si-eac3-b7",
-      "front": "Compartir una impressora al servidor i usar-la des de Windows 11. Instal·leu un servidor d'impressió i implementeu la impressora. Podeu usar Bullzip com a impressora virtual. L'objectiu és publicar-la i usar-la des del W11.",
-      "back": "1. Instal·lar Bullzip PDF Printer (o impressora virtual similar) al servidor\n2. Configurar com a compartida: Dispositivos → Impresoras → Propiedades → Compartir\n3. Al Windows 11 client:\n   - Agregar impresora → Buscar en red\n   - O conectar a \\SERVIDOR\\nombre_impresora\n4. Imprimir un documento de prueba desde W11\n\nPermisos: pueden configurarse para impresión o administración según el usuario/grupo.",
+      "id": "si-eac3-b7",
+      "front": "Compartir una impressora al servidor y usar-la des de Windows 11. Instalad un servidor d'impressió y implementeu la impressora. Podeu usar Bullzip como impressora virtual. L'objectiu és publicar-la y usar-la des del W11.",
+      "back": "PASOS:\n1. Instalar Bullzip PDF Printer en servidor\n2. Compartir: Dispositivos → Impresoras → Propiedades → Compartir\n3. En W11: Agregar impresora → Buscar en red → \\SRV-DC\\nombre_impresora\n4. Imprimir documento de prueba",
       "tags": [
         "si",
         "eac3",
@@ -146,21 +146,21 @@
       ]
     },
     {
-      "id": "examen-si-eac3-b8",
-      "front": "Promoció d'Ubuntu a Controlador de Domini (Samba AD DC):\na) Instal·leu paquets de Samba.\nb) Configureu IP estàtica.\nc) Provisioneu el domini amb samba-tool.\nd) Configureu DNS integrat de Samba.\ne) Inicieu el servei i verifiqueu.\nf) Uniu client Windows al domini.\ng) Inicieu sessió amb usuari del domini.",
-      "back": "a) sudo apt install samba krb5-user krb5-config winbind\n\nb) IP estàtica a /etc/netplan/ o /etc/network/interfaces\n\nc) sudo samba-tool domain provision --use-rfc2307 --domain=EAC3 --realm=eac3.pmachado.home --dns-backend=SAMBA_INTERNAL --adminpass=Contraseña123\n\nd) El DNS integrat es configura automàticament amb el provisionament.\n\ne) sudo systemctl start samba-ad-dc\n   sudo samba-tool domain level show\n\nf) Configurar DNS del client Windows a IP del Ubuntu Server\n   Unir al domini eac3.pmachado.home\n\ng) Iniciar sessió amb usuari del domini.",
+      "id": "si-eac3-b8",
+      "front": "Promoción de Ubuntu a Controlador de Domini (Samba AD DC):\na) Instalad paquetes de Samba.\nb) Configurad IP estática.\nc) Aprovisionad el dominioo con samba-tool.\nd) Configurad DNS integrat de Samba.\ne) Iniciad el servicio y verificad.\nf) Uniu client Windows al dominio.\ng) Iniciad sessió amb usuari del dominio.",
+      "back": "COMANDOS:\na) sudo apt install samba krb5-user krb5-config winbind\n\nb) IP estática en netplan\n\nc) sudo samba-tool domain provision --use-rfc2307 --domain=EAC3 --realm=eac3.pmachado.home --dns-backend=SAMBA_INTERNAL --adminpass=Contraseña123\n\nd) DNS integrado se configura automáticamente\n\ne) sudo systemctl start samba-ad-dc\n   sudo samba-tool domain level show\n\nf) Cliente Windows: DNS → IP Ubuntu, unir a dominio\n\ng) Iniciar sesión con usuario del dominio",
       "tags": [
         "si",
         "eac3",
         "samba",
         "ad-dc",
-        "dominio"
+        "dominioo"
       ]
     },
     {
-      "id": "examen-si-eac3-c1",
-      "front": "Correu electrònic:\na) Instal·leu un client de correu (Thunderbird).\nb) Configureu un compte real (Gmail).\nc) Configureu IMAP/POP3.\nd) Configureu SMTP autenticat.\ne) Envieu un correu de prova.\nf) Verifiqueu la recepció.\ng) Quins ports usa IMAP/POP3 i SMTP?\nh) Diferència entre SSL/TLS i STARTTLS.",
-      "back": "a) sudo apt install thunderbird\n\nb) Gmail: Habilitar acceso a apps menos seguras o usar contraseña de aplicación.\n\nc) IMAP: puerto 993 (SSL/TLS) o 143 (STARTTLS)\n   POP3: puerto 995 (SSL/TLS) o 110 (STARTTLS)\n\nd) SMTP: puerto 465 (SSL/TLS) o 587 (STARTTLS)\n\ne) Enviar correo de prueba\n\nf) Verificar recepción en el otro cuenta\n\ng) IMAP: 143/993 | POP3: 110/995 | SMTP: 25/465/587\n\nh) SSL/TLS: cifrado desde el inicio de la conexión.\n   STARTTLS: inicia en texto plano y negocia cifrado después.",
+      "id": "si-eac3-c1",
+      "front": "Correu electrónico:\na) Instalad un client de correu (Thunderbird).\nb) Configurad un compte real (Gmail).\nc) Configurad IMAP/POP3.\nd) Configurad SMTP autenticat.\ne) Enviad un correu de prova.\nf) Verificad la recepció.\ng) Qué ports usa IMAP/POP3 y SMTP?\nh) Diferència entre SSL/TLS y STARTTLS.",
+      "back": "PASOS:\na) sudo apt install thunderbird\n\nb) Configurar Gmail (contraseña de aplicación)\n\nc) IMAP: 993 (SSL) o 143 (STARTTLS)\n   POP3: 995 (SSL) o 110 (STARTTLS)\n\nd) SMTP: 465 (SSL) o 587 (STARTTLS)\n\ne) Enviar correo de prueba\n\nf) Verificar recepción\n\ng) IMAP: 143/993 | POP3: 110/995 | SMTP: 25/465/587\n\nh) SSL/TLS: cifra desde inicio\n   STARTTLS: texto plano→negocia cifrado",
       "tags": [
         "si",
         "eac3",
@@ -171,9 +171,9 @@
       ]
     },
     {
-      "id": "examen-si-eac3-c2",
-      "front": "Accés remot segur amb SSH i transferència SFTP:\na) Instal·leu OpenSSH a Ubuntu.\nb) Verifiqueu que està actiu al port 22.\nc) Instal·leu client SSH a Windows (PuTTY).\nd) Connecteu-vos remotament.\ne) Executeu comandes administratives bàsiques.\nf) Configureu autenticació per clau pública.\ng) Realitzeu transferència SFTP.\nh) Desactiveu l'accés SSH de root.",
-      "back": "a) sudo apt install openssh-server\n\nb) sudo systemctl status ssh\n   sudo netstat -tlnp | grep :22\n\nc) PuTTY: Host=IP, Port=22, Connection type=SSH\n\nd) ssh usuari@192.168.1.100\n\ne) ls, who, df -h, systemctl status\n\nf) ssh-keygen -t rsa (cliente)\n   ssh-copy-id usuari@192.168.1.100\n\ng) sftp usuari@192.168.1.100\n   put fitxer.txt / destí\n\ng) sudo nano /etc/ssh/sshd_config\n   PermitRootLogin no\n   sudo systemctl restart ssh\n\nVerificar que root ya no puede conectarse.",
+      "id": "si-eac3-c2",
+      "front": "Accés remot segur amb SSH y transferencia SFTP:\na) Instalad OpenSSH a Ubuntu.\nb) Verificad que está actiu al port 22.\nc) Instalad client SSH a Windows (PuTTY).\nd) Conectaos remotament.\ne) Ejecutad comandes administratives básicas.\nf) Configurad autenticació per clau pública.\ng) Realitzeu transferencia SFTP.\nh) Desactiveu el acceso SSH de root.",
+      "back": "COMANDOS:\na) sudo apt install openssh-server\n\nb) sudo systemctl status ssh\n   sudo netstat -tlnp | grep :22\n\nc) PuTTY: Host=IP, Port=22, SSH\n\nd) ssh usuario@192.168.1.100\n\ne) ls; who; df -h; systemctl status\n\nf) ssh-keygen -t rsa\n   ssh-copy-id usuario@192.168.1.100\n\ng) sftp usuario@192.168.1.100\n   put archivo.txt\n\nh) sudo nano /etc/ssh/sshd_config\n   PermitRootLogin no\n   sudo systemctl restart ssh",
       "tags": [
         "si",
         "eac3",
@@ -183,9 +183,9 @@
       ]
     },
     {
-      "id": "examen-si-eac3-c3a",
-      "front": "Compilació d'un programa en C i empaquetament:\na) Compileu un programa C amb gcc.\nb) Executeu-lo amb un paràmetre de prova.\nc) Creeu una pàgina de manual en format roff.\nd) Incloeu: NAME, SYNOPSIS, DESCRIPTION, OPTIONS, FILES, AUTHOR.\ne) Visualitzeu-la amb groff.\nf) Instal·leu-la a /usr/share/man/man3/.\ng) Actualitzeu base de dades de manuals.\nh) Comproveu amb man.",
-      "back": "a) gcc programa.c -o programa\n\no alternatiu amb Makefile:\nmake\n\nb) ./programa argument\n\nc) Fitxer .roff (ex: programa.3):\n.TH PROGRAMA 3\n.SH NAME\nprograma - descripció\n.SH SYNOPSIS\n.B programa\n[opcions]\n.SH DESCRIPTION\nDescripció completa\n.SH OPTIONS\n.B -h\nMostra ajuda\n.SH FILES\n/usr/bin/programa\n.SH AUTHOR\nPablo Machado\n\ne) groff -man -Tascii programa.3\n\nf) sudo cp programa.3 /usr/share/man/man3/\n\ng) sudo mandb\n\nh) man 3 programa",
+      "id": "si-eac3-c3a",
+      "front": "Compilación de un programa en C y empaquetament:\na) Compilad un programa C amb gcc.\nb) Ejecutad-lo amb un parámetro de prova.\nc) Cread una pàgina de manual en format roff.\nd) Incluid: NAME, SYNOPSIS, DESCRIPTION, OPTIONS, FILES, AUTHOR.\ne) Visualizad-la amb groff.\nf) Instalad-la a /usr/share/man/man3/.\ng) Actualizad base de dades de manuals.\nh) Comprobad amb man.",
+      "back": "COMANDOS:\na) gcc programa.c -o programa\n   (o con Makefile: make)\n\nb) ./programa argumento\n\nc) Crear página man (programa.3):\n.TH PROGRAMA 3\n.SH NAME\nprograma - descripción\n.SH SYNOPSIS\n.B programa [opciones]\n.SH DESCRIPTION\nTexto descriptivo\n.SH AUTHOR\nPablo Machado\n\nd) groff -man -Tascii programa.3\ne) sudo cp programa.3 /usr/share/man/man3/\nf) sudo mandb\ng) man 3 programa",
       "tags": [
         "si",
         "eac3",
@@ -195,9 +195,9 @@
       ]
     },
     {
-      "id": "examen-si-eac3-c3b",
-      "front": "Control de versions amb Git:\na) Instal·leu Git a Ubuntu.\nb) Configureu nom i correu globals.\nc) Creeu un repositori local.\nd) Afegiu el codi font de la compilació en C.\ne) Feu almenys dos commits.\nf) Cloneu el repositori des d'una altra màquina.",
-      "back": "a) sudo apt install git\n\nb) git config --global user.name \"Pablo Machado\"\n   git config --global user.email \"pablo@example.com\"\n\nc) mkdir projecte && cd projecte\n   git init\n\nd) cp ../programa.c .\n   git add programa.c\n\ne) git commit -m \"Primer commit: programa en C\"\n   (modificar algo)\n   git commit -m \"Segon commit: millores\"\n\nf) En otra máquina:\n   git clone usuari@IP:/home/usuari/projecte",
+      "id": "si-eac3-c3b",
+      "front": "Control de versions amb Git:\na) Instalad Git en Ubuntu.\nb) Configurad nom y correu globals.\nc) Cread un repositorio local.\nd) Añadid el codi font de la compilación en C.\ne) Haced almenys dos commits.\nf) Cloneu el repositorio des de una otra máquina.",
+      "back": "COMANDOS:\na) sudo apt install git\n\nb) git config --global user.name \"Pablo\"\n   git config --global user.email \"pablo@mail.com\"\n\nc) mkdir proyecto && cd proyecto\n   git init\n\nd) cp programa.c .\n   git add programa.c\n\ne) git commit -m \"Primer commit\"\n   git commit -m \"Segundo commit\"\n\nf) En otra máquina:\n   git clone ssh://user@IP:/home/user/proyecto",
       "tags": [
         "si",
         "eac3",

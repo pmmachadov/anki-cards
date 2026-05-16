@@ -1,12 +1,12 @@
 {
   "id": "examen-si-eac1",
   "name": "SI - EAC1 (Sistemes Informàtics)",
-  "description": "Preguntes exactes de l'EAC1 de Sistemes Informàtics - U1: Avaluació, instal·lació i planificació del sistema informàtic",
-  "subject": "Sistemas Informaticos",
+  "description": "Preguntes exactes de l'EAC1 de Sistemes Informàtics - U1: Evaluación, instalación y planificació del sistema informático",
+  "subject": "Sistemes Informàtics",
   "cards": [
     {
-      "id": "examen-si-eac1-a1a",
-      "front": "Identifiqueu en la imatge de connectors externs d'una placa base, cadascun dels elements: A, B, C, D, E, F, G, H, I",
+      "id": "si-eac1-a1a",
+      "front": "Identificad en la imagen de conectores externos de una placa base, cada uno de los elementos: A, B, C, D, E, F, G, H, I",
       "back": "A: Puerto PS/2 para teclado\nB: Puerto PS/2 para ratón\nC: Salida de audio digital óptica S/PDIF (TOSLINK)\nD: Puertos USB\nE: Conectores de audio analógico de 3,5 mm\nF: Puerto de red Ethernet RJ-45\nG: Puerto eSATA\nH: Puerto IEEE 1394 / FireWire\nI: Salida de audio digital coaxial S/PDIF",
       "tags": [
         "si",
@@ -16,9 +16,9 @@
       ]
     },
     {
-      "id": "examen-si-eac1-a2a",
-      "front": "Un equip informàtic comença a funcionar amb molta lentitud després d'instal·lar diverses aplicacions noves. Com analitzaríeu la situació per determinar si el problema és de programari, de manca de recursos o d'un possible error de configuració? Descriviu un protocol d'anàlisi pas a pas i proposeu mesures preventives.",
-      "back": "1. Comparar el estado actual con el anterior: desde cuándo empezó la lentitud, qué programas se instalaron y si el problema aparece siempre o solo en ciertas tareas.\n2. Revisar consumo de CPU, RAM, disco y red con el administrador de tareas.\n3. Comprobar programas que arrancan con el sistema y servicios en segundo plano.\n4. Revisar espacio libre en disco, errores del sistema, actualizaciones pendientes y conflictos de controladores.\n5. Arrancar en modo seguro o inicio limpio para aislar el problema.\n\nMedidas preventivas: instalar solo software necesario, mantener actualizado el sistema, controlar arranque automático, dejar espacio libre en disco, crear puntos de restauración antes de cambios importantes.",
+      "id": "si-eac1-a2a",
+      "front": "Un equipo informático comienza a funcionar con mucha lentitud después de instalar diversas aplicaciones nuevas. Cómo analizaríais la situación para determinar si el problema es de software, de falta de recursos o de un posible error de configuración? Describid un protocolo de análisis paso a paso y proponed medidas preventivas.",
+      "back": "PROTOCOLO DE ANÁLISIS:\n1. Identificar cuándo empezó: qué programas se instalaron justo antes\n2. Revisar consumo con Administrador de tareas: CPU, RAM, disco, red\n3. Comprobar programas de inicio automático y servicios en segundo plano\n4. Revisar espacio libre en disco y errores del sistema\n5. Arrancar en modo seguro para aislar el problema\n\nComandos útiles (Windows):\ntaskmgr → Administrador de tareas\nmsconfig → Configuración del sistema (inicio)\nperfmon → Monitor de rendimiento\n\nComandos útiles (Linux):\ntop o htop → ver procesos y consumo\nfree -h → ver memoria RAM\ndf -h → ver espacio en disco\nsystemctl list-unit-files --type=service → servicios\n\nMedidas preventivas: instalar solo lo necesario, mantener actualizado, controlar inicio automático, dejar espacio libre, crear punto de restauración antes de cambios grandes.",
       "tags": [
         "si",
         "eac1",
@@ -27,9 +27,9 @@
       ]
     },
     {
-      "id": "examen-si-eac1-a2b",
-      "front": "Expliqueu per què un disc SSD millora el rendiment general del sistema respecte d'un disc dur mecànic (HDD). Compareu el funcionament intern de tots dos dispositius i descriviu una situació real en què la diferència de velocitat sigui especialment rellevant.",
-      "back": "Un HDD guarda datos en platos magnéticos que giran y usa un cabezal mecánico para leer y escribir. Por eso tiene más latencia y tarda más en acceder a archivos pequeños o dispersos.\nUn SSD usa memoria flash NAND, no tiene partes móviles, el acceso es mucho más rápido, silencioso y estable.\n\nLa mejora se nota sobre todo al arrancar el sistema operativo, abrir programas, cargar máquinas virtuales, compilar proyectos o trabajar con muchos archivos pequeños. Un caso real: el arranque del sistema en un SSD tarda segundos, mientras que con un HDD es bastante más lento.",
+      "id": "si-eac1-a2b",
+      "front": "Explicad por qué un disco SSD mejora el rendimiento general del sistema respecto de un disco duro mecánico (HDD). Comparad el funcionamiento interno de ambos dispositivos y describid una situación real en que la diferencia de velocidad sea especialmente relevante.",
+      "back": "HDD: platos magnéticos que giran + cabezal mecánico → latencia alta, acceso lento a archivos pequeños/dispersos.\nSSD: memoria flash NAND, sin partes móviles → mucho más rápido, silencioso, estable.\n\nDiferencia clave: el SSD se nota sobre todo en:\n- Arranque del sistema (segundos vs. minutos)\n- Apertura de programas\n- Carga de máquinas virtuales\n- Compilación de proyectos\n- Trabajo con muchos archivos pequeños",
       "tags": [
         "si",
         "eac1",
@@ -39,9 +39,9 @@
       ]
     },
     {
-      "id": "examen-si-eac1-a3a",
-      "front": "Situació 1: Instal·lació de sistema operatiu i errors d'arrencada. Una empresa intenta instal·lar Windows i Linux en un mateix equip modern amb disc NVMe de 2TB. Després de la instal·lació, el sistema no mostra menú d'arrencada i només inicia un dels sistemes. La placa base està configurada en mode Legacy (BIOS) i el disc utilitza esquema MBR.\n\na) Expliqueu per què aquesta configuració pot generar limitacions en equips actuals.\nb) Quines diferències hi ha entre BIOS/MBR i UEFI/GPT?\nc) Quin seria el procediment recomanat per configurar correctament un entorn dual-boot modern?",
-      "back": "a) MBR tiene límite de 2TB y máximo 4 particiones primarias. NVMe necesita controladores UEFI, y Legacy no los soporta correctamente.\n\nb) BIOS/MBR: sistema heredado, límite 2TB, 4 particiones primarias, arranque en modo 16 bits.\nUEFI/GPT: sistema moderno, admite discos grandes, más particiones, mejor integración con NVMe y arranque dual más limpio mediante partición EFI.\n\nc) Procedimiento:\n1. Hacer copia de seguridad.\n2. Configurar placa en modo UEFI, desactivar Legacy/CSM.\n3. Inicializar disco en GPT.\n4. Instalar primero Windows en modo UEFI.\n5. Instalar Linux en modo UEFI, reutilizando partición EFI.\n6. Verificar gestor de arranque, desactivar inicio rápido en Windows si causa problemas.",
+      "id": "si-eac1-a3a",
+      "front": "tuació 1: Instalación de sistema operatiu y errors de arranque. Una empresa intenta instal·lar Windows y Linux en un mismo equipo modern amb disc NVMe de 2TB. Després de la instalación, el sistema no mostra menú de arranque y solo inicia un dels sistemes. La placa base está configurada en mode Legacy (BIOS) y el disc utilitza esquema MBR..\n\n Explicad por qué esta configuración pot generar limitacions en equipos actuals..\n Qué diferencias hay entre BIOS/MBR y UEFI/GPT??\nSituación 1: Instalación de sistema operativo y errores de arranque. Una empresa intenta instalar Windows y Linux en un mismo equipo moderno con disco NVMe de 2TB. Después de la instalación, el sistema no muestra menú de arranque y solo inicia uno de los sistemas. La placa base está configurada en modo Legacy (BIOS) y el disco usa esquema MBR.",
+      "back": "a) MBR tiene límite de 2TB y máximo 4 particiones primarias. NVMe necesita UEFI. Legacy+MBR no funcionan bien con NVMe.\n\nb) DIFERENCIAS:\nBIOS/MBR: heredado, 2TB máx, 4 primarias máximo, arranque 16 bits\nUEFI/GPT: moderno, discos grandes, muchas particiones, mejor con NVMe, arranque limpio con partición EFI\n\nc) PROCEDIMIENTO DUAL-BOOT:\n1. Hacer copia de seguridad\n2. Configurar BIOS en modo UEFI (desactivar CSM/Legacy)\n3. Inicializar disco en GPT\n4. Instalar Windows primero (UEFI)\n5. Instalar Linux después (UEFI), reutilizando partición EFI\n6. Verificar gestor de arranque (GRUB)\n7. Desactivar inicio rápido de Windows si da problemas",
       "tags": [
         "si",
         "eac1",
@@ -53,9 +53,9 @@
       ]
     },
     {
-      "id": "examen-si-eac1-a3b",
-      "front": "Situació 2: Control del rendiment en renderització 3D. Un usuari amb un equip gaming d'alt rendiment (CPU de 125W i GPU de 350W) experimenta reinicis sobtats durant sessions de renderització i joc intensiu. Configuració: font d'alimentació de 550W (80 Plus Bronze), refrigeració per aire estàndard, caixa compacta amb poc flux d'aire.\n\na) Analitzeu si el problema pot estar relacionat amb la PSU o amb la refrigeració.\nb) Què és el thermal throttling i com afecta el rendiment?\nc) Quins criteris tècnics caldria aplicar per dimensionar correctament la font d'alimentació i el sistema de refrigeració?",
-      "back": "a) La fuente de 550W es insuficiente: solo CPU (125W) + GPU (350W) suman ~475W sin contar placa, discos y picos. Además, caja compacta con poco flujo y refrigeración estándar favorecen sobretemperaturas.\n\nb) Thermal throttling: reducción automática de frecuencia cuando CPU/GPU alcanzan altas temperaturas. Protege el hardware pero baja el rendimiento de forma visible.\n\nc) Criterios:\n- Calcular consumo total y dejar margen del 20-30%.\n- PSU de calidad: en este caso 750-850W.\n- Caja con buen flujo de aire.\n- Refrigeración adecuada (mejor aire o líquida según carga).\n- Monitorizar temperaturas con software.",
+      "id": "si-eac1-a3b",
+      "front": "Situació 2: Control del rendimiento en renderització 3D. Un usuari amb un equipo gaming d'alt rendimiento (CPU de 125W y GPU de 350W) experimenta reinicis sobtats durant sessions de renderització y joc intensiu. Configuración: font d'alimentació de 550W (80 Plus Bronze), refrigeració per aire estándard, caixa compacta amb poc flux d'aire.\n\na) Analizad si el problema pot estar relacionat amb la PSU o amb la refrigeració.\nb) Qué és el thermal throttling y comofecta el rendimiento?\nc) Qué criteris técnicos caldria aplicar per dimensionar correctament la font d'alimentació y el sistema de refrigeració?",
+      "back": "a) La fuente de 550W es INSUFICIENTE: CPU 125W + GPU 350W = 475W sin contar el resto. Además caja compacta + refrigeración estándar → sobrecalentamiento.\n\nb) THERMAL THROTTLING: reducción automática de frecuencia cuando CPU/GPU alcanzan temperatura límite. Protege el hardware pero baja el rendimiento.\n\nc) CRITERIOS DE DIMENSIONADO:\n- Calcular consumo total + 20-30% de margen\n- PSU recomendada: 750-850W 80+ Gold\n- Caja con buen flujo de aire\n- Refrigeración adecuada (mejor aire o líquida)\n- Monitorear temperaturas con HWMonitor o similar",
       "tags": [
         "si",
         "eac1",
@@ -65,9 +65,9 @@
       ]
     },
     {
-      "id": "examen-si-eac1-a3c",
-      "front": "Situació 3: Memòria SRAM o DRAM en servidors. Un tècnic de sistemes ha de triar entre SRAM i DRAM per configurar la memòria principal d'un servidor d'alta disponibilitat.\n\na) Quines són les principals avantatges i inconvenients de cada tipus?\nb) Com influeix la freqüència de refresc en el rendiment i estabilitat del sistema?\nc) Quins altres components hauria d'avaluar el tècnic per assegurar el millor rendiment possible?",
-      "back": "a) SRAM: más rápida, no necesita refresco, pero muy cara y poca capacidad (se usa como caché). DRAM: más capacidad y menor coste/GB, adecuada como memoria principal, pero necesita refresco periódico y tiene más latencia.\n\nb) La frecuencia de refresco introduce cierta sobrecarga de gestión controlada por hardware. Si la memoria o el controlador no trabajan de forma estable, pueden aparecer errores o pérdida de rendimiento.\n\nc) Además: memoria ECC, número de canales, controlador de memoria, CPU, cachés, almacenamiento, ancho de banda del bus y equilibrio general del sistema.",
+      "id": "si-eac1-a3c",
+      "front": "Situación 3: Memoria SRAM o DRAM en servidores. Un técnico de sistemas debe elegir entre SRAM y DRAM para configurar la memoria principal de un servidor de alta disponibilidad.\n\na) Qué són les principals avantatges y inconvenients de cada tipus?\nb) Cómo influye la frecuencia de refresco en el rendimiento y estabilidad del sistema?\nc) Qué otros componentes debería evaluar el técnico para asegurar el mejor rendimiento posible?",
+      "back": "SRAM: más rápida, no necesita refresco, pero muy cara y poca capacidad → se usa para caché.\nDRAM: más capacidad y menor coste/GB, necesita refresco periódico, más latencia → memoria principal.\n\nLa frecuencia de refresco de la DRAM introduce sobrecarga de gestión controlada por hardware.\n\nAdemás del tipo, evaluar: ECC, número de canales, controlador de memoria, CPU, cachés, almacenamiento, ancho de banda del bus.",
       "tags": [
         "si",
         "eac1",
@@ -78,9 +78,9 @@
       ]
     },
     {
-      "id": "examen-si-eac1-a3d",
-      "front": "Situació 4: Coll d'ampolla en la interconnexió del sistema. Un tècnic munta un ordinador amb: GPU PCIe 5.0 x16, SSD NVMe PCIe 5.0 (M.2), Segon SSD NVMe PCIe 4.0, Targeta de xarxa 10 GbE, Diversos dispositius USB4. Quan es transfereixen dades simultàniament des de l'SSD secundari mentre es fa còpia per USB4 i transferència per xarxa, el rendiment cau dràsticament.\n\na) Expliqueu què pot estar passant a nivell d'arquitectura CPU–xipset (PCH).\nb) Què significa que alguns dispositius comparteixin carrils PCIe?\nc) Com es podria optimitzar la configuració per reduir el coll d'ampolla?",
-      "back": "a) Varios dispositivos de alto ancho de banda cuelgan del chipset (PCH) y comparten el enlace hacia la CPU. Cuando coinciden transferencias del SSD secundario, USB4 y la tarjeta de red, ese enlace puede saturarse.\n\nb) Significa que no todos tienen líneas exclusivas; algunos puertos o ranuras se reparten el ancho de banda disponible.\n\nc) Optimización:\n- Conectar GPU y SSD principal a carriles directos de CPU.\n- Revisar en el manual de placa qué puertos comparten líneas.\n- Evitar poner varios dispositivos críticos en ranuras dependientes del PCH.\n- Usar placa con más carriles o plataforma superior.\n- Repartir mejor los dispositivos y evitar transferencias simultáneas extremas.",
+      "id": "si-eac1-a3d",
+      "front": "Situación 4: Cuello de botella en la interconexión del sistema. Un técnico monta un ordenador con: GPU PCIe 5.0 x16, SSD NVMe PCIe 5.0 (M.2), Segundo SSD NVMe PCIe 4.0, Tarjeta de red 10 GbE, Varios dispositivos USB4. Cuando se transfieren datos simultáneamente desde el SSD secundario mientras se hace copia por USB4 y transferencia por red, el rendimiento cae drásticamente.\n\na) Explicad qué puede estar pasando a nivel de arquitectura CPU–chipset (PCH).\nb) Qué significa que algunos dispositivos compartan carriles PCIe?\nc) Cómo se podría optimizar la configuración para reducir el cuello de botella?",
+      "back": "a) Varios dispositivos de alto ancho de banda (SSD secundario, USB4, tarjeta 10GbE) comparten el enlace del PCH hacia la CPU. Al usarse simultáneamente, ese enlace se satura.\n\nb) Compartir carriles PCIe significa que no todos los puertos tienen líneas exclusivas; varios dispositivos se reparten el ancho de banda disponible.\n\nc) OPTIMIZACIÓN:\n- GPU y SSD principal a carriles directos de CPU\n- Revisar manual de placa para evitar puertos que compartan líneas\n- No poner dispositivos críticos en ranuras del PCH\n- Usar placa con más carriles o plataforma superior\n- Repartir carga para evitar transferencias simultáneas extremas",
       "tags": [
         "si",
         "eac1",
@@ -90,8 +90,8 @@
       ]
     },
     {
-      "id": "examen-si-eac1-a4a",
-      "front": "Observeu el diagrama de xarxa proporcionat.\na) Identifiqueu quins dispositius corresponen a router, switch i equips finals. Expliqueu la funció de cada un dins la xarxa.",
+      "id": "si-eac1-a4a",
+      "front": "Observad el diagrama de red proporcionado.\na) Identificad qué dispositivos corresponen a router, switch y equipos finals. Explicad la función de cada un dentro la red.",
       "back": "Router: dispositivo central que conecta redes distintas y enruta el tráfico hacia Internet u otros segmentos.\nSwitch: conecta varios equipos dentro de la red local cableada.\nEquipos finales: hosts que usan u ofrecen servicios (servidores, estaciones de trabajo, portátiles, móviles).\n\nAdemás pueden aparecer módem y punto de acceso inalámbrico como elementos de interconexión.",
       "tags": [
         "si",
@@ -102,8 +102,8 @@
       ]
     },
     {
-      "id": "examen-si-eac1-a4b",
-      "front": "Observeu el diagrama de xarxa proporcionat.\nb) Quin tipus de topologia representa el diagrama? Justifiqueu la resposta segons la definició de topologia.",
+      "id": "si-eac1-a4b",
+      "front": "Observad el diagrama de red proporcionado.\nb) Quin tipus de topologia representa el diagrama? Justificad la resposta segundos la definición de topologia.",
       "back": "La parte cableada local está organizada alrededor del switch (punto central). El router conecta varios segmentos adicionales (switch, tramo inalámbrico, otros equipos). Por eso no es una estrella simple, sino una estrella extendida o jerárquica.",
       "tags": [
         "si",
@@ -113,8 +113,8 @@
       ]
     },
     {
-      "id": "examen-si-eac1-a5",
-      "front": "Observeu la imatge, i analitzeu les mesures, dimensions i distàncies clau per garantir una postura corporal correcta en l'entorn laboral. Identifiqueu els elements que poden representar riscos ergonòmics i com es podrien corregir.",
+      "id": "si-eac1-a5",
+      "front": "Observad la imagen, y analitzeu les mesures, dimensions y distancias clau per garantir una postura corporal correcta en l'entorn laboral. Identificad els elementos que poden representar riscos ergonómicos y com es podrien corregir.",
       "back": "Análisis ergonómico:\n1. Pantalla: frente al usuario, 50-70 cm, borde superior a la altura de los ojos.\n2. Espalda y cuello: recta y apoyada, cuello sin inclinar.\n3. Brazos y muñecas: codos ~90°, muñecas en posición neutra.\n4. Silla: respaldo con apoyo lumbar regulable.\n5. Ratón y teclado: cerca del cuerpo, misma altura.\n6. Rodillas: ángulo ~90°, espacio libre bajo mesa.\n7. Pies: apoyados completamente.\n\nRiesgos: fatiga cervical, sobrecarga hombros/muñecas, riesgo lumbar, riesgo circulatorio.",
       "tags": [
         "si",
@@ -124,9 +124,9 @@
       ]
     },
     {
-      "id": "examen-si-eac1-b1",
-      "front": "Expliqueu la funció del kernel, la interfície d'usuari, el sistema de fitxers, la multitasca, la memòria virtual, els controladors, les actualitzacions, l'administració de processos i els contenidors virtuals dins d'un sistema operatiu.",
-      "back": "Kernel: cerebro del SO, orquesta la comunicación entre hardware y software.\nInterfície d'usuari: entorno gráfico o línea de comandos para dirigir el sistema.\nSistema de fitxers: organización, almacenamiento y acceso a archivos.\nMultitasca: varias aplicaciones funcionan simultáneamente.\nMemoria virtual: amplía capacidad gestionando información entre RAM y disco.\nControladores: esenciales para que el sistema reconozca y controle periféricos.\nActualizaciones: mantienen el sistema al día.\nAdministración de procesos: monitorizar, suspender y reactivar procesos.\nContenedores virtuales: comparten el mismo núcleo y usan recursos más eficientemente.",
+      "id": "si-eac1-b1",
+      "front": "Explicad la función del kernel, la interfaz de usuario, el sistema de archivos, la multitarea, la memoria virtual, los controladores, las actualizaciones, la administraciónn de procesos y los contenedores virtuales dentro de un sistema operativo.",
+      "back": "Kernel: cerebro del SO, orquesta comunicación hardware-software.\nInterfaz de usuario: entorno gráfico o línea de comandos.\nSistema de archivos: organización, almacenamiento y acceso.\nMultitarea: varias aplicaciones simultáneas.\nMemoria virtual: amplía RAM usando espacio en disco (swap).\nControladores: permiten que el SO reconozca periféricos.\nActualizaciones: seguridad, correcciones, nuevas funciones.\nAdministración de procesos: monitorizar, suspender, reactivar.\nContenedores: comparten núcleo del host, usan recursos eficientemente.",
       "tags": [
         "si",
         "eac1",
@@ -135,9 +135,9 @@
       ]
     },
     {
-      "id": "examen-si-eac1-b2a",
-      "front": "A l'hora d'instal·lar un sistema operatiu, hi ha opcions com instal·lació neta, actualització o arrencada dual (dual boot). Expliqueu en quin cas triaries cadascuna d'aquestes opcions i per què.",
-      "back": "Instalación limpia: cuando quiero empezar desde cero, eliminar errores previos, cambiar de disco o dejar el sistema estable sin basura acumulada.\nActualización: cuando quiero conservar programas, configuración y datos, y el sistema actual funciona razonablemente bien.\nArranque dual: cuando necesito dos SO en el mismo equipo (ej: Windows para software concreto y Linux para desarrollo).",
+      "id": "si-eac1-b2a",
+      "front": "A la hora de instalar un sistema operativo, hay opciones como instalación limpia, actualización o arranque dual (dual boot). Explicad en qué caso elegiríais cada una de estas opciones y por qué.",
+      "back": "Instalación limpia: cuando se quiere empezar de cero, eliminar errores, cambiar de disco.\nActualización: cuando se quiere conservar programas, config y datos.\nArranque dual: cuando se necesitan dos SO en el mismo equipo.",
       "tags": [
         "si",
         "eac1",
@@ -146,9 +146,9 @@
       ]
     },
     {
-      "id": "examen-si-eac1-b2b",
-      "front": "Quina és la diferència principal entre una màquina virtual i un contenidor? Expliqueu-ho amb les teves paraules.",
-      "back": "Una máquina virtual emula un ordenador completo con su propio SO invitado. Consume más recursos pero está más aislada.\nUn contenedor no virtualiza todo el hardware ni arranca un SO completo; comparte el núcleo del anfitrión. Es más ligero y rápido de desplegar, aunque el aislamiento es menor.",
+      "id": "si-eac1-b2b",
+      "front": "Cuál es la diferencia principal entre una máquina virtual y un contenedor? Explicadlo con vuestras palabras.",
+      "back": "Máquina virtual: emula un ordenador completo con su propio SO. Consume más recursos pero está más aislada.\nContenedor: comparte el núcleo del anfitrión. Más ligero y rápido de desplegar, pero menos aislado.",
       "tags": [
         "si",
         "eac1",
@@ -158,8 +158,8 @@
       ]
     },
     {
-      "id": "examen-si-eac1-b8a",
-      "front": "Quins són els motius principals per als quals s'hauria d'actualitzar contínuament el sistema operatiu?",
+      "id": "si-eac1-b8a",
+      "front": "Cuáles son los motivos principales por los cuales se debería actualizar continuamente el sistema operativo?",
       "back": "Los motivos principales son mejorar la seguridad, corregir errores y aumentar la estabilidad del sistema. Las actualizaciones solucionan vulnerabilidades, corrigen fallos de funcionamiento, mejoran la compatibilidad con nuevo hardware, controladores y aplicaciones, y en algunos casos incorporan nuevas funciones o mejoras de rendimiento.",
       "tags": [
         "si",
@@ -169,9 +169,9 @@
       ]
     },
     {
-      "id": "examen-si-eac1-b8b",
-      "front": "En què es diferencien el procés d'actualitzar la llista de repositoris i el de baixar i instal·lar les actualitzacions dels paquets?",
-      "back": "Actualizar la lista de repositorios (apt update): renovar la información sobre qué versiones de paquetes están disponibles. No instala nada, solo actualiza el índice.\nBajar e instalar actualizaciones (apt upgrade): instalar las versiones más recientes de los programas ya instalados. Esto sí modifica el sistema porque descarga e instala las actualizaciones disponibles.",
+      "id": "si-eac1-b8b",
+      "front": "En qué se diferencian el proceso de actualizar la lista de repositorios y el de descargar e instalar las actualizaciones de los paquetes?",
+      "back": "Actualizar la lista de repositorios (apt update): renovar la informaciónn sobre qué versiones de paquetes están disponibles. No instala nada, solo actualiza el índice.\nBajar e instalar actualizaciones (apt upgrade): instalar las versiones más recientes de los programas ya instalados. Esto sí modifica el sistema porque descarga e instala las actualizaciones disponibles.",
       "tags": [
         "si",
         "eac1",

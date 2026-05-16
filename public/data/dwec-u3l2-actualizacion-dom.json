@@ -1,0 +1,135 @@
+{
+  "id": "dwec-u3l2-actualizacion-dom",
+  "name": "DWEC U3L2 - Actualización de los elementos del DOM",
+  "description": "Actividad práctica IOC: modificación dinámica del contenido de una página web mediante el DOM. Catálogo de productos con textContent, innerHTML, atributos, createElement, cloneNode y eliminación de elementos.",
+  "subject": "Desarrollo Web en Entorno Cliente",
+  "created": "2026-04-11",
+  "cards": [
+    {
+      "id": "u3l2-act-001",
+      "front": "Actividad: ¿Cómo cambiar el título de una página con textContent?",
+      "back": "HTML inicial:\n<h1 id=\"titulo-principal\">Catálogo por defecto</h1>\n\nSolución:\nconst titulo = document.getElementById('titulo-principal');\ntitulo.textContent = 'Catálogo dinámico actualizado con JavaScript';\n\nCaracterísticas de textContent:\n- Reemplaza todo el contenido de texto del elemento\n- No interpreta HTML (muestra etiquetas como texto)\n- Más seguro contra ataques XSS\n- Rendimiento más rápido que innerHTML",
+      "tags": ["dom", "textcontent", "actividad", "ioc", "u3l2"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3l2-act-002",
+      "front": "Actividad: ¿Cómo reemplazar contenido con formato HTML usando innerHTML?",
+      "back": "HTML inicial:\n<p id=\"resumen\">Este es un catálogo estático...</p>\n\nSolución para añadir HTML con formato:\nconst resumen = document.getElementById('resumen');\nresumen.innerHTML = \n  'Este catálogo <strong>actualizado dinámicamente</strong> ' +\n  'muestra productos en tiempo real. <a href=\"#\">Más información</a>.';\n\n// Añadir línea adicional con salto de línea\nresumen.innerHTML += '<br>Con JavaScript y el DOM.';\n\nAtención:\n- Interpreta etiquetas HTML\n- Riesgo de XSS si el contenido viene del usuario",
+      "tags": ["dom", "innerhtml", "actividad", "ioc", "html"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3l2-act-003",
+      "front": "Actividad: ¿Cómo modificar el atributo href de un enlace con setAttribute?",
+      "back": "HTML inicial:\n<a id=\"enlace-tienda\" href=\"https://example.com\">\n  Visita nuestra tienda antigua\n</a>\n\nSolución:\nconst enlace = document.getElementById('enlace-tienda');\n\n// Cambiar href\nenlace.setAttribute('href', 'https://www.ioc.cat');\n\n// Añadir title descriptivo\nenlace.setAttribute('title', \"Abre la nueva tienda del IOC\");\n\n// Verificar el cambio\nconsole.log(enlace.getAttribute('href')); // https://www.ioc.cat",
+      "tags": ["dom", "setattribute", "href", "actividad", "ioc"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3l2-act-004",
+      "front": "Actividad: ¿Cómo leer y modificar atributos data-* con dataset?",
+      "back": "HTML inicial:\n<li class=\"producto\" data-precio=\"9.99\">\n  <strong class=\"nombre-producto\">Producto inicial</strong>\n  <span class=\"precio-producto\">9,99 €</span>\n</li>\n\nSolución:\nconst primerProducto = document.querySelector('.producto');\n\n// LEER data-precio\nconst precioActual = primerProducto.dataset.precio;\nconsole.log(precioActual); // \"9.99\"\n\n// MODIFICAR data-precio a 14.5\nprimerProducto.dataset.precio = '14.5';\n\n// Actualizar el texto visible del precio\nconst precioTexto = primerProducto.querySelector('.precio-producto');\nprecioTexto.textContent = '14,50 €';\n\nNota: dataset convierte data-precio a dataset.precio (camelCase)",
+      "tags": ["dom", "dataset", "data-attributes", "actividad", "ioc"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3l2-act-005",
+      "front": "Actividad: ¿Cómo añadir un nuevo producto al final con createElement y appendChild?",
+      "back": "Solución para crear y añadir un nuevo producto:\n\n// 1. Crear el li contenedor\nconst nuevoProducto = document.createElement('li');\nnuevoProducto.className = 'producto';\nnuevoProducto.dataset.precio = '5.99';\n\n// 2. Crear el nombre del producto\nconst nombre = document.createElement('strong');\nnombre.className = 'nombre-producto';\nnombre.textContent = 'Nuevo Producto A';\n\n// 3. Crear el precio\nconst precio = document.createElement('span');\nprecio.className = 'precio-producto';\nprecio.textContent = '5,99 €';\n\n// 4. Añadir partes al li\nnuevoProducto.appendChild(nombre);\nnuevoProducto.appendChild(precio);\n\n// 5. Añadir a la lista (al final)\nconst lista = document.getElementById('lista-productos');\nlista.appendChild(nuevoProducto);",
+      "tags": ["dom", "createelement", "appendchild", "actividad", "ioc"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3l2-act-006",
+      "front": "Actividad: ¿Cómo añadir un producto al principio de la lista con prepend?",
+      "back": "Solución para añadir al principio:\n\nconst lista = document.getElementById('lista-productos');\n\n// Crear nuevo producto\nconst productoInicial = document.createElement('li');\nproductoInicial.className = 'producto';\nproductoInicial.dataset.precio = '12.00';\nproductoInicial.innerHTML = \n  '<strong class=\"nombre-producto\">Producto Inicial</strong>' +\n  '<span class=\"precio-producto\">12,00 €</span>';\n\n// Insertar al PRINCIPIO de la lista\nlista.prepend(productoInicial);\n\nComparación de métodos:\n- prepend() → al principio (primer hijo)\n- append() o appendChild() → al final (último hijo)",
+      "tags": ["dom", "prepend", "actividad", "ioc", "insercion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3l2-act-007",
+      "front": "Actividad: ¿Cómo clonar la plantilla de producto con cloneNode?",
+      "back": "HTML de la plantilla (oculta):\n<li id=\"plantilla-producto\" class=\"producto\" data-precio=\"0\">\n  <strong class=\"nombre-producto\">Nombre por defecto</strong>\n  <span class=\"precio-producto\">0,00 €</span>\n</li>\n\nSolución:\n// 1. Obtener la plantilla\nconst plantilla = document.getElementById('plantilla-producto');\n\n// 2. Clonar CON todo su contenido\nconst clon = plantilla.cloneNode(true);\n\n// 3. IMPORTANTE: eliminar el id para evitar duplicados\nclon.removeAttribute('id');\n\n// 4. Personalizar el clon\nclon.dataset.precio = '19.99';\nclon.querySelector('.nombre-producto').textContent = 'Producto clonado';\nclon.querySelector('.precio-producto').textContent = '19,99 €';\n\n// 5. Añadir a la lista\nconst lista = document.getElementById('lista-productos');\nlista.appendChild(clon);\n\nNota: cloneNode(true) copia el elemento y todos los descendientes",
+      "tags": ["dom", "clonenode", "plantilla", "actividad", "ioc"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3l2-act-008",
+      "front": "Actividad: ¿Cómo eliminar un elemento del DOM con remove()?",
+      "back": "HTML inicial:\n<p id=\"mensaje-banner\">Banner antiguo: promoción caducada.</p>\n\nSolución con remove() (método moderno):\nconst mensajeBanner = document.getElementById('mensaje-banner');\nmensajeBanner.remove();\n\nVentajas de remove():\n- Sintaxis más corta y clara\n- No necesita referencia al elemento padre\n- Método moderno (ES6+)\n\nAlternativa clásica:\nconst banner = document.getElementById('banner');\nbanner.removeChild(mensajeBanner);",
+      "tags": ["dom", "remove", "eliminacion", "actividad", "ioc"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3l2-act-009",
+      "front": "Actividad: ¿Cómo crear e insertar un nuevo párrafo en la sección banner?",
+      "back": "HTML inicial:\n<section id=\"banner\">\n  <p id=\"mensaje-banner\">Banner antiguo...</p>\n</section>\n\nSolución (después de eliminar el antiguo):\n// 1. Crear nuevo párrafo\nconst nuevoMensaje = document.createElement('p');\nnuevoMensaje.textContent = \n  'Banner actual: ¡descuento del 20% en todos los productos!';\n\n// 2. Insertar dentro de la sección\nconst seccionBanner = document.getElementById('banner');\nseccionBanner.appendChild(nuevoMensaje);\n\nAlternativa rápida con innerHTML:\nseccionBanner.innerHTML = \n  '<p>Banner actual: ¡descuento del 20%!</p>';",
+      "tags": ["dom", "createelement", "banner", "actividad", "ioc"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3l2-act-010",
+      "front": "Actividad: ¿Cómo insertar un elemento antes de otro con before()?",
+      "back": "Solución para añadir texto antes del párrafo del banner:\n\n// Crear segundo párrafo\nconst mensajeLimitado = document.createElement('p');\nmensajeLimitado.textContent = \n  'Esta promoción es limitada en el tiempo.';\n\n// Insertar ANTES del párrafo del banner\nconst parrafoBanner = document.querySelector('#banner p');\nparrafoBanner.before(mensajeLimitado);\n\nAlternativa clásica con insertBefore:\nconst seccionBanner = document.getElementById('banner');\nseccionBanner.insertBefore(mensajeLimitado, parrafoBanner);\n\nMétodos modernos de inserción:\n- before()  → antes del elemento\n- after()   → después del elemento\n- prepend() → primer hijo del padre\n- append()  → último hijo del padre",
+      "tags": ["dom", "before", "actividad", "ioc", "insercion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3l2-act-011",
+      "front": "Resumen: Todas las tareas de la actividad U3L2",
+      "back": "RESUMEN DE LA ACTIVIDAD:\n\na) Modificar texto:\n- textContent para texto limpio\n- innerHTML para HTML con formato\n\nb) Modificar atributos:\n- setAttribute('href', url)\n- dataset.precio para data-*\n\nc) Crear e insertar elementos:\n- createElement('li')\n- appendChild() o append() al final\n- prepend() al principio\n\nd) Clonar elementos:\n- cloneNode(true) para copia profunda\n- removeAttribute('id') para evitar duplicados\n\ne) Eliminar y reemplazar:\n- element.remove() para eliminar\n- createElement + append para nuevo contenido\n- before() para insertar antes",
+      "tags": ["dom", "resumen", "actividad", "ioc", "u3l2"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3l2-act-012",
+      "front": "Código completo: app.js de la actividad Actualización de los elementos del DOM",
+      "back": "// a) Modificar contenido de texto\ndocument.getElementById('titulo-principal').textContent = \n  'Catálogo dinámico actualizado con JavaScript';\n\nconst resumen = document.getElementById('resumen');\nresumen.innerHTML = 'Este catálogo <strong>actualizado</strong> ' +\n  'muestra productos. <a href=\"#\">Más info</a>.';\nresumen.innerHTML += '<br>Con JavaScript y el DOM.';\n\n// b) Modificar atributos\nconst enlace = document.getElementById('enlace-tienda');\nenlace.setAttribute('href', 'https://www.ioc.cat');\nenlace.setAttribute('title', \"Abre la nueva tienda del IOC\");\n\n// c) Crear y añadir productos\nconst lista = document.getElementById('lista-productos');\nconst crearProducto = (nombre, precio) => { /* ... */ };\nlista.prepend(crearProducto('Producto Inicio', '12.00'));\nlista.append(crearProducto('Producto Final', '5.99'));\n\n// d) Clonar plantilla\nconst plantilla = document.getElementById('plantilla-producto');\nconst clon = plantilla.cloneNode(true);\nclon.removeAttribute('id');\nlista.appendChild(clon);\n\n// e) Eliminar y reemplazar\ndocument.getElementById('mensaje-banner').remove();",
+      "tags": ["dom", "codigocompleto", "actividad", "ioc", "appjs"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3l2-act-013",
+      "front": "HTML completo: index.html de la actividad Mini catálogo DOM",
+      "back": "<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Mini catálogo DOM</title>\n</head>\n<body>\n  <h1 id=\"titulo-principal\">Catálogo por defecto</h1>\n\n  <p id=\"resumen\">\n    Este es un catálogo estático. Aún no se ha actualizado con JavaScript.\n  </p>\n\n  <a id=\"enlace-tienda\" href=\"https://example.com\" target=\"_blank\">\n    Visita nuestra tienda antigua\n  </a>\n\n  <section id=\"seccion-productos\">\n    <h2>Productos destacados</h2>\n    <ul id=\"lista-productos\">\n      <li class=\"producto\" data-precio=\"9.99\">\n        <strong class=\"nombre-producto\">Producto inicial</strong>\n        <span class=\"precio-producto\">9,99 €</span>\n      </li>\n    </ul>\n  </section>\n\n  <section id=\"plantillas\" style=\"display: none;\">\n    <li id=\"plantilla-producto\" class=\"producto\" data-precio=\"0\">\n      <strong class=\"nombre-producto\">Nombre por defecto</strong>\n      <span class=\"precio-producto\">0,00 €</span>\n    </li>\n  </section>\n\n  <section id=\"banner\">\n    <p id=\"mensaje-banner\">Banner antiguo: promoción caducada.</p>\n  </section>\n\n  <script src=\"app.js\"></script>\n</body>\n</html>",
+      "tags": ["dom", "html", "actividad", "ioc", "indexhtml"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3l2-act-014",
+      "front": "Solución completa: app.js con DOMContentLoaded (IOC versión 2026)",
+      "back": "// Nos aseguramos de que el DOM está cargado antes de manipularlo\ndocument.addEventListener('DOMContentLoaded', () => {\n\n  // a) Modificar contenido de texto\n  const tituloPrincipal = document.getElementById('titulo-principal');\n  tituloPrincipal.textContent = 'Catálogo dinámico actualizado con JavaScript';\n\n  const resumen = document.getElementById('resumen');\n  resumen.innerHTML = \n    '<strong>¡Bienvenidos a nuestro catálogo dinámico!</strong><br>' +\n    'Ahora actualizamos este contenido con <em>JavaScript</em> y el DOM.';\n\n  // b) Modificar atributos y data-*\n  const enlaceTienda = document.getElementById('enlace-tienda');\n  enlaceTienda.setAttribute('href', 'https://www.ioc.cat');\n  enlaceTienda.setAttribute('title', \"Abre la nueva tienda del IOC\");\n  enlaceTienda.textContent = \"Visitemos la nueva tienda del IOC\";\n\n  // Leer data-precio del primer producto\n  const primerProducto = document.querySelector('#lista-productos .producto');\n  const precioOriginal = primerProducto.dataset.precio;\n  console.log('Precio original:', precioOriginal);\n\n  // Actualizar data-precio a 14.5\n  primerProducto.dataset.precio = '14.5';\n  primerProducto.querySelector('.precio-producto').textContent = '14,50 €';\n\n  // c) Crear e insertar nuevos elementos\n  const listaProductos = document.getElementById('lista-productos');\n\n  function crearProducto(nombre, precioNumerico) {\n    const li = document.createElement('li');\n    li.classList.add('producto');\n    li.dataset.precio = String(precioNumerico);\n\n    const strong = document.createElement('strong');\n    strong.classList.add('nombre-producto');\n    strong.textContent = nombre;\n\n    const span = document.createElement('span');\n    span.classList.add('precio-producto');\n    span.textContent = precioNumerico.toFixed(2).replace('.', ',') + ' €';\n\n    li.appendChild(strong);\n    li.appendChild(document.createTextNode(' '));\n    li.appendChild(span);\n    return li;\n  }\n\n  listaProductos.prepend(crearProducto('Producto al princi... [truncated]",
+      "tags": ["dom", "solucion", "actividad", "ioc", "completo"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3l2-act-015",
+      "front": "Diferencia entre textContent, innerText e innerHTML",
+      "back": "textContent:\n- Devuelve solo texto, sin etiquetas HTML\n- No interpreta HTML (muestra etiquetas como texto plano)\n- Más seguro contra XSS\n- Rendimiento más rápido\n\ninnerText:\n- Similar a textContent pero considera estilos CSS\n- No devuelve texto oculto (display: none)\n- Interpreta saltos de línea según CSS\n\ninnerHTML:\n- Permite insertar código HTML con formato\n- Interpreta etiquetas HTML\n- Riesgo de XSS si el contenido viene del usuario\n- Más lento que textContent\n\nEjemplo:\nresumen.innerHTML = '<strong>¡Bienvenidos!</strong><br>Ahora con JS';",
+      "tags": ["dom", "textcontent", "innertext", "innerhtml", "diferencias"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "u3l2-act-016",
+      "front": "¿Cómo formatear el precio numérico a texto con coma (5.99 → 5,99 €)?",
+      "back": "Método para formatear precios:\n\nfunction crearProducto(nombre, precioNumerico) {\n  // ... crear elementos ...\n  \n  // Formatear: 5.99 → '5,99 €'\n  const precioFormateado = precioNumerico\n    .toFixed(2)        // '5.99' (siempre 2 decimales)\n    .replace('.', ','); // '5,99' (cambiar punto por coma)\n  \n  span.textContent = precioFormateado + ' €'; // '5,99 €'\n  \n  return li;\n}\n\n// Ejemplos:\n(5.99).toFixed(2).replace('.', ',')   // '5,99'\n(12).toFixed(2).replace('.', ',')     // '12,00'\n(12.5).toFixed(2).replace('.', ',')   // '12,50'\n\nNota: toFixed siempre devuelve string con el número de decimales especificado.",
+      "tags": ["dom", "formato", "precio", "tofixed", "replace"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3l2-act-017",
+      "front": "¿Por qué eliminar el atributo 'id' después de clonar con cloneNode?",
+      "back": "Problema de los IDs duplicados:\n\nHTML inicial (plantilla oculta):\n<li id=\"plantilla-producto\" class=\"producto\" ...>\n\nDespués de clonar:\nconst clon = plantilla.cloneNode(true);\n// El clon también tiene id=\"plantilla-producto\"\n\nPeligro:\n- getElementById() solo devuelve el PRIMER elemento con ese ID\n- Si hay múltiples elementos con el mismo ID, el comportamiento es imprevisible\n- Invalida el HTML (los IDs deben ser únicos)\n\nSolución OBLIGATORIA:\nclon.removeAttribute('id'); // Eliminamos el ID del clon\n\nAlternativa:\nclon.id = ''; // También elimina el atributo id",
+      "tags": ["dom", "clonenode", "id", "duplicados", "validacion"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "u3l2-act-018",
+      "front": "Métodos de inserción: diferencias entre append, appendChild, prepend, before, after",
+      "back": "append() vs appendChild():\n- append(): puede añadir múltiples nodos o texto\n- appendChild(): solo un nodo, devuelve el nodo añadido\n\nprepend():\n- Añade como PRIMER hijo del padre\n- lista.prepend(nuevoProducto)\n\nbefore() / after():\n- before(): inserta ANTES del elemento referencia\n- after(): inserta DESPUÉS del elemento referencia\n- element.before(nuevoNodo)\n\ninsertBefore() (clásico):\n- padre.insertBefore(nuevoNodo, nodoReferencia)\n- Inserta nuevoNodo antes de nodoReferencia\n\nEjemplos:\nlista.prepend(producto);     // Al principio\nlista.append(producto);      // Al final\nbanner.before(nuevoElemento);    // Antes del banner\nbanner.after(nuevoElemento);     // Después del banner",
+      "tags": ["dom", "append", "prepend", "before", "after", "insercion"],
+      "difficulty": "medium"
+    }
+  ]
+}

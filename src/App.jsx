@@ -27,7 +27,7 @@ function App() {
           "/data/dwec-express.json",
           "/data/dwec-modulos.json",
           "/data/dwec-sintaxis.json",
-          "/data/dwec-u3l2-actualitzacio-dom.json",
+          "/data/dwec-u3l2-actualizacion-dom.json",
           "/data/dwec-unidad3-dom-parte1.json",
           "/data/dwec-unidad3-dom-parte2.json",
           "/data/prueba-dwec-eac1.json",

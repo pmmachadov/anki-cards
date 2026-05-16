@@ -40,7 +40,7 @@
     {
       "id": "examen-ed-eac3-4",
       "front": "¿Cuáles son los comandos esenciales de Git y su orden?",
-      "back": "git init → inicializar repositorio\ngit add archivo.java → añadir al staging\ngit status → ver estado\ngit commit -m \"mensaje\" → confirmar cambios\ngit log → ver historial\ngit branch nombre → crear rama\ngit checkout nombre → cambiar de rama\ngit merge nombre → fusionar rama",
+      "back": "git init → inicializar repositorioo\ngit add archivo.java → añadir al staging\ngit status → ver estado\ngit commit -m \"mensaje\" → confirmar cambios\ngit log → ver historial\ngit branch nombre → crear rama\ngit checkout nombre → cambiar de rama\ngit merge nombre → fusionar rama",
       "tags": [
         "ed",
         "eac3",

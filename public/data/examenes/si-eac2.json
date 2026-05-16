@@ -1,13 +1,13 @@
 {
   "id": "examen-si-eac2",
   "name": "SI - EAC2 (Sistemes Informàtics)",
-  "description": "Preguntes exactes de l'EAC2 de Sistemes Informàtics - U2: Gestió de la informació i del sistema operatiu",
-  "subject": "Sistemas Informaticos",
+  "description": "Preguntes exactes de l'EAC2 de Sistemes Informàtics - U2: Gestión de la información y del sistema operatiu",
+  "subject": "Sistemes Informàtics",
   "cards": [
     {
-      "id": "examen-si-eac2-act1",
-      "front": "Particionament d'un disc amb esquema MBR. Afegiu dos discs virtuals nous de 10 GB cadascun. Sobre el primer disc, creeu una taula de particions de tipus MBR i utilitzeu fdisk per crear cinc particions de 2 GB cadascuna.\n\na) Indiqueu quin tipus de particions heu utilitzat (primàries, estesa o lògiques) i expliqueu per què ha estat necessari utilitzar aquests tipus de partició.\nb) Descriviu les limitacions principals del sistema de particionament MBR.\nc) Utilitzeu lsblk per identificar el disc i totes les particions creades, mostrant la seva mida i estructura.",
-      "back": "a) Se han usado 3 particiones primarias (MBR permite máximo 4 primarias). Para la quinta partición, fue necesario crear una partición extendida que actúa como contenedor, y dentro de ella crear 2 particiones lógicas. Esto permite superar el límite de 4 particiones primarias de MBR.\n\nb) Limitaciones principales de MBR:\n- Máximo 4 particiones primarias\n- Discos de hasta 2 TB\n- Tabla de particiones en el primer sector (MBR)\n- Sin protección contra corrupción del MBR\n\nc) lsblk muestra el disco y todas las particiones con su tamaño y estructura.",
+      "id": "si-eac2-act1",
+      "front": "Particionado de un disco con esquema MBR. Añadid dos discos virtuales nuevos de 10 GB cada uno. Sobre el primer disc, cread una tabla de particiones de tipus MBR y utilizad fdisk per crear cinc particiones de 2 GB cada una.\n\na) Indicad quin tipus de particiones heu utilitzat (primàries, estesa o lògiques) y explicad por qué ha estat necessari utilizar estos tipus de partición.\nb) Describid les limitacions principals del sistema de particionado MBR.\nc) Utilizad lsblk per identificar el disc y totes les particiones creades, mostrant la seva mida y estructura.",
+      "back": "COMANDOS (fdisk):\n1. lsblk (ver discos disponibles)\n2. sudo fdisk /dev/nvme1n1\n3. n → p → 1 → Enter → +2G (partición primaria 1)\n4. n → p → 2 → Enter → +2G (primaria 2)\n5. n → p → 3 → Enter → +2G (primaria 3)\n6. n → e → 4 → Enter → +2G (extendida contenedora)\n7. n → l → 5 → Enter → +2G (lógica dentro de extendida)\n8. n → l → 6 → Enter → +2G (segunda lógica)\n9. w (guardar y salir)\n10. lsblk (verificar)\n\nTIPOS: 3 primarias (1-3) + 1 extendida (4) + 2 lógicas (5-6)\nMBR permite máx 4 primarias. Para más de 4 se usa extendida+lógicas.\n\nLIMITACIONES MBR:\n- Máx 4 primarias\n- Discos hasta 2 TB\n- Sin protección contra corrupción",
       "tags": [
         "si",
         "eac2",
@@ -17,9 +17,9 @@
       ]
     },
     {
-      "id": "examen-si-eac2-act2",
-      "front": "Particionament d'un disc amb esquema GPT. Utilitzant el segon disc de 10 GB, creeu una taula de particions utilitzant l'esquema GPT amb l'eina gdisk. Genereu cinc particions de 2 GB cadascuna. Verifiqueu amb lsblk.",
-      "back": "GPT (GUID Partition Table):\n- Permite hasta 128 particiones primarias\n- Soporta discos de más de 2 TB\n- Almacena tablas de particiones redundantes (protección)\n- Usa UUID para identificar particiones\n- No tiene el límite de 4 primarias como MBR\n\ngdisk permite crear las 5 particiones directamente como primarias sin necesidad de extendida/lógicas.\nVerificación con lsblk.",
+      "id": "si-eac2-act2",
+      "front": "Particionament de un disc amb esquema GPT. Utilizando el segundo disco de 10 GB, cread una tabla de particiones utilizando el esquema GPT amb la herramienta gdisk. Generad cinc particiones de 2 GB cada una. Verificad amb lsblk.",
+      "back": "COMANDOS (gdisk):\n1. lsblk (ver discos)\n2. sudo gdisk /dev/nvme0n1\n3. o (crear nueva tabla GPT)\n4. n → 1 → Enter → +2G\n5. n → 2 → Enter → +2G\n6. n → 3 → Enter → +2G\n7. n → 4 → Enter → +2G\n8. n → 5 → Enter → +2G\n9. w (guardar)\n10. lsblk (verificar)\n\n✅ GPT: hasta 128 primarias directamente, sin necesitar extendida.",
       "tags": [
         "si",
         "eac2",
@@ -29,9 +29,9 @@
       ]
     },
     {
-      "id": "examen-si-eac2-act3",
-      "front": "Modificació de particions amb eina gràfica GParted. Utilitzeu GParted per gestionar el disc particionat amb GPT. Identifiqueu les dues últimes particions creades i fusioneu-les en una sola. Descriviu el procediment i indiqueu la mida final de la nova partició resultant.",
-      "back": "Procediment en GParted:\n1. Seleccionar el disc GPT\n2. Identificar las dos últimas particiones\n3. Seleccionar la primera de las dos y hacer clic en \"Redimensionar/Mover\"\n4. Ampliar el tamaño para incluir el espacio de la segunda partición\n5. Eliminar la segunda partición (los datos se pierden)\n6. Aplicar las operaciones\n\nMida final: 4 GB (suma de las dos particiones de 2 GB)",
+      "id": "si-eac2-act3",
+      "front": "Modificación de particiones con herramienta gráfica GParted. Utilizad GParted per gestionar el disc particionado amb GPT. Identificad les dues últimes particiones creades y fusioneu-les en una sola. Describid el procediment y indicad la mida final de la nova partición resultant.",
+      "back": "PROCEDIMIENTO GPARTED:\n1. sudo gparted\n2. Seleccionar disco GPT\n3. Click derecho en penúltima partición → Redimensionar/Mover\n4. Ampliar para incluir espacio de la última\n5. Click derecho en última → Eliminar\n6. Aplicar operaciones (✓)\n7. lsblk (verificar)\n\nRESULTADO: partición única de 4 GB",
       "tags": [
         "si",
         "eac2",
@@ -40,9 +40,9 @@
       ]
     },
     {
-      "id": "examen-si-eac2-act4",
-      "front": "Format, muntatge i configuració de particions. Sobre el disc particionat amb MBR:\na) Formateu la primera partició amb ext4. Creeu /mnt/ioc/ext4 i munteu-la amb permisos de lectura i escriptura.\nb) Formateu la segona partició amb NTFS. Creeu /mnt/ioc/ntfs i munteu-la en mode només lectura.\nc) Configureu la tercera partició com a swap. Activeu-la amb prioritat.\nd) Configureu el sistema perquè la partició 4a es munti automàticament durant l'arrencada.",
-      "back": "a) mkfs.ext4 /dev/nvme1n1p1\nmkdir -p /mnt/ioc/ext4\nmount /dev/nvme1n1p1 /mnt/ioc/ext4\n\nb) mkfs.ntfs /dev/nvme1n1p2\nmkdir -p /mnt/ioc/ntfs\nmount -o ro /dev/nvme1n1p2 /mnt/ioc/ntfs\n\nc) mkswap /dev/nvme1n1p3\nswapon -p 100 /dev/nvme1n1p3\n\nEl muntatge automàtic es configura a /etc/fstab:\n/dev/nvme1n1p1 /mnt/ioc/ext4 ext4 defaults 0 2",
+      "id": "si-eac2-act4",
+      "front": "Formateo, montaje y configuración de particiones. Sobre el disc particionado amb MBR:\na) Formatead la primera partición amb ext4. Cread /mnt/ioc/ext4 y montadla amb permisos de lectura y escriptura.\nb) Formatead la segundoa partición amb NTFS. Cread /mnt/ioc/ntfs y montadla en mode solo lectura.\nc) Configurad la tercera partición como swap. Activadla amb prioridad.\nd) Configurad el sistema para que la partición 4a es munti automáticamente durant el arranque.",
+      "back": "a) EXT4:\nsudo mkfs.ext4 /dev/nvme1n1p1\nsudo mkdir -p /mnt/ioc/ext4\nsudo mount /dev/nvme1n1p1 /mnt/ioc/ext4\ndf -h (verificar)\n\nb) NTFS (solo lectura):\nsudo mkfs.ntfs /dev/nvme1n1p2\nsudo mkdir -p /mnt/ioc/ntfs\nsudo mount -o ro /dev/nvme1n1p2 /mnt/ioc/ntfs\n\nc) SWAP:\nsudo mkswap /dev/nvme1n1p3\nsudo swapon -p 100 /dev/nvme1n1p3\nswapon --show\n\nd) Montaje automático (/etc/fstab):\n/dev/nvme1n1p1 /mnt/ioc/ext4 ext4 defaults 0 2",
       "tags": [
         "si",
         "eac2",
@@ -53,9 +53,9 @@
       ]
     },
     {
-      "id": "examen-si-eac2-act5",
-      "front": "Creació d'un volum lògic amb LVM. Afegiu dos discs virtuals nous de 2 GB cadascun. Utilitzant LVM, convertiu-los en volums físics, creeu un grup de volums (amb el vostre nom) i creeu un volum lògic de 4 GB. Expliqueu les etapes principals.",
-      "back": "Etapes:\n1. Crear volúmenes físicos (PV): pvcreate /dev/sdb /dev/sdc\n2. Crear grupo de volúmenes (VG): vgcreate Nombre_Apellido /dev/sdb /dev/sdc\n3. Crear volumen lógico (LV): lvcreate -L 4G -n datos Nombre_Apellido\n4. Formatear: mkfs.ext4 /dev/Nombre_Apellido/datos\n5. Montar: mount /dev/Nombre_Apellido/datos /mnt\n\nVerificación: pvs, vgs, lvs, lsblk",
+      "id": "si-eac2-act5",
+      "front": "Creación de un volumen lógico con LVM. Añadid dos discos virtuales nuevos de 2 GB cada uno. Utilizando LVM, convertidlos en volúmenes físicos, cread un grupo de volúmenes (amb el vuestro nom) y cread un volum lògic de 4 GB. Explicad les etapes principals.",
+      "back": "COMANDOS LVM:\n1. sudo pvcreate /dev/sdb /dev/sdc (PV)\n2. sudo vgcreate machado /dev/sdb /dev/sdc (VG)\n3. sudo lvcreate -L 4G -n datos machado (LV)\n4. sudo mkfs.ext4 /dev/machado/datos\n5. sudo mount /dev/machado/datos /mnt\n\nVERIFICAR:\nsudo pvs → PVs\nsudo vgs → VGs\nsudo lvs → LVs\nlsblk",
       "tags": [
         "si",
         "eac2",
@@ -64,9 +64,9 @@
       ]
     },
     {
-      "id": "examen-si-eac2-act6",
-      "front": "Instal·lació de programari i localització d'executables.\na) Instal·leu gedit amb el gestor de paquets.\nb) Utilitzeu una comanda per localitzar l'executable del programa.\nc) Indiqueu si esperàveu trobar l'executable en aquesta ubicació segons l'estructura estàndard de Linux.\nd) Creeu un fitxer de text amb el nom del vostre DNI i deseu-lo al directori personal.\ne) Localitzeu aquest fitxer amb find.",
-      "back": "a) sudo apt install gedit\nb) which gedit → /usr/bin/gedit\nc) Sí, porque /usr/bin es el directorio estándar para ejecutables del sistema en Linux (FHS).\nd) echo \"contenido\" > ~/12345678X.txt\ne) find ~ -name \"12345678X.txt\"",
+      "id": "si-eac2-act6",
+      "front": "Instalación de software y localización de ejecutables.\na) Instalad gedit amb el gestor de paquetes.\nb) Utilizad una comanda per localitzar l'executable del programa.\nc) Indicad si esperabais encontrar el ejecutable en esta ubicación segundos la estructura estándard de Linux.\nd) Cread un archivo de text amb el nom del vuestro DNI y deseu-lo al directori personal.\ne) Localizad este archivo amb find.",
+      "back": "COMANDOS:\na) sudo apt install gedit\nb) which gedit → /usr/bin/gedit\nc) Sí, /usr/bin es el directorio estándar FHS para ejecutables\nd) echo \"12345678X\" > ~/12345678X.txt\ne) find ~ -name \"12345678X.txt\"",
       "tags": [
         "si",
         "eac2",
@@ -77,9 +77,9 @@
       ]
     },
     {
-      "id": "examen-si-eac2-act7",
-      "front": "Gestió de discs en Windows 11. Afegiu un disc virtual nou de 2 GB. Utilitzeu l'eina de gestió de discs per inicialitzar el disc i crear-hi una partició que ocupi tot l'espai. Formateu amb NTFS i assigneu una lletra d'unitat.",
-      "back": "1. Abrir Administración de discos (diskmgmt.msc)\n2. Inicializar el disco (MBR o GPT)\n3. Crear un volumen simple que ocupe todo el espacio\n4. Formatear con NTFS\n5. Asignar letra de unidad (ej: E:)\n\nVerificación: el disco aparece en el Explorador de archivos con la letra asignada.",
+      "id": "si-eac2-act7",
+      "front": "Gestión de discos en Windows 11. Añadid un disc virtual nou de 2 GB. Utilizad la herramienta de gestión de discos per inicialitzar el disc y crear-hi una partición que ocupi tot el espacio. Formatead amb NTFS y asignad una lletra de unidad.",
+      "back": "PASOS WINDOWS 11:\n1. Win+R → diskmgmt.msc\n2. Inicializar disco (MBR o GPT)\n3. Click en 'No asignado' → Nuevo volumen simple\n4. Siguiente → Asignar letra (ej E:) → NTFS → Finalizar\n5. Aparece en Explorador de archivos",
       "tags": [
         "si",
         "eac2",
@@ -89,9 +89,9 @@
       ]
     },
     {
-      "id": "examen-si-eac2-act8",
-      "front": "Configuració d'una còpia de seguretat programada. Configureu un sistema de còpia de seguretat programada utilitzant un dels sistemes operatius disponibles. Expliqueu l'eina seleccionada, per què és adequada, i configureu la còpia perquè s'executi automàticament segons una planificació.",
-      "back": "Eina: rsync + cron (a Ubuntu)\nPer què rsync: eficiente, solo copia cambios incrementales, soporta compresión y SSH.\n\nConfiguración:\n1. Crear script de backup: rsync -avh /origen/ /destino/\n2. Programar con crontab:\n   crontab -e\n   0 2 * * * /ruta/script-backup.sh  # cada día a las 2:00\n\nVerificación: comprobar que el archivo se ha copiado correctamente.",
+      "id": "si-eac2-act8",
+      "front": "Configuración de una copia de seguridad programada. Configurad un sistema de copia de seguridad programada utilizando un dels sistemes operatius disponibles. Explicad la herramienta seleccionada, por qué és adequada, y configurad la copia para que s'executi automáticamente segundos una planificació.",
+      "back": "HERRAMIENTA: rsync + cron (Ubuntu)\n\n1. Crear script backup:\nnano ~/backup.sh\n#!/bin/bash\nrsync -avh --delete /home/ /mnt/backup/\n\n2. chmod +x ~/backup.sh\n\n3. Programar:\ncrontab -e\n0 2 * * * /home/usuario/backup.sh\n(cada día a las 2:00 AM)\n\n4. Verificar: ls /mnt/backup/",
       "tags": [
         "si",
         "eac2",
@@ -101,9 +101,9 @@
       ]
     },
     {
-      "id": "examen-si-eac2-act9",
-      "front": "Gestió d'usuaris i permisos a Ubuntu:\na) Creeu els grups biblioteca i treballador.\nb) Creeu un usuari amb el vostre primer cognom, amb biblioteca com a grup principal i treballador com a secundari.\nc) Configureu contrasenyes amb longitud mínima de 8 caràcters.\nd) Assigneu contrasenya.\ne) Creeu un document de text amb la data actual generada per comanda.\nf) Configureu el fitxer perquè sigui propietat de l'usuari creat i amb permisos totals per al propietari i cap permís per a la resta.",
-      "back": "a) sudo groupadd biblioteca\n   sudo groupadd treballador\n\nb) sudo useradd -g biblioteca -G treballador -m cognom\n\nc) Editar /etc/pam.d/common-password: minlen=8\n\nd) sudo passwd cognom\n\ne) date > ~/data.txt\n\nf) sudo chown cognom:cognom data.txt\n   chmod 700 data.txt  # rwx------",
+      "id": "si-eac2-act9",
+      "front": "Gestión de usuarios y permisos en Ubuntu:\na) Cread los grupos biblioteca y trabajador.\nb) Cread un usuari amb el vuestro primer cognom, amb biblioteca como grup principal y trabajador como secundari.\nc) Configurad contraseñas amb longitud mínima de 8 caracteres.\nd) Asignad contraseña.\ne) Cread un document de text amb la data actual generada per comanda.\nf) Configurad el archivo para que sigui propietat de el usuario creat y amb permisos totals per al propietari y cap permís per a la resta.",
+      "back": "COMANDOS:\na) sudo groupadd biblioteca\n   sudo groupadd treballador\n\nb) sudo useradd -g biblioteca -G treballador -m machado\n\nc) /etc/pam.d/common-password → minlen=8\n\nd) sudo passwd machado\n\ne) date > ~/data.txt\n\nf) sudo chown machado:machado data.txt\n   chmod 700 data.txt (rwx------)\n\nVerificar:\nls -la data.txt\ngroups machado",
       "tags": [
         "si",
         "eac2",
@@ -114,9 +114,9 @@
       ]
     },
     {
-      "id": "examen-si-eac2-act10",
-      "front": "Configuració de xarxa amb Netplan a Ubuntu. Configureu la xarxa de la màquina amb Ubuntu usant Netplan. Definiu una configuració amb connectivitat a la xarxa. Verifiqueu que s'ha aplicat correctament.",
-      "back": "Configuració Netplan (/etc/netplan/00-installer-config.yaml):\nnetwork:\n  ethernets:\n    eth0:\n      addresses:\n        - 192.168.1.100/24\n      routes:\n        - to: default\n          via: 192.168.1.1\n      nameservers:\n        addresses: [8.8.8.8, 1.1.1.1]\n  version: 2\n\nAplicar: sudo netplan apply\nVerificar: ip a, ping 8.8.8.8",
+      "id": "si-eac2-act10",
+      "front": "Configuración de red con Netplan en Ubuntu. Configurad la red de la máquina con Ubuntu usando Netplan. Definid una configuración con conectividad a la red. Verificad que s'ha aplicat correctament.",
+      "back": "NETPLAN (/etc/netplan/00-installer-config.yaml):\nnetwork:\n  ethernets:\n    eth0:\n      addresses: [192.168.1.100/24]\n      routes:\n        - to: default\n          via: 192.168.1.1\n      nameservers:\n        addresses: [8.8.8.8, 1.1.1.1]\n  version: 2\n\nAPLICAR:\nsudo netplan apply\n\nVERIFICAR:\nip a\nip route\nping 8.8.8.8\nping google.com",
       "tags": [
         "si",
         "eac2",
@@ -126,9 +126,9 @@
       ]
     },
     {
-      "id": "examen-si-eac2-act11",
-      "front": "Instal·lació i gestió d'un servidor FTP (vsftpd).\na) Instal·leu vsftpd, inicieu el servei i verifiqueu.\nb) Connecteu-vos per FTP des de la màquina física.\nc) Quin PID té el procés del servei?\nd) Com es pot reiniciar el servei?\ne) Quin és el fitxer principal de configuració?",
-      "back": "a) sudo apt install vsftpd\n   sudo systemctl start vsftpd\n   sudo systemctl status vsftpd\n\nb) ftp <IP_maquina_virtual>\n\nc) PID: ver con ps aux | grep vsftpd o systemctl status vsftpd\n   Ejemplo: 12706\n\nd) sudo systemctl restart vsftpd\n\ne) /etc/vsftpd.conf",
+      "id": "si-eac2-act11",
+      "front": "Instalación y gestiónn de un servidor FTP (vsftpd).\na) Instalad vsftpd, iniciad el servicio y verificad.\nb) Conectaos por FTP desde la máquina física.\nc) Quin PID té el procés del servicio?\nd) Com es pot reiniciar el servicio?\ne) Quin és el archivo principal de configuración?",
+      "back": "COMANDOS:\na) sudo apt install vsftpd\n   sudo systemctl start vsftpd\n   sudo systemctl status vsftpd\n\nb) ftp 192.168.1.100\n   User: machado / Pass: Password123 / Port: 21\n\nc) PID: 12706 (visible en systemctl status)\nd) sudo systemctl restart vsftpd\ne) /etc/vsftpd.conf",
       "tags": [
         "si",
         "eac2",
@@ -138,9 +138,9 @@
       ]
     },
     {
-      "id": "examen-si-eac2-act12",
-      "front": "Anàlisi de trànsit de xarxa amb Wireshark a Ubuntu. Instal·leu Wireshark i inicieu una captura. Mentre la captura està activa, feu una connexió FTP. Analitzeu els paquets capturats i identifiqueu les credencials utilitzades durant l'autenticació.",
-      "back": "1. Instalar: sudo apt install wireshark\n2. Iniciar captura en la interfaz de red\n3. Hacer conexión FTP\n4. En Wireshark, filtrar por \"ftp\"\n5. Buscar paquetes con \"Request: USER\" (usuario) y \"Request: PASS\" (contraseña)\n6. FTP envía las credenciales en texto plano, visible en la captura.",
+      "id": "si-eac2-act12",
+      "front": "Análisis de tráfico de red con Wireshark a Ubuntu. Instalad Wireshark y iniciad una captura. Mentre la captura está activa, feu una conexión FTP. Analizad els paquetes capturats y identificad les credencials utilitzades durant l'autenticació.",
+      "back": "PASOS:\n1. sudo apt install wireshark\n2. sudo wireshark\n3. Seleccionar interfaz → Start\n4. En otra terminal: ftp localhost\n5. En Wireshark filtrar: ftp\n6. Buscar 'Request: USER' (usuario) y 'Request: PASS' (contraseña)\n\n⚠️ FTP = texto plano, credenciales visibles",
       "tags": [
         "si",
         "eac2",
@@ -150,9 +150,9 @@
       ]
     },
     {
-      "id": "examen-si-eac2-act13",
-      "front": "Anàlisi de registres del sistema. Accediu a /var/log/syslog i localitzeu les entrades del reinici del servei FTP.\na) Quin component és responsable de generar i escriure aquest fitxer?\nb) Quin mecanisme gestiona la rotació dels fitxers de log?\nc) En quines circumstàncies es produeix la rotació? És la mateixa per tots els serveis?",
-      "back": "a) rsyslog: servicio de registro del sistema. Recoge mensajes de kernel, servicios y aplicaciones y los escribe en /var/log/syslog.\n\nb) logrotate: herramienta que gestiona la rotación de logs.\n- Configuración principal: /etc/logrotate.conf\n- Configuraciones por servicio: /etc/logrotate.d/\n\nc) Periodicidad por defecto: weekly (semanal), rotate 4, delaycompress.\nNO es la misma para todos los servicios. Cada servicio puede tener su propia configuración en /etc/logrotate.d/ (daily, monthly, size, etc.).\n\nEjemplo rsyslog:\n/var/log/syslog {\n  rotate 4\n  weekly\n  missingok\n  notifempty\n  compress\n  delaycompress\n  sharedscripts\n}",
+      "id": "si-eac2-act13",
+      "front": "Análisis de registros del sistema. Acceded a /var/log/syslog y localizad les entrades del reinici del servicio FTP.\na) Quin component és responsable de generar y escriure este archivo?\nb) Quin mecanisme gestiona la rotació dels archivos de log?\nc) En qué circunstancias es produeix la rotació? És la misma per tots els servicios?",
+      "back": "a) rsyslog: servicio de registro del sistema. Escribe en /var/log/syslog.\n\nb) logrotate: rotación automática de logs.\n   Config: /etc/logrotate.conf\n   Por servicio: /etc/logrotate.d/\n\nc) Defecto: weekly, rotate 4, delaycompress\n   NO es igual para todos (cada servicio puede tener daily, monthly, size)\n\nEjemplo líneas reinicio FTP:\n2026-04-04T19:42:11 systemd[1]: Starting vsftpd.service...\n2026-04-04T19:42:11 systemd[1]: Started vsftpd.service.\n\nEjemplo logrotate /var/log/syslog {\n  rotate 4\n  weekly\n  missingok\n  notifempty\n  compress\n  delaycompress\n  sharedscripts\n}",
       "tags": [
         "si",
         "eac2",
@@ -162,9 +162,9 @@
       ]
     },
     {
-      "id": "examen-si-eac2-act14",
-      "front": "Configuració de polítiques de seguretat a Windows 11:\na) Configureu contrasenyes amb requisits de complexitat.\nb) Restringiu inici de sessió a horari laboral.\nc) Bloqueig de compte després de 3 intents fallits.\nExpliqueu on es configuren i verifiqueu.",
-      "back": "Se configura en Polítiques de Seguretat Locals (secpol.msc):\n\na) Directivas de cuenta → Directiva de contraseñas:\n- La contraseña debe cumplir requisitos de complejidad: Habilitada\n\nb) Directivas locales → Asignación de derechos de usuario → Permitir inicio de sesión local (o usar Horas de inicio de sesión en Usuarios y grupos locales)\n\nc) Directivas de cuenta → Directiva de bloqueo de cuenta:\n- Duración del bloqueo: 30 min\n- Umbral de bloqueo: 3 intentos fallidos\n- Restablecer contador: 30 min",
+      "id": "si-eac2-act14",
+      "front": "Configuración de políticas de seguridad en Windows 11:\na) Configurad contraseñas amb requisits de complejidad.\nb) Restringiu inici de sessió a horari laboral.\nc) Bloqueig de compte después de 3 intents fallits.\nExplicad on es configuren y verificad.",
+      "back": "CONFIGURACIÓN: Win+R → secpol.msc\n\na) Directivas de cuenta → Directiva de contraseñas:\n   'Requisitos de complejidad' → Habilitada\n\nb) Usuarios → Propiedades → Horas de inicio de sesión\n   (ej: L-V 9:00-18:00)\n\nc) Directivas de cuenta → Directiva de bloqueo:\n   - Duración: 30 min\n   - Umbral: 3 intentos\n   - Restablecer: 30 min",
       "tags": [
         "si",
         "eac2",
@@ -174,9 +174,9 @@
       ]
     },
     {
-      "id": "examen-si-eac2-act15",
-      "front": "Verificació de polítiques i registre d'esdeveniments a Windows 11. Creeu un usuari nou, assigneu contrasenya. Intenteu iniciar sessió amb contrasenya incorrecta. Obriu el Windows Event Viewer i localitzeu l'esdeveniment registrat de l'intent fallit.",
-      "back": "1. Crear usuario en Administración de equipos\n2. Asignar contraseña\n3. Intentar inicio de sesión con contraseña incorrecta\n4. Abrir Visor de eventos (eventvwr.msc)\n5. Ir a Registros de Windows → Seguridad\n6. Buscar Event ID 4625 (inicio de sesión fallido)\n\nEl evento ID 4625 muestra: nombre de usuario, hora del intento y dirección IP.",
+      "id": "si-eac2-act15",
+      "front": "Verificación de políticas y registro de eventos en Windows 11. Cread un usuari nou, asignad contraseña. Intenteu iniciar sessió amb contraseña incorrecta. Abrid el Windows Event Viewer y localizad el evento registrado de l'intent fallit.",
+      "back": "PASOS:\n1. Administración de equipos → Usuarios → Nuevo usuario\n2. Asignar contraseña\n3. Cerrar sesión e intentar con contraseña incorrecta\n4. Win+R → eventvwr.msc\n5. Registros de Windows → Seguridad → Event ID 4625\n\nEvento 4625 muestra: usuario, hora, IP del intento fallido",
       "tags": [
         "si",
         "eac2",

@@ -7,7 +7,7 @@
     {
       "id": "examen-si-cmd-01",
       "front": "Particionar disco MBR con fdisk (crear 5 particiones de 2GB)",
-      "back": "1. sudo fdisk /dev/sdX (abrir disco)\n2. g (crear tabla GPT) ← Para MBR usar 'o' en lugar de 'g'\n3. n → p → 1 → Enter → +2G (partición primaria 1)\n4. n → p → 2 → Enter → +2G (primaria 2)\n5. n → p → 3 → Enter → +2G (primaria 3)\n6. n → e → 4 → Enter → +2G (extendida, contenedor)\n7. n → l → 5 → Enter → +2G (lógica dentro de extendida)\n8. n → l → 6 → Enter → +2G (segunda lógica)\n9. w (guardar cambios)\n10. lsblk (verificar)\n\n⚠️ MBR permite 4 primarias máximo. Con extendida+lógicas se supera ese límite.",
+      "back": "1. sudo fdisk /dev/sdX (abrir disco)\n2. g (crear tabla GPT) ← Para MBR usar 'o' en lugar de 'g'\n3. n → p → 1 → Enter → +2G (particiónn primaria 1)\n4. n → p → 2 → Enter → +2G (primaria 2)\n5. n → p → 3 → Enter → +2G (primaria 3)\n6. n → e → 4 → Enter → +2G (extendida, contenedor)\n7. n → l → 5 → Enter → +2G (lógica dentro de extendida)\n8. n → l → 6 → Enter → +2G (segunda lógica)\n9. w (guardar cambios)\n10. lsblk (verificar)\n\n⚠️ MBR permite 4 primarias máximo. Con extendida+lógicas se supera ese límite.",
       "tags": [
         "si",
         "practico",
@@ -18,7 +18,7 @@
     {
       "id": "examen-si-cmd-02",
       "front": "Particionar disco GPT con gdisk (5 particiones de 2GB)",
-      "back": "1. sudo gdisk /dev/sdX (abrir con GPT)\n2. o (crear nueva tabla GPT)\n3. n → 1 → Enter → +2G (partición 1)\n4. n → 2 → Enter → +2G (partición 2)\n5. n → 3 → Enter → +2G\n6. n → 4 → Enter → +2G\n7. n → 5 → Enter → +2G\n8. w (guardar cambios)\n9. lsblk (verificar)\n\n✅ GPT permite hasta 128 primarias directamente, sin necesitar extendida.",
+      "back": "1. sudo gdisk /dev/sdX (abrir con GPT)\n2. o (crear nueva tabla GPT)\n3. n → 1 → Enter → +2G (particiónn 1)\n4. n → 2 → Enter → +2G (particiónn 2)\n5. n → 3 → Enter → +2G\n6. n → 4 → Enter → +2G\n7. n → 5 → Enter → +2G\n8. w (guardar cambios)\n9. lsblk (verificar)\n\n✅ GPT permite hasta 128 primarias directamente, sin necesitar extendida.",
       "tags": [
         "si",
         "practico",
@@ -67,7 +67,7 @@
     {
       "id": "examen-si-cmd-06",
       "front": "Usuarios, grupos y permisos en Ubuntu",
-      "back": "1. sudo groupadd biblioteca (crear grupo)\n2. sudo groupadd treballador\n3. sudo useradd -g biblioteca -G treballador -m machado (crear usuario)\n4. sudo passwd machado (asignar contraseña)\n5. date > ~/data.txt (crear archivo con fecha actual)\n6. sudo chown machado:machado data.txt (cambiar propietario)\n7. chmod 700 data.txt (permisos: rwx------)\n\nConfigurar longitud mínima contraseña:\nsudo nano /etc/pam.d/common-password → minlen=8",
+      "back": "1. sudo groupadd biblioteca (crear grupo)\n2. sudo groupadd trabajador\n3. sudo useradd -g biblioteca -G trabajador -m machado (crear usuario)\n4. sudo passwd machado (asignar contraseña)\n5. date > ~/data.txt (crear archivo con fecha actual)\n6. sudo chown machado:machado data.txt (cambiar propietario)\n7. chmod 700 data.txt (permisos: rwx------)\n\nConfigurar longitud mínima contraseña:\nsudo nano /etc/pam.d/common-password → minlen=8",
       "tags": [
         "si",
         "practico",
@@ -91,7 +91,7 @@
     {
       "id": "examen-si-cmd-08",
       "front": "Netplan: Configurar IP estática en Ubuntu",
-      "back": "1. sudo nano /etc/netplan/00-installer-config.yaml\n\nContenido:\nnetwork:\n  ethernets:\n    eth0:\n      addresses: [192.168.1.100/24]\n      routes:\n        - to: default\n          via: 192.168.1.1\n      nameservers:\n        addresses: [8.8.8.8, 1.1.1.1]\n  version: 2\n\n2. sudo netplan apply (aplicar configuración)\n3. ip a (ver IP asignada)\n4. ip route (ver ruta por defecto)\n5. ping 8.8.8.8 (probar conectividad)\n6. ping google.com (probar resolución DNS)",
+      "back": "1. sudo nano /etc/netplan/00-installer-config.yaml\n\nContenido:\nnetwork:\n  ethernets:\n    eth0:\n      addresses: [192.168.1.100/24]\n      routes:\n        - to: default\n          via: 192.168.1.1\n      nameservers:\n        addresses: [8.8.8.8, 1.1.1.1]\n  version: 2\n\n2. sudo netplan apply (aplicar configuración)\n3. ip a (ver IP asignada)\n4. ip route (ver ruta por defecto)\n5. ping 8.8.8.8 (probar conectividad)\n6. ping google.com (probar resoluciónn DNS)",
       "tags": [
         "si",
         "practico",
@@ -181,8 +181,8 @@
     },
     {
       "id": "examen-si-cmd-16",
-      "front": "Windows Server: instalar AD, DNS y unir cliente al dominio",
-      "back": "1. Server Manager → Add Roles → Active Directory Domain Services\n2. Promote to Domain Controller → New Forest\n3. Dominio: eac3.pmachado.home\n4. Configurar IP fija en servidor\n\nDNS:\n5. DNS Manager → Reverse Lookup Zones → New Zone\n6. Añadir Registro A (SRV-DC → IP)\n7. Add-DnsServerResourceRecordPtr (con PowerShell) para PTR\n8. Añadir CNAME www → SRV-DC\n\nUsuarios AD:\n9. ADUC → New → Groups: bibliotecari, usuari\n10. New → Users: Martí, Jana\n11. Asignar a grupos\n\nUnir Windows 11:\n12. DNS cliente → IP del servidor\n13. Sistema → Cambiar nombre → Unir a dominio",
+      "front": "Windows Server: instalar AD, DNS y unir cliente al dominioo",
+      "back": "1. Server Manager → Add Roles → Active Directory Domain Services\n2. Promote to Domain Controller → New Forest\n3. Dominio: eac3.pmachado.home\n4. Configurar IP fija en servidor\n\nDNS:\n5. DNS Manager → Reverse Lookup Zones → New Zone\n6. Añadir Registro A (SRV-DC → IP)\n7. Add-DnsServerResourceRecordPtr (con PowerShell) para PTR\n8. Añadir CNAME www → SRV-DC\n\nUsuarios AD:\n9. ADUC → New → Groups: bibliotecario, usuari\n10. New → Users: Martí, Jana\n11. Asignar a grupos\n\nUnir Windows 11:\n12. DNS cliente → IP del servidor\n13. Sistema → Cambiar nombre → Unir a dominioo",
       "tags": [
         "si",
         "practico",
@@ -194,7 +194,7 @@
     {
       "id": "examen-si-cmd-17",
       "front": "Compartir carpeta por SMB en Windows Server",
-      "back": "1. Crear C:\\documentacio\n2. Botón derecho → Compartir → Usuarios específicos\n   O: New-SmbShare -Name documentacio -Path C:\\documentacio\n3. En Seguridad (NTFS):\n   - bibliotecari: Control total\n   - usuari: Leer y ejecutar\n4. En Compartir:\n   - bibliotecari: Lectura/Escritura\n   - usuari: Lectura\n\nRegla: el permiso más restrictivo entre NTFS y Compartición es el efectivo.",
+      "back": "1. Crear C:\\documentacio\n2. Botón derecho → Compartir → Usuarios específicos\n   O: New-SmbShare -Name documentacio -Path C:\\documentacio\n3. En Seguridad (NTFS):\n   - bibliotecario: Control total\n   - usuari: Leer y ejecutar\n4. En Compartir:\n   - bibliotecario: Lectura/Escritura\n   - usuari: Lectura\n\nRegla: el permiso más restrictivo entre NTFS y Comparticiónn es el efectivo.",
       "tags": [
         "si",
         "practico",
@@ -206,7 +206,7 @@
     {
       "id": "examen-si-cmd-18",
       "front": "Samba en Ubuntu: compartir carpetas con Windows",
-      "back": "1. sudo apt install samba (instalar)\n2. sudo nano /etc/samba/smb.conf\n\n[imatges]\n  path = /srv/samba/imatges\n  public = yes\n  writable = yes\n  guest ok = yes\n\n[documents]\n  path = /srv/samba/documents\n  valid users = @bibliotecari\n  writable = yes\n\n3. sudo systemctl restart smbd (reiniciar)\n4. sudo smbpasswd -a usuario (crear usuario Samba)\n5. Desde Windows: \\IP-UBUNTU\\imatges\n\nVerificar: sudo systemctl status smbd",
+      "back": "1. sudo apt install samba (instalar)\n2. sudo nano /etc/samba/smb.conf\n\n[imágenes]\n  path = /srv/samba/imágenes\n  public = yes\n  writable = yes\n  guest ok = yes\n\n[documents]\n  path = /srv/samba/documents\n  valid users = @bibliotecario\n  writable = yes\n\n3. sudo systemctl restart smbd (reiniciar)\n4. sudo smbpasswd -a usuario (crear usuario Samba)\n5. Desde Windows: \\IP-UBUNTU\\imágenes\n\nVerificar: sudo systemctl status smbd",
       "tags": [
         "si",
         "practico",
@@ -252,8 +252,8 @@
     },
     {
       "id": "examen-si-cmd-22",
-      "front": "Git: inicializar, commits y clonar repositorio",
-      "back": "1. sudo apt install git\n2. git config --global user.name \"Pablo Machado\"\n3. git config --global user.email \"pmacho@example.com\"\n4. mkdir proyecto && cd proyecto\n5. git init (inicializar repositorio)\n6. cp programa.c .\n7. git add programa.c (staging)\n8. git commit -m \"Primer commit: programa en C\"\n9. (modificar algo)\n10. git add . && git commit -m \"Segundo commit: mejoras\"\n11. git log (ver historial)\n\nClonar en otra máquina:\n12. git clone ssh://usuario@IP/home/usuario/proyecto",
+      "front": "Git: inicializar, commits y clonar repositorioo",
+      "back": "1. sudo apt install git\n2. git config --global user.name \"Pablo Machado\"\n3. git config --global user.email \"pmacho@example.com\"\n4. mkdir proyecto && cd proyecto\n5. git init (inicializar repositorioo)\n6. cp programa.c .\n7. git add programa.c (staging)\n8. git commit -m \"Primer commit: programa en C\"\n9. (modificar algo)\n10. git add . && git commit -m \"Segundo commit: mejoras\"\n11. git log (ver historial)\n\nClonar en otra máquina:\n12. git clone ssh://usuario@IP/home/usuario/proyecto",
       "tags": [
         "si",
         "practico",
