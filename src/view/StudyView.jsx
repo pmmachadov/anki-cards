@@ -119,48 +119,27 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
   const normalizeText = (text) => {
     if (!text) return "";
     let result = text
-      // Escapes estándar primero (por si acaso hay \n reales)
       .replace(/\\n/g, "\n")
       .replace(/\\t/g, "\t");
 
-    // Paso 1: Detectar bloques de código con n literal (```javascriptn...n```)
-    // y reemplazar inteligentemente n → \n dentro del bloque
+    // Convierte n literal → newline dentro de bloques ```langn...n```
     result = result.replace(
-      /```\s*(?:js|javascript)n([\s\S]*?)n```/gi,
-      (match, codeContent) => {
+      /```\s*(\w+)\s*n([\s\S]*?)n```/gi,
+      (match, lang, codeContent) => {
         let c = codeContent;
-        // nn → doble salto (si hay)
         c = c.replace(/nn/g, "\n\n");
-        // n después de ; } ] , → siempre newline
-        c = c.replace(/([;}\]])n/g, "$1\n");
-        c = c.replace(/,n/g, ",\n");
-        // n después de { [ ( → solo si seguido de whitespace
-        c = c.replace(/([\[({])n(\s)/g, "$1\n$2");
-        // n al inicio → newline
-        c = c.replace(/^n/, "\n");
-        // n antes de palabras clave JS (con o sin espacios)
-        c = c.replace(
-          /n\s*(?=(?:if|else|for|while|do|return|const|let|var|function|class|switch|case|catch|try|throw|new|this|typeof|delete|import|export|async|await|console|alert|prompt|document|window|Math|JSON|form)\b)/g,
-          "\n",
-        );
-        // n antes de comentario
-        c = c.replace(/n\s*(?=\/\/|\/\*)/g, "\n");
-        // n antes de cierre ``` y antes de ); }]; etc
-        c = c.replace(/n(?=```)/g, "\n");
-        c = c.replace(/n(?=[})\]]\s*[;,\]\)])/g, "\n");
-        // n restante(s) entre newline y letra mayúscula
-        c = c.replace(/\nn(?=[A-Z])/g, "\n\n");
-        // limpiar 3+ saltos
+        // Solo n precedido de ;{}[](), espacio o inicio (no parte de una palabra)
+        c = c.replace(/(?<=^|[;{}\[\],()\s])n/g, "\n");
         c = c.replace(/\n{3,}/g, "\n\n");
-        return "```javascript\n" + c.trim() + "\n```";
+        return "```" + lang + "\n" + c.trim() + "\n```";
       },
     );
 
-    // Paso 2: Fuera de los bloques ya formateados, convertir patrones obvios
+    // Fuera de bloques: nn y n antes de cierre
     result = result
-      .replace(/nn/g, "\n\n") // nn → doble salto
-      .replace(/n(?=```)/g, "\n") // n antes de cierre de bloque
-      .replace(/\n{3,}/g, "\n\n"); // limpiar 3+ saltos
+      .replace(/nn/g, "\n\n")
+      .replace(/(?<=^|[;{}\[\],()\s])n(?=```)/g, "\n")
+      .replace(/\n{3,}/g, "\n\n");
 
     return result;
   };
@@ -306,7 +285,7 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
               background: "#1e1e1e",
               padding: "16px 20px",
             }}
-            wrapLongLines={false}
+            wrapLongLines={true}
           >
             {code}
           </SyntaxHighlighter>
@@ -630,6 +609,16 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
             </div>
             <div className="flashcard-back">
               <div className="card-content card-content-code">
+                {currentCard.imageUrl && (
+                  <div className="card-image-wrapper">
+                    <img
+                      src={currentCard.imageUrl}
+                      alt="Diagrama de ejemplo"
+                      className="card-image"
+                      onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.style.display = 'none'; }}
+                    />
+                  </div>
+                )}
                 {renderCardContent(currentCard.back)}
               </div>
             </div>

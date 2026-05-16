@@ -11,6 +11,7 @@ export function CardEditor({ deck, onBack, onUpdateDeck }) {
   const [front, setFront] = useState('')
   const [back, setBack] = useState('')
   const [tags, setTags] = useState('')
+  const [imageUrl, setImageUrl] = useState('')
 
   const filteredCards = cards.filter(card => 
     card.front.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -24,7 +25,8 @@ export function CardEditor({ deck, onBack, onUpdateDeck }) {
     const newCard = deck.addCard(
       front.trim(),
       back.trim(),
-      tags.split(',').map(t => t.trim()).filter(Boolean)
+      tags.split(',').map(t => t.trim()).filter(Boolean),
+      imageUrl.trim()
     )
     
     setCards([...deck.cards])
@@ -34,6 +36,7 @@ export function CardEditor({ deck, onBack, onUpdateDeck }) {
     setFront('')
     setBack('')
     setTags('')
+    setImageUrl('')
     setShowAddForm(false)
   }
 
@@ -42,6 +45,7 @@ export function CardEditor({ deck, onBack, onUpdateDeck }) {
     setFront(card.front)
     setBack(card.back)
     setTags(card.tags?.join(', ') || '')
+    setImageUrl(card.imageUrl || '')
   }
 
   const handleUpdateCard = (e) => {
@@ -51,6 +55,7 @@ export function CardEditor({ deck, onBack, onUpdateDeck }) {
     editingCard.front = front.trim()
     editingCard.back = back.trim()
     editingCard.tags = tags.split(',').map(t => t.trim()).filter(Boolean)
+    editingCard.imageUrl = imageUrl.trim()
     
     setCards([...deck.cards])
     onUpdateDeck(deck)
@@ -75,6 +80,7 @@ export function CardEditor({ deck, onBack, onUpdateDeck }) {
     setFront('')
     setBack('')
     setTags('')
+    setImageUrl('')
   }
 
   return (
@@ -141,6 +147,25 @@ export function CardEditor({ deck, onBack, onUpdateDeck }) {
                 onChange={e => setTags(e.target.value)}
                 placeholder="ej: hardware, cpu, conceptos-basicos"
               />
+            </div>
+            <div className="form-group">
+              <label>Imagen (URL de internet)</label>
+              <input
+                type="text"
+                className="input"
+                value={imageUrl}
+                onChange={e => setImageUrl(e.target.value)}
+                placeholder="https://ejemplo.com/imagen.png"
+              />
+              {imageUrl.trim() && (
+                <div className="image-url-preview">
+                  <img
+                    src={imageUrl.trim()}
+                    alt="Vista previa"
+                    onError={(e) => { e.target.style.display = 'none' }}
+                  />
+                </div>
+              )}
             </div>
             <div className="form-actions">
               <button type="button" className="btn btn-secondary" onClick={handleCancel}>

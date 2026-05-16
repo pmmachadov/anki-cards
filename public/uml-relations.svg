@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" style="background:#0d1117;font-family:'Segoe UI',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a2332"/>
+      <stop offset="100%" stop-color="#121a28"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Title -->
+  <text x="350" y="38" fill="#58a6ff" font-size="20" font-weight="700" text-anchor="middle" letter-spacing="0.5">Relaciones UML — Símbolos</text>
+
+  <!-- Asociación -->
+  <rect x="20" y="60" width="200" height="240" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="120" y="88" fill="#58a6ff" font-size="14" font-weight="700" text-anchor="middle">ASOCIACIÓN</text>
+
+  <!-- Class A -->
+  <rect x="36" y="108" width="78" height="38" rx="6" fill="#1f6feb" stroke="#58a6ff" stroke-width="1.5" opacity="0.8"/>
+  <text x="75" y="132" fill="#fff" font-size="11" font-weight="600" text-anchor="middle">Clase A</text>
+
+  <!-- Line -->
+  <line x1="114" y1="127" x2="162" y2="127" stroke="#58a6ff" stroke-width="2"/>
+
+  <!-- Class B -->
+  <rect x="162" y="108" width="78" height="38" rx="6" fill="#1f6feb" stroke="#58a6ff" stroke-width="1.5" opacity="0.8"/>
+  <text x="201" y="132" fill="#fff" font-size="11" font-weight="600" text-anchor="middle">Clase B</text>
+
+  <!-- Multiplicidad -->
+  <text x="130" y="120" fill="#8b949e" font-size="10" text-anchor="middle">1</text>
+  <text x="155" y="120" fill="#8b949e" font-size="10" text-anchor="middle">1..*</text>
+
+  <text x="120" y="180" fill="#8b949e" font-size="11" text-anchor="middle" opacity="0.9">Línea continua simple</text>
+  <text x="120" y="200" fill="#8b949e" font-size="11" text-anchor="middle" opacity="0.9">Relación estructural</text>
+  <text x="120" y="220" fill="#8b949e" font-size="11" text-anchor="middle" opacity="0.9">Ej: Cliente — Pedido</text>
+
+  <!-- Agregación -->
+  <rect x="250" y="60" width="200" height="240" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="350" y="88" fill="#ffa657" font-size="14" font-weight="700" text-anchor="middle">AGREGACIÓN</text>
+
+  <rect x="272" y="108" width="78" height="38" rx="6" fill="#d29922" stroke="#ffa657" stroke-width="1.5" opacity="0.8"/>
+  <text x="311" y="132" fill="#fff" font-size="11" font-weight="600" text-anchor="middle">Frutería</text>
+
+  <!-- Diamond -->
+  <polygon points="374,117 390,127 374,137 358,127" fill="transparent" stroke="#ffa657" stroke-width="2"/>
+
+  <line x1="390" y1="127" x2="418" y2="127" stroke="#ffa657" stroke-width="2"/>
+
+  <rect x="418" y="108" width="78" height="38" rx="6" fill="#d29922" stroke="#ffa657" stroke-width="1.5" opacity="0.8"/>
+  <text x="457" y="132" fill="#fff" font-size="11" font-weight="600" text-anchor="middle">Fruta</text>
+
+  <text x="350" y="180" fill="#8b949e" font-size="11" text-anchor="middle" opacity="0.9">Rombo VACÍO ◇</text>
+  <text x="350" y="200" fill="#8b949e" font-size="11" text-anchor="middle" opacity="0.9">Partes existen sin el todo</text>
+  <text x="350" y="220" fill="#8b949e" font-size="11" text-anchor="middle" opacity="0.9">Si frutería cierra →</text>
+  <text x="350" y="238" fill="#8b949e" font-size="11" text-anchor="middle" opacity="0.9">fruta sigue existiendo</text>
+
+  <!-- Composición -->
+  <rect x="480" y="60" width="200" height="240" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="580" y="88" fill="#f97583" font-size="14" font-weight="700" text-anchor="middle">COMPOSICIÓN</text>
+
+  <rect x="502" y="108" width="78" height="38" rx="6" fill="#da3633" stroke="#f97583" stroke-width="1.5" opacity="0.8"/>
+  <text x="541" y="132" fill="#fff" font-size="11" font-weight="600" text-anchor="middle">Avión</text>
+
+  <!-- Filled diamond -->
+  <polygon points="604,117 620,127 604,137 588,127" fill="#f97583" stroke="#f97583" stroke-width="2"/>
+
+  <line x1="620" y1="127" x2="648" y2="127" stroke="#f97583" stroke-width="2"/>
+
+  <rect x="648" y="108" width="78" height="38" rx="6" fill="#da3633" stroke="#f97583" stroke-width="1.5" opacity="0.8"/>
+  <text x="687" y="132" fill="#fff" font-size="11" font-weight="600" text-anchor="middle">Ala</text>
+
+  <text x="580" y="180" fill="#8b949e" font-size="11" text-anchor="middle" opacity="0.9">Rombo RELLENO ◆</text>
+  <text x="580" y="200" fill="#8b949e" font-size="11" text-anchor="middle" opacity="0.9">Partes NO existen sin todo</text>
+  <text x="580" y="220" fill="#8b949e" font-size="11" text-anchor="middle" opacity="0.9">Si avión desaparece →</text>
+  <text x="580" y="238" fill="#8b949e" font-size="11" text-anchor="middle" opacity="0.9">alas desaparecen también</text>
+</svg>

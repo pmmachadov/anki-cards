@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" style="background:#0d1117;font-family:'Segoe UI',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="headerGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#58a6ff"/>
+      <stop offset="100%" stop-color="#1f6feb"/>
+    </linearGradient>
+    <linearGradient id="structGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a2332"/>
+      <stop offset="100%" stop-color="#121a28"/>
+    </linearGradient>
+    <linearGradient id="behavGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2d1b2e"/>
+      <stop offset="100%" stop-color="#1f1520"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Title -->
+  <rect x="0" y="0" width="900" height="60" rx="0" fill="url(#headerGrad)"/>
+  <text x="450" y="38" fill="#fff" font-size="24" font-weight="700" text-anchor="middle" letter-spacing="1">Tipos de Diagramas UML (2.4.1)</text>
+
+  <!-- Structural box -->
+  <rect x="30" y="90" width="400" height="500" rx="12" fill="url(#structGrad)" stroke="#30363d" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="30" y="90" width="400" height="44" rx="12" fill="#1f6feb"/>
+  <rect x="30" y="122" width="400" height="12" fill="#1f6feb" rx="0"/>
+  <text x="230" y="119" fill="#fff" font-size="17" font-weight="700" text-anchor="middle" letter-spacing="0.5">📐 ESTRUCTURALES (7)</text>
+
+  <!-- Class diagram -->
+  <rect x="50" y="152" width="360" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="230" y="175" fill="#58a6ff" font-size="15" font-weight="700" text-anchor="middle">Diagrama de Clases</text>
+  <text x="230" y="193" fill="#8b949e" font-size="11" text-anchor="middle">Clases, atributos, métodos y relaciones</text>
+
+  <!-- Object diagram -->
+  <rect x="50" y="214" width="360" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="230" y="237" fill="#58a6ff" font-size="15" font-weight="700" text-anchor="middle">Diagrama de Objetos</text>
+  <text x="230" y="255" fill="#8b949e" font-size="11" text-anchor="middle">Instancias concretas en un momento dado</text>
+
+  <!-- Component diagram -->
+  <rect x="50" y="276" width="360" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="230" y="299" fill="#58a6ff" font-size="15" font-weight="700" text-anchor="middle">Diagrama de Componentes</text>
+  <text x="230" y="317" fill="#8b949e" font-size="11" text-anchor="middle">Piezas reutilizables del sistema</text>
+
+  <!-- Deployment diagram -->
+  <rect x="50" y="338" width="360" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="230" y="361" fill="#58a6ff" font-size="15" font-weight="700" text-anchor="middle">Diagrama de Despliegue</text>
+  <text x="230" y="379" fill="#8b949e" font-size="11" text-anchor="middle">Configuración hardware en tiempo de ejecución</text>
+
+  <!-- Package diagram -->
+  <rect x="50" y="400" width="360" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="230" y="423" fill="#58a6ff" font-size="15" font-weight="700" text-anchor="middle">Diagrama de Paquetes</text>
+  <text x="230" y="441" fill="#8b949e" font-size="11" text-anchor="middle">Organización en grupos semánticos</text>
+
+  <!-- Composite structure -->
+  <rect x="50" y="462" width="360" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="230" y="485" fill="#58a6ff" font-size="15" font-weight="700" text-anchor="middle">Estructuras Compuestas</text>
+  <text x="230" y="503" fill="#8b949e" font-size="11" text-anchor="middle">Objetos compuestos con detalle interno</text>
+
+  <!-- Profile diagram -->
+  <rect x="50" y="524" width="360" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="230" y="547" fill="#58a6ff" font-size="15" font-weight="700" text-anchor="middle">Diagrama de Perfiles</text>
+  <text x="230" y="565" fill="#8b949e" font-size="11" text-anchor="middle">Personalización y extensión del modelo</text>
+
+  <!-- Behavioral box -->
+  <rect x="470" y="90" width="400" height="500" rx="12" fill="url(#behavGrad)" stroke="#30363d" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="470" y="90" width="400" height="44" rx="12" fill="#9c27b0"/>
+  <rect x="470" y="122" width="400" height="12" fill="#9c27b0" rx="0"/>
+  <text x="670" y="119" fill="#fff" font-size="17" font-weight="700" text-anchor="middle" letter-spacing="0.5">⚡ DE COMPORTAMIENTO (7)</text>
+
+  <!-- Use case -->
+  <rect x="490" y="152" width="360" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="670" y="175" fill="#d2a8ff" font-size="15" font-weight="700" text-anchor="middle">Diagrama de Casos de Uso</text>
+  <text x="670" y="193" fill="#8b949e" font-size="11" text-anchor="middle">Interacciones actor-sistema desde el usuario</text>
+
+  <!-- State diagram -->
+  <rect x="490" y="214" width="360" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="670" y="237" fill="#d2a8ff" font-size="15" font-weight="700" text-anchor="middle">Diagrama de Estados</text>
+  <text x="670" y="255" fill="#8b949e" font-size="11" text-anchor="middle">Ciclo de vida y transiciones de un objeto</text>
+
+  <!-- Activity diagram -->
+  <rect x="490" y="276" width="360" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="670" y="299" fill="#d2a8ff" font-size="15" font-weight="700" text-anchor="middle">Diagrama de Actividades</text>
+  <text x="670" y="317" fill="#8b949e" font-size="11" text-anchor="middle">Flujo de procesos y actividades</text>
+
+  <!-- Interaction subtitle -->
+  <rect x="490" y="340" width="360" height="32" rx="6" fill="#1f1520" stroke="#4a1a52" stroke-width="1"/>
+  <text x="670" y="361" fill="#ce93d8" font-size="13" font-weight="600" text-anchor="middle">DIAGRAMAS DE INTERACCIÓN</text>
+
+  <!-- Sequence -->
+  <rect x="505" y="382" width="155" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="582" y="405" fill="#d2a8ff" font-size="13" font-weight="700" text-anchor="middle">Secuencia</text>
+  <text x="582" y="421" fill="#8b949e" font-size="10" text-anchor="middle">Intercambio de mensajes</text>
+
+  <!-- Communication -->
+  <rect x="680" y="382" width="155" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="757" y="405" fill="#d2a8ff" font-size="13" font-weight="700" text-anchor="middle">Comunicación</text>
+  <text x="757" y="421" fill="#8b949e" font-size="10" text-anchor="middle">Colaboración</text>
+
+  <!-- Timing -->
+  <rect x="505" y="444" width="155" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="582" y="467" fill="#d2a8ff" font-size="13" font-weight="700" text-anchor="middle">Tiempo</text>
+  <text x="582" y="483" fill="#8b949e" font-size="10" text-anchor="middle">Restricciones temporales</text>
+
+  <!-- Interaction overview -->
+  <rect x="680" y="444" width="155" height="52" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="757" y="467" fill="#d2a8ff" font-size="13" font-weight="700" text-anchor="middle">Visión General</text>
+  <text x="757" y="483" fill="#8b949e" font-size="10" text-anchor="middle">Vista de alto nivel</text>
+
+  <!-- Footer -->
+  <text x="450" y="608" fill="#484f58" font-size="11" text-anchor="middle">UML 2.4.1 · 14 tipos de diagramas · OMG Standard</text>
+</svg>

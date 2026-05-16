@@ -1734,6 +1734,7 @@
       "id": "ed-240",
       "front": "Tipos de diagramas UML",
       "back": "ESTÁTICOS/ESTRUCTURALES (7):\n• Diagrama de clases\n• Diagrama de objetos\n• Diagrama de componentes\n• Diagrama de despliegue\n• Diagrama de paquetes\n• Diagrama de estructuras compuestas\n• Diagrama de perfiles\n\nDINÁMICOS/DE COMPORTAMIENTO (7):\n• Diagrama de casos de uso\n• Diagrama de estados\n• Diagrama de actividades\n• Diagramas de interacción (secuencias, comunicación, etc.)",
+      "imageUrl": "/uml-diagram-types.svg",
       "tags": ["uml", "diagramas", "estaticos", "dinamicos", "tipos"],
       "difficulty": "medium"
     },
@@ -1755,6 +1756,7 @@
       "id": "ed-243",
       "front": "Relaciones en UML - Asociación",
       "back": "ASOCIACIÓN:\n• Línea continua sin flechas\n• Relación estructural entre clases\n• Define conexiones con significado\n• Puede tener multiplicidad (0..1, 1..*, etc.)\n• Ejemplo: Cliente --- Pedido",
+      "imageUrl": "/uml-relations.svg",
       "tags": ["uml", "asociacion", "relaciones", "multiplicidad"],
       "difficulty": "easy"
     },
@@ -1762,6 +1764,7 @@
       "id": "ed-244",
       "front": "Relaciones en UML - Agregación",
       "back": "AGREGACIÓN (todo-parte débil):\n• Rombo vacío en el lado del 'todo'\n• Relación todo-parte\n• Las partes pueden existir sin el todo\n• Ejemplo: Frutería ◇--- Fruta\n  (Si cierra la frutería, las frutas siguen existiendo)",
+      "imageUrl": "/uml-relations.svg",
       "tags": ["uml", "agregacion", "todo-parte", "rombo-vacio"],
       "difficulty": "easy"
     },
@@ -1769,6 +1772,7 @@
       "id": "ed-245",
       "front": "Relaciones en UML - Composición",
       "back": "COMPOSICIÓN (todo-parte fuerte):\n• Rombo relleno/pintado en el lado del 'todo'\n• Relación todo-parte fuerte\n• Las partes NO pueden existir sin el todo\n• Si desaparece el todo, desaparecen las partes\n• Ejemplo: Mano ◆--- Dedo",
+      "imageUrl": "/uml-relations.svg",
       "tags": ["uml", "composicion", "todo-parte", "rombo-relleno"],
       "difficulty": "easy"
     },
@@ -1776,6 +1780,7 @@
       "id": "ed-246",
       "front": "Relaciones en UML - Herencia/Generalización",
       "back": "HERENCIA/GENERALIZACIÓN:\n• Flecha vacía apuntando a la superclase\n• Clase hija hereda atributos y métodos de clase padre\n• Relación 'es-un'\n• Ejemplo: Perro ──▷ Animal",
+      "imageUrl": "/uml-inheritance.svg",
       "tags": ["uml", "herencia", "generalizacion", "subclase", "superclase"],
       "difficulty": "easy"
     },
@@ -1783,6 +1788,7 @@
       "id": "ed-247",
       "front": "Diferencia entre Agregación y Composición",
       "back": "AGREGACIÓN:\n• Rombo vacío ◇\n• Partes pueden existir independientemente\n• Ciclo de vida independiente\n\nCOMPOSICIÓN:\n• Rombo relleno ◆\n• Partes dependen del todo\n• Ciclo de vida vinculado (mueren con el todo)",
+      "imageUrl": "/uml-relations.svg",
       "tags": ["uml", "agregacion", "composicion", "diferencias"],
       "difficulty": "medium"
     },
