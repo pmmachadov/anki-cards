@@ -42,6 +42,14 @@ function App() {
           "/data/practicas-dwec.json",
           "/data/practicas-ed.json",
           "/data/practicas-si.json",
+          "/data/examenes/si-eac1.json",
+          "/data/examenes/si-eac2.json",
+          "/data/examenes/si-eac3.json",
+          "/data/examenes/dwec-eac1.json",
+          "/data/examenes/dwec-eac3.json",
+          "/data/examenes/ed-eac2.json",
+          "/data/examenes/ed-eac3.json",
+          "/data/examenes/si-comandos.json",
         ];
 
         const results = await Promise.allSettled(

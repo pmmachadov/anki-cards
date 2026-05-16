@@ -1,0 +1,146 @@
+{
+  "id": "examen-dwec-eac3",
+  "name": "DWEC - EAC3 (Desarrollo Web en Entorno Cliente)",
+  "description": "Preguntas de la EAC3 de DWEC - DOM, Eventos, Fetch API y Express",
+  "subject": "Desarrollo Web en Entorno Cliente",
+  "cards": [
+    {
+      "id": "examen-dwec-eac3-1",
+      "front": "¿Qué selectores del DOM existen y qué devuelve cada uno?",
+      "back": "document.getElementById('id') → un elemento\n  document.querySelectorAll('.clase') → NodeList\n  document.querySelector('#id') → primer elemento que coincide",
+      "tags": [
+        "dwec",
+        "eac3",
+        "dom",
+        "selectores"
+      ]
+    },
+    {
+      "id": "examen-dwec-eac3-2",
+      "front": "¿Cómo se manipulan las clases CSS desde JavaScript?",
+      "back": "element.classList.add('activo');\nelement.classList.remove('activo');\nelement.classList.toggle('activo');\nelement.classList.contains('activo');",
+      "tags": [
+        "dwec",
+        "eac3",
+        "dom",
+        "css"
+      ]
+    },
+    {
+      "id": "examen-dwec-eac3-3",
+      "front": "¿Cómo se crea un elemento del DOM y se añade a un contenedor? ¿Cómo se vacía un contenedor?",
+      "back": "const div = document.createElement('div');\ndiv.classList.add('item');\ndiv.textContent = 'Texto';\ncontenedor.appendChild(div);\n\nVaciar: contenedor.innerHTML = '';",
+      "tags": [
+        "dwec",
+        "eac3",
+        "dom",
+        "creacion"
+      ]
+    },
+    {
+      "id": "examen-dwec-eac3-4",
+      "front": "¿Qué eventos del ratón existen y cuál es la diferencia entre mouseenter/mouseover?",
+      "back": "click, mouseenter, mouseleave, mouseover, mouseout, mousemove.\nmouseenter/mouseleave: no burbujean (solo en el elemento).\nmouseover/mouseout: burbujean (también en hijos).",
+      "tags": [
+        "dwec",
+        "eac3",
+        "eventos",
+        "raton"
+      ]
+    },
+    {
+      "id": "examen-dwec-eac3-5",
+      "front": "¿Cómo se registra y elimina un evento en JavaScript?",
+      "back": "element.addEventListener('click', handler);\nelement.removeEventListener('click', handler);\n\nPara poder eliminar el evento, handler debe ser una función nombrada (no anónima).",
+      "tags": [
+        "dwec",
+        "eac3",
+        "eventos"
+      ]
+    },
+    {
+      "id": "examen-dwec-eac3-6",
+      "front": "¿Qué propiedades y métodos del objeto event son más importantes?",
+      "back": "event.target: elemento que disparó el evento\nevent.preventDefault(): evita comportamiento por defecto\nevent.stopPropagation(): detiene la propagación (burbujeo)",
+      "tags": [
+        "dwec",
+        "eac3",
+        "eventos"
+      ]
+    },
+    {
+      "id": "examen-dwec-eac3-7",
+      "front": "¿Por qué es importante usar DOMContentLoaded?",
+      "back": "document.addEventListener('DOMContentLoaded', () => { ... });\nAsegura que el código se ejecute solo cuando el DOM esté completamente cargado, evitando errores al intentar acceder a elementos que aún no existen.",
+      "tags": [
+        "dwec",
+        "eac3",
+        "dom"
+      ]
+    },
+    {
+      "id": "examen-dwec-eac3-8",
+      "front": "¿Cómo se usa fetch para GET y POST?",
+      "back": "GET:\nconst res = await fetch(url);\nconst data = await res.json();\n\nPOST:\nconst res = await fetch(url, {\n  method: 'POST',\n  headers: { 'Content-Type': 'application/json' },\n  body: JSON.stringify({ campo: 'valor' })\n});",
+      "tags": [
+        "dwec",
+        "eac3",
+        "fetch",
+        "api"
+      ]
+    },
+    {
+      "id": "examen-dwec-eac3-9",
+      "front": "¿Cómo se manejan errores con async/await?",
+      "back": "async function cargarDatos() {\n  try {\n    const res = await fetch(url);\n    if (!res.ok) throw new Error('Error');\n    return await res.json();\n  } catch (err) {\n    console.error(err);\n  }\n}",
+      "tags": [
+        "dwec",
+        "eac3",
+        "async",
+        "await",
+        "errores"
+      ]
+    },
+    {
+      "id": "examen-dwec-eac3-10",
+      "front": "¿Qué son req.params y req.body en Express?",
+      "back": "req.params: parámetros de ruta URL (ej: /:id).\nreq.body: datos JSON del cuerpo de la petición POST/PUT.\nPara usar req.body hay que configurar: app.use(express.json());",
+      "tags": [
+        "dwec",
+        "eac3",
+        "express"
+      ]
+    },
+    {
+      "id": "examen-dwec-eac3-11",
+      "front": "¿Cuáles son los códigos HTTP más comunes y su significado?",
+      "back": "200 OK\n201 Created\n400 Bad Request\n404 Not Found\n409 Conflict\n500 Internal Server Error",
+      "tags": [
+        "dwec",
+        "eac3",
+        "http",
+        "codigos"
+      ]
+    },
+    {
+      "id": "examen-dwec-eac3-12",
+      "front": "¿Cómo se usa e.preventDefault() en un formulario?",
+      "back": "form.addEventListener('submit', (e) => {\n  e.preventDefault(); // evita recarga de página\n  // validar y enviar...\n});",
+      "tags": [
+        "dwec",
+        "eac3",
+        "formularios"
+      ]
+    },
+    {
+      "id": "examen-dwec-eac3-13",
+      "front": "¿Qué diálogos del navegador existen y qué devuelven?",
+      "back": "prompt('Mensaje'): devuelve string o null\nalert('Mensaje'): muestra mensaje\nconfirm('¿Seguro?'): devuelve true o false",
+      "tags": [
+        "dwec",
+        "eac3",
+        "dialogos"
+      ]
+    }
+  ]
+}

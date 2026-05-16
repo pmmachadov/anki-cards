@@ -1,0 +1,141 @@
+{
+  "id": "examen-dwec-eac1",
+  "name": "DWEC - EAC1 (Desarrollo Web en Entorno Cliente)",
+  "description": "Preguntas de la EAC1 de DWEC - JavaScript: sintaxis, funciones, arrays, objetos",
+  "subject": "Desarrollo Web en Entorno Cliente",
+  "cards": [
+    {
+      "id": "examen-dwec-eac1-1",
+      "front": "¿Qué diferencia hay entre const y let en JavaScript? ¿Cuándo usar cada uno?",
+      "back": "const: valor constante, no reasignable. Debe inicializarse en su declaración.\nlet: variable reasignable, ámbito de bloque (block scope).\nUsar const por defecto, let solo cuando se necesita reasignar. Evitar var (ámbito de función, hoisting).",
+      "tags": [
+        "dwec",
+        "eac1",
+        "javascript",
+        "variables"
+      ]
+    },
+    {
+      "id": "examen-dwec-eac1-2",
+      "front": "¿Qué tipos primitivos tiene JavaScript?",
+      "back": "string, number, boolean, null, undefined.",
+      "tags": [
+        "dwec",
+        "eac1",
+        "javascript",
+        "tipos"
+      ]
+    },
+    {
+      "id": "examen-dwec-eac1-3",
+      "front": "¿Cuál es la diferencia entre == y === en JavaScript?",
+      "back": "=== compara valor y tipo (estricta, recomendada).\n== compara valor con conversión implícita de tipo (no recomendada).",
+      "tags": [
+        "dwec",
+        "eac1",
+        "javascript",
+        "operadores"
+      ]
+    },
+    {
+      "id": "examen-dwec-eac1-4",
+      "front": "¿Cómo se usa un condicional if comparando strings de forma insensible a mayúsculas?",
+      "back": "Usar .toLowerCase() en ambos lados de la comparación:\nif (variable.toLowerCase() === 'valor') { ... }",
+      "tags": [
+        "dwec",
+        "eac1",
+        "javascript",
+        "condicionales"
+      ]
+    },
+    {
+      "id": "examen-dwec-eac1-5",
+      "front": "¿Qué diferencia hay entre do-while y while?",
+      "back": "do-while: ejecuta el bloque al menos una vez antes de evaluar la condición.\nwhile: evalúa la condición antes de cada iteración (puede ejecutarse 0 veces).",
+      "tags": [
+        "dwec",
+        "eac1",
+        "javascript",
+        "bucles"
+      ]
+    },
+    {
+      "id": "examen-dwec-eac1-6",
+      "front": "¿Qué hace la instrucción continue dentro de un bucle?",
+      "back": "Salta a la siguiente iteración del bucle, omitiendo el código restante de la iteración actual.",
+      "tags": [
+        "dwec",
+        "eac1",
+        "javascript",
+        "bucles"
+      ]
+    },
+    {
+      "id": "examen-dwec-eac1-7",
+      "front": "¿Qué diferencia hay entre una función tradicional y una arrow function?",
+      "back": "Función tradicional: function nombre(param) { return valor; }\nArrow function: const fn = (param) => param * 2;\nArrow functions son más concisas, no tienen su propio this ni arguments.",
+      "tags": [
+        "dwec",
+        "eac1",
+        "javascript",
+        "funciones"
+      ]
+    },
+    {
+      "id": "examen-dwec-eac1-8",
+      "front": "¿Cómo se crea un objeto Date en JavaScript para una fecha específica?",
+      "back": "const fecha = new Date(2000, 4, 15);\nNota: los meses van de 0 (enero) a 11 (diciembre).\nPara obtener el año: fecha.getFullYear();",
+      "tags": [
+        "dwec",
+        "eac1",
+        "javascript",
+        "date"
+      ]
+    },
+    {
+      "id": "examen-dwec-eac1-9",
+      "front": "¿Qué métodos de array has utilizado en JS? Explica filter, find y sort.",
+      "back": "filter(): crea nuevo array con elementos que cumplen condición.\nfind(): devuelve primer elemento que cumple condición (o undefined).\nfindIndex(): devuelve índice del primer elemento que cumple.\nsort(): ordena el array (requiere función de comparación para números).\nforEach(): itera sobre cada elemento.\nspread operator: [...array] crea copia superficial.",
+      "tags": [
+        "dwec",
+        "eac1",
+        "javascript",
+        "arrays"
+      ]
+    },
+    {
+      "id": "examen-dwec-eac1-10",
+      "front": "¿Cómo se declara una propiedad privada en una clase de JavaScript (ES2022)?",
+      "back": "Usando el prefijo #:\nclass Producto {\n  #stock; // propiedad privada\n  constructor(nombre, precio, stock) {\n    this.nombre = nombre;\n    this.#stock = stock;\n  }\n  get info() {\n    return `${this.nombre} - ${this.precio.toFixed(2)} €`;\n  }\n}",
+      "tags": [
+        "dwec",
+        "eac1",
+        "javascript",
+        "clases",
+        "poo"
+      ]
+    },
+    {
+      "id": "examen-dwec-eac1-11",
+      "front": "¿Cómo se exporta e importa un módulo en ES6? ¿Qué atributo debe tener el script HTML?",
+      "back": "Exportar: export function miFuncion() { ... }\nImportar: import { miFuncion } from './modulo.js';\nEl script HTML debe tener type=\"module\".",
+      "tags": [
+        "dwec",
+        "eac1",
+        "javascript",
+        "modulos"
+      ]
+    },
+    {
+      "id": "examen-dwec-eac1-12",
+      "front": "¿Cómo validar que un string contiene solo dígitos con expresión regular?",
+      "back": "const soloDigitos = /^\\d+$/.test(valor);\n.test() devuelve true si el patrón coincide.",
+      "tags": [
+        "dwec",
+        "eac1",
+        "javascript",
+        "regex"
+      ]
+    }
+  ]
+}

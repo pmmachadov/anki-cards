@@ -359,6 +359,7 @@ export function DeckList({
   const [showPruebas, setShowPruebas] = useState(false);
   const [showMaterias, setShowMaterias] = useState(false);
   const [showPracticas, setShowPracticas] = useState(false);
+  const [showExamenes, setShowExamenes] = useState(false);
 
   // Map de mazos marcados como hechos: { [deckId]: true }
   // Inicializado directamente desde localStorage para evitar race conditions con StrictMode
@@ -465,6 +466,11 @@ export function DeckList({
       ? decks
       : decks.filter((d) => d.subject === filterSubject);
 
+  // Mazos de examen
+  const examenDecks = filteredDecks.filter(
+    (d) => d.id?.startsWith("examen-"),
+  );
+
   // Mazos de prueba (agrupados en folder por materia)
   const pruebaDecks = filteredDecks.filter(
     (d) => d.id?.startsWith("prueba-") || d.name?.startsWith("Prueba -"),
@@ -477,15 +483,23 @@ export function DeckList({
     return acc;
   }, {});
 
+  const examenGroups = examenDecks.reduce((acc, deck) => {
+    const subject = deck.subject || "Exámenes";
+    if (!acc[subject]) acc[subject] = [];
+    acc[subject].push(deck);
+    return acc;
+  }, {});
+
   const practicaDecks = filteredDecks.filter((d) => d.subject === "Practicas");
   const mainDecks = filteredDecks.filter(
-    (d) => MAIN_SUBJECTS.includes(d.subject) && !pruebaDecks.includes(d),
+    (d) => MAIN_SUBJECTS.includes(d.subject) && !pruebaDecks.includes(d) && !examenDecks.includes(d),
   );
   const extraDecks = filteredDecks.filter(
     (d) =>
       !MAIN_SUBJECTS.includes(d.subject) &&
       !pruebaDecks.includes(d) &&
-      !practicaDecks.includes(d),
+      !practicaDecks.includes(d) &&
+      !examenDecks.includes(d),
   );
 
   const mainGroups = mainDecks.reduce((acc, deck) => {
@@ -800,6 +814,57 @@ export function DeckList({
               {practicaDecks.map((d) =>
                 renderDeckCard(d, false, "theme-practica"),
               )}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Exámenes Collapsible Folder */}
+      {examenDecks.length > 0 && (
+        <div className="examenes-section">
+          <button
+            className="examenes-toggle"
+            onClick={() => setShowExamenes(!showExamenes)}
+            aria-expanded={showExamenes}
+          >
+            <span className="examenes-icon">📋</span>
+            <span className="examenes-label">Exámenes</span>
+            <span className="examenes-count">
+              {examenDecks.length} mazo{examenDecks.length !== 1 ? "s" : ""}
+            </span>
+            <span className={`examenes-chevron ${showExamenes ? "open" : ""}`}>
+              {showExamenes ? Icons.chevronUp : Icons.chevronDown}
+            </span>
+          </button>
+
+          {showExamenes && (
+            <div className="examenes-content animate-fade-in">
+              {Object.entries(examenGroups).map(([subject, subjectDecks]) => {
+                const subjectColor = getSubjectColor(subject);
+                const subjectIcon = getSubjectIcon(subject);
+                return (
+                  <div key={subject} className="examenes-subgroup">
+                    <div
+                      className="examenes-subject-header"
+                      style={{ borderLeftColor: subjectColor.accent }}
+                    >
+                      <span className="examenes-subject-icon">
+                        {subjectIcon}
+                      </span>
+                      <span className="examenes-subject-name">{subject}</span>
+                      <span className="examenes-subject-count">
+                        {subjectDecks.length} mazo
+                        {subjectDecks.length !== 1 ? "s" : ""}
+                      </span>
+                    </div>
+                    <div className="decks-grid examenes-subgrid">
+                      {subjectDecks.map((d) =>
+                        renderDeckCard(d, false, "theme-examen"),
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>

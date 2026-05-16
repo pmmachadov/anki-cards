@@ -1,0 +1,147 @@
+const fs = require('fs');
+const dir = 'public/data/examenes';
+
+const siComandos = {
+  "id": "examen-si-comandos",
+  "name": "SI - Comandos Prácticos (EAC2+EAC3)",
+  "description": "Comandos y pasos ordenados para las prácticas con máquinas virtuales de SI",
+  "subject": "Sistemas Informaticos",
+  "cards": [
+    {
+      "id": "examen-si-cmd-01",
+      "front": "Particionar disco MBR con fdisk (crear 5 particiones de 2GB)",
+      "back": "1. sudo fdisk /dev/sdX (abrir disco)\n2. g (crear tabla GPT) ← Para MBR usar 'o' en lugar de 'g'\n3. n → p → 1 → Enter → +2G (partición primaria 1)\n4. n → p → 2 → Enter → +2G (primaria 2)\n5. n → p → 3 → Enter → +2G (primaria 3)\n6. n → e → 4 → Enter → +2G (extendida, contenedor)\n7. n → l → 5 → Enter → +2G (lógica dentro de extendida)\n8. n → l → 6 → Enter → +2G (segunda lógica)\n9. w (guardar cambios)\n10. lsblk (verificar)\n\n⚠️ MBR permite 4 primarias máximo. Con extendida+lógicas se supera ese límite.",
+      "tags": ["si", "practico", "fdisk", "mbr"]
+    },
+    {
+      "id": "examen-si-cmd-02",
+      "front": "Particionar disco GPT con gdisk (5 particiones de 2GB)",
+      "back": "1. sudo gdisk /dev/sdX (abrir con GPT)\n2. o (crear nueva tabla GPT)\n3. n → 1 → Enter → +2G (partición 1)\n4. n → 2 → Enter → +2G (partición 2)\n5. n → 3 → Enter → +2G\n6. n → 4 → Enter → +2G\n7. n → 5 → Enter → +2G\n8. w (guardar cambios)\n9. lsblk (verificar)\n\n✅ GPT permite hasta 128 primarias directamente, sin necesitar extendida.",
+      "tags": ["si", "practico", "gdisk", "gpt"]
+    },
+    {
+      "id": "examen-si-cmd-03",
+      "front": "Formatear particiones: ext4, NTFS y swap",
+      "back": "1. mkfs.ext4 /dev/sdX1 (formatear como ext4)\n2. mkfs.ntfs /dev/sdX2 (formatear como NTFS)\n3. mkswap /dev/sdX3 (preparar como swap)\n\nVerificar: lsblk -f (ver sistema de archivos)\n         sudo blkid (ver UUID y tipo)",
+      "tags": ["si", "practico", "mkfs", "ext4", "ntfs", "swap"]
+    },
+    {
+      "id": "examen-si-cmd-04",
+      "front": "Montar particiones (mount) y configurar montaje automático (fstab)",
+      "back": "1. mkdir -p /mnt/ioc/ext4 (crear punto de montaje)\n2. mount /dev/sdX1 /mnt/ioc/ext4 (montar con rw)\n3. mount -o ro /dev/sdX2 /mnt/ioc/ntfs (montar solo lectura)\n4. swapon -p 100 /dev/sdX3 (activar swap con prioridad)\n\nMontaje automático (/etc/fstab):\nUUID=\"...\"  /mnt/ioc/ext4  ext4  defaults  0  2\n\nVerificar: mount | grep ioc\n         swapon --show (ver swaps activas)",
+      "tags": ["si", "practico", "mount", "fstab", "swap"]
+    },
+    {
+      "id": "examen-si-cmd-05",
+      "front": "LVM: crear volúmenes físicos, grupo y volumen lógico",
+      "back": "1. pvcreate /dev/sdb /dev/sdc (crear Volúmenes Físicos)\n2. vgcreate machado /dev/sdb /dev/sdc (crear Grupo de Volúmenes)\n3. lvcreate -L 4G -n datos machado (crear Volumen Lógico de 4GB)\n4. mkfs.ext4 /dev/machado/datos (formatear LV)\n5. mount /dev/machado/datos /mnt (montar)\n\nVerificar:\npvs → muestra PVs\nvgs → muestra VGs\nlvs → muestra LVs\nlsblk → estructura completa",
+      "tags": ["si", "practico", "lvm", "pvcreate", "vgcreate", "lvcreate"]
+    },
+    {
+      "id": "examen-si-cmd-06",
+      "front": "Usuarios, grupos y permisos en Ubuntu",
+      "back": "1. sudo groupadd biblioteca (crear grupo)\n2. sudo groupadd treballador\n3. sudo useradd -g biblioteca -G treballador -m machado (crear usuario)\n4. sudo passwd machado (asignar contraseña)\n5. date > ~/data.txt (crear archivo con fecha actual)\n6. sudo chown machado:machado data.txt (cambiar propietario)\n7. chmod 700 data.txt (permisos: rwx------)\n\nConfigurar longitud mínima contraseña:\nsudo nano /etc/pam.d/common-password → minlen=8",
+      "tags": ["si", "practico", "usuarios", "grupos", "permisos"]
+    },
+    {
+      "id": "examen-si-cmd-07",
+      "front": "Instalar programa, localizar ejecutable y buscar archivos",
+      "back": "1. sudo apt update (actualizar repositorios)\n2. sudo apt install gedit (instalar programa)\n3. which gedit → /usr/bin/gedit (localizar ejecutable)\n4. echo \"12345678X\" > ~/dni.txt (crear archivo)\n5. find ~ -name \"dni.txt\" (buscar archivo)\n\nNota: /usr/bin es el directorio estándar FHS para ejecutables del sistema.",
+      "tags": ["si", "practico", "apt", "which", "find"]
+    },
+    {
+      "id": "examen-si-cmd-08",
+      "front": "Netplan: Configurar IP estática en Ubuntu",
+      "back": "1. sudo nano /etc/netplan/00-installer-config.yaml\n\nContenido:\nnetwork:\n  ethernets:\n    eth0:\n      addresses: [192.168.1.100/24]\n      routes:\n        - to: default\n          via: 192.168.1.1\n      nameservers:\n        addresses: [8.8.8.8, 1.1.1.1]\n  version: 2\n\n2. sudo netplan apply (aplicar configuración)\n3. ip a (ver IP asignada)\n4. ip route (ver ruta por defecto)\n5. ping 8.8.8.8 (probar conectividad)\n6. ping google.com (probar resolución DNS)",
+      "tags": ["si", "practico", "netplan", "ip", "red"]
+    },
+    {
+      "id": "examen-si-cmd-09",
+      "front": "Configurar IP temporal con ip (iproute2) y net-tools",
+      "back": "Con ip (moderno):\n1. sudo ip addr add 192.168.1.100/24 dev eth0\n2. sudo ip route add default via 192.168.1.1\n3. nano /etc/resolv.conf → nameserver 8.8.8.8\n4. ping 8.8.8.8\n\nCon net-tools (antiguo):\n1. sudo ifconfig eth0 192.168.1.100 netmask 255.255.255.0\n2. sudo route add default gw 192.168.1.1\n\n⚠️ Configuración temporal se pierde al reiniciar.",
+      "tags": ["si", "practico", "ip", "ifconfig"]
+    },
+    {
+      "id": "examen-si-cmd-10",
+      "front": "Servidor FTP vsftpd: instalar, configurar y conectar",
+      "back": "1. sudo apt install vsftpd (instalar servidor)\n2. sudo systemctl start vsftpd (iniciar servicio)\n3. sudo systemctl status vsftpd (ver estado y PID)\n4. sudo systemctl restart vsftpd (reiniciar)\n5. ftp 192.168.1.100 (conectar desde cliente)\n6. ps aux | grep vsftpd (ver PID también)\n\nArchivo config: /etc/vsftpd.conf\nPuerto por defecto: 21 (FTP en texto plano)",
+      "tags": ["si", "practico", "ftp", "vsftpd", "systemctl"]
+    },
+    {
+      "id": "examen-si-cmd-11",
+      "front": "Analizar puertos con nmap",
+      "back": "1. sudo apt install nmap\n2. nmap localhost (escaneo básico local)\n3. nmap 192.168.1.100 (escaneo a IP)\n4. nmap -p 19-100 localhost (escaneo rango específico)\n5. nmap -sS localhost (TCP SYN scan, sigiloso)\n6. nmap -sT localhost (TCP Connect scan, completo)\n\nDiferencia SYN vs Connect:\n- SYN (-sS): no completa handshake, rápido, requiere sudo\n- Connect (-sT): completa conexión, funciona sin root, más lento\n\nPuertos: open (responde), filtered (firewall), closed (no servicio)",
+      "tags": ["si", "practico", "nmap", "puertos"]
+    },
+    {
+      "id": "examen-si-cmd-12",
+      "front": "Analizar puertos en escucha con netstat",
+      "back": "1. sudo netstat -tln (TCP en escucha)\n2. sudo netstat -uln (UDP en escucha)\n3. sudo netstat -tlnp (con PID y proceso)\n4. sudo netstat -tlnp | grep :21 (filtrar por puerto)\n5. sudo netstat -tn | grep :21 (conexiones establecidas)\n\nEstados:\nLISTEN → servicio esperando conexiones\nESTABLISHED → conexión activa entre cliente-servidor",
+      "tags": ["si", "practico", "netstat", "puertos"]
+    },
+    {
+      "id": "examen-si-cmd-13",
+      "front": "MAC Address y tabla ARP",
+      "back": "1. ip link show (ver MAC en Linux)\n2. ipconfig /all | findstr \"Física\" (ver MAC en Windows)\n3. ip neigh (ver tabla ARP en Linux)\n4. arp -a (ver tabla ARP en Windows)\n5. ping 192.168.1.1 (forzar comunicación)\n6. ip neigh (ver cambio: STALE → REACHABLE)\n\nARP dinámico: se aprende automáticamente\nARP estático: entrada fija manual\n\nARP spoofing: ataque donde se falsifica MAC para interceptar tráfico.",
+      "tags": ["si", "practico", "mac", "arp"]
+    },
+    {
+      "id": "examen-si-cmd-14",
+      "front": "Wireshark: capturar tráfico y ver credenciales FTP",
+      "back": "1. sudo apt install wireshark (instalar)\n2. sudo wireshark (abrir con permisos)\n3. Seleccionar interfaz de red → Start\n4. En otra terminal: ftp 192.168.1.100 (hacer conexión FTP)\n5. En Wireshark: filtro 'ftp'\n6. Buscar paquetes 'Request: USER' (usuario) y 'Request: PASS' (contraseña)\n\n⚠️ FTP envía credenciales en texto plano → riesgo de seguridad.",
+      "tags": ["si", "practico", "wireshark", "ftp"]
+    },
+    {
+      "id": "examen-si-cmd-15",
+      "front": "SSH: instalar, conectar y desactivar root",
+      "back": "1. sudo apt install openssh-server (instalar servidor)\n2. sudo systemctl status ssh (ver estado)\n3. ssh usuario@192.168.1.100 (conectar desde cliente)\n4. sudo nano /etc/ssh/sshd_config (configurar)\n5. PermitRootLogin no (desactivar acceso root)\n6. sudo systemctl restart ssh (aplicar cambios)\n\nAutenticación por clave pública:\n7. ssh-keygen -t rsa (generar clave en cliente)\n8. ssh-copy-id usuario@192.168.1.100 (copiar clave al servidor)\n\nSFTP: sftp usuario@192.168.1.100\n       put archivo.txt (subir archivo)",
+      "tags": ["si", "practico", "ssh", "sftp", "seguridad"]
+    },
+    {
+      "id": "examen-si-cmd-16",
+      "front": "Windows Server: instalar AD, DNS y unir cliente al dominio",
+      "back": "1. Server Manager → Add Roles → Active Directory Domain Services\n2. Promote to Domain Controller → New Forest\n3. Dominio: eac3.pmachado.home\n4. Configurar IP fija en servidor\n\nDNS:\n5. DNS Manager → Reverse Lookup Zones → New Zone\n6. Añadir Registro A (SRV-DC → IP)\n7. Add-DnsServerResourceRecordPtr (con PowerShell) para PTR\n8. Añadir CNAME www → SRV-DC\n\nUsuarios AD:\n9. ADUC → New → Groups: bibliotecari, usuari\n10. New → Users: Martí, Jana\n11. Asignar a grupos\n\nUnir Windows 11:\n12. DNS cliente → IP del servidor\n13. Sistema → Cambiar nombre → Unir a dominio",
+      "tags": ["si", "practico", "windows-server", "ad", "dns"]
+    },
+    {
+      "id": "examen-si-cmd-17",
+      "front": "Compartir carpeta por SMB en Windows Server",
+      "back": "1. Crear C:\\documentacio\n2. Botón derecho → Compartir → Usuarios específicos\n   O: New-SmbShare -Name documentacio -Path C:\\documentacio\n3. En Seguridad (NTFS):\n   - bibliotecari: Control total\n   - usuari: Leer y ejecutar\n4. En Compartir:\n   - bibliotecari: Lectura/Escritura\n   - usuari: Lectura\n\nRegla: el permiso más restrictivo entre NTFS y Compartición es el efectivo.",
+      "tags": ["si", "practico", "smb", "compartir", "windows-server"]
+    },
+    {
+      "id": "examen-si-cmd-18",
+      "front": "Samba en Ubuntu: compartir carpetas con Windows",
+      "back": "1. sudo apt install samba (instalar)\n2. sudo nano /etc/samba/smb.conf\n\n[imatges]\n  path = /srv/samba/imatges\n  public = yes\n  writable = yes\n  guest ok = yes\n\n[documents]\n  path = /srv/samba/documents\n  valid users = @bibliotecari\n  writable = yes\n\n3. sudo systemctl restart smbd (reiniciar)\n4. sudo smbpasswd -a usuario (crear usuario Samba)\n5. Desde Windows: \\IP-UBUNTU\\imatges\n\nVerificar: sudo systemctl status smbd",
+      "tags": ["si", "practico", "samba", "compartir"]
+    },
+    {
+      "id": "examen-si-cmd-19",
+      "front": "Backup programado con rsync + cron",
+      "back": "1. Crear script:\n   nano ~/backup.sh\n   #!/bin/bash\n   rsync -avh --delete /origen/ /destino/\n\n2. chmod +x ~/backup.sh (hacer ejecutable)\n3. crontab -e (editar tareas programadas)\n4. Añadir línea:\n   0 2 * * * /home/usuario/backup.sh\n   (se ejecuta cada día a las 2:00 AM)\n\nExplicación cron: minuto hora día_mes mes día_semana comando\n5. Verificar: ls -la /destino/ (comprobar archivos copiados)",
+      "tags": ["si", "practico", "backup", "rsync", "cron"]
+    },
+    {
+      "id": "examen-si-cmd-20",
+      "front": "Políticas de seguridad en Windows 11 (secpol.msc)",
+      "back": "1. Win+R → secpol.msc (abrir políticas de seguridad)\n\nContraseñas:\n2. Directivas de cuenta → Directiva de contraseñas\n3. 'La contraseña debe cumplir requisitos de complejidad' → Habilitada\n\nBloqueo:\n4. Directivas de cuenta → Directiva de bloqueo\n5. Umbral de bloqueo: 3 intentos fallidos\n6. Duración del bloqueo: 30 minutos\n\nVerificar:\n7. eventvwr.msc → Registros de Windows → Seguridad\n8. Buscar Event ID 4625 (inicio de sesión fallido)\n\nEl evento 4625 muestra: usuario, hora e IP del intento.",
+      "tags": ["si", "practico", "windows", "seguridad", "secpol"]
+    },
+    {
+      "id": "examen-si-cmd-21",
+      "front": "Compilar programa C con gcc y crear página de manual",
+      "back": "1. gcc programa.c -o programa (compilar)\n2. ./programa argumento (ejecutar)\n\nCrear página man (programa.3):\n.TH PROGRAMA 3\n.SH NAME\nprograma - descripción breve\n.SH SYNOPSIS\n.B programa [opciones]\n.SH DESCRIPTION\nDescripción completa del programa\n.SH OPTIONS\n.B -h\nMostrar ayuda\n.SH AUTHOR\nTu nombre\n\n3. groff -man -Tascii programa.3 (previsualizar)\n4. sudo cp programa.3 /usr/share/man/man3/\n5. sudo mandb (actualizar BD)\n6. man 3 programa (consultar)",
+      "tags": ["si", "practico", "gcc", "man-page", "compilar"]
+    },
+    {
+      "id": "examen-si-cmd-22",
+      "front": "Git: inicializar, commits y clonar repositorio",
+      "back": "1. sudo apt install git\n2. git config --global user.name \"Pablo Machado\"\n3. git config --global user.email \"pmacho@example.com\"\n4. mkdir proyecto && cd proyecto\n5. git init (inicializar repositorio)\n6. cp programa.c .\n7. git add programa.c (staging)\n8. git commit -m \"Primer commit: programa en C\"\n9. (modificar algo)\n10. git add . && git commit -m \"Segundo commit: mejoras\"\n11. git log (ver historial)\n\nClonar en otra máquina:\n12. git clone ssh://usuario@IP/home/usuario/proyecto",
+      "tags": ["si", "practico", "git"]
+    }
+  ]
+};
+
+// Escribir archivo
+fs.writeFileSync(`${dir}/si-comandos.json`, JSON.stringify(siComandos, null, 2));
+console.log(`Creado: si-comandos.json - ${siComandos.cards.length} cartas prácticas`);

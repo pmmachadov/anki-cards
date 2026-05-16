@@ -1,0 +1,135 @@
+{
+  "id": "examen-ed-eac3",
+  "name": "ED - EAC3 (Entornos de Desarrollo)",
+  "description": "Preguntas de la EAC3 de ED - Pruebas de Software, Git, Refactorización, Spring Boot y Swing",
+  "subject": "Entornos de Desarrollo",
+  "cards": [
+    {
+      "id": "examen-ed-eac3-1",
+      "front": "¿Qué tipos de pruebas de software existen?",
+      "back": "Caja blanca: analiza estructura interna del código, caminos de ejecución.\nCaja negra: entradas/salidas sin conocer implementación.\nRegresión: detectar errores tras cambios.\nAceptación (Beta): validación con el cliente en entorno real.",
+      "tags": [
+        "ed",
+        "eac3",
+        "pruebas",
+        "testing"
+      ]
+    },
+    {
+      "id": "examen-ed-eac3-2",
+      "front": "¿Cómo se calcula la complejidad ciclomática de McCabe?",
+      "back": "CC = número de condiciones + 1\nCC = número de aristas - número de nodos + 2\n\nValores:\n1-10: simple\n11-20: moderado\n21-50: complejo\n>50: muy complejo",
+      "tags": [
+        "ed",
+        "eac3",
+        "mccabe",
+        "complejidad"
+      ]
+    },
+    {
+      "id": "examen-ed-eac3-3",
+      "front": "¿Cómo se aplican las clases de equivalencia y valores límite en pruebas?",
+      "back": "1. Identificar rangos y restricciones de entrada\n2. Definir clases válidas e inválidas\n3. Seleccionar representantes de cada clase\n4. Incluir valores límite (mínimo, máximo, justo fuera)",
+      "tags": [
+        "ed",
+        "eac3",
+        "pruebas",
+        "equivalencia"
+      ]
+    },
+    {
+      "id": "examen-ed-eac3-4",
+      "front": "¿Cuáles son los comandos esenciales de Git y su orden?",
+      "back": "git init → inicializar repositorio\ngit add archivo.java → añadir al staging\ngit status → ver estado\ngit commit -m \"mensaje\" → confirmar cambios\ngit log → ver historial\ngit branch nombre → crear rama\ngit checkout nombre → cambiar de rama\ngit merge nombre → fusionar rama",
+      "tags": [
+        "ed",
+        "eac3",
+        "git"
+      ]
+    },
+    {
+      "id": "examen-ed-eac3-5",
+      "front": "¿Qué es HEAD en Git? ¿Qué es un conflicto?",
+      "back": "HEAD: commit más reciente de la rama actual.\nConflicto: ocurre al fusionar cambios que modifican las mismas líneas en ambos archivos. Git no puede resolverlo automáticamente.",
+      "tags": [
+        "ed",
+        "eac3",
+        "git"
+      ]
+    },
+    {
+      "id": "examen-ed-eac3-6",
+      "front": "¿Qué es refactorización y qué técnicas se aplican?",
+      "back": "Refactorización: mejorar el código sin alterar su comportamiento externo.\nTécnicas:\n- Extraer método: convertir bloque en método independiente\n- Extraer constantes: eliminar números mágicos\n- Renombrar: mejorar legibilidad de nombres",
+      "tags": [
+        "ed",
+        "eac3",
+        "refactorizacion"
+      ]
+    },
+    {
+      "id": "examen-ed-eac3-7",
+      "front": "¿Cómo se generan y qué etiquetas tiene un Javadoc?",
+      "back": "/**\n * Descripción.\n * @param param Descripción\n * @return Descripción\n * @author Nombre\n * @version 1.0\n */\n\nGenerar: javadoc -d docs Clase.java",
+      "tags": [
+        "ed",
+        "eac3",
+        "javadoc"
+      ]
+    },
+    {
+      "id": "examen-ed-eac3-8",
+      "front": "¿Qué anotaciones y aserciones de JUnit 5 son las más importantes?",
+      "back": "Anotaciones:\n@Test: marca método de prueba\n@BeforeEach / @AfterEach: antes/después de cada test\n@BeforeAll / @AfterAll: antes/después de todos (método estático)\n\nAserciones:\nassertEquals(esperado, actual)\nassertTrue(condicion)\nassertThrows(Tipo.class, () -> código)",
+      "tags": [
+        "ed",
+        "eac3",
+        "junit",
+        "testing"
+      ]
+    },
+    {
+      "id": "examen-ed-eac3-9",
+      "front": "¿Qué diferencia hay entre @Controller y @RestController en Spring Boot?",
+      "back": "@Controller: devuelve vistas (templates Thymeleaf).\n@RestController: devuelve datos directamente (JSON).\n\nAmbas se usan con @GetMapping, @PostMapping, etc.",
+      "tags": [
+        "ed",
+        "eac3",
+        "spring",
+        "controller"
+      ]
+    },
+    {
+      "id": "examen-ed-eac3-10",
+      "front": "¿Cómo funciona Thymeleaf con Spring Boot?",
+      "back": "Motor de plantillas por defecto en Spring Boot.\nEn el Controller: model.addAttribute(\"clave\", valor);\nEn el template HTML: th:text=\"${clave}\"\nPlantillas en src/main/resources/templates/",
+      "tags": [
+        "ed",
+        "eac3",
+        "thymeleaf",
+        "spring"
+      ]
+    },
+    {
+      "id": "examen-ed-eac3-11",
+      "front": "¿Qué componentes de Swing se usan para crear una interfaz gráfica?",
+      "back": "JFrame: ventana principal\nJPanel: contenedor\nJLabel: etiqueta de texto\nJTextField: campo de texto una línea\nJTextArea: campo multilínea\nJComboBox: lista desplegable\nJButton: botón",
+      "tags": [
+        "ed",
+        "eac3",
+        "swing"
+      ]
+    },
+    {
+      "id": "examen-ed-eac3-12",
+      "front": "¿Cómo se manejan eventos en Swing?",
+      "back": "btn.addActionListener(new ActionListener() {\n  public void actionPerformed(ActionEvent e) {\n    // código al pulsar\n  }\n});\n\nO con lambda (Java 8+):\nbtn.addActionListener(e -> metodo());\nsetLayout(null) + setBounds(x, y, ancho, alto) para posicionamiento absoluto.",
+      "tags": [
+        "ed",
+        "eac3",
+        "swing",
+        "eventos"
+      ]
+    }
+  ]
+}

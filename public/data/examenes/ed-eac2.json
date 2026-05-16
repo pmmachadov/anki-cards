@@ -1,0 +1,131 @@
+{
+  "id": "examen-ed-eac2",
+  "name": "ED - EAC2 (Entornos de Desarrollo)",
+  "description": "Preguntas de la EAC2 de ED - Diagramas UML y Modelado Orientado a Objetos",
+  "subject": "Entornos de Desarrollo",
+  "cards": [
+    {
+      "id": "examen-ed-eac2-1",
+      "front": "¿Qué elementos componen un diagrama de clases UML?",
+      "back": "Una clase se representa como un rectángulo dividido en 3 secciones:\n1. Nombre de la clase\n2. Atributos (visibilidad nombre: tipo)\n3. Métodos/Operaciones (visibilidad nombre(param: tipo): retorno)",
+      "tags": [
+        "ed",
+        "eac2",
+        "uml",
+        "diagrama-clases"
+      ]
+    },
+    {
+      "id": "examen-ed-eac2-2",
+      "front": "¿Qué símbolos de visibilidad se usan en UML y qué significan?",
+      "back": "+ público (public)\n- privado (private)\n# protegido (protected)\n~ paquete/package",
+      "tags": [
+        "ed",
+        "eac2",
+        "uml",
+        "visibilidad"
+      ]
+    },
+    {
+      "id": "examen-ed-eac2-3",
+      "front": "¿Qué tipos de relaciones entre clases existen en UML y cómo se representan?",
+      "back": "Asociación: línea sólida entre clases\nHerencia: flecha triangular vacía apuntando a la superclase\nComposición: rombo relleno (pertenencia fuerte)\nAgregación: rombo vacío (pertenencia débil)\nDependencia: flecha punteada (uso temporal)",
+      "tags": [
+        "ed",
+        "eac2",
+        "uml",
+        "relaciones"
+      ]
+    },
+    {
+      "id": "examen-ed-eac2-4",
+      "front": "¿Qué diferencia hay entre composición y agregación en UML?",
+      "back": "Composición (rombo relleno): relación fuerte, las partes NO pueden existir sin el todo. Ej: Mano ◆--- Dedo\nAgregación (rombo vacío): relación débil, las partes pueden existir sin el todo. Ej: Frutería ◇--- Fruta\n\nSi desaparece el todo: en composición desaparecen las partes; en agregación no.",
+      "tags": [
+        "ed",
+        "eac2",
+        "uml",
+        "composicion",
+        "agregacion"
+      ]
+    },
+    {
+      "id": "examen-ed-eac2-5",
+      "front": "¿Qué significa la multiplicidad en UML y qué valores se usan?",
+      "back": "1 → exactamente uno\n0..1 → cero o uno\n* → cero o más\n1..* → uno o más",
+      "tags": [
+        "ed",
+        "eac2",
+        "uml",
+        "multiplicidad"
+      ]
+    },
+    {
+      "id": "examen-ed-eac2-6",
+      "front": "¿Cómo se declara una enumeración en Java?",
+      "back": "public enum Especialidad {\n  BIOLOGIA, GEOLOGIA, OCEANOGRAFIA;\n}",
+      "tags": [
+        "ed",
+        "eac2",
+        "java",
+        "enum"
+      ]
+    },
+    {
+      "id": "examen-ed-eac2-7",
+      "front": "¿Cómo se implementa la herencia en Java?",
+      "back": "public class DirectorEstacion extends Cientifico {\n  private double presupuestoAsignado;\n  public DirectorEstacion(...) {\n    super(dni, nombre, especialidad, aniosExperiencia);\n    this.presupuestoAsignado = presupuestoAsignado;\n  }\n}\n\nextends para heredar, super() como primera línea del constructor.",
+      "tags": [
+        "ed",
+        "eac2",
+        "java",
+        "herencia"
+      ]
+    },
+    {
+      "id": "examen-ed-eac2-8",
+      "front": "¿Qué es y cómo se representa un diagrama de casos de uso?",
+      "back": "Actor: rol externo (figura humana)\nCaso de uso: óvalo con acción\n<<include>>: obligatorio (un caso SIEMPRE incluye otro)\n<<extend>>: opcional (extensión bajo condición)",
+      "tags": [
+        "ed",
+        "eac2",
+        "uml",
+        "casos-de-uso"
+      ]
+    },
+    {
+      "id": "examen-ed-eac2-9",
+      "front": "¿Qué elementos tiene un diagrama de secuencia?",
+      "back": "Líneas de vida verticales (objetos)\nMensajes horizontales numerados\nActivaciones (rectángulos sobre línea de vida)\nRetornos punteados",
+      "tags": [
+        "ed",
+        "eac2",
+        "uml",
+        "secuencia"
+      ]
+    },
+    {
+      "id": "examen-ed-eac2-10",
+      "front": "¿Qué diferencia hay entre diagrama de secuencia y diagrama de comunicación?",
+      "back": "Secuencia: énfasis en el orden temporal de los mensajes (líneas de vida verticales).\nComunicación: énfasis en las relaciones estructurales entre objetos (rectángulos conectados con mensajes numerados).",
+      "tags": [
+        "ed",
+        "eac2",
+        "uml",
+        "secuencia",
+        "comunicacion"
+      ]
+    },
+    {
+      "id": "examen-ed-eac2-11",
+      "front": "¿Qué elementos componen un diagrama de actividades?",
+      "back": "Nodo inicial (círculo negro)\nNodo final (círculo doble)\nActividades (rectángulos redondeados)\nBifurcaciones paralelas (barras negras: fork/join)\nDecisiones (rombos con guardas [condición])",
+      "tags": [
+        "ed",
+        "eac2",
+        "uml",
+        "actividades"
+      ]
+    }
+  ]
+}

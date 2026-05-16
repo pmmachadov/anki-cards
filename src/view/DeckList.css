@@ -1557,6 +1557,127 @@
   margin-top: 20px;
 }
 
+/* Exámenes Section */
+.examenes-section {
+  margin-top: 32px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 24px;
+}
+
+.examenes-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, rgba(156, 39, 176, 0.08), var(--bg-secondary));
+  border: 1px solid rgba(156, 39, 176, 0.3);
+  border-radius: 16px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.examenes-toggle:hover {
+  border-color: rgba(156, 39, 176, 0.6);
+  background: linear-gradient(135deg, rgba(156, 39, 176, 0.15), var(--bg-tertiary));
+}
+
+.examenes-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.examenes-label {
+  flex: 1;
+  text-align: left;
+}
+
+.examenes-count {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  background: var(--bg-tertiary);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.examenes-chevron {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+}
+
+.examenes-chevron svg {
+  width: 20px;
+  height: 20px;
+}
+
+.examenes-chevron.open {
+  transform: rotate(180deg);
+}
+
+.examenes-content {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.examenes-subgroup {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.examenes-subject-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  background: var(--bg-tertiary);
+  border-radius: 12px;
+  border-left: 4px solid;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+}
+
+.examenes-subject-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.examenes-subject-name {
+  flex: 1;
+}
+
+.examenes-subject-count {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  background: var(--bg-secondary);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.examenes-subgrid {
+  gap: 20px;
+}
+
 /* Theme for Practica cards (green) */
 .deck-card.theme-practica.has-due {
   border-color: #34A853;
