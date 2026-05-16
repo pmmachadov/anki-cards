@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './DeckList.css'
 
 // Icono de advertencia para el modal
@@ -121,6 +121,17 @@ const Icons = {
       <line x1="8" y1="21" x2="16" y2="21"/>
       <line x1="12" y1="17" x2="12" y2="21"/>
     </svg>
+  ),
+  diagrama: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="3" width="7" height="7"/>
+      <rect x="14" y="3" width="7" height="7"/>
+      <rect x="3" y="14" width="7" height="7"/>
+      <rect x="14" y="14" width="7" height="7"/>
+      <line x1="10" y1="6.5" x2="14" y2="6.5"/>
+      <line x1="6.5" y1="10" x2="6.5" y2="14"/>
+      <line x1="17.5" y1="10" x2="17.5" y2="14"/>
+    </svg>
   )
 }
 
@@ -179,6 +190,38 @@ export function DeckList({
   const [showPruebas, setShowPruebas] = useState(false)
   const [showMaterias, setShowMaterias] = useState(false)
   const [showPracticas, setShowPracticas] = useState(false)
+
+  // Map de mazos marcados como hechos: { [deckId]: true }
+  const [doneMap, setDoneMap] = useState({})
+
+  // Cargar estado desde localStorage al montar
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem('deckDoneMap')
+      if (raw) setDoneMap(JSON.parse(raw))
+    } catch (e) {
+      console.error('Error loading deckDoneMap', e)
+    }
+  }, [])
+
+  // Guardar en localStorage cuando cambie
+  useEffect(() => {
+    try {
+      localStorage.setItem('deckDoneMap', JSON.stringify(doneMap))
+    } catch (e) {
+      console.error('Error saving deckDoneMap', e)
+    }
+  }, [doneMap])
+
+  const toggleDone = (deckId) => {
+    if (!deckId) return
+    setDoneMap(prev => {
+      const next = { ...prev }
+      if (next[deckId]) delete next[deckId]
+      else next[deckId] = true
+      return next
+    })
+  }
 
   const handleCreate = (e) => {
     e.preventDefault()
@@ -279,12 +322,31 @@ export function DeckList({
     const hasDueCards = stats.due > 0
     const themeClass = theme || (isExtra ? 'theme-blue' : '')
     
+    const isDone = !!doneMap[deck.id]
+
     return (
       <div 
         key={deck.id} 
-        className={`deck-card ${hasDueCards ? 'has-due' : ''} ${themeClass}`}
+        className={`deck-card ${hasDueCards ? 'has-due' : ''} ${themeClass} ${isDone ? 'done' : ''}`}
         style={{ borderLeft: `3px solid ${subjectColor.accent}` }}
       >
+        {/* Large top-right done badge */}
+        <div
+          className={`deck-done-badge ${isDone ? 'on' : 'off'}`}
+          title={isDone ? 'Mazo marcado como hecho' : 'Mazo pendiente'}
+          role="button"
+          tabIndex={0}
+          aria-pressed={isDone}
+          onClick={() => toggleDone(deck.id)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault()
+              toggleDone(deck.id)
+            }
+          }}
+        >
+          {isDone ? 'Hecho ✓' : 'Pendiente'}
+        </div>
         {/* Card Content */}
         <div className="deck-card-content">
           {deck.subject && (
@@ -356,6 +418,7 @@ export function DeckList({
               <span className="btn-icon">{Icons.study}</span>
               <span>Estudiar</span>
             </button>
+            {/* small complete toggle removed — replaced by prominent top-right badge */}
             <button 
               className="btn btn-icon-only btn-stats"
               onClick={() => onStatsDeck(deck)}
@@ -419,10 +482,16 @@ export function DeckList({
             <p className="deck-header-subtitle">Selecciona un mazo para estudiar</p>
           </div>
         </div>
-        <button className="btn btn-primary btn-create" onClick={() => setShowCreateModal(true)}>
-          <span className="btn-icon">{Icons.plus}</span>
-          <span>Nuevo Mazo</span>
-        </button>
+        <div className="header-buttons">
+          <button className="btn btn-primary btn-create" onClick={() => setShowCreateModal(true)}>
+            <span className="btn-icon">{Icons.plus}</span>
+            <span>Nuevo Mazo</span>
+          </button>
+          <a href="/diagrama-uml.html" target="_blank" className="btn btn-secondary btn-diagrama" title="Diagrama UML de clases">
+            <span className="btn-icon">{Icons.diagrama}</span>
+            <span>UML</span>
+          </a>
+        </div>
       </div>
 
       {/* Filtro por materia */}

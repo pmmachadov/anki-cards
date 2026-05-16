@@ -253,6 +253,17 @@
   white-space: pre-wrap;
 }
 
+/* Parenthesis highlighting */
+.paren {
+  padding: 0 2px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+.paren-round { color: #FF6D01; background: rgba(255,109,1,0.06); }
+.paren-square { color: #4285F4; background: rgba(66,133,244,0.06); }
+.paren-curly { color: #8A2BE2; background: rgba(138,43,226,0.06); }
+.paren-angle { color: #34A853; background: rgba(52,168,83,0.06); }
+
 /* Las preguntas (frente) siguen centradas */
 .flashcard-front .card-text-paragraph {
   text-align: center;

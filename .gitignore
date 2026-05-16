@@ -39,3 +39,17 @@ coverage
 
 # OS files
 Thumbs.db
+
+# Hermes proxy / personal Hermes binaries - do not commit personal agent executables or venvs
+/hermes-proxy/node_modules/
+/hermes-proxy/.env
+/hermes-proxy/*.exe
+/hermes-proxy/*.dll
+/hermes-proxy/*.pdb
+/hermes-proxy/venv/
+/hermes-proxy/.venv/
+/hermes-proxy/*.log
+
+# Local Hermes CLI (user-specific) - ignore any hermes binaries if accidentally placed
+hermes*
+**/hermes*

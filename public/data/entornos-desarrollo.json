@@ -2370,6 +2370,27 @@
       "back": "LIMITACIONES respecto al diagrama de secuencias:\n\n• No permite representar usos de interacción complejos\n• Solo tiene representación para algunos operadores de interacción\n• Adecuado solo para interacciones relativamente SENCILLAS\n\nSIMILITUDES:\n• Mismos mensajes entre objetos\n• Mismos tipos de flechas que en secuencias",
       "tags": ["uml", "diagrama-comunicacion", "limitaciones", "comparacion"],
       "difficulty": "medium"
+    },
+    {
+      "id": "ed-309",
+      "front": "Relación 1 a * (uno a muchos) - ¿Por qué usar List en vez de array[]?",
+      "back": "Cuando una clase tiene una relación de multiplicidad * (uno a muchos) con otra, se usa List<Clase> en vez de un array tradicional por estas ventajas:\n\nVentajas de List vs array[]:\n• TAMAÑO DINÁMICO: la lista crece/encoge sola → array tiene tamaño fijo\n• add(obj): añade al final sin preocuparte del índice\n• remove(i): elimina un elemento y reordena solo\n• contains(obj): comprueba si existe un objeto\n• size(): devuelve cuántos elementos hay\n\nDeclaración:\n  private List<Expedicion> expediciones;\n  this.expediciones = new ArrayList<>();",
+      "tags": ["java", "poo", "colecciones", "list", "relaciones", "uml"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-310",
+      "front": "Ejemplo COMPLETO: Relación 1 a * con List en Java - BuqueInvestigacion y Expedicion",
+      "back": "EJEMPLO COMP此举LETO (copia y pega, compila y ejecuta):\n\nimport java.util.ArrayList;\nimport java.util.List;\n\nclass Expedicion {\n    private String destino;\n    private int duracionDias;\n\n    public Expedicion(String destino, int duracionDias) {\n        this.destino = destino;\n        this.duracionDias = duracionDias;\n    }\n\n    public String getDestino() { return destino; }\n    public int getDuracionDias() { return duracionDias; }\n\n    public String toString() {\n        return destino + \" (\" + duracionDias + \" días)\";\n    }\n}\n\npublic class BuqueInvestigacion {\n    private String nombre;\n    private List<Expedicion> expediciones; // Relación 1 a *\n\n    public BuqueInvestigacion(String nombre) {\n        this.nombre = nombre;\n        this.expediciones = new ArrayList<>();\n    }\n\n    public void agregarExpedicion(Expedicion e) {\n        expediciones.add(e);       // Añadir\n    }\n\n    public void eliminarExpedicion(int i) {\n        expediciones.remove(i);    // Eliminar\n    }\n\n    public Expedicion getExpedicion(int i) {\n        return expediciones.get(i); // Acceder\n    }\n\n    public int totalExpediciones() {\n        return expediciones.size(); // Contar\n    }\n\n    public void listarExpediciones() {\n        System.out.println(\"=== \" + nombre + \" ===\");\n        for (int i = 0; i < expediciones.size(); i++) {\n            System.out.println(\"  [\" + i + \"] \" + expediciones.get(i));\n        }\n        System.out.println(\"Total: \" + expediciones.size() + \"\\n\");\n    }\n\n    public static void main(String[] args) {\n        BuqueInvestigacion b = new BuqueInvestigacion(\"Hespérides\");\n\n        b.agregarExpedicion(new Expedicion(\"Antártida\", 90));\n        b.agregarExpedicion(new Expedicion(\"Pacífico\", 45));\n        b.agregarExpedicion(new Expedicion(\"Caribe\", 30));\n\n        b.listarExpediciones();\n        // Salida:\n        // === Hespérides ===\n        //   [0] Antártida (90 días)\n        //   [1] Pacífico (45 días)\n        //   [2] Caribe (30 días)\n        // Total: 3\n\n        b.eliminarExpedicion(2);   // Eliminar la última\n        System.out.println(\"Total tras eliminar: \" + b.totalExpediciones());\n        // Salida: Total tras eliminar: 2\n    }\n}",
+      "tags": ["java", "poo", "colecciones", "list", "ejemplo", "relaciones"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ed-311",
+      "front": "Métodos de List vs array tradicional - Equivalencias",
+      "back": "| Operación | List (ArrayList) | array[] |\n|-----------|-----------------|---------|\n| Añadir | add(obj) | No se puede (tamaño fijo) |\n| Acceder | get(i) | array[i] |\n| Reemplazar | set(i, obj) | array[i] = obj |\n| Eliminar | remove(i) | No se puede directamente |\n| Contar | size() | .length |\n| ¿Vacía? | isEmpty() | length == 0 |\n| ¿Contiene? | contains(obj) | Requires bucle |\n| Vaciar | clear() | No se puede |\n\nEjemplo:\n  expediciones.add(new Expedicion(\"Antártida\", 90));\n  Expedicion e = expediciones.get(0);\n  int total = expediciones.size();",
+      "tags": ["java", "poo", "colecciones", "list", "metodos", "array"],
+      "difficulty": "easy"
     }
   ]
 }

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagrama UML - Sistema de Gestion de Productos</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1a1a2e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 40px;
+  }
+  .container {
+    background: #0d1117;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    max-width: 1400px;
+    width: 100%;
+    border: 1px solid #30363d;
+  }
+  h1 {
+    color: #58a6ff;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 40px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #21262d;
+    padding-bottom: 20px;
+  }
+  .diagram-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 30px;
+    align-items: start;
+    justify-items: center;
+  }
+  .uml-class {
+    background: #161b22;
+    border: 2px solid #30363d;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 320px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .uml-class:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+  .uml-class .class-name {
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    border-bottom: 2px solid;
+    letter-spacing: 0.3px;
+  }
+  .uml-class .attributes, .uml-class .methods {
+    padding: 6px 16px;
+    font-family: 'Cascadia Code', 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #c9d1d9;
+  }
+  .uml-class .attributes {
+    border-bottom: 1px solid #21262d;
+    padding-bottom: 8px;
+  }
+  .uml-class .methods {
+    padding-top: 8px;
+  }
+  .uml-class .section-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8b949e;
+    margin: 4px 0 2px 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  .private { color: #f85149; }
+  .public { color: #3fb950; }
+  .protected { color: #d29922; }
+  .keyword { color: #79c0ff; }
+  .type { color: #d2a8ff; }
+  .param { color: #ffa657; }
+
+  /* Class colors */
+  .class-producto { border-color: #58a6ff !important; }
+  .class-producto .class-name { background: #1f3a5f; border-color: #58a6ff; }
+  .class-categoria { border-color: #3fb950 !important; }
+  .class-categoria .class-name { background: #1a3a2a; border-color: #3fb950; }
+  .class-pedido { border-color: #f85149 !important; }
+  .class-pedido .class-name { background: #3a1a1a; border-color: #f85149; }
+  .class-proveedor { border-color: #bc8cff !important; }
+  .class-proveedor .class-name { background: #2a1a3a; border-color: #bc8cff; }
+  .class-digital { border-color: #ffa657 !important; }
+  .class-digital .class-name { background: #3a2a1a; border-color: #ffa657; }
+
+  /* Layout positions using grid */
+  .pos-categoria { grid-column: 1; grid-row: 1; }
+  .pos-producto { grid-column: 2; grid-row: 1; }
+  .pos-proveedor { grid-column: 3; grid-row: 1; }
+  .pos-pedido { grid-column: 1; grid-row: 2; }
+  .pos-digital { grid-column: 3; grid-row: 2; }
+
+  /* Relationships */
+  .relationships {
+    grid-column: 1 / 4;
+    grid-row: 3;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .relation {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #c9d1d9;
+    font-size: 13px;
+  }
+  .relation svg { flex-shrink: 0; }
+  .legend-box {
+    grid-column: 1 / 4;
+    grid-row: 4;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-top: 10px;
+    width: 100%;
+  }
+  .legend-box h3 {
+    color: #58a6ff;
+    font-size: 16px;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .legend-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 30px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #c9d1d9;
+    font-size: 13px;
+  }
+  .legend-item svg { flex-shrink: 0; }
+
+  /* Arrows drawn with pseudo-elements in the middle column */
+  .arrow-connector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    position: relative;
+  }
+  .arrow-label {
+    color: #8b949e;
+    font-size: 12px;
+    background: #0d1117;
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid #30363d;
+  }
+
+  @media (max-width: 900px) {
+    .diagram-grid {
+      grid-template-columns: 1fr;
+    }
+    .pos-categoria, .pos-producto, .pos-proveedor, .pos-pedido, .pos-digital {
+      grid-column: 1;
+    }
+    .pos-categoria { grid-row: 1; }
+    .pos-producto { grid-row: 2; }
+    .pos-proveedor { grid-row: 3; }
+    .pos-pedido { grid-row: 4; }
+    .pos-digital { grid-row: 5; }
+    .relationships { grid-row: 6; }
+    .legend-box { grid-row: 7; }
+    .legend-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Diagrama de Clases UML — Sistema de Gestión de Productos</h1>
+
+  <div class="diagram-grid">
+    <!-- Categoria -->
+    <div class="uml-class class-categoria pos-categoria">
+      <div class="class-name">Categoria</div>
+      <div class="attributes">
+        <div class="section-label">atributos</div>
+        <div><span class="private">-</span> id: <span class="type">int</span></div>
+        <div><span class="private">-</span> nombre: <span class="type">string</span></div>
+      </div>
+      <div class="methods">
+        <div class="section-label">métodos</div>
+        <div><span class="public">+</span> getNombre(): <span class="type">string</span></div>
+      </div>
+    </div>
+
+    <!-- Producto (centro, grande) -->
+    <div class="uml-class class-producto pos-producto" style="max-width: 360px;">
+      <div class="class-name">Producto</div>
+      <div class="attributes">
+        <div class="section-label">atributos</div>
+        <div><span class="private">-</span> id: <span class="type">int</span></div>
+        <div><span class="private">-</span> nombre: <span class="type">string</span></div>
+        <div><span class="private">-</span> precio: <span class="type">float</span></div>
+        <div><span class="private">-</span> stock: <span class="type">int</span></div>
+      </div>
+      <div class="methods">
+        <div class="section-label">métodos</div>
+        <div><span class="public">+</span> getId(): <span class="type">int</span></div>
+        <div><span class="public">+</span> getNombre(): <span class="type">string</span></div>
+        <div><span class="public">+</span> setPrecio(p: <span class="type">float</span>): <span class="type">void</span></div>
+        <div><span class="public">+</span> calcularDescuento(): <span class="type">float</span></div>
+      </div>
+    </div>
+
+    <!-- Proveedor -->
+    <div class="uml-class class-proveedor pos-proveedor">
+      <div class="class-name">Proveedor</div>
+      <div class="attributes">
+        <div class="section-label">atributos</div>
+        <div><span class="private">-</span> id: <span class="type">int</span></div>
+        <div><span class="private">-</span> nombre: <span class="type">string</span></div>
+        <div><span class="private">-</span> contacto: <span class="type">string</span></div>
+      </div>
+      <div class="methods">
+        <div class="section-label">métodos</div>
+        <div><span class="public">+</span> getContacto(): <span class="type">string</span></div>
+      </div>
+    </div>
+
+    <!-- Pedido -->
+    <div class="uml-class class-pedido pos-pedido">
+      <div class="class-name">Pedido</div>
+      <div class="attributes">
+        <div class="section-label">atributos</div>
+        <div><span class="private">-</span> id: <span class="type">int</span></div>
+        <div><span class="private">-</span> fecha: <span class="type">Date</span></div>
+        <div><span class="private">-</span> total: <span class="type">float</span></div>
+      </div>
+      <div class="methods">
+        <div class="section-label">métodos</div>
+        <div><span class="public">+</span> calcularTotal(): <span class="type">float</span></div>
+        <div><span class="public">+</span> agregarProducto(p: <span class="type">Producto</span>): <span class="type">void</span></div>
+      </div>
+    </div>
+
+    <!-- ProductoDigital -->
+    <div class="uml-class class-digital pos-digital">
+      <div class="class-name">ProductoDigital</div>
+      <div class="attributes">
+        <div class="section-label">atributos</div>
+        <div><span class="private">-</span> tamanioArchivo: <span class="type">float</span></div>
+        <div><span class="private">-</span> formato: <span class="type">string</span></div>
+        <div><span class="private">-</span> urlDescarga: <span class="type">string</span></div>
+      </div>
+      <div class="methods">
+        <div class="section-label">métodos</div>
+        <div><span class="public">+</span> descargar(): <span class="type">string</span></div>
+        <div><span class="public">+</span> obtenerTamano(): <span class="type">float</span></div>
+      </div>
+    </div>
+
+    <!-- Relationships section -->
+    <div class="relationships">
+      <div class="relation">
+        <svg width="60" height="20" viewBox="0 0 60 20">
+          <line x1="5" y1="10" x2="55" y2="10" stroke="#8b949e" stroke-width="2"/>
+          <polygon points="55,5 60,10 55,15" fill="#8b949e"/>
+        </svg>
+        <span><strong>Asociación</strong> Categoria → Producto (1 → 1..*)</span>
+      </div>
+      <div class="relation">
+        <svg width="60" height="20" viewBox="0 0 60 20">
+          <rect x="5" y="3" width="14" height="14" fill="none" stroke="#f85149" stroke-width="2"/>
+          <line x1="19" y1="10" x2="55" y2="10" stroke="#f85149" stroke-width="2"/>
+          <polygon points="55,5 60,10 55,15" fill="#f85149"/>
+        </svg>
+        <span><strong>Composición</strong> Pedido → Producto (1 → 1..*)</span>
+      </div>
+      <div class="relation">
+        <svg width="60" height="20" viewBox="0 0 60 20">
+          <polygon points="12,3 5,10 12,17 19,10" fill="none" stroke="#bc8cff" stroke-width="2"/>
+          <line x1="19" y1="10" x2="55" y2="10" stroke="#bc8cff" stroke-width="2"/>
+          <polygon points="55,5 60,10 55,15" fill="#bc8cff"/>
+        </svg>
+        <span><strong>Agregación</strong> Proveedor → Producto (0..* → 1)</span>
+      </div>
+      <div class="relation">
+        <svg width="60" height="20" viewBox="0 0 60 20">
+          <line x1="5" y1="10" x2="45" y2="10" stroke="#ffa657" stroke-width="2"/>
+          <polygon points="45,5 55,10 45,15" fill="#ffa657" stroke="#ffa657" stroke-width="2"/>
+        </svg>
+        <span><strong>Herencia</strong> ProductoDigital → Producto</span>
+      </div>
+    </div>
+
+    <!-- Legend -->
+    <div class="legend-box">
+      <h3>Leyenda UML</h3>
+      <div class="legend-grid">
+        <div class="legend-item">
+          <svg width="40" height="16" viewBox="0 0 40 16">
+            <line x1="2" y1="8" x2="38" y2="8" stroke="#8b949e" stroke-width="2"/>
+            <polygon points="38,4 42,8 38,12" fill="#8b949e"/>
+          </svg>
+          <span>Asociación — relación estructural simple</span>
+        </div>
+        <div class="legend-item">
+          <svg width="40" height="20" viewBox="0 0 40 20">
+            <line x1="2" y1="10" x2="25" y2="10" stroke="#ffa657" stroke-width="2"/>
+            <polygon points="25,5 35,10 25,15" fill="#ffa657" stroke="#ffa657" stroke-width="2"/>
+          </svg>
+          <span>Herencia — "es un" (clase padre → hija)</span>
+        </div>
+        <div class="legend-item">
+          <svg width="40" height="20" viewBox="0 0 40 20">
+            <rect x="0" y="3" width="14" height="14" fill="none" stroke="#bc8cff" stroke-width="2"/>
+            <line x1="14" y1="10" x2="38" y2="10" stroke="#bc8cff" stroke-width="2"/>
+            <polygon points="38,6 42,10 38,14" fill="#bc8cff"/>
+          </svg>
+          <span>Composición — relación fuerte: ciclo de vida dependiente</span>
+        </div>
+        <div class="legend-item">
+          <svg width="40" height="20" viewBox="0 0 40 20">
+            <polygon points="10,3 3,10 10,17 17,10" fill="none" stroke="#3fb950" stroke-width="2"/>
+            <line x1="17" y1="10" x2="38" y2="10" stroke="#3fb950" stroke-width="2"/>
+            <polygon points="38,6 42,10 38,14" fill="#3fb950"/>
+          </svg>
+          <span>Agregación — relación débil: existe independientemente</span>
+        </div>
+        <div class="legend-item">
+          <span><span style="color:#f85149;font-weight:bold;">-</span> privado &nbsp; <span style="color:#3fb950;font-weight:bold;">+</span> público &nbsp; <span style="color:#d29922;font-weight:bold;">#</span> protegido</span>
+        </div>
+        <div class="legend-item">
+          <span>1 (uno) &nbsp; 0..* (cero o muchos) &nbsp; 1..* (uno o muchos)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

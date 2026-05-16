@@ -162,6 +162,33 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
     </code>
   )
 
+  // Render text and wrap different parentheses types with colored spans
+  const renderTextWithParens = (text, baseKey) => {
+    if (!text) return []
+    // Split keeping parentheses characters
+    const tokens = text.split(/([()\[\]{}<>])/g)
+    return tokens.map((t, i) => {
+      if (!t) return null
+      const key = `${baseKey}-${i}`
+      switch (t) {
+        case '(':
+        case ')':
+          return <span key={key} className="paren paren-round">{t}</span>
+        case '[':
+        case ']':
+          return <span key={key} className="paren paren-square">{t}</span>
+        case '{':
+        case '}':
+          return <span key={key} className="paren paren-curly">{t}</span>
+        case '<':
+        case '>':
+          return <span key={key} className="paren paren-angle">{t}</span>
+        default:
+          return t
+      }
+    }).filter(Boolean)
+  }
+
   // Función para procesar texto y resaltar código
   const renderCardContent = (text) => {
     if (!text) return null
@@ -186,7 +213,9 @@ export function StudyView({ deck, onBack, onUpdateDeck }) {
         if (idx % 2 === 1) {
           mixed.push(renderInlineCode(part, `inline-${keySuffix}-${idx}`))
         } else if (part) {
-          mixed.push(part)
+              // Replace parentheses characters with colored spans
+              const parenNodes = renderTextWithParens(part, `p-${keySuffix}-${idx}`)
+              mixed.push(...parenNodes)
         }
       })
 
