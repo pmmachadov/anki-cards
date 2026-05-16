@@ -245,7 +245,6 @@
 
 /* Contenido con código */
 .card-content-code {
-  /* Center the overall content while keeping code blocks left-aligned for readability */
   align-items: center;
   text-align: center;
   gap: 16px;
@@ -256,7 +255,7 @@
   line-height: 1.7;
   color: var(--text-primary);
   margin: 0;
-  text-align: left;
+  text-align: center;
   white-space: pre-wrap;
 }
 

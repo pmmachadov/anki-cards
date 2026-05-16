@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && node scripts/fix-css-vars.js",
+    "format:cards": "node scripts/format-cards.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
